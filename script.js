@@ -44,6 +44,14 @@ const contentData = {
     ],
     reports: [
         {
+    id: 7,
+    title: "研究标题",
+    date: "2025-XX-XX",
+    summary: "研究描述...",
+    tags: ["深度研究", "其他标签"],
+    file: "files/你的文件名.pdf"
+}
+        {
             id: 6,
             title: "Multi Channel C-return Study",
             date: "2025-11-25",

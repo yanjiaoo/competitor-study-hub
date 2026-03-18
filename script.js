@@ -44,6 +44,14 @@ const contentData = {
     ],
     reports: [
         {
+            id: 741,
+            title: "TEMU半托管模式解读及扶持政策",
+            date: "2024-04-26",
+            summary: "TEMU半托管模式解读及扶持政策",
+            tags: ["深度研究", "TEMU", "半托管模式"],
+            file: "files/TEMU半托管模式解读及扶持政策.pdf"
+        },
+        {
             id: 6,
             title: "Multi Channel C-return Study",
             date: "2025-11-25",
@@ -51,14 +59,6 @@ const contentData = {
             tags: ["深度研究", "多渠道对比", "退货分析", "时尚品类"],
             file: "files/Multi Channel C-return study.pdf"
         }
-        {
-            id: 741,
-            title: "TEMU半托管模式解读及扶持政策",
-            date: "2024-04-26",
-            summary: "TEMU半托管模式解读及扶持政策",
-            tags: [""],
-            file: "files/TEMU半托管模式解读及扶持政策.pdf"
-},
     ]
 };
 

@@ -41,7 +41,7 @@ function createContentCard(item) {
             <div class="tags">
                 ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
-            <a href="${item.file}" class="btn" target="_blank">查看详情</a>
+            <a href="${encodeURI(item.file)}" class="btn" target="_blank">查看详情</a>
         </div>
     `;
 }

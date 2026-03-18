@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Study Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Competitor Study Hub</h1>
+            </div>
+            <div class="stats">
+                <span id="visitCount">访问次数: <span id="count">加载中...</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#flash">定期Flash</a></li>
+                <li><a href="#studies">深度研究</a></li>
+                <li><a href="#search">搜索</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h2>竞争对手研究中心</h2>
+            <p>汇集过去一年的竞争对手分析、市场洞察和战略研究</p>
+        </section>
+
+        <section id="flash" class="content-section">
+            <h3>定期Flash</h3>
+            <div class="flash-grid">
+                <!-- Flash内容将在这里动态加载 -->
+            </div>
+        </section>
+
+        <section id="studies" class="content-section">
+            <h3>深度研究</h3>
+            <div class="study-grid">
+                <!-- 研究内容将在这里动态加载 -->
+            </div>
+        </section>
+
+        <section id="search" class="content-section">
+            <h3>搜索</h3>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索竞争对手、产品或关键词...">
+                <button onclick="searchContent()">搜索</button>
+            </div>
+            <div id="searchResults"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

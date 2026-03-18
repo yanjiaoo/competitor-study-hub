@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "2025 SL Seller Learning Bi-monthly Report - January",
+    "date": "2026-01-12",
+    "summary": "2026年1月双月度卖家学习竞争对手分析报告",
+    "tags": ["双月报告", "卖家学习", "竞争分析"],
+    "type": "flash",
+    "file": "reports/2026 F2 Seller learning bi-monthly report - Jan.pdf"
+  },
+  {
+    "id": 2,
+    "title": "2025 SL Seller Learning Bi-monthly Report - March",
+    "date": "2025-03-14",
+    "summary": "2025年3月双月度卖家学习竞争对手分析报告",
+    "tags": ["双月报告", "卖家学习", "竞争分析"],
+    "type": "flash",
+    "file": "reports/2025 SL Seller learning bi-monthly report - March.pdf"
+  },
+  {
+    "id": 3,
+    "title": "2025 SL Seller Learning Bi-monthly Report - May",
+    "date": "2025-05-08",
+    "summary": "2025年5月双月度卖家学习竞争对手分析报告",
+    "tags": ["双月报告", "卖家学习", "竞争分析"],
+    "type": "flash",
+    "file": "reports/2025 SL Seller learning bi-monthly report - May.pdf"
+  },
+  {
+    "id": 4,
+    "title": "2025 SL Seller Learning Bi-monthly Report - July",
+    "date": "2025-07-11",
+    "summary": "2025年7月双月度卖家学习竞争对手分析报告",
+    "tags": ["双月报告", "卖家学习", "竞争分析"],
+    "type": "flash",
+    "file": "reports/2025 SL Seller learning bi-monthly report - July.pdf"
+  },
+  {
+    "id": 5,
+    "title": "2025 SL Seller Learning Bi-monthly Report - October",
+    "date": "2025-10-28",
+    "summary": "2025年10月双月度卖家学习竞争对手分析报告",
+    "tags": ["双月报告", "卖家学习", "竞争分析"],
+    "type": "flash",
+    "file": "reports/2025 SL Seller learning bi-monthly report - Oct.pdf"
+  },
+  {
+    "id": 6,
+    "title": "Multi Channel C-return Study",
+    "date": "2025-11-25",
+    "summary": "多渠道客户回流深度研究分析",
+    "tags": ["深度研究", "多渠道", "客户回流"],
+    "type": "study",
+    "file": "reports/Multi Channel C-return study.pdf"
+  }
+]

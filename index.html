@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Competitor Study Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">📊</div>
+                    <h1>Amazon Competitor Study Hub</h1>
+                </div>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-number" id="visitCount">0</div>
+                        <div class="stat-label">总访问量</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="contentCount">6</div>
+                        <div class="stat-label">研究报告</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="lastUpdate">2026-01-12</div>
+                        <div class="stat-label">最新更新</div>
+                    </div>
+                </div>
+            </div>
+            <p class="description">致力于为亚马逊AM及leaders提供全方位的市场分析与趋势洞察。通过系统性的数据分析与调研，解读宏观市场趋势、跨境平台动态及行业重要新闻。同时，通过VOS收集卖家对亚马逊Feature/Program的反馈，结合卖家声音为AM们提供实用的市场信息和卖家声音解析，助力AGS业务可持续发展。</p>
+            
+            <!-- 添加装饰元素 -->
+            <div class="header-decoration">
+                <div class="floating-element" style="top: 20%; left: 10%;">💡</div>
+                <div class="floating-element" style="top: 60%; right: 15%;">📈</div>
+                <div class="floating-element" style="top: 30%; right: 25%;">🎯</div>
+                <div class="floating-element" style="bottom: 20%; left: 20%;">⚡</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#flash" class="nav-link active">Bi-monthly Flash</a></li>
+                <li><a href="#reports" class="nav-link">Deep Research</a></li>
+                <li><a href="#search" class="nav-link">搜索</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="search" class="search-section">
+            <div class="search-container">
+                <div class="search-icon">🔍</div>
+                <input type="text" id="searchInput" placeholder="搜索Flash、报告标题或关键词...">
+                <button onclick="searchContent()" class="search-btn">搜索</button>
+            </div>
+            <div id="searchResults"></div>
+        </section>
+
+        <section id="flash" class="content-section">
+            <div class="section-header">
+                <div class="section-icon">⚡</div>
+                <div>
+                    <h2>Bi-monthly Flash</h2>
+                    <p class="section-desc">双月度市场洞察与竞争分析</p>
+                </div>
+            </div>
+            <div class="content-grid" id="flashGrid">
+                <!-- Flash内容将在这里显示 -->
+            </div>
+        </section>
+
+        <section id="reports" class="content-section">
+            <div class="section-header">
+                <div class="section-icon">🔍</div>
+                <div>
+                    <h2>Deep Research</h2>
+                    <p class="section-desc">深度市场研究与战略分析</p>
+                </div>
+            </div>
+            <div class="content-grid" id="reportsGrid">
+                <!-- 报告内容将在这里显示 -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Amazon Competitor Study Hub. Amazon内部使用.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

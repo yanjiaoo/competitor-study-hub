@@ -87,6 +87,15 @@
                 <button class="filter-btn" onclick="filterNews('social')">社交媒体</button>
                 <button class="filter-btn" onclick="filterNews('official')">官方网站</button>
                 <button class="filter-btn" onclick="filterNews('press')">新闻发布</button>
+                <div class="filter-divider"></div>
+                <select id="timeFilter" onchange="filterByTime()" class="time-filter">
+                    <option value="all">全部时间</option>
+                    <option value="today">今天</option>
+                    <option value="week">本周</option>
+                    <option value="month">本月</option>
+                    <option value="3months">近3个月</option>
+                    <option value="6months">近6个月</option>
+                </select>
             </div>
             
             <div class="news-grid" id="newsGrid">

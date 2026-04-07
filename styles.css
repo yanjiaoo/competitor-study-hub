@@ -1036,3 +1036,40 @@ body {
         transform: scale(1);
     }
 }
+/* 时间过滤器样式 */
+.time-filter {
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-filter:hover {
+    border-color: #ff9500;
+}
+
+.time-filter:focus {
+    outline: none;
+    border-color: #ff9500;
+    box-shadow: 0 0 0 2px rgba(255, 149, 0, 0.1);
+}
+
+/* 资讯统计样式 */
+.news-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.news-stats span:nth-child(2) {
+    color: #ddd;
+}

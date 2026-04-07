@@ -331,60 +331,90 @@ let newsSources = JSON.parse(localStorage.getItem('newsSources')) || [
     }
 ];
 
-let newsData = [
-    {
-        id: 1,
-        title: 'Temu推出全新物流服务',
-        content: 'Temu宣布在北美地区推出48小时快速配送服务，进一步提升用户购物体验，与Amazon Prime形成直接竞争...',
-        source: 'Temu官方Twitter',
-        type: 'social',
-        platform: 'temu',
-        time: '1小时前',
-        url: 'https://twitter.com/temu_official/status/example'
-    },
-    {
-        id: 2,
-        title: 'Shein扩展欧洲市场布局',
-        content: 'Shein宣布在德国和法国建立新的配送中心，预计将大幅缩短欧洲用户的收货时间，加强本地化运营...',
-        source: 'Shein新闻中心',
-        type: 'press',
-        platform: 'shein',
-        time: '3小时前',
-        url: 'https://www.shein.com/news/example'
-    },
-    {
-        id: 3,
-        title: 'TikTok Shop直播带货新功能',
-        content: 'TikTok Shop推出AI智能推荐系统，帮助创作者更精准地向观众推荐商品，预计将提升转化率30%...',
-        source: 'TikTok Shop官方',
-        type: 'social',
-        platform: 'tiktok',
-        time: '5小时前',
-        url: 'https://twitter.com/tiktokshop/status/example'
-    },
-    {
-        id: 4,
-        title: 'Joybuy春节促销活动启动',
-        content: 'Joybuy宣布启动为期一个月的春节大促活动，涵盖电子产品、家居用品等多个品类，最高优惠达70%...',
-        source: 'Joybuy官方微博',
-        type: 'social',
-        platform: 'joybuy',
-        time: '8小时前',
-        url: 'https://weibo.com/joybuy/example'
+// 生成最近6个月的历史数据
+function generateHistoricalData() {
+    const data = [];
+    const now = new Date();
+    const platforms = ['temu', 'shein', 'tiktok', 'joybuy'];
+    const types = ['social', 'official', 'press'];
+    
+    const newsTemplates = {
+        temu: [
+            'Temu推出全新物流服务', 'Temu扩展全球市场', 'Temu卖家激励计划', 'Temu用户增长突破', 'Temu供应链优化'
+        ],
+        shein: [
+            'Shein扩展欧洲市场布局', 'Shein可持续发展计划', 'Shein AR试衣功能', 'Shein品牌合作', 'Shein物流网络升级'
+        ],
+        tiktok: [
+            'TikTok Shop直播带货新功能', 'TikTok创作者分成计划', 'TikTok电商政策更新', 'TikTok品牌营销工具', 'TikTok购物车功能'
+        ],
+        joybuy: [
+            'Joybuy春节促销活动', 'Joybuy京东生态整合', 'Joybuy跨境物流', 'Joybuy会员服务', 'Joybuy品类扩展'
+        ]
+    };
+    
+    // 生成6个月的数据，每月15-25条
+    for (let month = 0; month < 6; month++) {
+        const monthDate = new Date(now.getFullYear(), now.getMonth() - month, 1);
+        const itemsThisMonth = 15 + Math.floor(Math.random() * 10);
+        
+        for (let i = 0; i < itemsThisMonth; i++) {
+            const platform = platforms[Math.floor(Math.random() * platforms.length)];
+            const type = types[Math.floor(Math.random() * types.length)];
+            const templates = newsTemplates[platform];
+            const title = templates[Math.floor(Math.random() * templates.length)];
+            
+            const itemDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), 
+                Math.floor(Math.random() * 28) + 1, Math.floor(Math.random() * 24));
+            
+            data.push({
+                id: `${platform}_${month}_${i}`,
+                title: `${title} - ${monthDate.toLocaleDateString('zh-CN', {year: 'numeric', month: 'long'})}`,
+                content: `${title}的详细内容，展示${getPlatformLabel(platform)}平台在${monthDate.toLocaleDateString('zh-CN', {month: 'long'})}的重要动态...`,
+                source: `${getPlatformLabel(platform)}官方`,
+                type: type,
+                platform: platform,
+                date: itemDate,
+                time: formatTimeFromDate(itemDate),
+                url: '#'
+            });
+        }
     }
-];
+    
+    return data.sort((a, b) => b.date - a.date);
+}
+
+function formatTimeFromDate(date) {
+    const now = new Date();
+    const diff = now - date;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor(diff / (1000 * 60));
+    
+    if (minutes < 60) return `${minutes}分钟前`;
+    if (hours < 24) return `${hours}小时前`;
+    if (days < 30) return `${days}天前`;
+    return `${Math.floor(days/30)}个月前`;
+}
+
+let newsData = generateHistoricalData();
 
 function displayNews(filter = 'all') {
     const newsGrid = document.getElementById('newsGrid');
+    const timeFilter = document.getElementById('timeFilter')?.value || 'all';
     let filteredNews = newsData;
     
+    // 平台和类型过滤
     if (filter !== 'all') {
         if (['social', 'official', 'press'].includes(filter)) {
-            filteredNews = newsData.filter(news => news.type === filter);
+            filteredNews = filteredNews.filter(news => news.type === filter);
         } else {
-            filteredNews = newsData.filter(news => news.platform === filter);
+            filteredNews = filteredNews.filter(news => news.platform === filter);
         }
     }
+    
+    // 时间过滤
+    filteredNews = filterNewsByTime(filteredNews, timeFilter);
     
     newsGrid.innerHTML = filteredNews.map(news => `
         <div class="news-item" data-type="${news.type}" data-platform="${news.platform}">
@@ -398,6 +428,70 @@ function displayNews(filter = 'all') {
             <a href="${news.url}" target="_blank" class="news-link">查看原文 →</a>
         </div>
     `).join('');
+    
+    // 显示结果统计
+    updateNewsStats(filteredNews.length, filter, timeFilter);
+}
+
+function filterNewsByTime(news, timeFilter) {
+    if (timeFilter === 'all') return news;
+    
+    const now = new Date();
+    const cutoffDate = new Date();
+    
+    switch(timeFilter) {
+        case 'today':
+            cutoffDate.setHours(0, 0, 0, 0);
+            break;
+        case 'week':
+            cutoffDate.setDate(now.getDate() - 7);
+            break;
+        case 'month':
+            cutoffDate.setMonth(now.getMonth() - 1);
+            break;
+        case '3months':
+            cutoffDate.setMonth(now.getMonth() - 3);
+            break;
+        case '6months':
+            cutoffDate.setMonth(now.getMonth() - 6);
+            break;
+    }
+    
+    return news.filter(item => item.date >= cutoffDate);
+}
+
+function filterByTime() {
+    displayNews(getCurrentFilter());
+}
+
+function getCurrentFilter() {
+    const activeBtn = document.querySelector('.filter-btn.active');
+    return activeBtn ? activeBtn.textContent.toLowerCase() : 'all';
+}
+
+function updateNewsStats(count, filter, timeFilter) {
+    const existingStats = document.querySelector('.news-stats');
+    if (existingStats) existingStats.remove();
+    
+    const timeLabels = {
+        'all': '全部时间',
+        'today': '今天',
+        'week': '本周',
+        'month': '本月',
+        '3months': '近3个月',
+        '6months': '近6个月'
+    };
+    
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'news-stats';
+    statsDiv.innerHTML = `
+        <span>显示 ${count} 条资讯</span>
+        <span>•</span>
+        <span>${timeLabels[timeFilter] || '全部时间'}</span>
+    `;
+    
+    const newsGrid = document.getElementById('newsGrid');
+    newsGrid.parentNode.insertBefore(statsDiv, newsGrid);
 }
 
 function getPlatformLabel(platform) {

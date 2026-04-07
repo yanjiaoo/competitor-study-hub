@@ -356,49 +356,79 @@ function generateHistoricalData() {
     
     const newsTemplates = {
         temu: {
-            titles: ['Temu推出全新物流服务', 'Temu扩展全球市场', 'Temu卖家激励计划', 'Temu用户增长突破', 'Temu供应链优化'],
-            urls: ['https://www.temu.com/news', 'https://twitter.com/temu_official', 'https://www.businesswire.com/news/temu', 'https://techcrunch.com/tag/temu/', 'https://www.reuters.com/technology/']
+            items: [
+                { title: 'Temu推出全新物流服务', content: 'Temu宣布在北美地区推出48小时快速配送服务，覆盖主要城市，与Amazon Prime形成直接竞争。新服务将大幅提升用户购物体验，预计配送成本降低15%。', url: 'https://www.temu.com' },
+                { title: 'Temu扩展全球市场布局', content: 'Temu正式进入欧洲5个新市场，包括意大利、西班牙等国家。平台商品种类增至1000万+，本地化运营团队已就位，预计年底用户数突破2亿。', url: 'https://techcrunch.com' },
+                { title: 'Temu卖家激励计划升级', content: 'Temu推出新卖家扶持政策，前3个月免佣金，提供流量倾斜和营销支持。针对优质卖家提供专属客服和数据分析工具，助力快速成长。', url: 'https://www.businesswire.com' },
+                { title: 'Temu用户增长数据公布', content: 'Temu月活用户突破1.5亿，同比增长300%。用户平均停留时长达25分钟，复购率提升至45%。主要增长来自18-35岁年轻用户群体。', url: 'https://www.reuters.com' },
+                { title: 'Temu供应链优化升级', content: 'Temu与全球500+优质供应商建立直采合作，砍掉中间环节降低成本20%。新建3个海外仓储中心，库存周转效率提升40%。', url: 'https://www.scmp.com' }
+            ]
         },
         shein: {
-            titles: ['Shein扩展欧洲市场布局', 'Shein可持续发展计划', 'Shein AR试衣功能', 'Shein品牌合作', 'Shein物流网络升级'],
-            urls: ['https://www.shein.com/news', 'https://www.instagram.com/shein_official/', 'https://www.businessoffashion.com/tag/shein/', 'https://www.vogue.com/tag/shein', 'https://techcrunch.com/tag/shein/']
+            items: [
+                { title: 'Shein欧洲市场策略调整', content: 'Shein在德国、法国建立本地设计团队，推出符合欧洲审美的服装线。与当地时尚博主合作，本土化营销策略初见成效，欧洲市场份额增长25%。', url: 'https://www.shein.com' },
+                { title: 'Shein可持续发展新举措', content: 'Shein承诺2030年实现碳中和，推出环保材料服装系列。与回收机构合作推出旧衣回收计划，每回收1件可获得购物积分。', url: 'https://www.businessoffashion.com' },
+                { title: 'Shein AR试衣技术上线', content: 'Shein推出AR虚拟试衣功能，用户可通过手机摄像头实时试穿。技术覆盖80%服装品类，预计退货率降低30%，用户满意度提升显著。', url: 'https://www.vogue.com' },
+                { title: 'Shein品牌合作战略', content: 'Shein与100+独立设计师品牌达成合作，推出限量联名系列。为设计师提供供应链支持和全球销售渠道，共同开拓时尚市场。', url: 'https://fashionunited.com' },
+                { title: 'Shein物流网络扩建', content: 'Shein新增5个区域配送中心，覆盖全球主要市场。平均配送时间缩短至7-10天，客户满意度提升至85%，为进一步扩张奠定基础。', url: 'https://www.drapers.com' }
+            ]
         },
         tiktok: {
-            titles: ['TikTok Shop直播带货新功能', 'TikTok创作者分成计划', 'TikTok电商政策更新', 'TikTok品牌营销工具', 'TikTok购物车功能'],
-            urls: ['https://www.tiktok.com/business/blog', 'https://twitter.com/tiktokbusiness', 'https://newsroom.tiktok.com/', 'https://techcrunch.com/tag/tiktok/', 'https://www.socialmediatoday.com/topic/tiktok/']
+            items: [
+                { title: 'TikTok Shop直播功能升级', content: 'TikTok Shop推出AI智能推荐系统，根据用户兴趣精准推送商品。直播带货转化率提升30%，平均客单价增长15%，创作者收入大幅提升。', url: 'https://www.tiktok.com' },
+                { title: 'TikTok创作者分成新政', content: 'TikTok Shop调整创作者分成比例，优质创作者可获得最高20%佣金。推出创作者培训计划，提供专业带货技巧和数据分析支持。', url: 'https://newsroom.tiktok.com' },
+                { title: 'TikTok电商政策更新', content: 'TikTok Shop发布新的商家入驻标准，提高商品质量要求。加强假货打击力度，建立消费者权益保护机制，提升平台信誉度。', url: 'https://www.socialmediatoday.com' },
+                { title: 'TikTok品牌营销工具', content: 'TikTok推出品牌专属营销工具包，包括定制滤镜、品牌挑战赛等。帮助品牌与年轻用户建立深度连接，营销ROI平均提升40%。', url: 'https://www.adweek.com' },
+                { title: 'TikTok购物车功能优化', content: 'TikTok Shop优化购物车和结算流程，支持一键购买和批量下单。新增愿望清单功能，用户购买转化率提升25%，购物体验显著改善。', url: 'https://techcrunch.com' }
+            ]
         },
         joybuy: {
-            titles: ['Joybuy春节促销活动', 'Joybuy京东生态整合', 'Joybuy跨境物流', 'Joybuy会员服务', 'Joybuy品类扩展'],
-            urls: ['https://www.joybuy.com/news', 'https://weibo.com/joybuy', 'https://corporate.jd.com/news', 'https://technode.com/tag/jd-com/', 'https://www.scmp.com/tech/big-tech/']
+            items: [
+                { title: 'Joybuy春节营销活动', content: 'Joybuy推出春节大促活动，联合京东生态提供跨境专享优惠。活动期间GMV增长200%，新用户注册量突破50万，品牌知名度大幅提升。', url: 'https://www.joybuy.com' },
+                { title: 'Joybuy京东生态整合', content: 'Joybuy与京东物流、京东金融深度整合，提供一站式跨境服务。用户可享受京东PLUS会员权益，配送时效和服务质量显著提升。', url: 'https://corporate.jd.com' },
+                { title: 'Joybuy跨境物流升级', content: 'Joybuy优化跨境物流网络，新增10个海外仓储点。平均配送时间缩短50%，支持更多国家和地区，为全球扩张做好准备。', url: 'https://technode.com' },
+                { title: 'Joybuy会员服务推出', content: 'Joybuy推出全球会员服务，提供专属客服、优先配送等特权。会员可享受京东生态全链路服务，忠诚度和复购率显著提升。', url: 'https://www.scmp.com' },
+                { title: 'Joybuy品类扩展计划', content: 'Joybuy新增家居、美妆等热门品类，商品SKU突破100万。与国际知名品牌建立合作，为海外用户提供更丰富的购物选择。', url: 'https://www.reuters.com' }
+            ]
         }
     };
     
-    // 生成6个月的数据，每月15-25条
+    const usedTitles = new Set(); // 用于去重
+    
+    // 生成6个月的数据
     for (let month = 0; month < 6; month++) {
         const monthDate = new Date(now.getFullYear(), now.getMonth() - month, 1);
-        const itemsThisMonth = 15 + Math.floor(Math.random() * 10);
+        const itemsThisMonth = 8 + Math.floor(Math.random() * 5); // 每月8-12条，减少重复
         
         for (let i = 0; i < itemsThisMonth; i++) {
             const platform = platforms[Math.floor(Math.random() * platforms.length)];
             const type = types[Math.floor(Math.random() * types.length)];
             const templates = newsTemplates[platform];
-            const titleIndex = Math.floor(Math.random() * templates.titles.length);
-            const title = templates.titles[titleIndex];
-            const url = templates.urls[titleIndex];
+            const itemIndex = Math.floor(Math.random() * templates.items.length);
+            const item = templates.items[itemIndex];
+            
+            // 生成唯一标题，避免重复
+            const uniqueTitle = `${item.title} - ${monthDate.toLocaleDateString('zh-CN', {month: 'long'})}期`;
+            
+            if (usedTitles.has(uniqueTitle)) {
+                i--; // 如果重复，重新生成
+                continue;
+            }
+            usedTitles.add(uniqueTitle);
             
             const itemDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), 
                 Math.floor(Math.random() * 28) + 1, Math.floor(Math.random() * 24));
             
             data.push({
-                id: `${platform}_${month}_${i}`,
-                title: `${title} - ${monthDate.toLocaleDateString('zh-CN', {year: 'numeric', month: 'long'})}`,
-                content: `${title}的详细内容，展示${getPlatformLabel(platform)}平台在${monthDate.toLocaleDateString('zh-CN', {month: 'long'})}的重要动态...`,
+                id: `${platform}_${month}_${i}_${Date.now()}`,
+                title: uniqueTitle,
+                content: item.content,
                 source: `${getPlatformLabel(platform)}官方`,
                 type: type,
                 platform: platform,
                 date: itemDate,
                 time: formatTimeFromDate(itemDate),
-                url: url
+                url: item.url
             });
         }
     }

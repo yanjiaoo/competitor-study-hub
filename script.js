@@ -93,12 +93,12 @@ function initializeApp() {
 
 // 更新最后更新时间为最新文件日期
 function updateLastUpdateTime() {
-    const allContent = [...contentData.flash, ...contentData.reports];
-    const latestDate = allContent.reduce((latest, item) => {
-        return new Date(item.date) > new Date(latest) ? item.date : latest;
-    }, allContent[0].date);
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0]; // YYYY-MM-DD格式
     
-    document.getElementById('lastUpdate').textContent = latestDate;
+    document.getElementById('lastUpdate').textContent = todayString;
+    
+    const allContent = [...contentData.flash, ...contentData.reports];
     document.getElementById('contentCount').textContent = allContent.length;
 }
 

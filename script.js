@@ -355,18 +355,22 @@ function generateHistoricalData() {
     const types = ['social', 'official', 'press'];
     
     const newsTemplates = {
-        temu: [
-            'Temu推出全新物流服务', 'Temu扩展全球市场', 'Temu卖家激励计划', 'Temu用户增长突破', 'Temu供应链优化'
-        ],
-        shein: [
-            'Shein扩展欧洲市场布局', 'Shein可持续发展计划', 'Shein AR试衣功能', 'Shein品牌合作', 'Shein物流网络升级'
-        ],
-        tiktok: [
-            'TikTok Shop直播带货新功能', 'TikTok创作者分成计划', 'TikTok电商政策更新', 'TikTok品牌营销工具', 'TikTok购物车功能'
-        ],
-        joybuy: [
-            'Joybuy春节促销活动', 'Joybuy京东生态整合', 'Joybuy跨境物流', 'Joybuy会员服务', 'Joybuy品类扩展'
-        ]
+        temu: {
+            titles: ['Temu推出全新物流服务', 'Temu扩展全球市场', 'Temu卖家激励计划', 'Temu用户增长突破', 'Temu供应链优化'],
+            urls: ['https://www.temu.com/news', 'https://twitter.com/temu_official', 'https://www.businesswire.com/news/temu', 'https://techcrunch.com/tag/temu/', 'https://www.reuters.com/technology/']
+        },
+        shein: {
+            titles: ['Shein扩展欧洲市场布局', 'Shein可持续发展计划', 'Shein AR试衣功能', 'Shein品牌合作', 'Shein物流网络升级'],
+            urls: ['https://www.shein.com/news', 'https://www.instagram.com/shein_official/', 'https://www.businessoffashion.com/tag/shein/', 'https://www.vogue.com/tag/shein', 'https://techcrunch.com/tag/shein/']
+        },
+        tiktok: {
+            titles: ['TikTok Shop直播带货新功能', 'TikTok创作者分成计划', 'TikTok电商政策更新', 'TikTok品牌营销工具', 'TikTok购物车功能'],
+            urls: ['https://www.tiktok.com/business/blog', 'https://twitter.com/tiktokbusiness', 'https://newsroom.tiktok.com/', 'https://techcrunch.com/tag/tiktok/', 'https://www.socialmediatoday.com/topic/tiktok/']
+        },
+        joybuy: {
+            titles: ['Joybuy春节促销活动', 'Joybuy京东生态整合', 'Joybuy跨境物流', 'Joybuy会员服务', 'Joybuy品类扩展'],
+            urls: ['https://www.joybuy.com/news', 'https://weibo.com/joybuy', 'https://corporate.jd.com/news', 'https://technode.com/tag/jd-com/', 'https://www.scmp.com/tech/big-tech/']
+        }
     };
     
     // 生成6个月的数据，每月15-25条
@@ -378,7 +382,9 @@ function generateHistoricalData() {
             const platform = platforms[Math.floor(Math.random() * platforms.length)];
             const type = types[Math.floor(Math.random() * types.length)];
             const templates = newsTemplates[platform];
-            const title = templates[Math.floor(Math.random() * templates.length)];
+            const titleIndex = Math.floor(Math.random() * templates.titles.length);
+            const title = templates.titles[titleIndex];
+            const url = templates.urls[titleIndex];
             
             const itemDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), 
                 Math.floor(Math.random() * 28) + 1, Math.floor(Math.random() * 24));
@@ -392,7 +398,7 @@ function generateHistoricalData() {
                 platform: platform,
                 date: itemDate,
                 time: formatTimeFromDate(itemDate),
-                url: '#'
+                url: url
             });
         }
     }

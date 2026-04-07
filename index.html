@@ -46,12 +46,54 @@
             <ul>
                 <li><a href="#flash" class="nav-link active">Bi-monthly Flash</a></li>
                 <li><a href="#reports" class="nav-link">Deep Research</a></li>
+                <li><a href="#news" class="nav-link">实时资讯</a></li>
                 <li><a href="#search" class="nav-link">搜索</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
+        <section id="news" class="content-section">
+            <div class="section-header">
+                <div class="section-icon">📰</div>
+                <div>
+                    <h2>实时竞争对手资讯</h2>
+                    <p class="section-desc">来自社媒、官网等渠道的最新动态</p>
+                </div>
+                <div class="refresh-controls">
+                    <div class="refresh-status">
+                        <span class="refresh-indicator"></span>
+                        <span>自动更新中</span>
+                    </div>
+                    <button onclick="toggleAutoRefresh()" class="refresh-btn active" id="autoRefreshBtn">
+                        <span>🔄</span>
+                        <span>自动刷新</span>
+                    </button>
+                    <button onclick="manualRefresh()" class="refresh-btn">
+                        <span>↻</span>
+                        <span>立即刷新</span>
+                    </button>
+                </div>
+                <button onclick="openSourceManager()" class="manage-sources-btn">管理资讯源</button>
+            </div>
+            
+            <div class="news-filters">
+                <button class="filter-btn active" onclick="filterNews('all')">全部</button>
+                <button class="filter-btn" onclick="filterNews('temu')">Temu</button>
+                <button class="filter-btn" onclick="filterNews('shein')">Shein</button>
+                <button class="filter-btn" onclick="filterNews('tiktok')">TikTok</button>
+                <button class="filter-btn" onclick="filterNews('joybuy')">Joybuy</button>
+                <div class="filter-divider"></div>
+                <button class="filter-btn" onclick="filterNews('social')">社交媒体</button>
+                <button class="filter-btn" onclick="filterNews('official')">官方网站</button>
+                <button class="filter-btn" onclick="filterNews('press')">新闻发布</button>
+            </div>
+            
+            <div class="news-grid" id="newsGrid">
+                <!-- 资讯内容将在这里显示 -->
+            </div>
+        </section>
+
         <section id="search" class="search-section">
             <div class="search-container">
                 <div class="search-icon">🔍</div>
@@ -88,12 +130,46 @@
         </section>
     </main>
 
+    <!-- 资讯源管理弹窗 -->
+    <div id="sourceManagerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>管理资讯源</h3>
+                <span class="close" onclick="closeSourceManager()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="add-source-form">
+                    <h4>添加新资讯源</h4>
+                    <input type="text" id="sourceName" placeholder="资讯源名称 (如: Temu官方Twitter)">
+                    <input type="url" id="sourceUrl" placeholder="资讯源链接">
+                    <select id="sourceType">
+                        <option value="social">社交媒体</option>
+                        <option value="official">官方网站</option>
+                        <option value="press">新闻发布</option>
+                    </select>
+                    <select id="sourcePlatform">
+                        <option value="temu">Temu</option>
+                        <option value="shein">Shein</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="joybuy">Joybuy</option>
+                    </select>
+                    <button onclick="addNewsSource()">添加资讯源</button>
+                </div>
+                <div class="sources-list">
+                    <h4>当前资讯源</h4>
+                    <div id="sourcesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Amazon Competitor Study Hub. Amazon内部使用.</p>
         </div>
     </footer>
 
+    <script src="news-api.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

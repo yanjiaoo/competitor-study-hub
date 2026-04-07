@@ -152,16 +152,31 @@ function setupNavigation() {
 }
 
 function showSection(sectionId) {
+    const sections = ['flash', 'reports', 'news', 'search'];
+    
     if (sectionId === 'search') {
         // 只显示搜索结果
-        document.getElementById('flash').style.display = 'none';
-        document.getElementById('reports').style.display = 'none';
-        document.getElementById('search').style.display = 'block';
+        sections.forEach(id => {
+            const section = document.getElementById(id);
+            if (section) {
+                section.style.display = id === 'search' ? 'block' : 'none';
+            }
+        });
     } else {
-        // 显示所有内容区域
-        document.getElementById('flash').style.display = 'block';
-        document.getElementById('reports').style.display = 'block';
-        document.getElementById('search').style.display = 'block';
+        // 显示所有内容区域，但突出显示选中的
+        sections.forEach(id => {
+            const section = document.getElementById(id);
+            if (section) {
+                if (id === sectionId) {
+                    section.style.display = 'block';
+                    section.scrollIntoView({ behavior: 'smooth' });
+                } else if (id !== 'search') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            }
+        });
         
         // 滚动到对应区域
         if (sectionId === 'flash') {
@@ -252,3 +267,389 @@ function addNewContent(type, contentItem) {
     // 自动更新最后更新时间
     updateLastUpdateTime();
 }
+// 实时资讯功能 - 竞争对手平台
+let newsSources = JSON.parse(localStorage.getItem('newsSources')) || [
+    // Temu资讯源
+    {
+        id: 1,
+        name: 'Temu官方Twitter',
+        url: 'https://twitter.com/temu_official',
+        type: 'social',
+        platform: 'temu'
+    },
+    {
+        id: 2,
+        name: 'Temu官网新闻',
+        url: 'https://www.temu.com/news',
+        type: 'official',
+        platform: 'temu'
+    },
+    // Shein资讯源
+    {
+        id: 3,
+        name: 'Shein官方Instagram',
+        url: 'https://instagram.com/shein_official',
+        type: 'social',
+        platform: 'shein'
+    },
+    {
+        id: 4,
+        name: 'Shein新闻中心',
+        url: 'https://www.shein.com/news',
+        type: 'press',
+        platform: 'shein'
+    },
+    // TikTok资讯源
+    {
+        id: 5,
+        name: 'TikTok Shop官方',
+        url: 'https://twitter.com/tiktokshop',
+        type: 'social',
+        platform: 'tiktok'
+    },
+    {
+        id: 6,
+        name: 'TikTok商业博客',
+        url: 'https://www.tiktok.com/business/blog',
+        type: 'official',
+        platform: 'tiktok'
+    },
+    // Joybuy资讯源
+    {
+        id: 7,
+        name: 'Joybuy官方微博',
+        url: 'https://weibo.com/joybuy',
+        type: 'social',
+        platform: 'joybuy'
+    },
+    {
+        id: 8,
+        name: 'Joybuy官网公告',
+        url: 'https://www.joybuy.com/news',
+        type: 'official',
+        platform: 'joybuy'
+    }
+];
+
+let newsData = [
+    {
+        id: 1,
+        title: 'Temu推出全新物流服务',
+        content: 'Temu宣布在北美地区推出48小时快速配送服务，进一步提升用户购物体验，与Amazon Prime形成直接竞争...',
+        source: 'Temu官方Twitter',
+        type: 'social',
+        platform: 'temu',
+        time: '1小时前',
+        url: 'https://twitter.com/temu_official/status/example'
+    },
+    {
+        id: 2,
+        title: 'Shein扩展欧洲市场布局',
+        content: 'Shein宣布在德国和法国建立新的配送中心，预计将大幅缩短欧洲用户的收货时间，加强本地化运营...',
+        source: 'Shein新闻中心',
+        type: 'press',
+        platform: 'shein',
+        time: '3小时前',
+        url: 'https://www.shein.com/news/example'
+    },
+    {
+        id: 3,
+        title: 'TikTok Shop直播带货新功能',
+        content: 'TikTok Shop推出AI智能推荐系统，帮助创作者更精准地向观众推荐商品，预计将提升转化率30%...',
+        source: 'TikTok Shop官方',
+        type: 'social',
+        platform: 'tiktok',
+        time: '5小时前',
+        url: 'https://twitter.com/tiktokshop/status/example'
+    },
+    {
+        id: 4,
+        title: 'Joybuy春节促销活动启动',
+        content: 'Joybuy宣布启动为期一个月的春节大促活动，涵盖电子产品、家居用品等多个品类，最高优惠达70%...',
+        source: 'Joybuy官方微博',
+        type: 'social',
+        platform: 'joybuy',
+        time: '8小时前',
+        url: 'https://weibo.com/joybuy/example'
+    }
+];
+
+function displayNews(filter = 'all') {
+    const newsGrid = document.getElementById('newsGrid');
+    let filteredNews = newsData;
+    
+    if (filter !== 'all') {
+        if (['social', 'official', 'press'].includes(filter)) {
+            filteredNews = newsData.filter(news => news.type === filter);
+        } else {
+            filteredNews = newsData.filter(news => news.platform === filter);
+        }
+    }
+    
+    newsGrid.innerHTML = filteredNews.map(news => `
+        <div class="news-item" data-type="${news.type}" data-platform="${news.platform}">
+            <div class="news-header">
+                <span class="news-source">${news.source}</span>
+                <span class="platform-tag platform-${news.platform}">${getPlatformLabel(news.platform)}</span>
+                <span class="news-time">${news.time}</span>
+            </div>
+            <div class="news-title">${news.title}</div>
+            <div class="news-content">${news.content}</div>
+            <a href="${news.url}" target="_blank" class="news-link">查看原文 →</a>
+        </div>
+    `).join('');
+}
+
+function getPlatformLabel(platform) {
+    const labels = {
+        'temu': 'Temu',
+        'shein': 'Shein',
+        'tiktok': 'TikTok',
+        'joybuy': 'Joybuy'
+    };
+    return labels[platform] || platform;
+}
+
+function filterNews(type) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    displayNews(type);
+}
+
+function openSourceManager() {
+    document.getElementById('sourceManagerModal').style.display = 'block';
+    displaySources();
+}
+
+function closeSourceManager() {
+    document.getElementById('sourceManagerModal').style.display = 'none';
+}
+
+function displaySources() {
+    const sourcesList = document.getElementById('sourcesList');
+    sourcesList.innerHTML = newsSources.map(source => `
+        <div class="source-item">
+            <div class="source-info">
+                <div class="source-name">${source.name}</div>
+                <div class="source-url">${source.url}</div>
+            </div>
+            <div class="source-meta">
+                <span class="source-type">${getTypeLabel(source.type)}</span>
+                <span class="platform-tag platform-${source.platform}">${getPlatformLabel(source.platform)}</span>
+            </div>
+            <button class="delete-source" onclick="deleteSource(${source.id})">删除</button>
+        </div>
+    `).join('');
+}
+
+function getTypeLabel(type) {
+    const labels = {
+        'social': '社交媒体',
+        'official': '官方网站',
+        'press': '新闻发布'
+    };
+    return labels[type] || type;
+}
+
+function addNewsSource() {
+    const name = document.getElementById('sourceName').value.trim();
+    const url = document.getElementById('sourceUrl').value.trim();
+    const type = document.getElementById('sourceType').value;
+    const platform = document.getElementById('sourcePlatform').value;
+    
+    if (!name || !url) {
+        alert('请填写完整的资讯源信息');
+        return;
+    }
+    
+    const newSource = {
+        id: Date.now(),
+        name,
+        url,
+        type,
+        platform
+    };
+    
+    newsSources.push(newSource);
+    localStorage.setItem('newsSources', JSON.stringify(newsSources));
+    
+    // 清空表单
+    document.getElementById('sourceName').value = '';
+    document.getElementById('sourceUrl').value = '';
+    document.getElementById('sourceType').value = 'social';
+    document.getElementById('sourcePlatform').value = 'temu';
+    
+    displaySources();
+    alert('资讯源添加成功！');
+}
+
+function deleteSource(id) {
+    if (confirm('确定要删除这个资讯源吗？')) {
+        newsSources = newsSources.filter(source => source.id !== id);
+        localStorage.setItem('newsSources', JSON.stringify(newsSources));
+        displaySources();
+    }
+}
+
+// 模拟实时更新资讯
+function updateNews() {
+    const platforms = ['temu', 'shein', 'tiktok', 'joybuy'];
+    const randomPlatform = platforms[Math.floor(Math.random() * platforms.length)];
+    
+    const mockNews = {
+        temu: [
+            'Temu推出新的卖家激励计划',
+            'Temu在欧洲市场份额持续增长',
+            'Temu与本地物流公司达成合作'
+        ],
+        shein: [
+            'Shein发布2025年可持续发展报告',
+            'Shein推出AR试衣功能',
+            'Shein扩展家居用品类目'
+        ],
+        tiktok: [
+            'TikTok Shop推出新的创作者分成计划',
+            'TikTok直播带货功能全面升级',
+            'TikTok Shop与品牌方深度合作'
+        ],
+        joybuy: [
+            'Joybuy优化跨境物流网络',
+            'Joybuy推出会员专享服务',
+            'Joybuy加强与京东生态整合'
+        ]
+    };
+    
+    const titles = mockNews[randomPlatform];
+    const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+    
+    const newNewsItem = {
+        id: `${randomPlatform}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        title: randomTitle,
+        content: `${randomTitle}的详细内容，展示${getPlatformLabel(randomPlatform)}平台的最新动态和发展趋势...`,
+        source: `${getPlatformLabel(randomPlatform)}官方`,
+        type: ['social', 'official', 'press'][Math.floor(Math.random() * 3)],
+        platform: randomPlatform,
+        time: '刚刚',
+        url: '#',
+        isNew: true
+    };
+    
+    newsData.unshift(newNewsItem);
+    if (newsData.length > 50) {
+        newsData = newsData.slice(0, 50); // 保持最新50条
+    }
+    
+    displayNews();
+    showUpdateNotification(1);
+}
+
+// 显示更新通知
+function showUpdateNotification(count) {
+    // 移除现有通知
+    const existingNotification = document.querySelector('.update-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    const notification = document.createElement('div');
+    notification.className = 'update-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">🔔</span>
+            <span>发现 ${count} 条新资讯</span>
+            <button onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // 3秒后自动消失
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 3000);
+}
+
+// 自动刷新功能
+let autoRefreshInterval;
+let isAutoRefreshEnabled = true;
+
+function startAutoRefresh() {
+    if (isAutoRefreshEnabled) {
+        // 每2分钟自动更新一次（演示用，实际可调整为更长间隔）
+        autoRefreshInterval = setInterval(() => {
+            if (typeof updateCompetitorNews === 'function') {
+                updateCompetitorNews();
+            } else {
+                updateNews();
+            }
+        }, 120000); // 2分钟
+    }
+}
+
+function stopAutoRefresh() {
+    if (autoRefreshInterval) {
+        clearInterval(autoRefreshInterval);
+        autoRefreshInterval = null;
+    }
+}
+
+function toggleAutoRefresh() {
+    const btn = document.getElementById('autoRefreshBtn');
+    const status = document.querySelector('.refresh-status');
+    
+    isAutoRefreshEnabled = !isAutoRefreshEnabled;
+    
+    if (isAutoRefreshEnabled) {
+        startAutoRefresh();
+        btn.classList.add('active');
+        status.innerHTML = '<span class="refresh-indicator"></span><span>自动更新中</span>';
+    } else {
+        stopAutoRefresh();
+        btn.classList.remove('active');
+        status.innerHTML = '<span style="width: 8px; height: 8px; border-radius: 50%; background: #dc3545; display: inline-block;"></span><span>已暂停</span>';
+    }
+}
+
+function manualRefresh() {
+    const btn = event.target.closest('.refresh-btn');
+    const originalText = btn.innerHTML;
+    
+    // 显示加载状态
+    btn.innerHTML = '<span>⟳</span><span>刷新中...</span>';
+    btn.disabled = true;
+    
+    // 执行刷新
+    if (typeof updateCompetitorNews === 'function') {
+        updateCompetitorNews();
+    } else {
+        updateNews();
+    }
+    
+    // 恢复按钮状态
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }, 1000);
+}
+
+// 点击弹窗外部关闭
+window.onclick = function(event) {
+    const modal = document.getElementById('sourceManagerModal');
+    if (event.target === modal) {
+        closeSourceManager();
+    }
+}
+
+// 每5分钟更新一次资讯（模拟）
+setInterval(updateNews, 300000);
+
+// 页面加载时初始化资讯显示
+document.addEventListener('DOMContentLoaded', function() {
+    displayNews();
+    startAutoRefresh(); // 启动自动刷新
+    
+    // 页面卸载时停止自动刷新
+    window.addEventListener('beforeunload', stopAutoRefresh);
+});

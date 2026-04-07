@@ -44,6 +44,14 @@ const contentData = {
     ],
     reports: [
         {
+            id: 743,
+            title: "TEMU TikTok Shein business model Brief",
+            date: "2025-03-31",
+            summary: "深度解析TEMU、TikTok Shop、Shein三大新兴电商平台的商业模式差异与核心竞争力。对比分析各平台的供应链策略、用户获取方式、盈利模式及市场定位，为Amazon制定竞争策略提供参考依据。",
+            tags: ["深度研究", "商业模式", "TEMU", "TikTok", "Shein", "竞争分析"],
+            file: "files/TEMU TikTok Shein business model Brief"
+        },
+        {
             id: 742,
             title: "品牌多渠道营销分析",
             date: "2025-11-07",

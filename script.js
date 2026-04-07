@@ -404,24 +404,17 @@ function generateHistoricalData() {
             const platform = platforms[Math.floor(Math.random() * platforms.length)];
             const type = types[Math.floor(Math.random() * types.length)];
             const templates = newsTemplates[platform];
-            const itemIndex = Math.floor(Math.random() * templates.items.length);
+            
+            // 确保每个月使用不同的资讯，避免重复
+            const itemIndex = (month * 2 + i) % templates.items.length;
             const item = templates.items[itemIndex];
-            
-            // 生成唯一标题，避免重复
-            const uniqueTitle = `${item.title} - ${monthDate.toLocaleDateString('zh-CN', {month: 'long'})}期`;
-            
-            if (usedTitles.has(uniqueTitle)) {
-                i--; // 如果重复，重新生成
-                continue;
-            }
-            usedTitles.add(uniqueTitle);
             
             const itemDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), 
                 Math.floor(Math.random() * 28) + 1, Math.floor(Math.random() * 24));
             
             data.push({
-                id: `${platform}_${month}_${i}_${Date.now()}`,
-                title: uniqueTitle,
+                id: `${platform}_${month}_${i}_${itemIndex}`,
+                title: item.title,
                 content: item.content,
                 source: `${getPlatformLabel(platform)}官方`,
                 type: type,

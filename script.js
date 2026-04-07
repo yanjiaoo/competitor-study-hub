@@ -410,11 +410,9 @@ function formatTimeFromDate(date) {
     const now = new Date();
     const diff = now - date;
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor(diff / (1000 * 60));
     
-    if (minutes < 60) return `${minutes}分钟前`;
-    if (hours < 24) return `${hours}小时前`;
+    if (days === 0) return '今天';
+    if (days === 1) return '1天前';
     if (days < 30) return `${days}天前`;
     return `${Math.floor(days/30)}个月前`;
 }

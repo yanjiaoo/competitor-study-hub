@@ -297,172 +297,76 @@ function addNewContent(type, contentItem) {
 }
 // 实时资讯功能 - 竞争对手平台
 let newsSources = JSON.parse(localStorage.getItem('newsSources')) || [
-    // Temu资讯源
-    {
-        id: 1,
-        name: 'Temu官方Twitter',
-        url: 'https://twitter.com/temu_official',
-        type: 'social',
-        platform: 'temu'
-    },
-    {
-        id: 2,
-        name: 'Temu官网新闻',
-        url: 'https://www.temu.com/news',
-        type: 'official',
-        platform: 'temu'
-    },
-    // Shein资讯源
-    {
-        id: 3,
-        name: 'Shein官方Instagram',
-        url: 'https://instagram.com/shein_official',
-        type: 'social',
-        platform: 'shein'
-    },
-    {
-        id: 4,
-        name: 'Shein新闻中心',
-        url: 'https://www.shein.com/news',
-        type: 'press',
-        platform: 'shein'
-    },
-    // TikTok资讯源
-    {
-        id: 5,
-        name: 'TikTok Shop官方',
-        url: 'https://twitter.com/tiktokshop',
-        type: 'social',
-        platform: 'tiktok'
-    },
-    {
-        id: 6,
-        name: 'TikTok商业博客',
-        url: 'https://www.tiktok.com/business/blog',
-        type: 'official',
-        platform: 'tiktok'
-    },
-    // Joybuy资讯源
-    {
-        id: 7,
-        name: 'Joybuy官方微博',
-        url: 'https://weibo.com/joybuy',
-        type: 'social',
-        platform: 'joybuy'
-    },
-    {
-        id: 8,
-        name: 'Joybuy官网公告',
-        url: 'https://www.joybuy.com/news',
-        type: 'official',
-        platform: 'joybuy'
-    }
+    // Temu
+    { id: 1, name: 'Temu官方Twitter/X', url: 'https://twitter.com/temu_official', type: 'social', platform: 'temu' },
+    { id: 2, name: 'Temu官网', url: 'https://www.temu.com', type: 'official', platform: 'temu' },
+    { id: 3, name: 'Temu PR Newswire', url: 'https://www.prnewswire.com/news/temu/', type: 'press', platform: 'temu' },
+    // Shein
+    { id: 4, name: 'Shein官方Instagram', url: 'https://instagram.com/shein_official', type: 'social', platform: 'shein' },
+    { id: 5, name: 'Shein新闻中心', url: 'https://www.shein.com/news', type: 'press', platform: 'shein' },
+    { id: 6, name: 'Shein PR Newswire', url: 'https://www.prnewswire.com/news/shein/', type: 'press', platform: 'shein' },
+    // TikTok
+    { id: 7, name: 'TikTok Shop官方', url: 'https://twitter.com/tiktokshop', type: 'social', platform: 'tiktok' },
+    { id: 8, name: 'TikTok商业博客', url: 'https://www.tiktok.com/business/blog', type: 'official', platform: 'tiktok' },
+    { id: 9, name: 'TikTok Newsroom', url: 'https://newsroom.tiktok.com', type: 'press', platform: 'tiktok' },
+    // Joybuy
+    { id: 10, name: 'Joybuy官网', url: 'https://www.joybuy.com', type: 'official', platform: 'joybuy' },
+    { id: 11, name: 'JD.com企业新闻', url: 'https://corporate.jd.com', type: 'press', platform: 'joybuy' },
+    { id: 12, name: 'Inside Retail Asia', url: 'https://insideretail.asia', type: 'press', platform: 'joybuy' },
+    // 跨境电商行业媒体
+    { id: 13, name: '雨果跨境', url: 'https://www.cifnews.com', type: 'press', platform: 'temu' },
+    { id: 14, name: '亿邦动力', url: 'https://www.ebrun.com', type: 'press', platform: 'shein' },
+    { id: 15, name: '36氪出海', url: 'https://36kr.com/motif/327686554113', type: 'press', platform: 'tiktok' },
+    { id: 16, name: 'ECDB电商数据', url: 'https://ecdb.com', type: 'press', platform: 'temu' },
+    { id: 17, name: 'Retail Technology Hub', url: 'https://retailtechinnovationhub.com', type: 'press', platform: 'joybuy' },
+    { id: 18, name: 'Business of Fashion', url: 'https://www.businessoffashion.com', type: 'press', platform: 'shein' },
+    { id: 19, name: 'TechCrunch电商', url: 'https://techcrunch.com/category/commerce/', type: 'press', platform: 'tiktok' },
+    { id: 20, name: 'Chinesellers Newsletter', url: 'https://chinesellers.substack.com', type: 'press', platform: 'shein' }
 ];
 
-// 生成最近6个月的历史数据
-function generateHistoricalData() {
-    const data = [];
-    const now = new Date();
-    const platforms = ['temu', 'shein', 'tiktok', 'joybuy'];
-    const types = ['social', 'official', 'press'];
-    
-    const newsTemplates = {
-        temu: {
-            items: [
-                { title: 'Temu推出全新物流服务', content: 'Temu宣布在北美地区推出48小时快速配送服务，覆盖主要城市，与Amazon Prime形成直接竞争。新服务将大幅提升用户购物体验，预计配送成本降低15%。', url: 'https://www.temu.com' },
-                { title: 'Temu扩展全球市场布局', content: 'Temu正式进入欧洲5个新市场，包括意大利、西班牙等国家。平台商品种类增至1000万+，本地化运营团队已就位，预计年底用户数突破2亿。', url: 'https://techcrunch.com' },
-                { title: 'Temu卖家激励计划升级', content: 'Temu推出新卖家扶持政策，前3个月免佣金，提供流量倾斜和营销支持。针对优质卖家提供专属客服和数据分析工具，助力快速成长。', url: 'https://www.businesswire.com' },
-                { title: 'Temu用户增长数据公布', content: 'Temu月活用户突破1.5亿，同比增长300%。用户平均停留时长达25分钟，复购率提升至45%。主要增长来自18-35岁年轻用户群体。', url: 'https://www.reuters.com' },
-                { title: 'Temu供应链优化升级', content: 'Temu与全球500+优质供应商建立直采合作，砍掉中间环节降低成本20%。新建3个海外仓储中心，库存周转效率提升40%。', url: 'https://www.scmp.com' }
-            ]
-        },
-        shein: {
-            items: [
-                { title: 'Shein欧洲市场策略调整', content: 'Shein在德国、法国建立本地设计团队，推出符合欧洲审美的服装线。与当地时尚博主合作，本土化营销策略初见成效，欧洲市场份额增长25%。', url: 'https://www.shein.com' },
-                { title: 'Shein可持续发展新举措', content: 'Shein承诺2030年实现碳中和，推出环保材料服装系列。与回收机构合作推出旧衣回收计划，每回收1件可获得购物积分。', url: 'https://www.businessoffashion.com' },
-                { title: 'Shein AR试衣技术上线', content: 'Shein推出AR虚拟试衣功能，用户可通过手机摄像头实时试穿。技术覆盖80%服装品类，预计退货率降低30%，用户满意度提升显著。', url: 'https://www.vogue.com' },
-                { title: 'Shein品牌合作战略', content: 'Shein与100+独立设计师品牌达成合作，推出限量联名系列。为设计师提供供应链支持和全球销售渠道，共同开拓时尚市场。', url: 'https://fashionunited.com' },
-                { title: 'Shein物流网络扩建', content: 'Shein新增5个区域配送中心，覆盖全球主要市场。平均配送时间缩短至7-10天，客户满意度提升至85%，为进一步扩张奠定基础。', url: 'https://www.drapers.com' }
-            ]
-        },
-        tiktok: {
-            items: [
-                { title: 'TikTok Shop直播功能升级', content: 'TikTok Shop推出AI智能推荐系统，根据用户兴趣精准推送商品。直播带货转化率提升30%，平均客单价增长15%，创作者收入大幅提升。', url: 'https://www.tiktok.com' },
-                { title: 'TikTok创作者分成新政', content: 'TikTok Shop调整创作者分成比例，优质创作者可获得最高20%佣金。推出创作者培训计划，提供专业带货技巧和数据分析支持。', url: 'https://newsroom.tiktok.com' },
-                { title: 'TikTok电商政策更新', content: 'TikTok Shop发布新的商家入驻标准，提高商品质量要求。加强假货打击力度，建立消费者权益保护机制，提升平台信誉度。', url: 'https://www.socialmediatoday.com' },
-                { title: 'TikTok品牌营销工具', content: 'TikTok推出品牌专属营销工具包，包括定制滤镜、品牌挑战赛等。帮助品牌与年轻用户建立深度连接，营销ROI平均提升40%。', url: 'https://www.adweek.com' },
-                { title: 'TikTok购物车功能优化', content: 'TikTok Shop优化购物车和结算流程，支持一键购买和批量下单。新增愿望清单功能，用户购买转化率提升25%，购物体验显著改善。', url: 'https://techcrunch.com' }
-            ]
-        },
-        joybuy: {
-            items: [
-                { title: 'Joybuy春节营销活动', content: 'Joybuy推出春节大促活动，联合京东生态提供跨境专享优惠。活动期间GMV增长200%，新用户注册量突破50万，品牌知名度大幅提升。', url: 'https://www.joybuy.com' },
-                { title: 'Joybuy京东生态整合', content: 'Joybuy与京东物流、京东金融深度整合，提供一站式跨境服务。用户可享受京东PLUS会员权益，配送时效和服务质量显著提升。', url: 'https://corporate.jd.com' },
-                { title: 'Joybuy跨境物流升级', content: 'Joybuy优化跨境物流网络，新增10个海外仓储点。平均配送时间缩短50%，支持更多国家和地区，为全球扩张做好准备。', url: 'https://technode.com' },
-                { title: 'Joybuy会员服务推出', content: 'Joybuy推出全球会员服务，提供专属客服、优先配送等特权。会员可享受京东生态全链路服务，忠诚度和复购率显著提升。', url: 'https://www.scmp.com' },
-                { title: 'Joybuy品类扩展计划', content: 'Joybuy新增家居、美妆等热门品类，商品SKU突破100万。与国际知名品牌建立合作，为海外用户提供更丰富的购物选择。', url: 'https://www.reuters.com' }
-            ]
-        }
-    };
-    
-    const usedTitles = new Set(); // 用于去重
-    
-    // 生成6个月的数据
-    for (let month = 0; month < 6; month++) {
-        const monthDate = new Date(now.getFullYear(), now.getMonth() - month, 1);
-        const itemsThisMonth = 8 + Math.floor(Math.random() * 5); // 每月8-12条，减少重复
-        
-        for (let i = 0; i < itemsThisMonth; i++) {
-            const platform = platforms[Math.floor(Math.random() * platforms.length)];
-            const type = types[Math.floor(Math.random() * types.length)];
-            const templates = newsTemplates[platform];
-            
-            // 确保每个月使用不同的资讯，避免重复
-            const itemIndex = (month * 2 + i) % templates.items.length;
-            const item = templates.items[itemIndex];
-            
-            const itemDate = new Date(monthDate.getFullYear(), monthDate.getMonth(), 
-                Math.floor(Math.random() * 28) + 1, Math.floor(Math.random() * 24));
-            
-            data.push({
-                id: `${platform}_${month}_${i}_${itemIndex}`,
-                title: item.title,
-                content: item.content,
-                source: `${getPlatformLabel(platform)}官方`,
-                type: type,
-                platform: platform,
-                date: itemDate,
-                time: formatTimeFromDate(itemDate),
-                url: item.url
-            });
-        }
-    }
-    
-    return data.sort((a, b) => b.date - a.date);
-}
-
+// 计算时间显示
 function formatTimeFromDate(date) {
-    const now = new Date();
-    const diff = now - date;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    
+    var now = new Date();
+    var diff = now - date;
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
     if (days === 0) return '今天';
     if (days === 1) return '1天前';
-    if (days < 30) return `${days}天前`;
-    return `${Math.floor(days/30)}个月前`;
+    if (days < 30) return days + '天前';
+    return Math.floor(days / 30) + '个月前';
 }
 
-var newsData = []; // 初始为空，由 news-api.js 获取真实数据填充
+// ==================== 真实资讯数据 ====================
+var newsData = [
+  { id: "temu_001", title: "Temu进入变现阶段，高盛预计2027年实现盈利拐点", content: "高盛报告指出Temu预计2027年实现盈利拐点，预期利润达32亿元人民币。随着国内收入增长加速及当前估值偏低，风险回报比极具吸引力。", source: "Goldman Sachs / Futunn", type: "press", platform: "temu", date: new Date("2026-03-23"), url: "https://news.futunn.com/en/post/70662956/goldman-sachs-temu-enters-monetization-phase-new-growth-inflection-point" },
+  { id: "temu_002", title: "欧盟新规瞄准Temu、Shein、AliExpress包裹", content: "欧盟通过新海关法案，要求电商平台对发送给消费者的商品承担责任，新征费将覆盖增加的处理成本，并建立中央海关管理局和数据中心。", source: "European Parliament", type: "press", platform: "temu", date: new Date("2026-03-24"), url: "https://www.eppgroup.eu/newsroom/new-eu-rules-target-parcels-from-temu-shein-aliexpress" },
+  { id: "temu_003", title: "Shein和Temu超高速增长时代结束，2026年面临现实考验", content: "Temu从2022年零起步增长至2025年GMV 727亿美元，但现在面临最急剧的减速，2026年预计仅增加约100亿美元。", source: "ECDB", type: "press", platform: "temu", date: new Date("2026-03-02"), url: "https://ecdb.com/blog/shein-and-temus-hypergrowth-era-is-over-2026-brings-a-harsh-reality-check/5159" },
+  { id: "temu_004", title: "Temu连续第二年入选USA TODAY最佳客户服务榜单", content: "Temu被评为USA TODAY 2026年度美国最佳客户服务榜单，连续第二年上榜，反映出平台在客户体验方面的持续投入。", source: "PR Newswire", type: "official", platform: "temu", date: new Date("2026-03-03"), url: "https://www.prnewswire.com/news/temu/" },
+  { id: "temu_005", title: "Temu全球跨境市场份额飙升至24%，与Amazon形成双寡头格局", content: "Temu连续第二年位居榜首，超越Amazon和SHEIN。其全球跨境市场份额在短短三年内飙升至24%。", source: "4seller", type: "press", platform: "temu", date: new Date("2026-03-08"), url: "https://www.4seller.com/blog/en/article/380-How-to-Successfully-Sell-on-Temu-in-2026-The-Ultimate-Automation-Guide-for-US-EU-Brands" },
+  { id: "temu_006", title: "英国消费者对Temu、Shein等超低价电商的反弹情绪增长", content: "RTS 2026研究显示，随着超低价电商竞争加剧，消费者希望公平竞争环境，表现出对本土零售商的支持。", source: "Retail Tech Hub", type: "press", platform: "temu", date: new Date("2026-03-30"), url: "https://retailtechinnovationhub.com/home/2026/3/30/retail-technology-show-2026-research-shows-shopper-backlash-against-temu-shein-et-al" },
+  { id: "shein_001", title: "SHEIN欧盟增长放缓，月活用户达1.56亿", content: "SHEIN在欧盟月均活跃用户约1.56亿（2025.8-2026.1），同比增长6.9%，较此前11.6%的增速明显放缓，市场趋于饱和。", source: "Chinesellers", type: "press", platform: "shein", date: new Date("2026-03-07"), url: "https://chinesellers.substack.com/p/sheins-eu-momentum-slows-as-market" },
+  { id: "shein_002", title: "欧盟对SHEIN启动正式调查程序", content: "欧盟委员会将对SHEIN进行深入调查。若认定不合规，SHEIN可能面临高达全球年营业额6%的罚款。", source: "Lewis Silkin", type: "press", platform: "shein", date: new Date("2026-02-27"), url: "https://www.lewissilkin.com/insights/2026/02/27/digital-services-act-shein-becomes-the-latest-vlop-to-face-formal-proceedings-102mkps" },
+  { id: "shein_003", title: "SHEIN计划投资超14.5亿美元建设华南智能供应链系统", content: "SHEIN计划在华南投资超14.5亿美元建设智能供应链系统，品牌可使用其Xcelerator按需供应链和物流服务。", source: "Business of Fashion", type: "press", platform: "shein", date: new Date("2026-03-10"), url: "https://www.businessoffashion.com/articles/sustainability/exclusive-inside-sheins-xcelerator-an-on-demand-supply-chain-and-logistics-service-open-to-brands/" },
+  { id: "shein_004", title: "SHEIN在法国扩张，新增5家门店", content: "继去年巴黎成功开店后，SHEIN将在利摩日、昂热、第戎、格勒诺布尔和兰斯新开5家门店，加速线下布局。", source: "Modaes", type: "official", platform: "shein", date: new Date("2026-03-17"), url: "https://www.modaes.com/global/topics/shein" },
+  { id: "shein_005", title: "SHEIN英国市场收入增长32%，达20亿英镑", content: "SHEIN在英国市场2024年收入达20亿英镑（约23亿欧元），同比增长32%，显示其在欧洲核心市场的强劲表现。", source: "Chinesellers", type: "press", platform: "shein", date: new Date("2025-08-25"), url: "https://chinesellers.substack.com/p/shein-uk-revenue-jumps-32jdcoms-joybuy" },
+  { id: "tiktok_001", title: "TikTok Shop预计2026年美国GMV达234亿美元", content: "TikTok Shop预计2026年在美国产生234亿美元GMV，转化率4.7%，是Instagram Shopping的两倍多。", source: "ExpandNow", type: "press", platform: "tiktok", date: new Date("2026-03-23"), url: "https://www.expandnow.com/tiktok-shop-trends-actually-converting-in-2026/" },
+  { id: "tiktok_002", title: "TikTok Shop在东南亚市场份额飙升至22%", content: "TikTok Shop在印尼的市场份额从2023年的5%跃升至2025年的约22%，成为仅次于Shopee的第二大电商平台。", source: "SocialEcho", type: "press", platform: "tiktok", date: new Date("2026-03-10"), url: "https://www.socialecho.net/en/blog/docs/tiktok-shop-2026-guide" },
+  { id: "tiktok_003", title: "全球直播电商销售额预计2026年底突破6000亿美元", content: "中国占全球直播购物市场的78%，美国市场预计达550亿美元，TikTok是核心推动力。", source: "KOLSprite", type: "press", platform: "tiktok", date: new Date("2026-01-25"), url: "https://kolsprite.com/blog/2026-tiktok-live-commerce-trends" },
+  { id: "tiktok_004", title: "TikTok Shop 2026年推出严格供应商审核和可持续性披露要求", content: "2026年TikTok Shop推出严格供应商审核、顶级商品强制可持续性披露，以及实时跨境海关预清关服务。", source: "Alibaba Insights", type: "official", platform: "tiktok", date: new Date("2026-03-01"), url: "https://carinterior.alibaba.com/tips/unique-products-tiktok-shop-2026" },
+  { id: "tiktok_005", title: "TikTok Shop磁性眼线笔套装Q2销售额达2.94亿美元", content: "磁性眼线笔套装在TikTok Shop Q2销售额达2.94亿美元，同比增长63%，成为平台最畅销品类。", source: "Alibaba Insights", type: "press", platform: "tiktok", date: new Date("2026-03-01"), url: "https://www.alibaba.com/product-insights/top-10-best-selling-tiktok-shop-products-2026-data-backed-seller-insights.html" },
+  { id: "joybuy_001", title: "京东Joybuy正式登陆欧洲六国，直接挑战Amazon", content: "京东于2026年3月16日在英国、法国、德国、荷兰、比利时和卢森堡推出Joybuy在线市场。", source: "Inside Retail Asia", type: "press", platform: "joybuy", date: new Date("2026-03-16"), url: "https://insideretail.asia/2026/03/16/targeting-amazon-jd-to-launch-joybuy-in-europe/" },
+  { id: "joybuy_002", title: "Joybuy推出JoyPlus订阅服务，定价策略激进对标竞争对手", content: "京东Joybuy推出JoyPlus订阅服务，定价策略激进以削弱现有竞争对手，标志着京东多年线上+线下战略的成果。", source: "The Pilot News", type: "press", platform: "joybuy", date: new Date("2026-03-16"), url: "https://business.thepilotnews.com/thepilotnews/article/marketminute-2026-3-16-beijings-retail-titan-lands-in-london-jdcom-challenges-amazons-european-hegemony-with-joybuy-launch" },
+  { id: "joybuy_003", title: "京东Joybuy欧洲扩张引发JD股价上涨，交易量飙升51.62%", content: "京东Joybuy欧洲上线当日，JD股价上涨0.60%，交易量飙升51.62%至3.9亿美元。", source: "Bitget News", type: "press", platform: "joybuy", date: new Date("2026-03-17"), url: "https://www.bitget.com/news/detail/12560605270118" },
+  { id: "joybuy_004", title: "Joybuy采用Competera定价平台助力欧洲市场拓展", content: "京东Joybuy与Competera定价平台合作，利用AI驱动的动态定价策略优化欧洲市场的价格竞争力。", source: "Retail Tech Hub", type: "press", platform: "joybuy", date: new Date("2026-04-07"), url: "https://retailtechinnovationhub.com/home/2026/4/8/jdcoms-joybuy-online-marketplace-taps-competera-pricing-platform-for-european-push" },
+  { id: "joybuy_005", title: "京东与西班牙BayMar合作，通过京东跨境平台引入优质进口商品", content: "京东与西班牙罐装海鲜品牌BayMar合作，通过JINGDONG Cross-border平台将优质进口商品引入中国市场。", source: "Simply Wall St", type: "press", platform: "joybuy", date: new Date("2026-03-21"), url: "https://simplywall.st/stocks/us/retail/nasdaq-jd/jdcom/news/how-investors-are-reacting-to-jdcom-jd-expanding-joybuy-in-e" }
+];
+// 初始化时间显示
+newsData.forEach(function(item) { item.time = formatTimeFromDate(item.date); });
+newsData.sort(function(a, b) { return b.date - a.date; });
 
 function displayNews(filter = 'all') {
     const newsGrid = document.getElementById('newsGrid');
     const timeFilter = document.getElementById('timeFilter')?.value || 'all';
     let filteredNews = newsData;
-    
-    if (!filteredNews || filteredNews.length === 0) {
-        newsGrid.innerHTML = '<div class="news-loading">⏳ 正在获取最新资讯...</div>';
-        return;
-    }
     
     // 平台和类型过滤
     if (filter !== 'all') {
@@ -763,12 +667,14 @@ setInterval(updateNews, 300000);
 
 // 页面加载时初始化资讯显示
 document.addEventListener('DOMContentLoaded', function() {
+    // 清除旧版缓存的资讯源，确保使用最新列表
+    var cachedVersion = localStorage.getItem('newsSourcesVersion');
+    if (cachedVersion !== 'v3.2') {
+        localStorage.removeItem('newsSources');
+        localStorage.setItem('newsSourcesVersion', 'v3.2');
+    }
     displayNews();
-    startAutoRefresh(); // 启动自动刷新
-    renderDashboard(); // 渲染竞对仪表盘
-    
-    // 页面卸载时停止自动刷新
-    window.addEventListener('beforeunload', stopAutoRefresh);
+    renderDashboard();
 });
 
 

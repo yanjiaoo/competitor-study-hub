@@ -1,0 +1,5 @@
+# Kiro settings (contains tokens)
+.kiro/settings/mcp.json
+
+# VS Code
+.vscode/

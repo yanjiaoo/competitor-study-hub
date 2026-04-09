@@ -452,7 +452,7 @@ function formatTimeFromDate(date) {
     return `${Math.floor(days/30)}个月前`;
 }
 
-let newsData = []; // 初始为空，由 news-api.js 获取真实数据填充
+var newsData = []; // 初始为空，由 news-api.js 获取真实数据填充
 
 function displayNews(filter = 'all') {
     const newsGrid = document.getElementById('newsGrid');

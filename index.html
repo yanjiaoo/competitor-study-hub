@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Competitor Study Hub - v2.1</title>
+    <title>Amazon Competitor Study Hub - v3.0</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -47,6 +47,7 @@
                 <li><a href="#flash" class="nav-link active">Bi-monthly Flash</a></li>
                 <li><a href="#reports" class="nav-link">Deep Research</a></li>
                 <li><a href="#news" class="nav-link">实时资讯</a></li>
+                <li><a href="#dashboard" class="nav-link">竞对仪表盘</a></li>
                 <li><a href="#search" class="nav-link">搜索</a></li>
             </ul>
         </div>
@@ -137,6 +138,32 @@
                 <!-- 报告内容将在这里显示 -->
             </div>
         </section>
+        <section id="dashboard" class="content-section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <div>
+                    <h2>竞对对比仪表盘</h2>
+                    <p class="section-desc">四大竞争对手核心指标一览</p>
+                </div>
+            </div>
+            <div class="dashboard-container">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th><span class="platform-tag platform-temu">Temu</span></th>
+                            <th><span class="platform-tag platform-shein">Shein</span></th>
+                            <th><span class="platform-tag platform-tiktok">TikTok Shop</span></th>
+                            <th><span class="platform-tag platform-joybuy">Joybuy</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboardBody">
+                    </tbody>
+                </table>
+            </div>
+            <p class="dashboard-note">⚠️ 数据来源于公开信息与内部研究，仅供参考。最后更新：<span id="dashboardUpdate"></span></p>
+        </section>
+
     </main>
 
     <!-- 资讯源管理弹窗 -->

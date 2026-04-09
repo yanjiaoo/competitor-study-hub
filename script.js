@@ -2,36 +2,22 @@
 const contentData = {
     flash: [
         {
+            id: 10,
+            title: "2026年4月双月度Competitor Study Flash",
+            date: "2026-04-09",
+            summary: "2026年4月双月度竞争对手研究分析，涵盖Q2市场动态与竞争格局变化。",
+            tags: ["双月报告", "竞争分析", "Q2市场", "出海电商"],
+            url: "https://amazon.sharepoint.com/:p:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/2026%20F2%20Seller%20Learning%20Bi-monthly%20Report%20%E2%80%93%20April.pptx?d=w218fa3827c0a4798a5890113ab6b2e61&csf=1&web=1&e=frkuoM",
+            internal: true
+        },
+        {
             id: 1,
             title: "2026年1月双月度Competitor Study Flash",
             date: "2026-01-12",
             summary: "2026年1月双月度竞争对手研究分析，包含最新市场趋势和竞争策略分析。",
             tags: ["双月报告", "竞争分析", "市场趋势", "出海电商"],
-            file: "files/2026 F2 Seller learning bi-monthly report - Jan.pdf"
-        },
-        {
-            id: 2,
-            title: "2025年3月双月度Competitor Study Flash",
-            date: "2025-03-14",
-            summary: "2025年3月双月度竞争对手研究分析，深入解析春季市场动态。",
-            tags: ["双月报告", "竞争分析", "春季市场", "政策影响"],
-            file: "files/2025 SL Seller learning bi-monthly report - March.pdf"
-        },
-        {
-            id: 3,
-            title: "2025年5月双月度Competitor Study Flash",
-            date: "2025-05-08",
-            summary: "2025年5月双月度竞争对手研究分析，关注夏季销售策略变化。",
-            tags: ["双月报告", "竞争分析", "夏季策略", "流量分析"],
-            file: "files/2025 SL Seller learning bi-monthly report - May.pdf"
-        },
-        {
-            id: 4,
-            title: "2025年7月双月度Competitor Study Flash",
-            date: "2025-07-11",
-            summary: "2025年7月双月度竞争对手研究分析，重点关注中期市场表现。",
-            tags: ["双月报告", "竞争分析", "Prime Day", "品牌策略"],
-            file: "files/2025 SL Seller learning bi-monthly report - July.pdf"
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/2026%20F2%20Seller%20learning%20bi-monthly%20report%20-%20Jan.pdf?csf=1&web=1&e=u9PDvK",
+            internal: true
         },
         {
             id: 5,
@@ -39,7 +25,35 @@ const contentData = {
             date: "2025-10-28",
             summary: "2025年10月双月度竞争对手研究分析，年末购物季前瞻分析。",
             tags: ["双月报告", "竞争分析", "购物季", "促销策略"],
-            file: "files/2025 SL Seller learning bi-monthly report - Oct.pdf"
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/2025%20SL%20Seller%20learning%20bi-monthly%20report%20-%20Oct.pdf?csf=1&web=1&e=71pZpm",
+            internal: true
+        },
+        {
+            id: 4,
+            title: "2025年7月双月度Competitor Study Flash",
+            date: "2025-07-11",
+            summary: "2025年7月双月度竞争对手研究分析，重点关注中期市场表现。",
+            tags: ["双月报告", "竞争分析", "Prime Day", "品牌策略"],
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/2025%20SL%20Seller%20learning%20bi-monthly%20report%20-%20July.pdf?csf=1&web=1&e=mpMDdB",
+            internal: true
+        },
+        {
+            id: 3,
+            title: "2025年5月双月度Competitor Study Flash",
+            date: "2025-05-08",
+            summary: "2025年5月双月度竞争对手研究分析，关注夏季销售策略变化。",
+            tags: ["双月报告", "竞争分析", "夏季策略", "流量分析"],
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/2025%20SL%20Seller%20learning%20bi-monthly%20report%20-%20May.pdf?csf=1&web=1&e=FCmm9l",
+            internal: true
+        },
+        {
+            id: 2,
+            title: "2025年3月双月度Competitor Study Flash",
+            date: "2025-03-14",
+            summary: "2025年3月双月度竞争对手研究分析，深入解析春季市场动态。",
+            tags: ["双月报告", "竞争分析", "春季市场", "政策影响"],
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/2025%20SL%20Seller%20learning%20bi-monthly%20report%20-%20March.pdf?csf=1&web=1&e=KWRyOp",
+            internal: true
         }
     ],
     reports: [
@@ -49,7 +63,8 @@ const contentData = {
             date: "2025-03-31",
             summary: "深度解析TEMU、TikTok Shop、Shein三大新兴电商平台的商业模式差异与核心竞争力。对比分析各平台的供应链策略、用户获取方式、盈利模式及市场定位，为Amazon制定竞争策略提供参考依据。",
             tags: ["深度研究", "商业模式", "TEMU", "TikTok", "Shein", "竞争分析"],
-            file: "files/TEMU TikTok Shein business model Brief.pptx"
+            url: "https://amazon.sharepoint.com/:p:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/TEMU%20TikTok%20Shein%20business%20model%20Brief.pptx?d=w8e028f624a2047789f005b0b4c8b2e5f&csf=1&web=1&e=OJZeca",
+            internal: true
         },
         {
             id: 742,
@@ -57,7 +72,8 @@ const contentData = {
             date: "2025-11-07",
             summary: "深入分析品牌在Amazon、Temu、Shein、TikTok等多个电商平台的营销策略差异，探讨跨平台品牌建设的最佳实践和挑战。研究涵盖流量获取、用户转化、品牌认知度等关键指标的对比分析。",
             tags: ["深度研究", "多渠道营销", "品牌分析", "跨平台策略"],
-            file: "files/品牌多渠道营销分析.pdf"
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/%E5%93%81%E7%89%8C%E5%A4%9A%E6%B8%A0%E9%81%93%E8%90%A5%E9%94%80%E5%88%86%E6%9E%90.pdf?csf=1&web=1&e=f3B5dc",
+            internal: true
         },
         {
             id: 741,
@@ -65,7 +81,8 @@ const contentData = {
             date: "2024-04-26",
             summary: "TEMU半托管模式解读及扶持政策",
             tags: ["深度研究", "TEMU", "半托管模式"],
-            file: "files/TEMU半托管模式解读及扶持政策.pdf"
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/TEMU%E5%8D%8A%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F%E8%A7%A3%E8%AF%BB%E5%8F%8A%E6%89%B6%E6%8C%81%E6%94%BF%E7%AD%96.pdf?csf=1&web=1&e=Q2Gjja",
+            internal: true
         },
         {
             id: 6,
@@ -73,7 +90,8 @@ const contentData = {
             date: "2025-11-25",
             summary: "分析对比多渠道(Temu、Shein、TikTok Shop)退货流程，识别最佳实践并提供可行性洞察，帮助降低时尚品类退货率的同时保持客户满意度。重点关注退货率对比分析、卖家情绪研究、成本效益评估，为优化Amazon C-return产品功能提供数据驱动的建议。",
             tags: ["深度研究", "多渠道对比", "退货分析", "时尚品类"],
-            file: "files/Multi Channel C-return study.pdf"
+            url: "https://amazon.sharepoint.com/:b:/r/sites/YanJiao%27site/Shared%20Documents/Seller%20learning%20AI%20Hub/Multi%20Channel%20C-return%20study.pdf?csf=1&web=1&e=laKOuB",
+            internal: true
         }
     ]
 };
@@ -128,9 +146,12 @@ function renderReports() {
 
 function createContentCard(item, type) {
     const typeLabel = type === 'flash' ? 'Bi-monthly Flash' : 'Deep Research';
+    const link = item.url || item.file || '#';
+    const internalBadge = item.internal ? '<span class="internal-badge">🔒 内网访问</span>' : '';
     
     return `
         <div class="content-card" data-id="${item.id}">
+            ${internalBadge}
             <h3>${item.title}</h3>
             <div class="card-meta">
                 <span class="card-date">${item.date}</span>
@@ -141,7 +162,7 @@ function createContentCard(item, type) {
                 ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
             <div class="card-actions">
-                <a href="${item.file}" class="btn btn-primary" target="_blank">查看详情</a>
+                <a href="${link}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">查看详情</a>
                 <button class="btn btn-secondary" onclick="shareContent(${item.id})">分享</button>
             </div>
         </div>
@@ -168,10 +189,9 @@ function setupNavigation() {
 }
 
 function showSection(sectionId) {
-    const sections = ['flash', 'reports', 'news', 'search'];
+    const sections = ['flash', 'reports', 'news', 'search', 'dashboard'];
     
     if (sectionId === 'search') {
-        // 只显示搜索结果
         sections.forEach(id => {
             const section = document.getElementById(id);
             if (section) {
@@ -179,7 +199,6 @@ function showSection(sectionId) {
             }
         });
     } else {
-        // 显示所有内容区域，但突出显示选中的
         sections.forEach(id => {
             const section = document.getElementById(id);
             if (section) {
@@ -193,13 +212,6 @@ function showSection(sectionId) {
                 }
             }
         });
-        
-        // 滚动到对应区域
-        if (sectionId === 'flash') {
-            document.getElementById('flash').scrollIntoView({ behavior: 'smooth' });
-        } else if (sectionId === 'reports') {
-            document.getElementById('reports').scrollIntoView({ behavior: 'smooth' });
-        }
     }
 }
 
@@ -440,12 +452,17 @@ function formatTimeFromDate(date) {
     return `${Math.floor(days/30)}个月前`;
 }
 
-let newsData = generateHistoricalData();
+let newsData = []; // 初始为空，由 news-api.js 获取真实数据填充
 
 function displayNews(filter = 'all') {
     const newsGrid = document.getElementById('newsGrid');
     const timeFilter = document.getElementById('timeFilter')?.value || 'all';
     let filteredNews = newsData;
+    
+    if (!filteredNews || filteredNews.length === 0) {
+        newsGrid.innerHTML = '<div class="news-loading">⏳ 正在获取最新资讯...</div>';
+        return;
+    }
     
     // 平台和类型过滤
     if (filter !== 'all') {
@@ -509,7 +526,14 @@ function filterByTime() {
 
 function getCurrentFilter() {
     const activeBtn = document.querySelector('.filter-btn.active');
-    return activeBtn ? activeBtn.textContent.toLowerCase() : 'all';
+    if (!activeBtn) return 'all';
+    const text = activeBtn.textContent.trim();
+    const filterMap = {
+        '全部': 'all', 'Temu': 'temu', 'Shein': 'shein', 
+        'TikTok': 'tiktok', 'Joybuy': 'joybuy',
+        '社交媒体': 'social', '官方网站': 'official', '新闻发布': 'press'
+    };
+    return filterMap[text] || 'all';
 }
 
 function updateNewsStats(count, filter, timeFilter) {
@@ -628,56 +652,11 @@ function deleteSource(id) {
     }
 }
 
-// 模拟实时更新资讯
+// 更新资讯 - 调用真实 API
 function updateNews() {
-    const platforms = ['temu', 'shein', 'tiktok', 'joybuy'];
-    const randomPlatform = platforms[Math.floor(Math.random() * platforms.length)];
-    
-    const mockNews = {
-        temu: [
-            'Temu推出新的卖家激励计划',
-            'Temu在欧洲市场份额持续增长',
-            'Temu与本地物流公司达成合作'
-        ],
-        shein: [
-            'Shein发布2025年可持续发展报告',
-            'Shein推出AR试衣功能',
-            'Shein扩展家居用品类目'
-        ],
-        tiktok: [
-            'TikTok Shop推出新的创作者分成计划',
-            'TikTok直播带货功能全面升级',
-            'TikTok Shop与品牌方深度合作'
-        ],
-        joybuy: [
-            'Joybuy优化跨境物流网络',
-            'Joybuy推出会员专享服务',
-            'Joybuy加强与京东生态整合'
-        ]
-    };
-    
-    const titles = mockNews[randomPlatform];
-    const randomTitle = titles[Math.floor(Math.random() * titles.length)];
-    
-    const newNewsItem = {
-        id: `${randomPlatform}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-        title: randomTitle,
-        content: `${randomTitle}的详细内容，展示${getPlatformLabel(randomPlatform)}平台的最新动态和发展趋势...`,
-        source: `${getPlatformLabel(randomPlatform)}官方`,
-        type: ['social', 'official', 'press'][Math.floor(Math.random() * 3)],
-        platform: randomPlatform,
-        time: '刚刚',
-        url: '#',
-        isNew: true
-    };
-    
-    newsData.unshift(newNewsItem);
-    if (newsData.length > 50) {
-        newsData = newsData.slice(0, 50); // 保持最新50条
+    if (typeof updateCompetitorNews === 'function') {
+        updateCompetitorNews();
     }
-    
-    displayNews();
-    showUpdateNotification(1);
 }
 
 // 显示更新通知
@@ -786,7 +765,103 @@ setInterval(updateNews, 300000);
 document.addEventListener('DOMContentLoaded', function() {
     displayNews();
     startAutoRefresh(); // 启动自动刷新
+    renderDashboard(); // 渲染竞对仪表盘
     
     // 页面卸载时停止自动刷新
     window.addEventListener('beforeunload', stopAutoRefresh);
 });
+
+
+// ==================== 竞对对比仪表盘 ====================
+const dashboardData = [
+    {
+        dimension: '🏢 母公司',
+        temu: 'PDD Holdings (拼多多)',
+        shein: 'SHEIN Group (独立)',
+        tiktok: 'ByteDance (字节跳动)',
+        joybuy: 'JD.com (京东)'
+    },
+    {
+        dimension: '🌍 主要市场',
+        temu: '北美、欧洲、东南亚、中东',
+        shein: '欧美、中东、拉美、东南亚',
+        tiktok: '美国、东南亚、英国',
+        joybuy: '欧美、东南亚'
+    },
+    {
+        dimension: '📦 商业模式',
+        temu: '全托管 + 半托管',
+        shein: '自营 + 平台 (Marketplace)',
+        tiktok: '直播电商 + 货架电商',
+        joybuy: '自营跨境 (京东生态)'
+    },
+    {
+        dimension: '🎯 核心品类',
+        temu: '全品类低价商品',
+        shein: '快时尚服饰为主',
+        tiktok: '服饰、美妆、家居',
+        joybuy: '3C数码、家电、品牌商品'
+    },
+    {
+        dimension: '💰 价格策略',
+        temu: '极致低价，工厂直供',
+        shein: '低价快时尚，小单快反',
+        tiktok: '中低价，内容驱动消费',
+        joybuy: '中高价，品质导向'
+    },
+    {
+        dimension: '🚚 物流时效',
+        temu: '7-15天（部分地区3-5天）',
+        shein: '7-12天',
+        tiktok: '3-8天（本地仓）',
+        joybuy: '5-10天（京东物流）'
+    },
+    {
+        dimension: '📊 卖家佣金',
+        temu: '全托管0%（平台定价）',
+        shein: '10-20%',
+        tiktok: '2-8%',
+        joybuy: '3-10%'
+    },
+    {
+        dimension: '📱 获客方式',
+        temu: '社交裂变 + 补贴拉新',
+        shein: 'KOL/KOC + SEO + 社媒',
+        tiktok: '短视频 + 直播 + 算法推荐',
+        joybuy: '京东生态导流 + 品牌合作'
+    },
+    {
+        dimension: '⚡ 核心优势',
+        temu: '极致供应链效率，价格优势',
+        shein: '柔性供应链，快速上新',
+        tiktok: '内容生态，兴趣电商',
+        joybuy: '品质保障，物流体系'
+    },
+    {
+        dimension: '⚠️ 主要挑战',
+        temu: '品质争议，合规压力',
+        shein: 'ESG争议，IPO不确定性',
+        tiktok: '政策风险，信任建设',
+        joybuy: '市场份额小，品牌认知低'
+    }
+];
+
+function renderDashboard() {
+    const tbody = document.getElementById('dashboardBody');
+    if (!tbody) return;
+    
+    tbody.innerHTML = dashboardData.map(row => `
+        <tr>
+            <td class="dimension-cell">${row.dimension}</td>
+            <td>${row.temu}</td>
+            <td>${row.shein}</td>
+            <td>${row.tiktok}</td>
+            <td>${row.joybuy}</td>
+        </tr>
+    `).join('');
+    
+    const updateEl = document.getElementById('dashboardUpdate');
+    if (updateEl) {
+        updateEl.textContent = new Date().toISOString().split('T')[0];
+    }
+}

@@ -1073,3 +1073,122 @@ body {
 .news-stats span:nth-child(2) {
     color: #ddd;
 }
+
+
+/* 内网访问标识 */
+.internal-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* 竞对对比仪表盘 */
+.dashboard-container {
+    overflow-x: auto;
+    margin-top: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.dashboard-table thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.dashboard-table thead th {
+    color: white;
+    padding: 16px 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.dashboard-table thead th:first-child {
+    text-align: left;
+    min-width: 130px;
+}
+
+.dashboard-table thead th .platform-tag {
+    font-size: 13px;
+    padding: 4px 12px;
+}
+
+.dashboard-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.dashboard-table tbody tr:hover {
+    background: #f8f9ff;
+}
+
+.dashboard-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.dashboard-table tbody td {
+    padding: 14px;
+    color: #444;
+    line-height: 1.5;
+    vertical-align: top;
+}
+
+.dashboard-table tbody td:not(:first-child) {
+    text-align: center;
+    font-size: 13px;
+}
+
+.dimension-cell {
+    font-weight: 600;
+    color: #2c3e50;
+    background: #fafbfc;
+    white-space: nowrap;
+}
+
+.dashboard-note {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-table {
+        font-size: 12px;
+    }
+    .dashboard-table thead th,
+    .dashboard-table tbody td {
+        padding: 10px 8px;
+    }
+    .dimension-cell {
+        white-space: normal;
+    }
+}
+
+
+/* 资讯加载状态 */
+.news-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+    font-size: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}

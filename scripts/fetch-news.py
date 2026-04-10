@@ -112,6 +112,9 @@ EXCLUDE_KEYWORDS = [
     'coupon code', 'promo code', 'discount code', 'haul video',
     '优惠券', '折扣码', '开箱', '穿搭分享',
     'stock price prediction', 'buy or sell stock',
+    'best products to sell', 'trending products',
+    'how to sell on', 'beginner guide', '新手教程',
+    'top 10 best selling', 'top 15',
 ]
 
 

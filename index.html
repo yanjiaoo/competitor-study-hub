@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Competitor Study Hub - v3.1</title>
+    <title>Seller Learning Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
             <div class="header-content">
                 <div class="logo-section">
                     <div class="logo-icon">📊</div>
-                    <h1>Competitor Study Hub</h1>
+                    <h1>Seller Learning Hub</h1>
                 </div>
                 <div class="stats-cards">
                     <div class="stat-card">
@@ -43,7 +43,11 @@
 
     <nav class="nav">
         <div class="container">
-            <ul>
+            <div class="board-switcher">
+                <button class="board-btn active" onclick="switchBoard('competitor')">📊 Competitor Study</button>
+                <button class="board-btn" onclick="switchBoard('vos')">🗣️ VOS 卖家热议</button>
+            </div>
+            <ul id="competitorNav">
                 <li><a href="#flash" class="nav-link active">Bi-monthly Flash</a></li>
                 <li><a href="#reports" class="nav-link">Deep Research</a></li>
                 <li><a href="#news" class="nav-link">实时资讯</a></li>
@@ -175,6 +179,27 @@
 
     </main>
 
+    <!-- VOS 卖家热议板块 -->
+    <div id="vosBoard" class="container" style="display:none;">
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon">🗣️</div>
+                <div>
+                    <h2>VOS 卖家热议</h2>
+                    <p class="section-desc">来自卖家论坛、社媒的核心热议问题</p>
+                </div>
+            </div>
+            <div class="vos-meta">
+                <span>数据来源：亚马逊官方卖家论坛、知无不言、卖家之家、Reddit r/FBA、AMZ123</span>
+            </div>
+            <div class="vos-legend">
+                <span class="verify-tag verify-official">✅ 官方已核实</span>
+                <span class="verify-tag verify-unconfirmed">⚠️ 卖家热议待官方全量公告</span>
+            </div>
+            <div id="vosGrid"></div>
+        </section>
+    </div>
+
     <!-- 资讯源管理弹窗 -->
     <div id="sourceManagerModal" class="modal">
         <div class="modal-content">
@@ -211,7 +236,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Competitor Study Hub. Amazon内部使用.</p>
+            <p>&copy; 2025 Seller Learning Hub. Amazon内部使用.</p>
         </div>
     </footer>
 

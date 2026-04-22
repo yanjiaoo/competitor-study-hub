@@ -1240,3 +1240,216 @@ body {
     margin-left: 6px;
     white-space: nowrap;
 }
+
+
+/* 板块切换器 */
+.board-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0 6px;
+}
+
+.board-btn {
+    padding: 8px 20px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.board-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: #667eea;
+}
+
+.board-btn:hover:not(.active) {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+#competitorNav {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+/* VOS 卖家热议样式 */
+.vos-meta {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.vos-legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.verify-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.verify-official {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.verify-unconfirmed {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.vos-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 4px solid #ff9900;
+}
+
+.vos-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.vos-rank {
+    background: linear-gradient(135deg, #232f3e, #ff9900);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.vos-date {
+    font-size: 12px;
+    color: #999;
+    margin-left: auto;
+}
+
+.vos-title {
+    font-size: 17px;
+    color: #232f3e;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.vos-summary {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.vos-voices {
+    background: #f8f9fa;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.vos-voices h4 {
+    font-size: 14px;
+    color: #232f3e;
+    margin-bottom: 8px;
+}
+
+.vos-voices ul {
+    list-style: none;
+    padding: 0;
+}
+
+.vos-voices li {
+    font-size: 13px;
+    color: #444;
+    margin: 6px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.vos-voices li::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    color: #ff9900;
+    font-weight: bold;
+}
+
+.voice-source {
+    font-weight: 600;
+    color: #232f3e;
+}
+
+.vos-compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.vos-compare th {
+    background: #232f3e;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.vos-compare td {
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+}
+
+.vos-compare tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.vos-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.vos-link {
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+}
+
+.vos-link:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .board-switcher {
+        flex-direction: column;
+        align-items: center;
+    }
+    .vos-card {
+        padding: 16px;
+    }
+    .vos-compare {
+        font-size: 12px;
+    }
+}

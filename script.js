@@ -821,3 +821,81 @@ function renderDashboard() {
         updateEl.textContent = new Date().toISOString().split('T')[0];
     }
 }
+
+
+// ==================== 板块切换 ====================
+function switchBoard(board) {
+    var competitorSections = document.querySelectorAll('main.container');
+    var vosBoard = document.getElementById('vosBoard');
+    var competitorNav = document.getElementById('competitorNav');
+    var btns = document.querySelectorAll('.board-btn');
+    
+    btns.forEach(function(b) { b.classList.remove('active'); });
+    
+    if (board === 'vos') {
+        competitorSections.forEach(function(s) { s.style.display = 'none'; });
+        vosBoard.style.display = 'block';
+        competitorNav.style.display = 'none';
+        btns[1].classList.add('active');
+        loadVOSData();
+    } else {
+        competitorSections.forEach(function(s) { s.style.display = 'block'; });
+        vosBoard.style.display = 'none';
+        competitorNav.style.display = 'flex';
+        btns[0].classList.add('active');
+    }
+}
+
+// ==================== VOS 卖家热议 ====================
+var vosData = [];
+
+function loadVOSData() {
+    if (vosData.length > 0) {
+        renderVOS();
+        return;
+    }
+    fetch('vos-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            vosData = data;
+            renderVOS();
+        })
+        .catch(function(e) {
+            console.error('加载VOS数据失败:', e);
+            document.getElementById('vosGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据</p>';
+        });
+}
+
+function renderVOS() {
+    var grid = document.getElementById('vosGrid');
+    grid.innerHTML = vosData.map(function(item) {
+        var verifyClass = item.verified === 'official' ? 'verify-official' : 'verify-unconfirmed';
+        var verifyText = item.verified === 'official' ? '✅ 官方已核实' : '⚠️ 待官方全量公告';
+        
+        var voicesHtml = item.sellerVoices ? item.sellerVoices.map(function(v) {
+            return '<li><span class="voice-source">' + v.source + '：</span>' + v.content + '</li>';
+        }).join('') : '';
+        
+        var comparisonHtml = item.comparison ? '<table class="vos-compare"><thead><tr><th>维度</th><th>Before</th><th>After</th></tr></thead><tbody>' +
+            item.comparison.map(function(c) {
+                return '<tr><td>' + c.dimension + '</td><td>' + c.before + '</td><td>' + c.after + '</td></tr>';
+            }).join('') + '</tbody></table>' : '';
+        
+        var linksHtml = item.links ? item.links.map(function(l) {
+            return '<a href="' + l.url + '" target="_blank" class="vos-link">' + l.label + ' →</a>';
+        }).join(' ') : '';
+        
+        return '<div class="vos-card">' +
+            '<div class="vos-card-header">' +
+                '<span class="vos-rank">TOP' + item.rank + '</span>' +
+                '<span class="verify-tag ' + verifyClass + '">' + verifyText + '</span>' +
+                '<span class="vos-date">' + item.effectDate + '</span>' +
+            '</div>' +
+            '<h3 class="vos-title">' + item.title + '</h3>' +
+            '<p class="vos-summary">' + item.summary + '</p>' +
+            (voicesHtml ? '<div class="vos-voices"><h4>卖家声音</h4><ul>' + voicesHtml + '</ul></div>' : '') +
+            comparisonHtml +
+            (linksHtml ? '<div class="vos-links">' + linksHtml + '</div>' : '') +
+        '</div>';
+    }).join('');
+}

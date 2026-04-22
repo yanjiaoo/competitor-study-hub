@@ -1,0 +1,112 @@
+[
+  {
+    "id": "vos_001",
+    "rank": 1,
+    "title": "亚马逊全球站点3月12日全面执行DD+7资金预留新政，回款周期最长延长30天",
+    "verified": "official",
+    "effectDate": "2026-03-12",
+    "summary": "所有订单货款在商品妥投后需额外冻结7天。FBA回款延长至8-9天，FBM延长至20-30天，月销百万美金卖家额外资金占用超20万美金。",
+    "sellerVoices": [
+      {"source": "知无不言", "content": "月销50万美金，现在要多压近10万美金的货款，现金流直接要断了"},
+      {"source": "Reddit r/FBA", "content": "FBM自发货回款周期直接翻倍，小卖家根本扛不住"},
+      {"source": "卖家之家", "content": "平台把退款风险全转嫁给卖家，我们已经开始收缩非核心品类备货"}
+    ],
+    "comparison": [
+      {"dimension": "FBA回款周期", "before": "平均3-5天", "after": "平均8-9天"},
+      {"dimension": "FBM回款周期", "before": "平均7-14天", "after": "平均20-30天"},
+      {"dimension": "资金占用(月销100万)", "before": "约30万美金", "after": "新增20-25万美金"}
+    ],
+    "links": [
+      {"label": "亚马逊帮助中心-付款政策", "url": "https://sellercentral.amazon.com/help/hub/200380620"},
+      {"label": "AMZ123政策解读", "url": "https://m.amz123.com/t/1pyPezpH"}
+    ]
+  },
+  {
+    "id": "vos_002",
+    "rank": 2,
+    "title": "3月31日起亚马逊终止FBA共享库存政策，六大站点贴标规则全面重构",
+    "verified": "official",
+    "effectDate": "2026-03-31",
+    "summary": "覆盖美、加、墨、欧、澳、日六大站点，取消共享库存池。品牌卖家带有效GTIN可免贴FNSKU，非品牌卖家必须全量贴标否则拒收。从根源遏制跟卖乱象。",
+    "sellerVoices": [
+      {"source": "知无不言", "content": "终于不用被跟卖蹭库存了，之前跟卖发劣质货差评全算在我们头上"},
+      {"source": "卖家之家", "content": "几千个SKU全要重新贴标，人工和物料成本直接涨了好几万"},
+      {"source": "Reddit r/FBA", "content": "已经在清非品牌的铺货SKU了，根本扛不住这个成本"}
+    ],
+    "comparison": [
+      {"dimension": "库存管理", "before": "同GTIN共享库存池，随机发货", "after": "所有卖家库存100%独立存放"},
+      {"dimension": "品牌卖家贴标", "before": "需粘贴FNSKU标签", "after": "有效GTIN可免贴FNSKU"},
+      {"dimension": "非品牌卖家", "before": "可免贴标入共享库存池", "after": "必须强制贴FNSKU，否则拒收"}
+    ],
+    "links": [
+      {"label": "亚马逊帮助中心-FBA条形码要求", "url": "https://sellercentral.amazon.com/help/hub/200141500"},
+      {"label": "AMZ123政策解读", "url": "https://m.amz123.com/t/wTGdKFdY"}
+    ]
+  },
+  {
+    "id": "vos_003",
+    "rank": 3,
+    "title": "3月5日亚马逊全球电商系统大规模宕机，黄金时段订单停摆广告持续扣费",
+    "verified": "official",
+    "effectDate": "2026-03-05",
+    "summary": "宕机持续约4小时，覆盖全球核心站点。卖家订单量暴跌40%-100%，广告系统仍正常扣费，单卖家最高损失超2万美金。",
+    "sellerVoices": [
+      {"source": "知无不言", "content": "爆款正好在宕机时段做秒杀，4小时一单没出，广告费花了3000多美金"},
+      {"source": "AMZ123", "content": "3个小时全店零单，ACoS直接冲到80%"},
+      {"source": "Reddit r/FBA", "content": "半年内第二次大规模宕机，平台技术团队裁员后稳定性越来越差"}
+    ],
+    "comparison": [
+      {"dimension": "订单转化", "before": "黄金时段正常出单", "after": "订单量暴跌40%-100%"},
+      {"dimension": "广告系统", "before": "曝光点击转化正常", "after": "持续扣费但转化几乎为零"},
+      {"dimension": "后台操作", "before": "正常操作", "after": "全面瘫痪，无法关停广告"}
+    ],
+    "links": [
+      {"label": "AWS服务状态", "url": "https://status.aws.amazon.com/"},
+      {"label": "中国新闻网报道", "url": "https://wap.chinanews.com/wap/detail/chs/zw/jw661738.shtml"}
+    ]
+  },
+  {
+    "id": "vos_004",
+    "rank": 4,
+    "title": "3月4日亚马逊更新BSA协议，新增AI/自动化工具最严监管规则",
+    "verified": "official",
+    "effectDate": "2026-03-04",
+    "summary": "新增Agent Policy，禁止使用平台数据训练AI模型，要求工具标识自动化身份，平台可随时切断不合规工具。全球超300万卖家、数千家工具商受影响。",
+    "sellerVoices": [
+      {"source": "知无不言", "content": "第三方调价工具已发通知，不合规随时被切断，只能换回手动调价"},
+      {"source": "卖家之家", "content": "禁止用平台数据训练AI，市面上大部分选品工具都要凉"},
+      {"source": "Reddit r/FBA", "content": "平台想把第三方工具都清出去，推自己的AI工具"}
+    ],
+    "comparison": [
+      {"dimension": "自动化工具监管", "before": "无专门协议条款", "after": "新增Agent Policy，具备法律约束力"},
+      {"dimension": "数据使用", "before": "无明确禁止", "after": "禁止使用平台数据训练AI模型"},
+      {"dimension": "平台处置权", "before": "仅能处置卖家账号", "after": "可随时切断工具API访问权限"}
+    ],
+    "links": [
+      {"label": "亚马逊帮助中心-BSA协议", "url": "https://sellercentral.amazon.com/help/hub/200386250"},
+      {"label": "AMZ123政策解读", "url": "https://m.amz123.com/t/XOuMo43q"}
+    ]
+  },
+  {
+    "id": "vos_005",
+    "rank": 5,
+    "title": "2026春季大促多站点规则重大调整，流量分配逻辑重构",
+    "verified": "unconfirmed",
+    "effectDate": "2026-03-15",
+    "summary": "美国站新增10天预热期，LD/BD秒杀免提报费，Prime专享折扣取消专属标志。流量向秒杀类促销大幅倾斜，卖家促销策略需全面调整。",
+    "sellerVoices": [
+      {"source": "知无不言", "content": "Prime折扣不显示标志了，只能转去报秒杀，还好今年秒杀免费了"},
+      {"source": "卖家之家", "content": "新增10天预热期，之前的运营节奏全乱了"},
+      {"source": "Reddit r/FBA", "content": "免费秒杀坑位报的人巨多，小卖家根本抢不到好时段"}
+    ],
+    "comparison": [
+      {"dimension": "美国站节奏", "before": "无预热期，仅7天正式期", "after": "10天预热+7天正式期"},
+      {"dimension": "秒杀费用", "before": "LD/BD需支付提报费", "after": "LD/BD全免提报费"},
+      {"dimension": "Prime折扣", "before": "显示专属标志，会员流量加权", "after": "取消标志，无额外流量加权"}
+    ],
+    "links": [
+      {"label": "亚马逊帮助中心-促销规则", "url": "https://sellercentral.amazon.com/help/hub/200338300"},
+      {"label": "AMZ123春促解读", "url": "https://m.amz123.com/t/KRPU6J9q"}
+    ]
+  }
+]

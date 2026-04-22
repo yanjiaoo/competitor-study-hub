@@ -408,16 +408,12 @@ function displayNews(filter = 'all') {
     };
     
     newsGrid.innerHTML = filteredNews.map(news => `
-        <div class="news-item" data-type="${news.type}" data-platform="${news.platform}" data-dimension="${news.dimension || ''}">
-            <div class="news-header">
-                <span class="news-source">${news.source}</span>
-                <span class="platform-tag platform-${news.platform}">${getPlatformLabel(news.platform)}</span>
-                ${news.dimension ? `<span class="dimension-tag">${dimensionLabels[news.dimension] || news.dimension}</span>` : ''}
-                <span class="news-time">${news.time}</span>
-            </div>
-            <div class="news-title">${news.title}</div>
-            <div class="news-content">${news.content}</div>
-            <a href="${news.url}" target="_blank" class="news-link">查看原文 →</a>
+        <div class="news-row" data-type="${news.type}" data-platform="${news.platform}" data-dimension="${news.dimension || ''}">
+            <span class="news-row-date">${news.date instanceof Date ? news.date.toISOString().split('T')[0] : news.date}</span>
+            <span class="platform-tag platform-${news.platform}">${getPlatformLabel(news.platform)}</span>
+            ${news.dimension ? `<span class="dimension-tag">${dimensionLabels[news.dimension] || ''}</span>` : ''}
+            <a href="${news.url}" target="_blank" class="news-row-title" title="${news.content}">${news.title}</a>
+            <span class="news-row-source">${news.source}</span>
         </div>
     `).join('');
     

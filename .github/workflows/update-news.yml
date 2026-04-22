@@ -1,4 +1,4 @@
-name: 自动更新竞对资讯
+name: 自动更新资讯（Competitor + VOS）
 
 on:
   schedule:
@@ -21,20 +21,23 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: 抓取最新资讯
+      - name: 抓取竞对资讯
         run: python scripts/fetch-news.py
 
-      - name: 更新 script.js 中的资讯数据
+      - name: 注入竞对资讯到 script.js
         run: python scripts/inject-news.py
+
+      - name: 抓取VOS卖家热议
+        run: python scripts/fetch-vos.py
 
       - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news-data.json script.js
+          git add news-data.json script.js vos-data.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "auto: 更新竞对资讯 $(date +%Y-%m-%d)"
+            git commit -m "auto: 更新Competitor资讯+VOS卖家热议 $(date +%Y-%m-%d)"
             git push
           fi

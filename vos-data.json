@@ -1,11 +1,12 @@
 [
   {
-    "id": "vos_auto_001",
+    "id": "vos_001",
     "rank": 1,
     "title": "卖家之家",
     "verified": "unconfirmed",
     "effectDate": "2026-04-22",
     "summary": "卖家之家  卖家之家",
+    "source": "卖家之家",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -16,12 +17,30 @@
     ]
   },
   {
-    "id": "vos_auto_002",
+    "id": "vos_002",
     "rank": 2,
-    "title": "2026亚马逊Prime Day新规全解析：价格与折扣要求全面升级，卖家该如何破局？",
+    "title": "2026跨境新卖家“开挂”秘籍：亚马逊AI数字员工+官方路径，首年销量暴增10倍",
+    "verified": "unconfirmed",
+    "effectDate": "2026-04-21",
+    "summary": "2026跨境新卖家“开挂”秘籍：亚马逊AI数字员工+官方路径，首年销量暴增10倍？！  雨果跨境",
+    "source": "雨果跨境",
+    "sellerVoices": [],
+    "comparison": [],
+    "links": [
+      {
+        "label": "雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE4yT3NLekJQVlo0bU9Ya1l1MzJSdjRRSDUxbnNEVTNHN1FVaHVDLTFqZDVrYjZYVHlBZlZTaE1OcXJCTHBmbWxyLTNra1Y?oc=5"
+      }
+    ]
+  },
+  {
+    "id": "vos_003",
+    "rank": 3,
+    "title": "2026亚马逊Prime Day新规全解析：价格与折扣要求全面升级，卖家该如何破局",
     "verified": "unconfirmed",
     "effectDate": "2026-04-21",
     "summary": "2026亚马逊Prime Day新规全解析：价格与折扣要求全面升级，卖家该如何破局？  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -32,44 +51,13 @@
     ]
   },
   {
-    "id": "vos_auto_003",
-    "rank": 3,
-    "title": "Jelly Lean (URGENT REPORT) Is It Legit? Complaints,",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-21",
-    "summary": "Jelly Lean (URGENT REPORT) Is It Legit? Complaints,  GlobeNewswire",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "GlobeNewswire",
-        "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxPdFZkU1pJTFVvOU92TkJJV3g3dkNSc0pSdXhvZ2o2QllOVzRvMnhKNXl1Nl9PVlhYWC1tazh1SWpCSWgxN2Q4TE8wTVRIdG1NMVZ3ZFJnNHNnSGRpVnh6ZXV5RGltZjh2OXd6QmRjMjNMZ0E0SklpcnFmV3lBLUsybEhFSXFuUlhQOENKQ1JXbzhvZDBmLVNldG4waW5zRDFSQTZKRlpSZmFVYUE4eWttWFhaZDZCZkh6SXllM2tMTFN4SmJ1WHZXZzItX1ZQX0Q2SzVQdTFnNWtjamxIWGFNRzVsWVBtRzFmb0p3M3RxUDhfTkJwZEJ4Q1drZEpGbFNyOEd4N09UcUQwS1l0ZmxJVUJWUEdLQQ?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_004",
+    "id": "vos_004",
     "rank": 4,
-    "title": "Amazon to invest up to another $25 billion in Anthropic as part of AI infrastructure deal",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-20",
-    "summary": "Amazon to invest up to another $25 billion in Anthropic as part of AI infrastructure deal  CNBC",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "CNBC",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdENHZTV6MTdDdGFScHBGUTJEandaV2pqb3ZJWWFVTHpJNUtsNWJJUVBWZFQyQ05MSWVYOFcwQ05Keks4R1FEWVNENkw4VTRHOEZjXzkwLUNIZ1pjd1ZRNUpfSmVFZTZWQ21HX09jQzdUSUJhS1lDTzZPWFg2QmpVeWhZdHlOZGRoVVRkOEdOZzNSNWFDRjFMSTZXdk1LX2ZjcFVJWmZ1YUQ3d9IBrwFBVV95cUxNVWN2VjU0RFV1OFl6R1cyVXlpQ2JKaTdfQndJQzBuZ0tuQVZlUUJJQ09WMDAwY2NYdk51UWdyZElSTGkwZHVXX1JPSVBTWE5rbzBURWRGaFhtZHR1OFN5WXJvRlA3RlMtX2Z5SjRnTGRZZjFkVDRtcTFtZmNobVk2MzRwNDdHUkZpdl92c21HUkF6eWZrSjFTUTRSWmdNajhpcW1MSm9OTmU1THpGRlJF?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_005",
-    "rank": 5,
-    "title": "卖家警惕，亚马逊严查打击Vine定制评论？",
+    "title": "卖家警惕，亚马逊严查打击Vine定制评论",
     "verified": "unconfirmed",
     "effectDate": "2026-04-19",
     "summary": "卖家警惕，亚马逊严查打击Vine定制评论？  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -80,12 +68,13 @@
     ]
   },
   {
-    "id": "vos_auto_006",
-    "rank": 6,
-    "title": "亚马逊严打“降佣金和定制Vine”？来看调查→",
+    "id": "vos_005",
+    "rank": 5,
+    "title": "亚马逊严打“降佣金和定制Vine”来看调查→",
     "verified": "unconfirmed",
     "effectDate": "2026-04-19",
     "summary": "亚马逊严打“降佣金和定制Vine”？来看调查→  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -96,44 +85,30 @@
     ]
   },
   {
-    "id": "vos_auto_007",
+    "id": "vos_006",
+    "rank": 6,
+    "title": "亚马逊正式开征“燃油附加费”：面向欧盟与北美站点 适用于FBA及MCF卖家",
+    "verified": "unconfirmed",
+    "effectDate": "2026-04-18",
+    "summary": "亚马逊正式开征“燃油附加费”：面向欧盟与北美站点 适用于FBA及MCF卖家  亿邦动力网",
+    "source": "亿邦动力网",
+    "sellerVoices": [],
+    "comparison": [],
+    "links": [
+      {
+        "label": "亿邦动力网",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE16cWljSGdmTEFNMFVUcmNtNFROY1dYMmZaMTJicm5QVVVidDNFZUQ3bGplaldCRllqaXQ4cnlqb2IyVzNEaHI3Tkl1eVhnVWU1azdOZ0RR?oc=5"
+      }
+    ]
+  },
+  {
+    "id": "vos_007",
     "rank": 7,
-    "title": "Amazon's Seller Assistant now checks review sharing eligibility per variation",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-18",
-    "summary": "Amazon's Seller Assistant now checks review sharing eligibility per variation  PPC Land",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "PPC Land",
-        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOTF9IVEFtYW9WYnhBeldib01fWU84UGthUXJVN2lxUEJHakZWMFhIeEc0S2xuRnhUR1pwRlU1RUllU1VmMkhLMjNfQkJaanpfczhrUVpybERnRTlPNl9kUjBVTXJrNm5TeDFtRnhBN0owSlZzLVBKbXd0MnVkUnMtQlZ1cVlSLVdnaEtyS3BLSE0tSHBaTWwwVXFR?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_008",
-    "rank": 8,
-    "title": "Amazon agency CEO explains why he turned down a retail brand in 2026",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-18",
-    "summary": "Amazon agency CEO explains why he turned down a retail brand in 2026  PPC Land",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "PPC Land",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQOXl4ZHFyOTRRWFF4YlBvY29NSm5aQ2FBMzltblpOT2RGUG5yelJvanpRNXNRdk5aNTYyckFPZWlsMmFaZmJoMzZzVWRGQ0Z3NHR4RzhYLTZZVlpCLTNqVElYcWZzY0prd3VTMG9Qb0MxcXdGWmxINHVxRkJtaVp6NVpIQWRhN19RVDMwdHlYQQ?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_009",
-    "rank": 9,
     "title": "2026年亚马逊卖家必避的五大坑：合规扫号、评论拆分、成本上涨、资金周转、税务风险",
     "verified": "unconfirmed",
     "effectDate": "2026-04-18",
     "summary": "2026年亚马逊卖家必避的五大坑：合规扫号、评论拆分、成本上涨、资金周转、税务风险  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -144,28 +119,13 @@
     ]
   },
   {
-    "id": "vos_auto_010",
-    "rank": 10,
-    "title": "亚马逊德国站免费配送门槛上调至 49 欧元",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-18",
-    "summary": "亚马逊德国站免费配送门槛上调至 49 欧元  白鲸出海",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "白鲸出海",
-        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4xYl9ZUXhCUVFnZVVjRGVxYnQxYzFzdHU2RUlKck1YM0FzREhXZ2JPNEZ1eGxaSnVfWnVvTTRFSldpOTJPNC1vaXB1bi1CNVhTMFZOaDU3Tkw?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_011",
-    "rank": 11,
-    "title": "PPE合规大考来袭：德西站安全鞋新政倒计时！2026.5.31前未达标，链接强制下架！",
+    "id": "vos_008",
+    "rank": 8,
+    "title": "PPE合规大考来袭：德西站安全鞋新政倒计时2026.5.31前未达标，链接强制下架",
     "verified": "unconfirmed",
     "effectDate": "2026-04-18",
     "summary": "PPE合规大考来袭：德西站安全鞋新政倒计时！2026.5.31前未达标，链接强制下架！  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -176,12 +136,13 @@
     ]
   },
   {
-    "id": "vos_auto_012",
-    "rank": 12,
+    "id": "vos_009",
+    "rank": 9,
     "title": "亚马逊(AMZN.US)新政引发卖方“现金流危机”，大型商户发起24小时广告抵制行动",
     "verified": "unconfirmed",
     "effectDate": "2026-04-16",
     "summary": "亚马逊(AMZN.US)新政引发卖方“现金流危机”，大型商户发起24小时广告抵制行动  新浪财经",
+    "source": "新浪财经",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -192,28 +153,13 @@
     ]
   },
   {
-    "id": "vos_auto_013",
-    "rank": 13,
-    "title": "Amazon Sellers Boycott Ads 04/16/2026",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-15",
-    "summary": "Amazon Sellers Boycott Ads 04/16/2026  MediaPost",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "MediaPost",
-        "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPazQxOW1lU2twMHcyd2g1bUhaUjVaVFhMWnBwd0lnbS1rMFlGaGFMR2h1RnEwVVNlaUxoS1BXMTdUTjRnZ3hmNmh0MDRwT1YzN2pNMnA5WEx0WnB1X2xBMm5URHVHWTJkcDdCMVVtaUNjTGtsVTFNTEJ6RmMwY1laeklvX1FwSHFScDVoZG5n?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_014",
-    "rank": 14,
+    "id": "vos_010",
+    "rank": 10,
     "title": "亚马逊后台的页面布局更新",
     "verified": "unconfirmed",
     "effectDate": "2026-04-15",
     "summary": "亚马逊后台的页面布局更新  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -224,76 +170,115 @@
     ]
   },
   {
-    "id": "vos_auto_015",
-    "rank": 15,
-    "title": "亚马逊FBA配送费新政策4月17日生效",
+    "id": "vos_011",
+    "rank": 11,
+    "title": "成本占比飙升到50%卖家深陷“涨价潮”",
     "verified": "unconfirmed",
     "effectDate": "2026-04-14",
-    "summary": "亚马逊FBA配送费新政策4月17日生效  雨果跨境",
+    "summary": "成本占比飙升到50%！卖家深陷“涨价潮”  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
       {
         "label": "雨果跨境",
-        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1HNjFNR2tydDhGTWo4emh3aGxBNmFTM1diUmpEcHl2a2hHemEzclpPSEFaQnhwdlpjMHoxVnA0X2hIc2tZSm1JNk1jdjg?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE12a0tmMjRTc0tCSFRlUVhXSmJ5b3pXVUIybjB0MlIxSG90c21rNnBRNi05anMwOTIyQWtIM1VTbGJlRjNuT0kyblA4T08?oc=5"
       }
     ]
   },
   {
-    "id": "vos_auto_016",
+    "id": "vos_012",
+    "rank": 12,
+    "title": "别瞎选品了智能家电7大黄金品类，亚马逊卖家直接抄作业",
+    "verified": "unconfirmed",
+    "effectDate": "2026-04-10",
+    "summary": "别瞎选品了！智能家电7大黄金品类，亚马逊卖家直接抄作业丨2026跨境选品内参③  雨果跨境",
+    "source": "雨果跨境",
+    "sellerVoices": [],
+    "comparison": [],
+    "links": [
+      {
+        "label": "雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1aUWlpRDV0YWlOdV9nVEFTTnQyV0Q4aktrU3lhSDRVQkpyYm15SlB0ZWZ4cWZ4SUpQWTdwUTh3aXBucm1VY2Noa3VRdjc?oc=5"
+      }
+    ]
+  },
+  {
+    "id": "vos_013",
+    "rank": 13,
+    "title": "2026 Prime Day提报开启：三大规则变了，你的备货计划跟上了吗",
+    "verified": "unconfirmed",
+    "effectDate": "2026-04-10",
+    "summary": "2026 Prime Day提报开启：三大规则变了，你的备货计划跟上了吗？  雨果跨境",
+    "source": "雨果跨境",
+    "sellerVoices": [],
+    "comparison": [],
+    "links": [
+      {
+        "label": "雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE95bldKb3lWeUNPejZCek9Mb1FuWUZ5cktVME5KMmdMUHdzSTl5eTZKYmt1VWl2Y1FlblpBTDc4cTg2SGk4SEs4UlhPRUM?oc=5"
+      }
+    ]
+  },
+  {
+    "id": "vos_014",
+    "rank": 14,
+    "title": "亚马逊加码欧洲市场：已对中国卖家开放10个站点新卖家入驻降费率- 跨境电商",
+    "verified": "unconfirmed",
+    "effectDate": "2026-04-08",
+    "summary": "亚马逊加码欧洲市场：已对中国卖家开放10个站点新卖家入驻降费率- 跨境电商  亿邦动力网",
+    "source": "亿邦动力网",
+    "sellerVoices": [],
+    "comparison": [],
+    "links": [
+      {
+        "label": "亿邦动力网",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5uQ0p1ZFVvTjEwNkVJbFhtLUtsQl9USWJKQ2s1MnlnOEd4WXRENTBCTUpJQTZUN2ZxM2RRMzZ2NlVibDhrcHBYVGRGRzY0amY1dXNsZ2V3?oc=5"
+      }
+    ]
+  },
+  {
+    "id": "vos_015",
+    "rank": 15,
+    "title": "卖家必看2026年全球跨境电商哪些值得做",
+    "verified": "unconfirmed",
+    "effectDate": "2026-04-02",
+    "summary": "卖家必看！2026年全球跨境电商哪些值得做？  雨果跨境",
+    "source": "雨果跨境",
+    "sellerVoices": [],
+    "comparison": [],
+    "links": [
+      {
+        "label": "雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBJS2VpU3pNSXN2akhhYXRNS3p4NnBuREkyZ25reWVPTHcwdkp5ZTg2TlNDX01zT3RVT3RueExTaFNDdHlSVS1Wdl9BZ3A?oc=5"
+      }
+    ]
+  },
+  {
+    "id": "vos_016",
     "rank": 16,
-    "title": "Amazon's anti-manipulation rules tested as buyer feedback threats spread",
+    "title": "亚马逊Prime会员日大促收费模式变更：固定费用改“预付+抽成”，卖家成本是涨是降",
     "verified": "unconfirmed",
-    "effectDate": "2026-04-09",
-    "summary": "Amazon's anti-manipulation rules tested as buyer feedback threats spread  PPC Land",
+    "effectDate": "2026-04-02",
+    "summary": "亚马逊Prime会员日大促收费模式变更：固定费用改“预付+抽成”，卖家成本是涨是降？  亿邦动力网",
+    "source": "亿邦动力网",
     "sellerVoices": [],
     "comparison": [],
     "links": [
       {
-        "label": "PPC Land",
-        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPS0I5eE9lNHJXM0gxZTR5N0RIYTRYTE1SYXVWYTNLYVJpWE9sY3JmLURSZ3pWeV9LaU1ZRHVjdk02N2FyOWE5eFV4V3Y4dWRjYlJ6X1Z6cEJmUE1LWm5iLUhnVFpFdFY2VUpuTVl2MlVHUGhIV1p1RWZDMWQ0enlDakc3b3g0X1A1X0RXc2l3ajdqUzQ?oc=5"
+        "label": "亿邦动力网",
+        "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5lRXVOQlRweGJaS1ptc0o2ODcwVnlBTktLS2Zlam1BOXFtTU9Ya3lucGg4VmpYTG14NGQ3SlUwdVg1NEF0R003YlN0VjEwWTEtWUJrR0Nn?oc=5"
       }
     ]
   },
   {
-    "id": "vos_auto_017",
+    "id": "vos_017",
     "rank": 17,
-    "title": "Amazon Sellers Face Cash Crunch As Fuel Charges, Loss Of Credit Card Option For Ad Fees Erode Margins",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-02",
-    "summary": "Amazon Sellers Face Cash Crunch As Fuel Charges, Loss Of Credit Card Option For Ad Fees Erode Margins  Value Added Resource",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "Value Added Resource",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPb1ZwNks4LWRiM2EtNEx6dFZfUTlpZEhqb3dBSDRLdzk5T0RMZk5veGdIN1MzeXNHblYxNTluRUJNUWdpY0Y0azBmT2N2TmNkTjVvWnF3STVQd2dTNDdqdFZIVW9Ebk1pdFgtNmVWajkwTGdUekRDdlVaZmxvclNIMlhvWQ?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_018",
-    "rank": 18,
-    "title": "Amazon to apply 3.5% fuel and logistics surcharge on fulfillment",
-    "verified": "unconfirmed",
-    "effectDate": "2026-04-02",
-    "summary": "Amazon to apply 3.5% fuel and logistics surcharge on fulfillment  Supply Chain Dive",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "Supply Chain Dive",
-        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNaENoeURvYTBSV0pWaDlHZjM1X1R1XzlVVkdBZzNwU3dXSElXUTVJWG9fLTcwTFZFSm5EYWYyZ21ydG56M0NNdjFtX0VWUXh0bF9GUzJSSWFaWHpBNkRucjZ1YWEtMFlLTF9FcmEwdmlXeXNSVU00dDdCUVExdWt0OE1JWUdRZVY5d0ZrNA?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_019",
-    "rank": 19,
-    "title": "重磅调整！2026年亚马逊日本站费用“大洗牌”",
+    "title": "调整2026年亚马逊日本站费用“大洗牌”",
     "verified": "unconfirmed",
     "effectDate": "2026-04-01",
     "summary": "重磅调整！2026年亚马逊日本站费用“大洗牌”  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -304,12 +289,13 @@
     ]
   },
   {
-    "id": "vos_auto_020",
-    "rank": 20,
+    "id": "vos_018",
+    "rank": 18,
     "title": "从入门到成长，亚马逊多举措支持卖家优化物流及运营成本 高效拓展全球跨境业务",
     "verified": "unconfirmed",
     "effectDate": "2026-03-31",
     "summary": "从入门到成长，亚马逊多举措支持卖家优化物流及运营成本 高效拓展全球跨境业务  潮新闻",
+    "source": "潮新闻",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -320,12 +306,13 @@
     ]
   },
   {
-    "id": "vos_auto_021",
-    "rank": 21,
+    "id": "vos_019",
+    "rank": 19,
     "title": "亚马逊库存新规倒计时",
     "verified": "unconfirmed",
     "effectDate": "2026-03-31",
     "summary": "亚马逊库存新规倒计时  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
@@ -336,146 +323,19 @@
     ]
   },
   {
-    "id": "vos_auto_022",
-    "rank": 22,
-    "title": "SC Supreme Court rules Amazon must pay state for uncollected back taxes",
+    "id": "vos_020",
+    "rank": 20,
+    "title": "3月政策风暴来袭：亚马逊四大新规齐发，卖家如何稳住现金流与流量",
     "verified": "unconfirmed",
-    "effectDate": "2026-03-18",
-    "summary": "SC Supreme Court rules Amazon must pay state for uncollected back taxes  SC Daily Gazette",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "SC Daily Gazette",
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPM2luVTdxZmFyczhYamR5dFo2ODRicEcxQTRnV094TlVKUEt5QUdpVmQzR2JXeXB3VHctSnVGa0pxVHlmd052U1pDR3l4X1ZtaXNoSFV4QVphcGUyQnhXb21OSjlSUXVDbnpJZzVMRXg4ZWVXM2VVU21Zdkk5TXJ5Q2c2NHk1Q3kxMDdXN0NIS05WdlJYUk45UFBSUWtTeVJybTVoMExzZE11OUdpSUtB?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_023",
-    "rank": 23,
-    "title": "Seller Central AI Remakes Data Analysis",
-    "verified": "unconfirmed",
-    "effectDate": "2026-03-05",
-    "summary": "Seller Central AI Remakes Data Analysis  Practical Ecommerce",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "Practical Ecommerce",
-        "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5pWktHbjFrVHFvNGtZOFFJTE9hckpXTmFzdFhGbGw3Z3JRZnpjSnd5eUdrcnhjRjBhYzh6TURaVVZZU3hmOFRBMWtsbDdtV1FqaHY4Y2E5ZUtRaXZxTG9ESDEwQUE4V21Qb2JaZHdLREhobUJjY0QxZi1GeWkzNGM?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_024",
-    "rank": 24,
-    "title": "Amazon launches AI-generated ‘canvas’ for sellers as e-commerce platforms race to add AI tools",
-    "verified": "unconfirmed",
-    "effectDate": "2026-03-03",
-    "summary": "Amazon launches AI-generated ‘canvas’ for sellers as e-commerce platforms race to add AI tools  GeekWire",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "GeekWire",
-        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVmh1Tlp5U25KREJmekJERXQxeGtjZEhNN3NaektiYlVoTXdNcDNObHdEUkF4UjZuMTIwcF9PY2tRU3NPNllrUVREUVF5R2Y5RkxHZkppamtRQ2diaUd6NnZGLUxCa2E5MUhQVk43QkRqNXpqMklKU05xUlJDMjFWRFZwWWNGbHlGZEdIR1Ezc2FaTzFMM1ZSZ0NvMzRvZ1k0OGtCYlM3Ui1nWlVwS3o4OGtLekhsTDhhV3A5Q3c2T3E?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_025",
-    "rank": 25,
-    "title": "2026入驻亚马逊北美站，官方提供了哪些福利政策？",
-    "verified": "unconfirmed",
-    "effectDate": "2026-03-03",
-    "summary": "2026入驻亚马逊北美站，官方提供了哪些福利政策？  雨果跨境",
+    "effectDate": "2026-03-27",
+    "summary": "3月政策风暴来袭：亚马逊四大新规齐发，卖家如何稳住现金流与流量？  雨果跨境",
+    "source": "雨果跨境",
     "sellerVoices": [],
     "comparison": [],
     "links": [
       {
         "label": "雨果跨境",
-        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9wa3ZHNFBqZnd4Zlp3Wk5CQ0lOTWtRWEdBSXFBVGIxTGdYbmJoajRtdFpTN0o2cURuWEE2X0JSa1JieXpJWTBwMExVNkI?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_026",
-    "rank": 26,
-    "title": "Amazon’s new AI experience helps sellers visualize and grow their business in real time—here's how it works",
-    "verified": "unconfirmed",
-    "effectDate": "2026-03-02",
-    "summary": "Amazon’s new AI experience helps sellers visualize and grow their business in real time—here's how it works  About Amazon",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "About Amazon",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNLVQyVTA5MUs4TklXWjZacXZMNXhHX19sTWxzLUpXa3hzcWhtZ0ZlQmd5WTR1T0VSQUFDWGpydDdESlA1VGp3OFd1TVhOaUlxWkZOdjljLWc3UTlsSldERF9JTmRyN3FYVGdhektOcmNJV1VHcDJkbWNTZFlRYXZZZWpEZWlzUUJLcE5XQTk4dnNidlBIMkFFSFk1SEVwS3Ja?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_027",
-    "rank": 27,
-    "title": "Amazon's MCF 2026 preferred pricing hides a $50K cap most sellers miss",
-    "verified": "unconfirmed",
-    "effectDate": "2026-02-27",
-    "summary": "Amazon's MCF 2026 preferred pricing hides a $50K cap most sellers miss  PPC Land",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "PPC Land",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQR0ozWDV2UVY5bDRocGVTM29vWmlkNjE2SmhQQ3JTQ0habG1taGMxZ3JEN3ZFLXJRcGNTMHBqZmtNaHREMWZrVXF6ODd6TUNMeVo4bUFITnN2RFJGNGVEMHBXWi1ITjJvWkFrMTRrVTJKVHFMQ3k4VXNkR0ttMUZ5aEhLaDV4bW9Vdl9YQl83MA?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_028",
-    "rank": 28,
-    "title": "Amazon Disbursement Policy changes DD+7",
-    "verified": "unconfirmed",
-    "effectDate": "2026-02-12",
-    "summary": "Amazon Disbursement Policy changes DD+7  channelx.world",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "channelx.world",
-        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9UTFpRWDFKUVNGQ2dOMVlpWUVFUjBrQXZ3MTZiN1cwX3pjYjlHTUozTGJsZlcyMEtNQ3BVTUt2bGxEUUtfSkZwU2NEV0tfVHVObUg4alhKOFZaclpxTWlCZlk4VlhkZkhjYlkwakZDd3pxVE9ieFpKNUtB?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_029",
-    "rank": 29,
-    "title": "亚马逊卖家必读：2026年春节假期合规自查指南，安心过年，稳定销售",
-    "verified": "unconfirmed",
-    "effectDate": "2026-02-11",
-    "summary": "亚马逊卖家必读：2026年春节假期合规自查指南，安心过年，稳定销售  雨果跨境",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "雨果跨境",
-        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE13V2FTeWZIeENXdU9pWkM4cjkwbFhaTV81Zm1tVlBEY2gxVW1sTkVPbGZEbUZYYlFCT2J1N3ZLeHlTUUxhRW5NX1NqQy0?oc=5"
-      }
-    ]
-  },
-  {
-    "id": "vos_auto_030",
-    "rank": 30,
-    "title": "Amazon to Appeal $70M Fine by German Cartel Regulator In Price Fixing Dispute",
-    "verified": "unconfirmed",
-    "effectDate": "2026-02-06",
-    "summary": "Amazon to Appeal $70M Fine by German Cartel Regulator In Price Fixing Dispute  Law.com",
-    "sellerVoices": [],
-    "comparison": [],
-    "links": [
-      {
-        "label": "Law.com",
-        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNQncydDVYUEN2ZFBxUGJ4VHlIS3VOSXFXSWU2ZUVGSFNjQ1VWUktGQW1vT1J2MVJpMzNselYxVlNoYmxiWW9VNWVhcTg3VjgzNXU0THhoWThVTURNZ2E1Y0VFVnk4Y1FfdFZGRmJRMzJZdml5UWNkQUVzWmlIYTAzczVKTHItcVVPVXFTN2xvWFlxbks4RFZDTG1fNkpiTmg3bmtST0NERFZSeEhYNG84NEN0Ty03eWhMWjNtWmQ0Q2EtX21HcFlzNXJn?oc=5"
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9FRmRxWFd0T0R1NEYtMVJWam95Y0NBa0ZXbXJEZWJyZjl0TEhVSWdseVhDaUdsdkx3bnFuejJsbVdQYVBuaHp1VXJGMDM?oc=5"
       }
     ]
   }

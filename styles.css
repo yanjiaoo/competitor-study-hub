@@ -1279,7 +1279,23 @@ body {
     padding: 8px 0;
 }
 
-/* VOS 卖家热议样式 */
+/* VOS From Social Media 样式 */
+.vos-header {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
+
+.vos-header h2 {
+    font-size: 24px;
+    color: #232f3e;
+    margin-bottom: 8px;
+}
+
+.vos-header-desc {
+    font-size: 13px;
+    color: #888;
+}
+
 .vos-meta {
     text-align: center;
     font-size: 13px;
@@ -1291,7 +1307,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    padding: 0 20px;
 }
 
 .verify-tag {
@@ -1318,7 +1335,7 @@ body {
     background: white;
     border-radius: 12px;
     padding: 24px;
-    margin-bottom: 20px;
+    margin: 0 20px 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     border-left: 4px solid #ff9900;
 }
@@ -1452,4 +1469,101 @@ body {
     .vos-compare {
         font-size: 12px;
     }
+}
+
+
+/* VOS 目录 */
+.vos-toc {
+    background: #f8f9fa;
+    margin: 0 20px 24px;
+    padding: 20px 24px;
+    border-radius: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.vos-toc h3 {
+    font-size: 16px;
+    color: #232f3e;
+    margin-bottom: 12px;
+}
+
+.vos-toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+    padding: 0;
+}
+
+.vos-toc li {
+    counter-increment: toc-counter;
+    margin: 8px 0;
+}
+
+.vos-toc li::before {
+    content: counter(toc-counter) ". ";
+    font-weight: 600;
+    color: #ff9900;
+}
+
+.vos-toc a {
+    color: #007185;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.vos-toc a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+/* VOS 卡片内部 */
+.vos-summary {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #fafafa;
+    border-radius: 6px;
+}
+
+.vos-compare-wrap {
+    margin-bottom: 16px;
+}
+
+.vos-compare-wrap h4,
+.vos-voices h4,
+.vos-links h4 {
+    font-size: 14px;
+    color: #232f3e;
+    margin-bottom: 10px;
+}
+
+.compare-dim {
+    font-weight: 600;
+    color: #232f3e;
+    background: #f8f9fa;
+}
+
+.compare-after {
+    color: #c0392b;
+    font-weight: 500;
+}
+
+.vos-links {
+    margin-top: 12px;
+}
+
+.vos-links a {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+}
+
+.vos-links a:hover {
+    color: #ff9900;
+    text-decoration: underline;
 }

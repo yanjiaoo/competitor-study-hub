@@ -868,34 +868,58 @@ function loadVOSData() {
 
 function renderVOS() {
     var grid = document.getElementById('vosGrid');
+    var tocList = document.getElementById('vosTocList');
+    
+    // 渲染目录
+    tocList.innerHTML = vosData.map(function(item) {
+        var verifyIcon = item.verified === 'official' ? '✅' : '⚠️';
+        return '<li><a href="#' + item.id + '">' + verifyIcon + ' TOP' + item.rank + '：' + item.title + '</a></li>';
+    }).join('');
+    
+    // 渲染详情卡片
     grid.innerHTML = vosData.map(function(item) {
         var verifyClass = item.verified === 'official' ? 'verify-official' : 'verify-unconfirmed';
         var verifyText = item.verified === 'official' ? '✅ 官方已核实' : '⚠️ 待官方全量公告';
         
-        var voicesHtml = item.sellerVoices ? item.sellerVoices.map(function(v) {
-            return '<li><span class="voice-source">' + v.source + '：</span>' + v.content + '</li>';
-        }).join('') : '';
+        // 卖家声音
+        var voicesHtml = '';
+        if (item.sellerVoices && item.sellerVoices.length > 0) {
+            voicesHtml = '<div class="vos-voices"><h4>💬 卖家真实反馈</h4><ul>' +
+                item.sellerVoices.map(function(v) {
+                    return '<li><span class="voice-source">' + v.source + '：</span>"' + v.content + '"</li>';
+                }).join('') + '</ul></div>';
+        }
         
-        var comparisonHtml = item.comparison ? '<table class="vos-compare"><thead><tr><th>维度</th><th>Before</th><th>After</th></tr></thead><tbody>' +
-            item.comparison.map(function(c) {
-                return '<tr><td>' + c.dimension + '</td><td>' + c.before + '</td><td>' + c.after + '</td></tr>';
-            }).join('') + '</tbody></table>' : '';
+        // Before/After 对比表
+        var comparisonHtml = '';
+        if (item.comparison && item.comparison.length > 0) {
+            comparisonHtml = '<div class="vos-compare-wrap"><h4>📊 政策对比</h4>' +
+                '<table class="vos-compare"><thead><tr><th>维度</th><th>Before</th><th>After</th></tr></thead><tbody>' +
+                item.comparison.map(function(c) {
+                    return '<tr><td class="compare-dim">' + c.dimension + '</td><td>' + c.before + '</td><td class="compare-after">' + c.after + '</td></tr>';
+                }).join('') + '</tbody></table></div>';
+        }
         
-        var linksHtml = item.links ? item.links.map(function(l) {
-            return '<a href="' + l.url + '" target="_blank" class="vos-link">' + l.label + ' →</a>';
-        }).join(' ') : '';
+        // 参考链接
+        var linksHtml = '';
+        if (item.links && item.links.length > 0) {
+            linksHtml = '<div class="vos-links"><h4>🔗 参考来源</h4>' +
+                item.links.map(function(l) {
+                    return '<a href="' + l.url + '" target="_blank">' + l.label + ' →</a>';
+                }).join('') + '</div>';
+        }
         
-        return '<div class="vos-card">' +
+        return '<div class="vos-card" id="' + item.id + '">' +
             '<div class="vos-card-header">' +
                 '<span class="vos-rank">TOP' + item.rank + '</span>' +
                 '<span class="verify-tag ' + verifyClass + '">' + verifyText + '</span>' +
-                '<span class="vos-date">' + item.effectDate + '</span>' +
+                '<span class="vos-date">生效/发生时间：' + item.effectDate + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +
-            '<p class="vos-summary">' + item.summary + '</p>' +
-            (voicesHtml ? '<div class="vos-voices"><h4>卖家声音</h4><ul>' + voicesHtml + '</ul></div>' : '') +
+            '<div class="vos-summary"><strong>影响说明：</strong>' + item.summary + '</div>' +
+            voicesHtml +
             comparisonHtml +
-            (linksHtml ? '<div class="vos-links">' + linksHtml + '</div>' : '') +
+            linksHtml +
         '</div>';
     }).join('');
 }

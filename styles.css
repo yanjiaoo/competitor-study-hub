@@ -872,6 +872,11 @@ body {
     background: #e60012;
 }
 
+.platform-aliexpress {
+    background: #e43225;
+    background: linear-gradient(135deg, #e43225, #ff6a00);
+}
+
 /* 资讯过滤器增强样式 */
 .filter-divider {
     width: 1px;

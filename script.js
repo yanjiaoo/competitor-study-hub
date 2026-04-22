@@ -313,6 +313,10 @@ let newsSources = JSON.parse(localStorage.getItem('newsSources')) || [
     { id: 10, name: 'Joybuy官网', url: 'https://www.joybuy.com', type: 'official', platform: 'joybuy' },
     { id: 11, name: 'JD.com企业新闻', url: 'https://corporate.jd.com', type: 'press', platform: 'joybuy' },
     { id: 12, name: 'Inside Retail Asia', url: 'https://insideretail.asia', type: 'press', platform: 'joybuy' },
+    // AliExpress
+    { id: 21, name: 'AliExpress官网', url: 'https://www.aliexpress.com', type: 'official', platform: 'aliexpress' },
+    { id: 22, name: 'Alibaba Group News', url: 'https://www.alibabagroup.com/en-US/news', type: 'press', platform: 'aliexpress' },
+    { id: 23, name: 'AliExpress Blog', url: 'https://sell.aliexpress.com/blog', type: 'official', platform: 'aliexpress' },
     // 跨境电商行业媒体
     { id: 13, name: '雨果跨境', url: 'https://www.cifnews.com', type: 'press', platform: 'temu' },
     { id: 14, name: '亿邦动力', url: 'https://www.ebrun.com', type: 'press', platform: 'shein' },
@@ -349,6 +353,8 @@ var newsData = [
   { id: "k4", title: "TikTok Shop占美国社交电商18.2%份额，Ulta和L'Oréal等大品牌入驻", content: "TikTok Shop占美国社交电商总GMV的18.2%。Ulta Beauty、Sally Beauty、L'Oréal等大品牌纷纷入驻，直播购物ROI持续增长。", source: "eMarketer", type: "press", platform: "tiktok", dimension: "brand", date: new Date("2026-03-26"), url: "https://synder.com/blog/tiktok-shop-fees/" },
   { id: "k6", title: "TikTok Shop升级FBT物流方案，为美区跨境卖家提供一站式履约", content: "TikTok Shop优化FBT（Fulfilled by TikTok）物流服务，为美区跨境POP商家提供仓储、拣货、包装和配送一站式方案，缩短配送时效。", source: "驱动之家", type: "press", platform: "tiktok", dimension: "logistics", date: new Date("2026-03-25"), url: "https://www.mydrivers.com" },
   { id: "s7", title: "SHEIN全球活跃用户超2.5亿，C2M模式驱动每日上新约2000个SKU", content: "SHEIN通过C2M模式驱动产品策略，每日新增约2000个SKU，小批量100-200件测试后根据实时数据决定是否规模化。全球活跃用户超2.5亿。", source: "Accio", type: "press", platform: "shein", dimension: "traffic", date: new Date("2026-03-20"), url: "https://www.accio.com/business/shein-package" },
+  { id: "a6", title: "AliExpress标准配送15-45天，Choice优选商品缩短至7-15天", content: "AliExpress标准配送时效为15-45天，高级配送7-15天。Choice标签商品通过菜鸟物流网络保证10-12天送达，配送时效差距正在缩小但仍落后于Amazon。", source: "Consumoteca", type: "press", platform: "aliexpress", dimension: "logistics", date: new Date("2026-03-20"), url: "https://consumoteca.com.co/articles/en/aliexpress-late-delivery-what-to-do-stepbystep-complete-2026-guide" },
+  { id: "a1", title: "AliExpress Choice项目升级：严选卖家和商品，承诺欧洲7-15天达", content: "AliExpress Choice项目2026年升级，基于履约速度、质量一致性和客户反馈严选卖家和商品。Choice标签商品承诺欧洲7-15天送达、满20欧元免运费、90天退货窗口。", source: "AD HOC NEWS", type: "press", platform: "aliexpress", dimension: "logistics", date: new Date("2026-03-18"), url: "https://www.ad-hoc-news.de/news/ueberblick/aliexpress-choice-alibaba-s-new-premium-product-selection-revolutionizes/68943805" },
   { id: "s8", title: "SHEIN在法国新增5家线下门店，加速欧洲线下零售布局", content: "继巴黎首店后，SHEIN在法国5个城市新开门店。线下渠道有助于降低退货率、提升品牌信任度，并规避部分跨境物流成本。", source: "Modaes", type: "press", platform: "shein", dimension: "brand", date: new Date("2026-03-17"), url: "https://www.modaes.com/global/topics/shein" },
   { id: "k8", title: "TikTok Shop升级美区ACE商家经营方法论，强化品牌运营体系", content: "TikTok Shop发布升级版美区ACE商家经营方法论，帮助品牌商家系统化运营，涵盖内容策略、达人合作和广告投放的全链路指导。", source: "品玩", type: "press", platform: "tiktok", dimension: "brand", date: new Date("2026-03-17"), url: "https://www.pingwest.com" },
   { id: "s4", title: "SHEIN IPO进程受阻，战略重心转向亚洲市场应对监管压力", content: "SHEIN的IPO计划因中国背景和ESG争议持续面临不确定性。公司正将战略重心向亚洲市场倾斜，同时加强与中国政府的关系以获取政策支持。", source: "Tech in Asia", type: "press", platform: "shein", dimension: "investment", date: new Date("2026-03-16"), url: "https://www.techinasia.com" },
@@ -357,17 +363,21 @@ var newsData = [
   { id: "j4", title: "DHL与京东签署战略合作，为德国品牌对接6亿中国消费者", content: "DHL与京东签署战略谅解备忘录，利用DHL欧洲物流网络和京东中国市场渠道，帮助德国品牌通过京东跨境平台进入中国市场。", source: "Logistics Manager", type: "press", platform: "joybuy", dimension: "logistics", date: new Date("2026-03-16"), url: "https://www.logisticsmanager.com" },
   { id: "j5", title: "Joybuy定位品牌导向平台，与Temu低价模式形成差异化竞争", content: "Joybuy官方定位为品牌导向平台，与国际和欧洲本地品牌合作提供全品类商品。与Temu极致低价策略不同，Joybuy强调品质和品牌信任度，配合自建物流实现快速配送。", source: "Joybuy Official", type: "press", platform: "joybuy", dimension: "brand", date: new Date("2026-03-16"), url: "https://about.joybuy.com/about/" },
   { id: "t4", title: "美国取消de minimis免税规则，Temu和Shein面临120%-145%关税", content: "美国取消800美元以下包裹免税政策后，Temu和Shein跨境直邮商品面临120%-145%关税。原价10美元商品关税后成本升至24.5美元，直接冲击低价模式根基。", source: "WWD", type: "press", platform: "temu", dimension: "pricing", date: new Date("2026-03-15"), url: "https://wwd.com/sourcing-journal/trade/shein-temu-class-action-lawsuit-ieepa-tariff-refund-1238917787/" },
+  { id: "a5", title: "AliExpress 2026年品类结构转型：从3C数码转向家居健康和可修复电子产品", content: "AliExpress热销品类正在转型，模块化家居健康工具、可修复电子产品和本地化时尚配饰取代传统蓝牙耳机和LED灯具，成为新增长品类。", source: "Alibaba Insights", type: "press", platform: "aliexpress", dimension: "investment", date: new Date("2026-03-15"), url: "https://www.alibaba.com/product-insights/aliexpress-top-selling-products-2026-market-shifts-profit-margins-winning-strategies.html" },
   { id: "t7", title: "Temu收紧卖家入驻标准，引入AI商品健康评分和欧盟EPR合规要求", content: "Temu加强卖家审核，要求面向欧盟市场的卖家完成EPR注册，并在卖家后台嵌入AI驱动的商品健康评分系统，提升商品质量管控。", source: "Alibaba Insights", type: "press", platform: "temu", dimension: "seller", date: new Date("2026-03-14"), url: "https://www.alibaba.com/product-insights/detailed-temu-store-setup-steps-2026.html" },
   { id: "s9", title: "SHEIN向外部品牌开放供应链服务，邀请品牌使用其柔性供应链能力", content: "SHEIN通过Xcelerator项目向外部品牌开放其按需生产和物流服务，帮助品牌实现小单快反。此举将SHEIN从纯零售商转型为供应链服务平台。", source: "Business of Fashion", type: "press", platform: "shein", dimension: "brand", date: new Date("2026-03-12"), url: "https://www.businessoffashion.com/articles/sustainability/exclusive-inside-sheins-xcelerator-an-on-demand-supply-chain-and-logistics-service-open-to-brands/" },
   { id: "s2", title: "SHEIN投资14.5亿美元建设华南智能供应链，开放Xcelerator服务给外部品牌", content: "SHEIN在华南投资超14.5亿美元建设智能供应链系统，并向外部品牌开放Xcelerator按需供应链和物流服务，将自身供应链能力商业化。", source: "Business of Fashion", type: "press", platform: "shein", dimension: "logistics", date: new Date("2026-03-10"), url: "https://www.businessoffashion.com/articles/sustainability/exclusive-inside-sheins-xcelerator-an-on-demand-supply-chain-and-logistics-service-open-to-brands/" },
   { id: "k5", title: "TikTok Shop在东南亚市场份额升至22%，成为印尼第二大电商平台", content: "TikTok Shop在印尼市场份额从2023年5%跃升至2025年约22%，仅次于Shopee，在东南亚对Shopee和Lazada构成实质性竞争威胁。", source: "SocialEcho", type: "press", platform: "tiktok", dimension: "traffic", date: new Date("2026-03-10"), url: "https://www.socialecho.net/en/blog/docs/tiktok-shop-2026-guide" },
+  { id: "a3", title: "AliExpress同样受美国de minimis取消冲击，部分品类关税升至145%", content: "美国取消de minimis免税规则后，AliExpress卖家面临最高145%的关税。平台正调整定价策略，卖家需重新评估美国市场的利润空间。", source: "DSers", type: "press", platform: "aliexpress", dimension: "pricing", date: new Date("2026-03-10"), url: "https://www.dsers.com/blog/us-tariffs-aliexpress-dropshipping/" },
   { id: "k1", title: "TikTok Shop佣金费率稳定在6%-8%，新卖家享3%优惠期", content: "2026年TikTok Shop美区标准佣金6%（部分品类8%），英区9%。另收约2%-3%支付处理费。新卖家入驻前期可享3%优惠佣金率，相比2023年1.8%补贴期已大幅上升。", source: "Printify", type: "press", platform: "tiktok", dimension: "seller", date: new Date("2026-03-08"), url: "https://printify.com/blog/tiktok-shop-fees/" },
   { id: "s6", title: "SHEIN欧盟月活用户达1.56亿，但增速从11.6%放缓至6.9%", content: "SHEIN在欧盟月均活跃用户约1.56亿（2025.8-2026.1），同比增长6.9%，较此前11.6%的增速明显放缓。欧洲市场趋于饱和，用户增长进入平台期。", source: "Chinesellers", type: "press", platform: "shein", dimension: "traffic", date: new Date("2026-03-07"), url: "https://chinesellers.substack.com/p/sheins-eu-momentum-slows-as-market" },
   { id: "t6", title: "Temu半托管模式费率更新：平台承担仓储、履约、客服和退货物流", content: "Temu半托管模式下，平台负责仓储、区域配送中心履约、多语言客服和退货物流。卖家专注供货和定价，平台抽取佣金。该模式正在欧美市场加速推广。", source: "Alibaba Insights", type: "press", platform: "temu", dimension: "seller", date: new Date("2026-03-03"), url: "https://www.alibaba.com/product-insights/temu-semi-managed-model-fee-structure-2026.html" },
   { id: "t5", title: "欧盟将于2026年7月取消150欧元以下包裹免税，征收3欧元固定关税", content: "欧盟理事会批准取消150欧元以下包裹免关税政策，自2026年7月1日起征收3欧元固定关税。2024年约46亿件低价包裹进入欧盟，91%来自中国。", source: "EU Consilium", type: "press", platform: "temu", dimension: "pricing", date: new Date("2026-03-01"), url: "https://www.minderest.com/blog/3-euro-tariff-eu-ecommerce-2026" },
   { id: "s5", title: "欧盟依据DSA对SHEIN启动合规调查，违规最高罚款全球营收6%", content: "欧盟委员会依据《数字服务法》对SHEIN启动正式调查程序，审查其平台合规性。若认定违规，SHEIN可能面临高达全球年营业额6%的罚款。", source: "Lewis Silkin", type: "press", platform: "shein", dimension: "compliance", date: new Date("2026-02-27"), url: "https://www.lewissilkin.com/insights/2026/02/27/digital-services-act-shein-becomes-the-latest-vlop-to-face-formal-proceedings-102mkps" },
   { id: "j2", title: "京东推出JoyExpress欧洲物流服务，运营60+仓库覆盖四国", content: "京东为Joybuy配套推出JoyExpress物流服务，在英、德、荷、法运营超60个仓库和配送站点，配备卡车、货车和电动自行车车队，提供当日达和次日达。", source: "JD Corporate Blog", type: "press", platform: "joybuy", dimension: "logistics", date: new Date("2026-02-11"), url: "https://jdcorporateblog.com/jd-com-announces-joyexpress-a-new-delivery-service-for-europe" },
-  { id: "t3", title: "Temu加速欧洲本地化：建立本地仓储网络应对欧盟关税新政", content: "面对欧盟即将实施的关税新政，Temu在多个欧洲国家建立本地仓储，将部分商品从跨境直邮转为本地发货，以规避关税并缩短配送时间。", source: "Lengow", type: "press", platform: "temu", dimension: "logistics", date: new Date("2026-01-30"), url: "https://blog.lengow.com/temus-localization-strategy-in-europe/" }
+  { id: "a2", title: "AliExpress Choice采用全托管模式，结合菜鸟物流实现订单量同比增长60%", content: "AliExpress Choice定位为全托管服务，结合阿里巴巴集团物流能力（菜鸟网络），为卖家简化运营流程，为消费者提供优选商品和快速配送。该模式推动订单量同比增长60%。", source: "Alibaba Group / PR Newswire", type: "press", platform: "aliexpress", dimension: "seller", date: new Date("2026-02-01"), url: "https://www.alibabagroup.com/document-1696296090350911488" },
+  { id: "t3", title: "Temu加速欧洲本地化：建立本地仓储网络应对欧盟关税新政", content: "面对欧盟即将实施的关税新政，Temu在多个欧洲国家建立本地仓储，将部分商品从跨境直邮转为本地发货，以规避关税并缩短配送时间。", source: "Lengow", type: "press", platform: "temu", dimension: "logistics", date: new Date("2026-01-30"), url: "https://blog.lengow.com/temus-localization-strategy-in-europe/" },
+  { id: "a7", title: "AliExpress与Temu同属中国跨境电商阵营，面临内部流量竞争压力", content: "AliExpress（阿里系）与Temu（拼多多系）在欧美市场形成直接竞争。两者均依赖中国供应链和低价策略，在关税政策收紧背景下面临相似挑战，同时争夺同一批卖家和消费者。", source: "European Conservative", type: "press", platform: "aliexpress", dimension: "traffic", date: new Date("2026-01-01"), url: "https://europeanconservative.com/articles/news/eu-tariffs-shein-temu-aliexpress-china-dumping-safety-competition/" }
 ];
 // 初始化时间显示
 newsData.forEach(function(item) { item.time = formatTimeFromDate(item.date); });
@@ -462,7 +472,7 @@ function getCurrentFilter() {
     const text = activeBtn.textContent.trim();
     const filterMap = {
         '全部': 'all', 'Temu': 'temu', 'Shein': 'shein', 
-        'TikTok': 'tiktok', 'Joybuy': 'joybuy',
+        'TikTok': 'tiktok', 'Joybuy': 'joybuy', 'AliExpress': 'aliexpress',
         '社交媒体': 'social', '官方网站': 'official', '新闻发布': 'press'
     };
     return filterMap[text] || 'all';
@@ -498,7 +508,8 @@ function getPlatformLabel(platform) {
         'temu': 'Temu',
         'shein': 'Shein',
         'tiktok': 'TikTok',
-        'joybuy': 'Joybuy'
+        'joybuy': 'Joybuy',
+        'aliexpress': 'AliExpress'
     };
     return labels[platform] || platform;
 }
@@ -713,70 +724,80 @@ const dashboardData = [
         temu: 'PDD Holdings (拼多多)',
         shein: 'SHEIN Group (独立)',
         tiktok: 'ByteDance (字节跳动)',
-        joybuy: 'JD.com (京东)'
+        joybuy: 'JD.com (京东)',
+        aliexpress: 'Alibaba Group (阿里巴巴)'
     },
     {
         dimension: '🌍 主要市场',
         temu: '北美、欧洲、东南亚、中东',
         shein: '欧美、中东、拉美、东南亚',
         tiktok: '美国、东南亚、英国',
-        joybuy: '欧美、东南亚'
+        joybuy: '欧洲六国（英法德荷比卢）',
+        aliexpress: '俄罗斯、欧洲、拉美、东南亚'
     },
     {
         dimension: '📦 商业模式',
         temu: '全托管 + 半托管',
         shein: '自营 + 平台 (Marketplace)',
         tiktok: '直播电商 + 货架电商',
-        joybuy: '自营跨境 (京东生态)'
+        joybuy: '品牌导向平台 (京东生态)',
+        aliexpress: '第三方平台 + Choice半托管'
     },
     {
         dimension: '🎯 核心品类',
         temu: '全品类低价商品',
         shein: '快时尚服饰为主',
         tiktok: '服饰、美妆、家居',
-        joybuy: '3C数码、家电、品牌商品'
+        joybuy: '3C数码、家电、品牌商品',
+        aliexpress: '3C、家居、服饰、全品类'
     },
     {
         dimension: '💰 价格策略',
         temu: '极致低价，工厂直供',
         shein: '低价快时尚，小单快反',
         tiktok: '中低价，内容驱动消费',
-        joybuy: '中高价，品质导向'
+        joybuy: '中高价，品质导向',
+        aliexpress: '中低价，Choice优选低价'
     },
     {
         dimension: '🚚 物流时效',
         temu: '7-15天（部分地区3-5天）',
         shein: '7-12天',
         tiktok: '3-8天（本地仓）',
-        joybuy: '5-10天（京东物流）'
+        joybuy: '当日/次日达（欧洲自建物流）',
+        aliexpress: '7-15天（Choice 5-10天）'
     },
     {
         dimension: '📊 卖家佣金',
         temu: '全托管0%（平台定价）',
         shein: '10-20%',
-        tiktok: '2-8%',
-        joybuy: '3-10%'
+        tiktok: '6-8%（美区）/ 9%（英区）',
+        joybuy: '待公布（品牌合作模式）',
+        aliexpress: '5-8%（Choice另有费率）'
     },
     {
         dimension: '📱 获客方式',
         temu: '社交裂变 + 补贴拉新',
         shein: 'KOL/KOC + SEO + 社媒',
         tiktok: '短视频 + 直播 + 算法推荐',
-        joybuy: '京东生态导流 + 品牌合作'
+        joybuy: '品牌合作 + 自建物流体验',
+        aliexpress: 'Google/FB广告 + 联盟营销'
     },
     {
         dimension: '⚡ 核心优势',
         temu: '极致供应链效率，价格优势',
         shein: '柔性供应链，快速上新',
         tiktok: '内容生态，兴趣电商',
-        joybuy: '品质保障，物流体系'
+        joybuy: '品质保障，自建物流体系',
+        aliexpress: '全球覆盖广，商家生态成熟'
     },
     {
         dimension: '⚠️ 主要挑战',
         temu: '品质争议，合规压力',
         shein: 'ESG争议，IPO不确定性',
         tiktok: '政策风险，信任建设',
-        joybuy: '市场份额小，品牌认知低'
+        joybuy: '市场份额小，品牌认知低',
+        aliexpress: '关税冲击，与Temu内部竞争'
     }
 ];
 
@@ -791,6 +812,7 @@ function renderDashboard() {
             <td>${row.shein}</td>
             <td>${row.tiktok}</td>
             <td>${row.joybuy}</td>
+            <td>${row.aliexpress}</td>
         </tr>
     `).join('');
     

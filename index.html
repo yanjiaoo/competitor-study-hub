@@ -84,6 +84,7 @@
                 <button class="filter-btn" onclick="filterNews('shein')">Shein</button>
                 <button class="filter-btn" onclick="filterNews('tiktok')">TikTok</button>
                 <button class="filter-btn" onclick="filterNews('joybuy')">Joybuy</button>
+                <button class="filter-btn" onclick="filterNews('aliexpress')">AliExpress</button>
                 <div class="filter-divider"></div>
                 <select id="dimensionFilter" onchange="filterByDimension()" class="time-filter">
                     <option value="all">全部维度</option>
@@ -162,6 +163,7 @@
                             <th><span class="platform-tag platform-shein">Shein</span></th>
                             <th><span class="platform-tag platform-tiktok">TikTok Shop</span></th>
                             <th><span class="platform-tag platform-joybuy">Joybuy</span></th>
+                            <th><span class="platform-tag platform-aliexpress">AliExpress</span></th>
                         </tr>
                     </thead>
                     <tbody id="dashboardBody">
@@ -195,6 +197,7 @@
                         <option value="shein">Shein</option>
                         <option value="tiktok">TikTok</option>
                         <option value="joybuy">Joybuy</option>
+                        <option value="aliexpress">AliExpress</option>
                     </select>
                     <button onclick="addNewsSource()">添加资讯源</button>
                 </div>

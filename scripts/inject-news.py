@@ -119,6 +119,7 @@ def semantic_dedup(items):
         'marketplace': 'marketplace', '市场': 'marketplace', '平台': 'platform',
         '扩张': 'expand', 'expansion': 'expand', 'expand': 'expand',
         'temu': 'temu', 'shein': 'shein', 'tiktok': 'tiktok',
+        'aliexpress': 'aliexpress', '速卖通': 'aliexpress', 'cainiao': 'cainiao', '菜鸟': 'cainiao',
         '供应链': 'supplychain', 'supply': 'supplychain', 'chain': 'supplychain',
         '物流': 'logistics', 'logistics': 'logistics',
         '卖家': 'seller', 'seller': 'seller', 'sellers': 'seller',

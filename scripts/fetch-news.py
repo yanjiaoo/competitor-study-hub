@@ -64,20 +64,33 @@ PLATFORMS = {
             '京东国际 卖家 OR 招商 OR 物流',
         ],
     },
+    'aliexpress': {
+        'queries_en': [
+            'AliExpress Choice seller policy OR commission OR fee',
+            'AliExpress logistics OR warehouse OR Cainiao fulfillment',
+            'AliExpress tariff OR regulation OR compliance',
+            'AliExpress marketplace strategy OR growth OR expansion',
+        ],
+        'queries_zh': [
+            'AliExpress 速卖通 卖家政策 OR 招商 OR 佣金',
+            'AliExpress 速卖通 物流 OR 仓储 OR 菜鸟 OR Choice',
+            '速卖通 市场份额 OR 运营 OR 合规',
+        ],
+    },
 }
 
 # 跨境行业媒体专项搜索（雨果跨境、亿邦动力、36氪等）
 INDUSTRY_QUERIES_ZH = [
-    '雨果跨境 Temu OR Shein OR TikTok OR 京东国际',
-    '亿邦动力 跨境电商 Temu OR Shein OR TikTok',
-    '36氪 跨境电商 出海 Temu OR Shein OR TikTok',
+    '雨果跨境 Temu OR Shein OR TikTok OR 京东国际 OR 速卖通',
+    '亿邦动力 跨境电商 Temu OR Shein OR TikTok OR AliExpress',
+    '36氪 跨境电商 出海 Temu OR Shein OR TikTok OR 速卖通',
 ]
 
 # 跨境知名公众号/自媒体搜索
 WECHAT_KOL_QUERIES = [
-    '跨境电商 卖家政策 Temu OR Shein OR TikTok site:mp.weixin.qq.com',
-    '跨境电商 招商 运营 Temu OR Shein site:mp.weixin.qq.com',
-    '出海电商 供应链 物流 TikTok OR Temu site:mp.weixin.qq.com',
+    '跨境电商 卖家政策 Temu OR Shein OR TikTok OR AliExpress site:mp.weixin.qq.com',
+    '跨境电商 招商 运营 Temu OR Shein OR 速卖通 site:mp.weixin.qq.com',
+    '出海电商 供应链 物流 TikTok OR Temu OR AliExpress site:mp.weixin.qq.com',
 ]
 
 # 相关性过滤关键词（标题或内容必须包含至少一个）
@@ -196,6 +209,8 @@ def detect_platform_from_text(text):
         return 'tiktok'
     if 'joybuy' in t or '京东国际' in t or ('jd.com' in t and ('international' in t or 'europe' in t)):
         return 'joybuy'
+    if 'aliexpress' in t or '速卖通' in t or ('alibaba' in t and ('cross' in t or '跨境' in t)):
+        return 'aliexpress'
     return None
 
 

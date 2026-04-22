@@ -1,292 +1,39 @@
 [
-  {
-    "id": "temu_logistics_01",
-    "title": "Temu推出两种履约模式：VMI预入仓与JIT即时发货，加速本地化配送",
-    "content": "Temu为卖家提供VMI（预入仓至Temu仓库）和JIT（下单后发货至仓库）两种履约方案。标准配送5-10个工作日，快速配送3-8个工作日。美国、欧洲、加拿大等市场已启用本地仓发货。",
-    "source": "ShipBob",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-30",
-    "url": "https://www.shipbob.com/blog/temu-shipping-guide/"
-  },
-  {
-    "id": "temu_logistics_02",
-    "title": "Pitney Bowes与Temu达成物流集成合作，接入ShipAccel平台",
-    "content": "物流服务商Pitney Bowes宣布将Temu集成至其ShipAccel平台，为Temu卖家提供更多配送选项和物流管理工具，降低跨境物流成本。",
-    "source": "Business Wire",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-30",
-    "url": "https://www.businesswire.com"
-  },
-  {
-    "id": "temu_pricing_01",
-    "title": "美国取消de minimis免税规则，Temu和Shein面临120%-145%关税冲击",
-    "content": "美国取消800美元以下包裹免税政策后，Temu和Shein的跨境直邮商品面临120%-145%的关税。原价10美元的商品关税后成本升至24.5美元，直接冲击其低价模式根基。",
-    "source": "WWD / Resale Certificate",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-15",
-    "url": "https://resalecertificate.org/articles/temu-shein-resellers-need-resale-certificate-2026/"
-  },
-  {
-    "id": "temu_pricing_02",
-    "title": "欧盟将于2026年7月取消150欧元以下包裹免税，对每件征收3欧元关税",
-    "content": "欧盟理事会批准取消150欧元以下包裹免关税政策，自2026年7月1日起对低价包裹征收3欧元固定关税。2024年约46亿件低价包裹进入欧盟，其中91%来自中国。此举直接影响Temu、Shein等平台的欧洲定价策略。",
-    "source": "EU Consilium / Minderest",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-01",
-    "url": "https://www.minderest.com/blog/3-euro-tariff-eu-ecommerce-2026"
-  },
-  {
-    "id": "temu_invest_01",
-    "title": "Temu半托管模式费率结构更新：平台承担仓储、履约和售后",
-    "content": "Temu半托管模式（SMM）下，平台负责仓储、区域配送中心履约、多语言客服和退货物流。卖家专注供货和定价，平台抽取佣金。该模式正在欧美市场加速推广。",
-    "source": "Alibaba Insights",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-03",
-    "url": "https://www.alibaba.com/product-insights/temu-semi-managed-model-fee-structure-2026.html"
-  },
-  {
-    "id": "temu_invest_02",
-    "title": "Temu收紧卖家入驻标准，引入AI商品健康评分和欧盟EPR合规要求",
-    "content": "Temu加强卖家审核，要求面向欧盟市场的卖家完成EPR（生产者延伸责任）注册，并在卖家后台嵌入AI驱动的商品健康评分系统，提升平台商品质量管控。",
-    "source": "Alibaba Insights",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-14",
-    "url": "https://www.alibaba.com/product-insights/detailed-temu-store-setup-steps-2026.html"
-  },
-  {
-    "id": "temu_traffic_01",
-    "title": "Temu和Shein广告投放策略波动加剧，间歇性大规模投放重塑竞价市场",
-    "content": "2026年Temu和Shein的广告投放呈现明显的间歇性特征：大规模投放与暂停交替进行，导致广告竞价市场剧烈波动。这种策略对其他电商平台的广告成本和流量获取产生连锁影响。",
-    "source": "DAC Group",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-28",
-    "url": "https://www.dacgroup.com/insights/blog/paid-media/temu-shein-2026-ad-auction-volatility-media-buyers/"
-  },
-  {
-    "id": "temu_invest_03",
-    "title": "Temu孵化自营品牌，从纯平台模式向自营+平台混合模式转型",
-    "content": "拼多多旗下Temu开始孵化自营品牌，标志着其从纯第三方平台模式向自营+平台混合模式转型。此举可能改变Temu的供应链控制力和利润结构。",
-    "source": "亿邦动力",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-30",
-    "url": "https://www.ebrun.com"
-  },
-  {
-    "id": "temu_pricing_03",
-    "title": "Temu欧洲本地化策略：建立本地仓储网络应对关税新政",
-    "content": "面对欧盟即将实施的关税新政，Temu加速欧洲本地化布局，在多个欧洲国家建立本地仓储，将部分商品从跨境直邮转为本地发货，以规避关税并缩短配送时间。",
-    "source": "Lengow",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-01-30",
-    "url": "https://blog.lengow.com/temus-localization-strategy-in-europe/"
-  },
-  {
-    "id": "shein_logistics_01",
-    "title": "SHEIN将于4月限制美区商家自发货功能，加强物流管控",
-    "content": "SHEIN宣布将于2026年4月中上旬限制美区商家的自发货功能，要求更多订单通过SHEIN官方物流渠道履约，以提升配送时效和服务一致性。",
-    "source": "亿邦动力",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-04-02",
-    "url": "https://www.ebrun.com"
-  },
-  {
-    "id": "shein_logistics_02",
-    "title": "SHEIN投资14.5亿美元建设华南智能供应链系统，开放Xcelerator服务",
-    "content": "SHEIN计划在华南地区投资超14.5亿美元建设智能供应链系统，并向外部品牌开放其Xcelerator按需供应链和物流服务，将自身供应链能力商业化。",
-    "source": "Business of Fashion",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-03-10",
-    "url": "https://www.businessoffashion.com/articles/sustainability/exclusive-inside-sheins-xcelerator-an-on-demand-supply-chain-and-logistics-service-open-to-brands/"
-  },
-  {
-    "id": "shein_pricing_01",
-    "title": "SHEIN因关税调整对美国消费者进行价格上调",
-    "content": "de minimis免税规则取消后，SHEIN宣布对美国市场进行价格调整。此前SHEIN依赖800美元以下免税政策实现低价直邮，关税冲击迫使其重新评估美国市场定价策略。",
-    "source": "WWD",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-04-01",
-    "url": "https://wwd.com/sourcing-journal/trade/shein-temu-class-action-lawsuit-ieepa-tariff-refund-1238917787/"
-  },
-  {
-    "id": "shein_invest_01",
-    "title": "SHEIN IPO进程受阻，战略重心转向亚洲市场以应对监管压力",
-    "content": "SHEIN的IPO计划因中国背景和ESG争议持续面临不确定性。公司正将战略重心向亚洲市场倾斜，同时加强与中国政府的关系以获取政策支持。",
-    "source": "Tech in Asia",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-03-16",
-    "url": "https://www.techinasia.com"
-  },
-  {
-    "id": "shein_invest_02",
-    "title": "欧盟对SHEIN启动DSA合规调查，违规最高罚款全球营收6%",
-    "content": "欧盟委员会依据《数字服务法》对SHEIN启动正式调查程序，审查其平台合规性。若认定违规，SHEIN可能面临高达全球年营业额6%的罚款。",
-    "source": "Lewis Silkin",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-02-27",
-    "url": "https://www.lewissilkin.com/insights/2026/02/27/digital-services-act-shein-becomes-the-latest-vlop-to-face-formal-proceedings-102mkps"
-  },
-  {
-    "id": "shein_traffic_01",
-    "title": "SHEIN欧盟月活用户达1.56亿，但增速从11.6%放缓至6.9%",
-    "content": "SHEIN在欧盟的月均活跃用户约1.56亿（2025年8月至2026年1月），同比增长6.9%，较此前11.6%的增速明显放缓。欧洲市场趋于饱和，用户增长进入平台期。",
-    "source": "Chinesellers",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-03-07",
-    "url": "https://chinesellers.substack.com/p/sheins-eu-momentum-slows-as-market"
-  },
-  {
-    "id": "shein_traffic_02",
-    "title": "SHEIN全球活跃用户超2.5亿，每日上新约2000个SKU",
-    "content": "SHEIN通过C2M（消费者到制造商）模式驱动产品策略，每日新增约2000个SKU，小批量100-200件测试后根据实时数据决定是否规模化生产。全球活跃用户超2.5亿。",
-    "source": "Accio / BusinessofApps",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-03-20",
-    "url": "https://www.accio.com/business/shein-package"
-  },
-  {
-    "id": "shein_logistics_03",
-    "title": "SHEIN在法国新增5家线下门店，加速欧洲线下零售布局",
-    "content": "继巴黎首店成功后，SHEIN在法国利摩日、昂热、第戎、格勒诺布尔和兰斯新开5家门店。线下渠道有助于降低退货率、提升品牌信任度，并规避部分跨境物流成本。",
-    "source": "Modaes",
-    "type": "official",
-    "platform": "shein",
-    "date": "2026-03-17",
-    "url": "https://www.modaes.com/global/topics/shein"
-  },
-  {
-    "id": "tiktok_pricing_01",
-    "title": "TikTok Shop佣金费率稳定在6%-8%，新卖家享3%优惠期",
-    "content": "2026年TikTok Shop美区标准佣金费率为6%（部分品类8%），英区为9%。另收约2%-3%支付处理费。新卖家入驻前期可享3%优惠佣金率。相比2023-2024年1.8%的补贴期费率已大幅上升。",
-    "source": "Printify / SocialTale",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-03-08",
-    "url": "https://printify.com/blog/tiktok-shop-fees/"
-  },
-  {
-    "id": "tiktok_invest_01",
-    "title": "TikTok Shop墨西哥市场开放自运营模式，4月启动美通墨跨境通道",
-    "content": "TikTok Shop加速拉美市场布局，4月开放美国至墨西哥的跨境通道（美通墨），启动60天免佣金政策吸引卖家入驻，重点招募大件商品卖家。",
-    "source": "新浪财经 / 雨果跨境",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-04-07",
-    "url": "https://www.cifnews.com"
-  },
-  {
-    "id": "tiktok_invest_02",
-    "title": "TikTok Shop推出内容全球分发和跨店一键铺品功能，加速一商卖全球",
-    "content": "TikTok Shop新增内容全球分发和跨店一键铺品功能，允许卖家将一个市场的内容和商品快速复制到其他市场，降低多市场运营成本。",
-    "source": "亿邦动力",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-04-09",
-    "url": "https://www.ebrun.com"
-  },
-  {
-    "id": "tiktok_traffic_01",
-    "title": "TikTok Shop占美国社交电商18.2%份额，直播购物ROI持续增长",
-    "content": "TikTok Shop目前占美国社交电商总GMV的18.2%。直播购物的品牌ROI持续增长，大型品牌如Ulta Beauty、Sally Beauty、L'Oréal等纷纷入驻TikTok Shop。",
-    "source": "eMarketer / Synder",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-03-26",
-    "url": "https://synder.com/blog/tiktok-shop-fees/"
-  },
-  {
-    "id": "tiktok_traffic_02",
-    "title": "TikTok Shop在东南亚市场份额升至22%，成为印尼第二大电商平台",
-    "content": "TikTok Shop在印尼的市场份额从2023年的5%跃升至2025年的约22%，仅次于Shopee。在东南亚整体市场对Shopee和Lazada构成实质性竞争威胁。",
-    "source": "SocialEcho",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-03-10",
-    "url": "https://www.socialecho.net/en/blog/docs/tiktok-shop-2026-guide"
-  },
-  {
-    "id": "tiktok_logistics_01",
-    "title": "TikTok Shop升级FBT物流方案，解决美区卖家跨境履约难题",
-    "content": "TikTok Shop优化FBT（Fulfilled by TikTok）物流服务，为美区跨境POP商家提供仓储、拣货、包装和配送一站式解决方案，缩短配送时效并降低物流成本。",
-    "source": "驱动之家",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-03-25",
-    "url": "https://www.mydrivers.com"
-  },
-  {
-    "id": "tiktok_invest_03",
-    "title": "TikTok Shop德国市场运营满一年，X世代贡献37%销售额",
-    "content": "TikTok Shop在德国运营一周年，数据显示X世代（1965-1980年出生）贡献了37%的销售收入，打破了TikTok仅服务年轻用户的认知，用户群体正在扩展。",
-    "source": "Ecommerce News Europe",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-04-02",
-    "url": "https://ecommercenews.eu"
-  },
-  {
-    "id": "joybuy_invest_01",
-    "title": "京东Joybuy正式登陆欧洲六国，首批上线超10万商品，提供当日达服务",
-    "content": "京东于2026年3月16日在英国、法国、德国、荷兰、比利时和卢森堡推出Joybuy平台。首批上线超10万商品，通过JoyExpress物流网络为1700万人提供当日达配送服务。同时推出JoyPlus订阅会员服务。",
-    "source": "Reuters / Inside Retail Asia",
-    "type": "press",
-    "platform": "joybuy",
-    "date": "2026-03-16",
-    "url": "https://insideretail.asia/2026/03/16/targeting-amazon-jd-to-launch-joybuy-in-europe/"
-  },
-  {
-    "id": "joybuy_logistics_01",
-    "title": "京东推出JoyExpress欧洲物流服务，运营60+仓库覆盖四国",
-    "content": "京东为Joybuy配套推出JoyExpress物流服务，在英国、德国、荷兰和法国运营超过60个仓库和配送站点，配备卡车、货车和电动自行车车队，提供当日达和次日达服务。",
-    "source": "JD Corporate Blog",
-    "type": "official",
-    "platform": "joybuy",
-    "date": "2026-02-11",
-    "url": "https://jdcorporateblog.com/jd-com-announces-joyexpress-a-new-delivery-service-for-europe"
-  },
-  {
-    "id": "joybuy_invest_02",
-    "title": "京东以约22亿欧元收购Ceconomy，获取MediaMarkt线下渠道和欧洲供应链",
-    "content": "京东通过约22亿欧元收购Ceconomy（MediaMarkt母公司），获得欧洲最大消费电子零售网络的线下渠道、仓储物流基础设施和本地供应链能力，为Joybuy提供线上线下融合基础。",
-    "source": "CryptoRank / MSN",
-    "type": "press",
-    "platform": "joybuy",
-    "date": "2026-03-16",
-    "url": "https://cryptorank.io/ru/news/feed/17e4b-chinas-jd-com-expands-into-europe-with-joybuy-platform"
-  },
-  {
-    "id": "joybuy_logistics_02",
-    "title": "DHL与京东签署战略合作备忘录，为德国品牌对接6亿中国消费者",
-    "content": "DHL与京东签署战略谅解备忘录，利用DHL的欧洲物流网络和京东的中国市场渠道，帮助德国品牌通过京东跨境平台进入中国市场，服务6亿消费者。",
-    "source": "Logistics Manager",
-    "type": "press",
-    "platform": "joybuy",
-    "date": "2026-03-16",
-    "url": "https://www.logisticsmanager.com"
-  },
-  {
-    "id": "joybuy_invest_03",
-    "title": "Joybuy定位品牌导向平台，与Temu低价模式形成差异化竞争",
-    "content": "Joybuy官方定位为品牌导向平台，与国际和欧洲本地品牌合作，提供全品类商品。与Temu的极致低价策略不同，Joybuy强调品质和品牌信任度，配合自建物流实现快速配送。",
-    "source": "Joybuy Official",
-    "type": "official",
-    "platform": "joybuy",
-    "date": "2026-03-16",
-    "url": "https://about.joybuy.com/about/"
-  }
+  {"id":"t1","title":"Temu推出VMI预入仓与JIT即时发货两种履约模式，加速本地化配送","content":"Temu为卖家提供VMI（预入仓至Temu仓库）和JIT（下单后发货至仓库）两种履约方案。标准配送5-10个工作日，快速配送3-8个工作日。美国、欧洲等市场已启用本地仓发货。","source":"ShipBob","type":"press","platform":"temu","dimension":"logistics","date":"2026-03-30","url":"https://www.shipbob.com/blog/temu-shipping-guide/"},
+  {"id":"t2","title":"Pitney Bowes与Temu达成物流集成合作，接入ShipAccel配送平台","content":"物流服务商Pitney Bowes将Temu集成至其ShipAccel平台，为Temu卖家提供更多配送选项和物流管理工具，降低跨境物流成本。","source":"Business Wire","type":"press","platform":"temu","dimension":"logistics","date":"2026-03-30","url":"https://www.businesswire.com"},
+  {"id":"t3","title":"Temu加速欧洲本地化：建立本地仓储网络应对欧盟关税新政","content":"面对欧盟即将实施的关税新政，Temu在多个欧洲国家建立本地仓储，将部分商品从跨境直邮转为本地发货，以规避关税并缩短配送时间。","source":"Lengow","type":"press","platform":"temu","dimension":"logistics","date":"2026-01-30","url":"https://blog.lengow.com/temus-localization-strategy-in-europe/"},
+  {"id":"t4","title":"美国取消de minimis免税规则，Temu和Shein面临120%-145%关税","content":"美国取消800美元以下包裹免税政策后，Temu和Shein跨境直邮商品面临120%-145%关税。原价10美元商品关税后成本升至24.5美元，直接冲击低价模式根基。","source":"WWD","type":"press","platform":"temu","dimension":"pricing","date":"2026-03-15","url":"https://wwd.com/sourcing-journal/trade/shein-temu-class-action-lawsuit-ieepa-tariff-refund-1238917787/"},
+  {"id":"t5","title":"欧盟将于2026年7月取消150欧元以下包裹免税，征收3欧元固定关税","content":"欧盟理事会批准取消150欧元以下包裹免关税政策，自2026年7月1日起征收3欧元固定关税。2024年约46亿件低价包裹进入欧盟，91%来自中国。","source":"EU Consilium","type":"press","platform":"temu","dimension":"pricing","date":"2026-03-01","url":"https://www.minderest.com/blog/3-euro-tariff-eu-ecommerce-2026"},
+  {"id":"t6","title":"Temu半托管模式费率更新：平台承担仓储、履约、客服和退货物流","content":"Temu半托管模式下，平台负责仓储、区域配送中心履约、多语言客服和退货物流。卖家专注供货和定价，平台抽取佣金。该模式正在欧美市场加速推广。","source":"Alibaba Insights","type":"press","platform":"temu","dimension":"seller","date":"2026-03-03","url":"https://www.alibaba.com/product-insights/temu-semi-managed-model-fee-structure-2026.html"},
+  {"id":"t7","title":"Temu收紧卖家入驻标准，引入AI商品健康评分和欧盟EPR合规要求","content":"Temu加强卖家审核，要求面向欧盟市场的卖家完成EPR注册，并在卖家后台嵌入AI驱动的商品健康评分系统，提升商品质量管控。","source":"Alibaba Insights","type":"press","platform":"temu","dimension":"seller","date":"2026-03-14","url":"https://www.alibaba.com/product-insights/detailed-temu-store-setup-steps-2026.html"},
+  {"id":"t8","title":"Temu和Shein广告投放呈间歇性特征，大规模投放与暂停交替影响竞价市场","content":"2026年Temu和Shein广告投放呈明显间歇性：大规模投放与暂停交替进行，导致广告竞价市场剧烈波动，对其他电商平台的广告成本和流量获取产生连锁影响。","source":"DAC Group","type":"press","platform":"temu","dimension":"traffic","date":"2026-03-28","url":"https://www.dacgroup.com/insights/blog/paid-media/temu-shein-2026-ad-auction-volatility-media-buyers/"},
+  {"id":"t9","title":"Temu孵化自营品牌，从纯平台模式向自营+平台混合模式转型","content":"拼多多旗下Temu开始孵化自营品牌，标志着从纯第三方平台模式向自营+平台混合模式转型，可能改变其供应链控制力和利润结构。","source":"亿邦动力","type":"press","platform":"temu","dimension":"investment","date":"2026-03-30","url":"https://www.ebrun.com"},
+  {"id":"t10","title":"Temu因关税上调面临美国消费者集体诉讼，要求退还多收关税","content":"美国消费者对Temu和Shein提起集体诉讼，要求退还因de minimis规则取消后多收的关税费用。平台此前已宣布对美国市场进行价格调整。","source":"WWD","type":"press","platform":"temu","dimension":"compliance","date":"2026-04-01","url":"https://wwd.com/sourcing-journal/trade/shein-temu-class-action-lawsuit-ieepa-tariff-refund-1238917787/"},
+
+  {"id":"s1","title":"SHEIN将于4月限制美区商家自发货功能，强化官方物流管控","content":"SHEIN宣布2026年4月中上旬限制美区商家自发货功能，要求更多订单通过SHEIN官方物流渠道履约，以提升配送时效和服务一致性。","source":"亿邦动力","type":"press","platform":"shein","dimension":"logistics","date":"2026-04-02","url":"https://www.ebrun.com"},
+  {"id":"s2","title":"SHEIN投资14.5亿美元建设华南智能供应链，开放Xcelerator服务给外部品牌","content":"SHEIN在华南投资超14.5亿美元建设智能供应链系统，并向外部品牌开放Xcelerator按需供应链和物流服务，将自身供应链能力商业化。","source":"Business of Fashion","type":"press","platform":"shein","dimension":"logistics","date":"2026-03-10","url":"https://www.businessoffashion.com/articles/sustainability/exclusive-inside-sheins-xcelerator-an-on-demand-supply-chain-and-logistics-service-open-to-brands/"},
+  {"id":"s3","title":"SHEIN因关税调整对美国市场进行价格上调","content":"de minimis免税规则取消后，SHEIN对美国市场进行价格调整。此前SHEIN依赖800美元以下免税政策实现低价直邮，关税冲击迫使其重新评估定价策略。","source":"WWD","type":"press","platform":"shein","dimension":"pricing","date":"2026-04-01","url":"https://wwd.com/sourcing-journal/trade/shein-temu-class-action-lawsuit-ieepa-tariff-refund-1238917787/"},
+  {"id":"s4","title":"SHEIN IPO进程受阻，战略重心转向亚洲市场应对监管压力","content":"SHEIN的IPO计划因中国背景和ESG争议持续面临不确定性。公司正将战略重心向亚洲市场倾斜，同时加强与中国政府的关系以获取政策支持。","source":"Tech in Asia","type":"press","platform":"shein","dimension":"investment","date":"2026-03-16","url":"https://www.techinasia.com"},
+  {"id":"s5","title":"欧盟依据DSA对SHEIN启动合规调查，违规最高罚款全球营收6%","content":"欧盟委员会依据《数字服务法》对SHEIN启动正式调查程序，审查其平台合规性。若认定违规，SHEIN可能面临高达全球年营业额6%的罚款。","source":"Lewis Silkin","type":"press","platform":"shein","dimension":"compliance","date":"2026-02-27","url":"https://www.lewissilkin.com/insights/2026/02/27/digital-services-act-shein-becomes-the-latest-vlop-to-face-formal-proceedings-102mkps"},
+  {"id":"s6","title":"SHEIN欧盟月活用户达1.56亿，但增速从11.6%放缓至6.9%","content":"SHEIN在欧盟月均活跃用户约1.56亿（2025.8-2026.1），同比增长6.9%，较此前11.6%的增速明显放缓。欧洲市场趋于饱和，用户增长进入平台期。","source":"Chinesellers","type":"press","platform":"shein","dimension":"traffic","date":"2026-03-07","url":"https://chinesellers.substack.com/p/sheins-eu-momentum-slows-as-market"},
+  {"id":"s7","title":"SHEIN全球活跃用户超2.5亿，C2M模式驱动每日上新约2000个SKU","content":"SHEIN通过C2M模式驱动产品策略，每日新增约2000个SKU，小批量100-200件测试后根据实时数据决定是否规模化。全球活跃用户超2.5亿。","source":"Accio","type":"press","platform":"shein","dimension":"traffic","date":"2026-03-20","url":"https://www.accio.com/business/shein-package"},
+  {"id":"s8","title":"SHEIN在法国新增5家线下门店，加速欧洲线下零售布局","content":"继巴黎首店后，SHEIN在法国5个城市新开门店。线下渠道有助于降低退货率、提升品牌信任度，并规避部分跨境物流成本。","source":"Modaes","type":"press","platform":"shein","dimension":"brand","date":"2026-03-17","url":"https://www.modaes.com/global/topics/shein"},
+  {"id":"s9","title":"SHEIN向外部品牌开放供应链服务，邀请品牌使用其柔性供应链能力","content":"SHEIN通过Xcelerator项目向外部品牌开放其按需生产和物流服务，帮助品牌实现小单快反。此举将SHEIN从纯零售商转型为供应链服务平台。","source":"Business of Fashion","type":"press","platform":"shein","dimension":"brand","date":"2026-03-12","url":"https://www.businessoffashion.com/articles/sustainability/exclusive-inside-sheins-xcelerator-an-on-demand-supply-chain-and-logistics-service-open-to-brands/"},
+  {"id":"s10","title":"法国政府申请暂停SHEIN第三方卖家平台运营被巴黎上诉法院驳回","content":"法国政府以合规问题为由申请暂停SHEIN的第三方卖家平台运营，但巴黎上诉法院驳回了该申请。SHEIN的Marketplace业务在法国得以继续运营。","source":"Reuters","type":"press","platform":"shein","dimension":"compliance","date":"2026-03-19","url":"https://www.reuters.com"},
+
+  {"id":"k1","title":"TikTok Shop佣金费率稳定在6%-8%，新卖家享3%优惠期","content":"2026年TikTok Shop美区标准佣金6%（部分品类8%），英区9%。另收约2%-3%支付处理费。新卖家入驻前期可享3%优惠佣金率，相比2023年1.8%补贴期已大幅上升。","source":"Printify","type":"press","platform":"tiktok","dimension":"seller","date":"2026-03-08","url":"https://printify.com/blog/tiktok-shop-fees/"},
+  {"id":"k2","title":"TikTok Shop墨西哥市场开放自运营模式，启动60天免佣金招商","content":"TikTok Shop加速拉美布局，4月开放美国至墨西哥跨境通道，启动60天免佣金政策吸引卖家入驻，重点招募大件商品卖家。","source":"新浪财经 / 雨果跨境","type":"press","platform":"tiktok","dimension":"investment","date":"2026-04-07","url":"https://www.cifnews.com"},
+  {"id":"k3","title":"TikTok Shop推出内容全球分发和跨店一键铺品功能","content":"TikTok Shop新增内容全球分发和跨店一键铺品功能，允许卖家将一个市场的内容和商品快速复制到其他市场，降低多市场运营成本。","source":"亿邦动力","type":"press","platform":"tiktok","dimension":"seller","date":"2026-04-09","url":"https://www.ebrun.com"},
+  {"id":"k4","title":"TikTok Shop占美国社交电商18.2%份额，Ulta和L'Oréal等大品牌入驻","content":"TikTok Shop占美国社交电商总GMV的18.2%。Ulta Beauty、Sally Beauty、L'Oréal等大品牌纷纷入驻，直播购物ROI持续增长。","source":"eMarketer","type":"press","platform":"tiktok","dimension":"brand","date":"2026-03-26","url":"https://synder.com/blog/tiktok-shop-fees/"},
+  {"id":"k5","title":"TikTok Shop在东南亚市场份额升至22%，成为印尼第二大电商平台","content":"TikTok Shop在印尼市场份额从2023年5%跃升至2025年约22%，仅次于Shopee，在东南亚对Shopee和Lazada构成实质性竞争威胁。","source":"SocialEcho","type":"press","platform":"tiktok","dimension":"traffic","date":"2026-03-10","url":"https://www.socialecho.net/en/blog/docs/tiktok-shop-2026-guide"},
+  {"id":"k6","title":"TikTok Shop升级FBT物流方案，为美区跨境卖家提供一站式履约","content":"TikTok Shop优化FBT（Fulfilled by TikTok）物流服务，为美区跨境POP商家提供仓储、拣货、包装和配送一站式方案，缩短配送时效。","source":"驱动之家","type":"press","platform":"tiktok","dimension":"logistics","date":"2026-03-25","url":"https://www.mydrivers.com"},
+  {"id":"k7","title":"TikTok Shop德国市场运营满一年，X世代贡献37%销售额","content":"TikTok Shop德国运营一周年，X世代（1965-1980年出生）贡献37%销售收入，打破TikTok仅服务年轻用户的认知，用户群体正在扩展。","source":"Ecommerce News Europe","type":"press","platform":"tiktok","dimension":"traffic","date":"2026-04-02","url":"https://ecommercenews.eu"},
+  {"id":"k8","title":"TikTok Shop升级美区ACE商家经营方法论，强化品牌运营体系","content":"TikTok Shop发布升级版美区ACE商家经营方法论，帮助品牌商家系统化运营，涵盖内容策略、达人合作和广告投放的全链路指导。","source":"品玩","type":"press","platform":"tiktok","dimension":"brand","date":"2026-03-17","url":"https://www.pingwest.com"},
+
+  {"id":"j1","title":"京东Joybuy登陆欧洲六国，首批10万+商品，JoyExpress提供当日达","content":"京东于2026年3月16日在英、法、德、荷、比、卢六国推出Joybuy。首批上线超10万商品，通过JoyExpress物流网络为1700万人提供当日达服务，同步推出JoyPlus订阅会员。","source":"Reuters / Inside Retail","type":"press","platform":"joybuy","dimension":"investment","date":"2026-03-16","url":"https://insideretail.asia/2026/03/16/targeting-amazon-jd-to-launch-joybuy-in-europe/"},
+  {"id":"j2","title":"京东推出JoyExpress欧洲物流服务，运营60+仓库覆盖四国","content":"京东为Joybuy配套推出JoyExpress物流服务，在英、德、荷、法运营超60个仓库和配送站点，配备卡车、货车和电动自行车车队，提供当日达和次日达。","source":"JD Corporate Blog","type":"press","platform":"joybuy","dimension":"logistics","date":"2026-02-11","url":"https://jdcorporateblog.com/jd-com-announces-joyexpress-a-new-delivery-service-for-europe"},
+  {"id":"j3","title":"京东以约22亿欧元收购Ceconomy，获取MediaMarkt线下渠道和欧洲供应链","content":"京东通过约22亿欧元收购Ceconomy（MediaMarkt母公司），获得欧洲最大消费电子零售网络的线下渠道、仓储物流基础设施和本地供应链能力。","source":"CryptoRank","type":"press","platform":"joybuy","dimension":"investment","date":"2026-03-16","url":"https://cryptorank.io/ru/news/feed/17e4b-chinas-jd-com-expands-into-europe-with-joybuy-platform"},
+  {"id":"j4","title":"DHL与京东签署战略合作，为德国品牌对接6亿中国消费者","content":"DHL与京东签署战略谅解备忘录，利用DHL欧洲物流网络和京东中国市场渠道，帮助德国品牌通过京东跨境平台进入中国市场。","source":"Logistics Manager","type":"press","platform":"joybuy","dimension":"logistics","date":"2026-03-16","url":"https://www.logisticsmanager.com"},
+  {"id":"j5","title":"Joybuy定位品牌导向平台，与Temu低价模式形成差异化竞争","content":"Joybuy官方定位为品牌导向平台，与国际和欧洲本地品牌合作提供全品类商品。与Temu极致低价策略不同，Joybuy强调品质和品牌信任度，配合自建物流实现快速配送。","source":"Joybuy Official","type":"press","platform":"joybuy","dimension":"brand","date":"2026-03-16","url":"https://about.joybuy.com/about/"},
+  {"id":"j6","title":"Joybuy采用Competera AI定价平台，优化欧洲市场价格竞争力","content":"京东Joybuy与Competera定价平台合作，利用AI驱动的动态定价策略优化欧洲市场的价格竞争力，实现实时价格调整。","source":"Retail Tech Hub","type":"press","platform":"joybuy","dimension":"pricing","date":"2026-04-07","url":"https://retailtechinnovationhub.com"}
 ]

@@ -85,10 +85,17 @@
                 <button class="filter-btn" onclick="filterNews('tiktok')">TikTok</button>
                 <button class="filter-btn" onclick="filterNews('joybuy')">Joybuy</button>
                 <div class="filter-divider"></div>
-                <button class="filter-btn" onclick="filterNews('social')">社交媒体</button>
-                <button class="filter-btn" onclick="filterNews('official')">官方网站</button>
-                <button class="filter-btn" onclick="filterNews('press')">新闻发布</button>
-                <div class="filter-divider"></div>
+                <select id="dimensionFilter" onchange="filterByDimension()" class="time-filter">
+                    <option value="all">全部维度</option>
+                    <option value="logistics">🚚 物流仓储</option>
+                    <option value="investment">💰 投资扩张</option>
+                    <option value="pricing">🏷️ 价格关税</option>
+                    <option value="traffic">📱 引流营销</option>
+                    <option value="compliance">⚖️ 合规监管</option>
+                    <option value="seller">🏪 卖家生态</option>
+                    <option value="returns">📦 退货售后</option>
+                    <option value="brand">🏢 品牌渠道</option>
+                </select>
                 <select id="timeFilter" onchange="filterByTime()" class="time-filter">
                     <option value="all">全部时间</option>
                     <option value="today">今天</option>

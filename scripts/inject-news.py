@@ -259,6 +259,7 @@ def main():
             f'content: "{content}", '
             f'source: "{source}", type: "{item["type"]}", '
             f'platform: "{item["platform"]}", '
+            f'dimension: "{item.get("dimension", "")}", '
             f'date: new Date("{item["date"]}"), '
             f'url: "{url}" }}'
         )

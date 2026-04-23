@@ -993,14 +993,21 @@ function loadFreightData() {
 
 function renderFreight() {
     var grid = document.getElementById('freightGrid');
+    var routeColors = {
+        '中国→美国': '#1a73e8', '中国→欧洲': '#34a853',
+        '中国→日本': '#ea4335', '跨大西洋': '#ff6d01',
+        '中国→全球': '#9334e6'
+    };
     grid.innerHTML = freightData.map(function(item) {
+        var routeColor = routeColors[item.route] || '#667eea';
         var linksHtml = (item.links || []).map(function(l) {
             return '<a href="' + l.url + '" target="_blank" class="vos-link">' + l.label + ' →</a>';
         }).join(' ');
         return '<div class="vos-card">' +
             '<div class="vos-card-header">' +
                 '<span class="vos-date">' + item.date + '</span>' +
-                (item.route ? '<span class="platform-tag platform-temu">' + item.route + '</span>' : '') +
+                '<span class="platform-tag" style="background:' + routeColor + '">' + item.route + '</span>' +
+                (item.mode ? '<span class="dimension-tag">' + item.mode + '</span>' : '') +
                 '<span class="news-row-source">' + (item.source || '') + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +

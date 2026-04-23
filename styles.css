@@ -159,24 +159,59 @@ body {
     z-index: 100;
 }
 
-.nav ul {
+/* 一级导航：板块切换 */
+.board-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.board-btn {
+    padding: 8px 20px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.board-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: #667eea;
+}
+
+.board-btn:hover:not(.active) {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+/* 二级导航：Competitor Study 子模块 */
+#competitorNav {
     display: flex;
     list-style: none;
     justify-content: center;
-    padding: 1rem 0;
+    padding: 6px 0 8px;
+    margin: 0;
+    background: #f8f9fa;
 }
 
-.nav li {
-    margin: 0 1rem;
+#competitorNav li {
+    margin: 0 0.5rem;
 }
 
 .nav-link {
     text-decoration: none;
     color: #666;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
     transition: all 0.3s;
     font-weight: 500;
+    font-size: 13px;
     position: relative;
     z-index: 2;
 }

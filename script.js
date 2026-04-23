@@ -827,22 +827,36 @@ function renderDashboard() {
 function switchBoard(board) {
     var competitorSections = document.querySelectorAll('main.container');
     var vosBoard = document.getElementById('vosBoard');
+    var pn15Board = document.getElementById('pn15Board');
+    var freightBoard = document.getElementById('freightBoard');
     var competitorNav = document.getElementById('competitorNav');
     var btns = document.querySelectorAll('.board-btn');
     
     btns.forEach(function(b) { b.classList.remove('active'); });
     
-    if (board === 'vos') {
-        competitorSections.forEach(function(s) { s.style.display = 'none'; });
-        vosBoard.style.display = 'block';
-        competitorNav.style.display = 'none';
-        btns[1].classList.add('active');
-        loadVOSData();
-    } else {
+    // 隐藏所有板块
+    competitorSections.forEach(function(s) { s.style.display = 'none'; });
+    vosBoard.style.display = 'none';
+    pn15Board.style.display = 'none';
+    freightBoard.style.display = 'none';
+    competitorNav.style.display = 'none';
+    
+    if (board === 'competitor') {
         competitorSections.forEach(function(s) { s.style.display = 'block'; });
-        vosBoard.style.display = 'none';
         competitorNav.style.display = 'flex';
         btns[0].classList.add('active');
+    } else if (board === 'vos') {
+        vosBoard.style.display = 'block';
+        btns[1].classList.add('active');
+        loadVOSData();
+    } else if (board === 'pn15') {
+        pn15Board.style.display = 'block';
+        btns[2].classList.add('active');
+        loadPN15Data();
+    } else if (board === 'freight') {
+        freightBoard.style.display = 'block';
+        btns[3].classList.add('active');
+        loadFreightData();
     }
 }
 
@@ -928,6 +942,70 @@ function renderVOS() {
             voicesHtml +
             comparisonHtml +
             linksHtml +
+        '</div>';
+    }).join('');
+}
+
+
+// ==================== PN15 模块 ====================
+var pn15Data = [];
+
+function loadPN15Data() {
+    if (pn15Data.length > 0) { renderPN15(); return; }
+    fetch('https://raw.githubusercontent.com/yanjiaoo/pn15/main/pn15-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) { pn15Data = data; renderPN15(); })
+        .catch(function(e) {
+            document.getElementById('pn15Grid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据，等待维护者更新</p>';
+        });
+}
+
+function renderPN15() {
+    var grid = document.getElementById('pn15Grid');
+    grid.innerHTML = pn15Data.map(function(item) {
+        var linksHtml = (item.links || []).map(function(l) {
+            return '<a href="' + l.url + '" target="_blank" class="vos-link">' + l.label + ' →</a>';
+        }).join(' ');
+        return '<div class="vos-card">' +
+            '<div class="vos-card-header">' +
+                '<span class="vos-date">' + item.date + '</span>' +
+                '<span class="news-row-source">' + (item.source || '') + '</span>' +
+            '</div>' +
+            '<h3 class="vos-title">' + item.title + '</h3>' +
+            '<div class="vos-summary">' + item.summary + '</div>' +
+            (linksHtml ? '<div class="vos-links">' + linksHtml + '</div>' : '') +
+        '</div>';
+    }).join('');
+}
+
+// ==================== 头程运费观察 ====================
+var freightData = [];
+
+function loadFreightData() {
+    if (freightData.length > 0) { renderFreight(); return; }
+    fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) { freightData = data; renderFreight(); })
+        .catch(function(e) {
+            document.getElementById('freightGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据，等待维护者更新</p>';
+        });
+}
+
+function renderFreight() {
+    var grid = document.getElementById('freightGrid');
+    grid.innerHTML = freightData.map(function(item) {
+        var linksHtml = (item.links || []).map(function(l) {
+            return '<a href="' + l.url + '" target="_blank" class="vos-link">' + l.label + ' →</a>';
+        }).join(' ');
+        return '<div class="vos-card">' +
+            '<div class="vos-card-header">' +
+                '<span class="vos-date">' + item.date + '</span>' +
+                (item.route ? '<span class="platform-tag platform-temu">' + item.route + '</span>' : '') +
+                '<span class="news-row-source">' + (item.source || '') + '</span>' +
+            '</div>' +
+            '<h3 class="vos-title">' + item.title + '</h3>' +
+            '<div class="vos-summary">' + item.summary + '</div>' +
+            (linksHtml ? '<div class="vos-links">' + linksHtml + '</div>' : '') +
         '</div>';
     }).join('');
 }

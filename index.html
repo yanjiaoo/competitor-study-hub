@@ -46,6 +46,8 @@
             <div class="board-switcher">
                 <button class="board-btn active" onclick="switchBoard('competitor')">📊 Competitor Study</button>
                 <button class="board-btn" onclick="switchBoard('vos')">🗣️ VOS From Social Media</button>
+                <button class="board-btn" onclick="switchBoard('pn15')">📋 PN15</button>
+                <button class="board-btn" onclick="switchBoard('freight')">🚢 头程运费观察</button>
             </div>
             <ul id="competitorNav">
                 <li><a href="#flash" class="nav-link active">Bi-monthly Flash</a></li>
@@ -194,6 +196,24 @@
             <ol id="vosTocList"></ol>
         </div>
         <div id="vosGrid"></div>
+    </div>
+
+    <!-- PN15 板块 -->
+    <div id="pn15Board" class="container" style="display:none;">
+        <div class="vos-header">
+            <h2>📋 PN15</h2>
+            <p class="vos-header-desc">PN15 模块内容</p>
+        </div>
+        <div id="pn15Grid"></div>
+    </div>
+
+    <!-- 头程运费观察 板块 -->
+    <div id="freightBoard" class="container" style="display:none;">
+        <div class="vos-header">
+            <h2>🚢 头程运费观察</h2>
+            <p class="vos-header-desc">跨境头程物流费用变化追踪</p>
+        </div>
+        <div id="freightGrid"></div>
     </div>
 
     <!-- 资讯源管理弹窗 -->

@@ -1606,3 +1606,33 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* PN15 税率摘要 */
+.pn15-tax-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+    margin-bottom: 24px;
+}
+
+.tax-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-top: 4px solid #ff9900;
+}
+
+.tax-box h4 {
+    font-size: 15px;
+    color: #232f3e;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .pn15-tax-summary {
+        grid-template-columns: 1fr;
+    }
+}

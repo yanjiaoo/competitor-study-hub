@@ -962,18 +962,32 @@ function loadPN15Data() {
 
 function renderPN15() {
     var grid = document.getElementById('pn15Grid');
+    var categoryLabels = {
+        'policy': '📜 政策法规', 'tax': '💰 税务影响',
+        'seller_voice': '🗣️ 卖家反应', 'enforcement': '🔍 执行动态',
+        'guidance': '📋 合规建议'
+    };
     grid.innerHTML = pn15Data.map(function(item) {
+        var catLabel = categoryLabels[item.category] || item.category || '';
+        var detailsHtml = '';
+        if (item.details && item.details.length > 0) {
+            detailsHtml = '<div class="vos-voices"><h4>📌 要点</h4><ul>' +
+                item.details.map(function(d) { return '<li>' + d + '</li>'; }).join('') +
+            '</ul></div>';
+        }
         var linksHtml = (item.links || []).map(function(l) {
-            return '<a href="' + l.url + '" target="_blank" class="vos-link">' + l.label + ' →</a>';
+            return '<a href="' + l.url + '" target="_blank">' + l.label + ' →</a>';
         }).join(' ');
-        return '<div class="vos-card">' +
+        return '<div class="vos-card" id="' + item.id + '">' +
             '<div class="vos-card-header">' +
+                '<span class="vos-rank">TOP' + item.rank + '</span>' +
+                (catLabel ? '<span class="dimension-tag">' + catLabel + '</span>' : '') +
                 '<span class="vos-date">' + item.date + '</span>' +
-                '<span class="news-row-source">' + (item.source || '') + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +
             '<div class="vos-summary">' + item.summary + '</div>' +
-            (linksHtml ? '<div class="vos-links">' + linksHtml + '</div>' : '') +
+            detailsHtml +
+            (linksHtml ? '<div class="vos-links"><h4>🔗 参考来源</h4>' + linksHtml + '</div>' : '') +
         '</div>';
     }).join('');
 }

@@ -854,7 +854,9 @@ function loadVOSData() {
         renderVOS();
         return;
     }
-    fetch('vos-data.json')
+    // 从独立仓库加载 VOS 数据
+    var vosUrl = 'https://raw.githubusercontent.com/yanjiaoo/vos-social-media/main/vos-data.json';
+    fetch(vosUrl)
         .then(function(r) { return r.json(); })
         .then(function(data) {
             vosData = data;
@@ -862,7 +864,13 @@ function loadVOSData() {
         })
         .catch(function(e) {
             console.error('加载VOS数据失败:', e);
-            document.getElementById('vosGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据</p>';
+            // fallback: 尝试本地文件
+            fetch('vos-data.json')
+                .then(function(r) { return r.json(); })
+                .then(function(data) { vosData = data; renderVOS(); })
+                .catch(function() {
+                    document.getElementById('vosGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据</p>';
+                });
         });
 }
 

@@ -982,10 +982,10 @@ function renderPN15() {
 var freightData = [];
 
 function loadFreightData() {
-    if (freightData.length > 0) { renderFreight(); return; }
+    if (freightData.length > 0) { renderFreight(); renderFreightCharts(); return; }
     fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-data.json')
         .then(function(r) { return r.json(); })
-        .then(function(data) { freightData = data; renderFreight(); })
+        .then(function(data) { freightData = data; renderFreight(); renderFreightCharts(); })
         .catch(function(e) {
             document.getElementById('freightGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据，等待维护者更新</p>';
         });
@@ -1015,4 +1015,121 @@ function renderFreight() {
             (linksHtml ? '<div class="vos-links">' + linksHtml + '</div>' : '') +
         '</div>';
     }).join('');
+}
+
+
+// ==================== 运费图表 ====================
+var freightChartInstances = {};
+
+function renderFreightCharts() {
+    fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-chart-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) { drawFreightCharts(data); })
+        .catch(function(e) { console.error('加载图表数据失败:', e); });
+}
+
+function drawFreightCharts(data) {
+    var labels = data.months;
+    var routes = data.routes;
+    var colors = {
+        '中国→美西': '#1a73e8',
+        '中国→美东': '#4285f4',
+        '中国→欧洲基本港': '#34a853',
+        '中国→日本': '#ea4335'
+    };
+
+    // 销毁旧图表
+    Object.keys(freightChartInstances).forEach(function(k) {
+        if (freightChartInstances[k]) freightChartInstances[k].destroy();
+    });
+
+    // 海运图表
+    var oceanDatasets = [];
+    Object.keys(routes).forEach(function(route) {
+        oceanDatasets.push({
+            label: route,
+            data: routes[route].ocean_fcl_teu,
+            borderColor: colors[route] || '#667eea',
+            backgroundColor: (colors[route] || '#667eea') + '20',
+            tension: 0.3,
+            fill: false,
+            pointRadius: 4,
+            borderWidth: 2
+        });
+    });
+    freightChartInstances.ocean = new Chart(document.getElementById('oceanChart'), {
+        type: 'line',
+        data: { labels: labels, datasets: oceanDatasets },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
+            scales: { y: { title: { display: true, text: '$/TEU' }, beginAtZero: false } }
+        }
+    });
+
+    // 空运图表
+    var airDatasets = [];
+    Object.keys(routes).forEach(function(route) {
+        airDatasets.push({
+            label: route,
+            data: routes[route].air_per_kg,
+            borderColor: colors[route] || '#667eea',
+            tension: 0.3,
+            fill: false,
+            pointRadius: 4,
+            borderWidth: 2
+        });
+    });
+    freightChartInstances.air = new Chart(document.getElementById('airChart'), {
+        type: 'line',
+        data: { labels: labels, datasets: airDatasets },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
+            scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
+        }
+    });
+
+    // 中欧班列图表（仅欧洲航线有数据）
+    var railDatasets = [];
+    Object.keys(routes).forEach(function(route) {
+        var railData = routes[route].rail_per_kg;
+        if (railData && railData.some(function(v) { return v !== null; })) {
+            railDatasets.push({
+                label: route,
+                data: railData,
+                borderColor: colors[route] || '#667eea',
+                tension: 0.3,
+                fill: false,
+                pointRadius: 4,
+                borderWidth: 2
+            });
+        }
+    });
+    if (railDatasets.length > 0) {
+        freightChartInstances.rail = new Chart(document.getElementById('railChart'), {
+            type: 'line',
+            data: { labels: labels, datasets: railDatasets },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
+                scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
+            }
+        });
+    } else {
+        document.getElementById('railChart').parentElement.querySelector('h4').textContent += '（仅中国→欧洲）';
+        freightChartInstances.rail = new Chart(document.getElementById('railChart'), {
+            type: 'line',
+            data: { labels: labels, datasets: [{ label: '中国→欧洲基本港', data: routes['中国→欧洲基本港'].rail_per_kg, borderColor: '#34a853', tension: 0.3, fill: false, pointRadius: 4, borderWidth: 2 }] },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
+            }
+        });
+    }
+
+    // 更新时间
+    var el = document.getElementById('chartLastUpdate');
+    if (el) el.textContent = '最后更新：' + data.lastUpdated;
 }

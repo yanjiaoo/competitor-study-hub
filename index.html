@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Learning Hub</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -211,8 +212,36 @@
     <div id="freightBoard" class="container" style="display:none;">
         <div class="vos-header">
             <h2>🚢 头程运费观察</h2>
-            <p class="vos-header-desc">跨境头程物流费用变化追踪</p>
+            <p class="vos-header-desc">跨境头程物流费用变化追踪 | 中国→美国/欧洲/日本</p>
         </div>
+        <div class="freight-charts">
+            <div class="chart-row">
+                <div class="chart-box">
+                    <h4>🚢 海运整柜费率趋势 ($/TEU)</h4>
+                    <canvas id="oceanChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h4>✈️ 空运费率趋势 ($/kg)</h4>
+                    <canvas id="airChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-box">
+                    <h4>🚂 中欧班列费率趋势 ($/kg)</h4>
+                    <canvas id="railChart"></canvas>
+                </div>
+                <div class="chart-box chart-note-box">
+                    <h4>📊 数据说明</h4>
+                    <p>数据来源：Freightos Baltic Index、YQN、Unicargo、SeaRates</p>
+                    <p>更新频率：每月更新</p>
+                    <p>海运费率为20尺标准柜（TEU）即期运价</p>
+                    <p>空运费率为每公斤综合费率（含燃油附加费）</p>
+                    <p>中欧班列仅适用于中国→欧洲航线</p>
+                    <p id="chartLastUpdate"></p>
+                </div>
+            </div>
+        </div>
+        <h3 style="padding:20px 20px 0;color:#232f3e;">📰 最新运费动态</h3>
         <div id="freightGrid"></div>
     </div>
 

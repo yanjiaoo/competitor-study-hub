@@ -187,13 +187,11 @@
             <h2>🗣️ VOS From Social Media</h2>
             <p class="vos-header-desc">亚马逊卖家核心热议问题汇总 | 数据来源：Reddit、知无不言、卖家之家、AMZ123、雨果跨境、Amazon Forums、Value Added Resource</p>
         </div>
-        <div id="vosDisclaimer" class="vos-disclaimer" style="display:none;">
-            ⚠️ 以下话题由 AI 基于公开社媒信息生成，可能存在时效性和准确性局限。重要决策请以亚马逊官方公告为准。
-        </div>
-        <div class="vos-legend">
-            <span class="verify-tag verify-official">✅ 官方已核实</span>
-            <span class="verify-tag verify-unconfirmed">⚠️ 卖家热议待官方全量公告</span>
-            <button class="submit-article-btn" onclick="toggleSubmitForm()">➕ 提交文章线索</button>
+        <div class="vos-search" style="margin:0 20px 16px;">
+            <div class="search-container" style="max-width:100%;">
+                <div class="search-icon">🔍</div>
+                <input type="text" id="vosSearchInput" placeholder="搜索话题关键词..." onkeyup="searchVOS()">
+            </div>
         </div>
         
         <!-- 提交文章表单 -->

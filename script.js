@@ -1516,3 +1516,22 @@ function submitArticle() {
 
     alert('已跳转到 GitHub 创建 Issue，请确认提交。维护者审核后将添加到 VOS 板块。');
 }
+
+
+// VOS 搜索
+function searchVOS() {
+    var query = (document.getElementById('vosSearchInput') || {}).value || '';
+    query = query.toLowerCase().trim();
+    
+    // Filter TOC
+    document.querySelectorAll('#vosTocList li').forEach(function(li) {
+        var text = li.textContent.toLowerCase();
+        li.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
+    });
+    
+    // Filter cards
+    document.querySelectorAll('#vosGrid .vos-card').forEach(function(card) {
+        var text = card.textContent.toLowerCase();
+        card.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
+    });
+}

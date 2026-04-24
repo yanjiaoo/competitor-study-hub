@@ -1044,16 +1044,8 @@ function renderVOS() {
             briefingHeader +
             '<div class="vos-card-header">' +
                 '<span class="vos-rank">TOP' + item.rank + '</span>' +
-                alertBadge +
-                '<span class="verify-tag ' + verifyClass + '">' + verifyText + '</span>' +
-                aiBadge +
-                layerBadge +
                 (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
-                sentimentDot +
                 sourceBadge +
-                confirmBadge +
-                blindSpotBadge +
-                unverifiedBadge +
                 '<span class="vos-date">' + item.effectDate + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +

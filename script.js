@@ -1076,9 +1076,9 @@ function drawFreightCharts(data) {
     var labels = data.months;
     var routes = data.routes;
     var colors = {
-        '中国→美西': '#1a73e8',
-        '中国→美东': '#f57c00',
-        '中国→欧洲基本港': '#34a853',
+        '中国→美西 (FBX01)': '#1a73e8',
+        '中国→美东 (FBX03)': '#f57c00',
+        '中国→北欧 (FBX11)': '#34a853',
         '中国→日本': '#ea4335'
     };
 

@@ -253,13 +253,37 @@
                     <canvas id="railChart"></canvas>
                 </div>
                 <div class="chart-box chart-note-box">
-                    <h4>📊 数据说明</h4>
-                    <p>数据来源：Freightos Baltic Index、YQN、Unicargo、SeaRates</p>
-                    <p>更新频率：每月更新</p>
-                    <p>海运费率为20尺标准柜（TEU）即期运价</p>
-                    <p>空运费率为每公斤综合费率（含燃油附加费）</p>
-                    <p>中欧班列仅适用于中国→欧洲航线</p>
-                    <p id="chartLastUpdate"></p>
+                    <h4>📊 数据来源与可信度</h4>
+                    <p><span style="font-weight:600;">海运数据：</span>Freightos Baltic Index (FBX)，全球最权威的集装箱即期运费指数，由Freightos与波罗的海交易所联合发布，被路透社、彭博社等广泛引用。可信度：⭐⭐⭐⭐⭐</p>
+                    <p><span style="font-weight:600;">空运数据：</span>Freightos Air Index (FAI)，基于全球航空货运实际成交价编制。可信度：⭐⭐⭐⭐⭐</p>
+                    <p><span style="font-weight:600;">中欧班列：</span>综合货代报价和行业报告。可信度：⭐⭐⭐⭐</p>
+                    <p><span style="font-weight:600;">单位说明：</span>海运为40尺标准柜(FEU)即期运价；空运为每公斤综合费率（含燃油附加费）</p>
+                    <p id="chartLastUpdate" style="margin-top:8px;font-weight:600;"></p>
+                </div>
+            </div>
+        </div>
+        <div class="freight-analysis">
+            <div class="vos-card" style="margin:0 20px 20px;">
+                <h3 class="vos-title">📈 运费趋势解读</h3>
+                <div class="vos-summary">
+                    <p><span style="font-weight:600;">2025年1-4月｜高位震荡期：</span>受2024年红海危机余波影响，运价维持高位。美西FBX01约$3,500-5,300/FEU，美东FBX03约$4,500-6,800/FEU。</p>
+                    <p style="margin-top:8px;"><span style="font-weight:600;">2025年5-6月｜关税抢运高峰：</span>美国将对华关税从145%降至30%（90天窗口期），触发大规模抢运潮。美西运价飙升至$6,000/FEU，美东突破$7,500/FEU，为年内最高点。空运同步飙升，中国至美国达$7.5/kg。</p>
+                    <p style="margin-top:8px;"><span style="font-weight:600;">2025年7-12月｜持续下行期：</span>抢运需求消退+运力过剩，运价连续14周下跌。美西跌至$1,750/FEU（较高点-71%），美东跌至$2,600/FEU。Xeneta数据显示同比跌幅达48-59%。</p>
+                    <p style="margin-top:8px;"><span style="font-weight:600;">2026年1-3月｜低位盘整期：</span>春节后需求疲软，美西维持$1,700-1,900/FEU低位。船公司通过取消航次（blank sailings）控制运力，MSC等头部船公司撤减部分航线。</p>
+                    <p style="margin-top:8px;"><span style="font-weight:600; color:#c0392b;">2026年4月｜地缘冲击回升：</span>伊朗关闭霍尔木兹海峡，全球运价全面承压上行。美西回升至$2,400/FEU（+40%），北欧升至$2,900/FEU。船公司宣布紧急燃油附加费$200-500/FEU。新加坡燃油库存仅剩一个月，若局势持续将进一步推高运价。</p>
+                </div>
+            </div>
+            <div class="vos-card" style="margin:0 20px 20px;">
+                <h3 class="vos-title">🗣️ 卖家运费反馈</h3>
+                <div class="vos-voices">
+                    <h4>来源：Reddit r/FBA、知无不言、卖家之家</h4>
+                    <ul>
+                        <li><span class="voice-source">Reddit r/FBA：</span>"去年5月抢运的时候美西到$6,000一柜，现在虽然回落了但霍尔木兹海峡的事又把价格推上去了，感觉永远在坐过山车"</li>
+                        <li><span class="voice-source">知无不言：</span>"现在海运DDP到美国大概$2-3/kg，比去年便宜很多，但燃油附加费一直在涨，实际到手价格没降多少"</li>
+                        <li><span class="voice-source">卖家之家：</span>"头程占总成本快30%了，现在都在比较FBA头程和海外仓的成本差异，海外仓虽然多一道周转但总成本可能更低"</li>
+                        <li><span class="voice-source">Reddit r/FBA：</span>"空运从中国到美国$7.4/kg，比年初涨了快50%，小件高毛利的还能扛，大件根本不敢走空运了"</li>
+                        <li><span class="voice-source">知无不言：</span>"中欧班列现在$0.12/kg，比海运慢一点但比空运便宜太多，欧洲站的卖家可以考虑"</li>
+                    </ul>
                 </div>
             </div>
         </div>

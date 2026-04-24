@@ -1090,9 +1090,10 @@ function drawFreightCharts(data) {
     // 海运图表
     var oceanDatasets = [];
     Object.keys(routes).forEach(function(route) {
+        var oceanData = routes[route].ocean_fcl_feu || routes[route].ocean_fcl_teu;
         oceanDatasets.push({
             label: route,
-            data: routes[route].ocean_fcl_teu,
+            data: oceanData,
             borderColor: colors[route] || '#667eea',
             backgroundColor: (colors[route] || '#667eea') + '20',
             tension: 0.3,
@@ -1107,7 +1108,7 @@ function drawFreightCharts(data) {
         options: {
             responsive: true,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
-            scales: { y: { title: { display: true, text: '$/TEU' }, beginAtZero: false } }
+            scales: { y: { title: { display: true, text: '$/FEU (40尺柜)' }, beginAtZero: false } }
         }
     });
 

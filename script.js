@@ -912,7 +912,7 @@ function renderVOS() {
     tocList.innerHTML = vosData.map(function(item) {
         var verifyIcon = item.verified === 'official' ? '✅' : '⚠️';
         var topicLabel = item.topicLabel || '';
-        return '<li data-topic="' + (item.topic || '') + '"><a href="#' + item.id + '">' + verifyIcon + ' ' + topicLabel + ' ' + item.title + '</a></li>';
+        return '<li data-topic="' + (item.topic || '') + '"><a href="#' + item.id + '"><span class="toc-date">' + item.effectDate + '</span> ' + verifyIcon + ' ' + topicLabel + ' ' + item.title + '</a></li>';
     }).join('');
     
     // 渲染详情卡片
@@ -954,7 +954,7 @@ function renderVOS() {
                 '<span class="verify-tag ' + verifyClass + '">' + verifyText + '</span>' +
                 (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
                 (item.engineLabel ? '<span class="engine-tag">' + item.engineLabel + '</span>' : '') +
-                '<span class="vos-date">生效/发生时间：' + item.effectDate + '</span>' +
+                '<span class="vos-date">' + item.effectDate + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +
             '<div class="vos-summary"><strong>影响说明：</strong>' + item.summary + '</div>' +

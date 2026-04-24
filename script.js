@@ -1013,11 +1013,13 @@ var freightData = [];
 
 function loadFreightData() {
     if (freightData.length > 0) { renderFreight(); renderFreightCharts(); return; }
+    // 数据和图表并行加载
+    renderFreightCharts();
     fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-data.json')
         .then(function(r) { return r.json(); })
-        .then(function(data) { freightData = data; renderFreight(); renderFreightCharts(); })
+        .then(function(data) { freightData = data; renderFreight(); })
         .catch(function(e) {
-            document.getElementById('freightGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据，等待维护者更新</p>';
+            document.getElementById('freightGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据</p>';
         });
 }
 
@@ -1052,6 +1054,18 @@ function renderFreight() {
 var freightChartInstances = {};
 
 function renderFreightCharts() {
+    // 按需加载 Chart.js
+    if (typeof Chart !== 'undefined') {
+        fetchAndDrawCharts();
+        return;
+    }
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js';
+    script.onload = function() { fetchAndDrawCharts(); };
+    document.head.appendChild(script);
+}
+
+function fetchAndDrawCharts() {
     fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-chart-data.json')
         .then(function(r) { return r.json(); })
         .then(function(data) { drawFreightCharts(data); })

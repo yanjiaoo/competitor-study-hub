@@ -1671,3 +1671,29 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* VOS 引擎标签 */
+.engine-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    background: #e3f2fd;
+    color: #1565c0;
+    margin-left: 6px;
+    white-space: nowrap;
+}
+
+.vos-topic-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.vos-topic-filters .filter-btn {
+    font-size: 12px;
+    padding: 4px 12px;
+}

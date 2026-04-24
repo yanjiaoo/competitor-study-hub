@@ -911,7 +911,8 @@ function renderVOS() {
     // 渲染目录
     tocList.innerHTML = vosData.map(function(item) {
         var verifyIcon = item.verified === 'official' ? '✅' : '⚠️';
-        return '<li><a href="#' + item.id + '">' + verifyIcon + ' TOP' + item.rank + '：' + item.title + '</a></li>';
+        var topicLabel = item.topicLabel || '';
+        return '<li data-topic="' + (item.topic || '') + '"><a href="#' + item.id + '">' + verifyIcon + ' ' + topicLabel + ' ' + item.title + '</a></li>';
     }).join('');
     
     // 渲染详情卡片
@@ -947,10 +948,12 @@ function renderVOS() {
                 }).join('') + '</div>';
         }
         
-        return '<div class="vos-card" id="' + item.id + '">' +
+        return '<div class="vos-card" id="' + item.id + '" data-topic="' + (item.topic || '') + '">' +
             '<div class="vos-card-header">' +
                 '<span class="vos-rank">TOP' + item.rank + '</span>' +
                 '<span class="verify-tag ' + verifyClass + '">' + verifyText + '</span>' +
+                (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
+                (item.engineLabel ? '<span class="engine-tag">' + item.engineLabel + '</span>' : '') +
                 '<span class="vos-date">生效/发生时间：' + item.effectDate + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +
@@ -1300,5 +1303,33 @@ function drawTransitChart(data) {
                 });
             }
         }]
+    });
+}
+
+
+// VOS 议题筛选
+function filterVOS(topic) {
+    // 更新按钮状态
+    document.querySelectorAll('.vos-topic-filters .filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // 筛选目录
+    document.querySelectorAll('#vosTocList li').forEach(function(li) {
+        if (topic === 'all' || li.getAttribute('data-topic') === topic || !li.getAttribute('data-topic')) {
+            li.style.display = '';
+        } else {
+            li.style.display = 'none';
+        }
+    });
+    
+    // 筛选卡片
+    document.querySelectorAll('#vosGrid .vos-card').forEach(function(card) {
+        if (topic === 'all' || card.getAttribute('data-topic') === topic || !card.getAttribute('data-topic')) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
     });
 }

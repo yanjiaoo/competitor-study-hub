@@ -1068,7 +1068,7 @@ function renderFreightCharts() {
 function fetchAndDrawCharts() {
     fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-chart-data.json')
         .then(function(r) { return r.json(); })
-        .then(function(data) { drawFreightCharts(data); })
+        .then(function(data) { drawFreightCharts(data); renderTransitChart(); })
         .catch(function(e) { console.error('加载图表数据失败:', e); });
 }
 
@@ -1177,4 +1177,128 @@ function drawFreightCharts(data) {
     // 更新时间
     var el = document.getElementById('chartLastUpdate');
     if (el) el.textContent = '最后更新：' + data.lastUpdated;
+}
+
+
+// ==================== 时效雷达 ====================
+function renderTransitChart() {
+    fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/transit-data.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) { drawTransitChart(data); })
+        .catch(function(e) { console.error('加载时效数据失败:', e); });
+}
+
+function drawTransitChart(data) {
+    if (typeof Chart === 'undefined') return;
+
+    var ctx = document.getElementById('transitChart');
+    if (!ctx) return;
+
+    var labels = data.months;
+    var datasets = [];
+
+    // 船公司时效线
+    Object.keys(data.carriers).forEach(function(name) {
+        var carrier = data.carriers[name];
+        datasets.push({
+            label: name,
+            data: carrier.days,
+            borderColor: carrier.color,
+            backgroundColor: carrier.color + '15',
+            tension: 0.3,
+            fill: false,
+            pointRadius: 4,
+            borderWidth: 2.5,
+        });
+    });
+
+    // 异常事件标注线
+    var eventAnnotations = {};
+    if (data.events) {
+        data.events.forEach(function(evt, i) {
+            var idx = labels.indexOf(evt.month);
+            if (idx >= 0) {
+                eventAnnotations['event' + i] = {
+                    type: 'line',
+                    xMin: idx,
+                    xMax: idx,
+                    borderColor: '#c0392b',
+                    borderWidth: 2,
+                    borderDash: [6, 3],
+                    label: {
+                        display: true,
+                        content: evt.label,
+                        position: 'start',
+                        backgroundColor: '#c0392b',
+                        color: '#fff',
+                        font: { size: 11 },
+                        padding: 4,
+                    }
+                };
+            }
+        });
+    }
+
+    // 检查是否有 annotation 插件（Chart.js 原生不支持，用 tooltip 替代）
+    new Chart(ctx, {
+        type: 'line',
+        data: { labels: labels, datasets: datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom', labels: { font: { size: 12 } } },
+                tooltip: {
+                    callbacks: {
+                        afterBody: function(context) {
+                            var idx = context[0].dataIndex;
+                            var month = labels[idx];
+                            var evts = (data.events || []).filter(function(e) { return e.month === month; });
+                            if (evts.length > 0) {
+                                return '⚠️ ' + evts[0].label + ': ' + evts[0].description;
+                            }
+                            return '';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    title: { display: true, text: '天数（港到港）' },
+                    beginAtZero: false,
+                    min: 8,
+                },
+                x: {
+                    ticks: { font: { size: 11 } }
+                }
+            }
+        },
+        plugins: [{
+            // 自定义插件：在异常事件月份画竖线
+            id: 'eventLines',
+            afterDraw: function(chart) {
+                var ctx2 = chart.ctx;
+                var xAxis = chart.scales.x;
+                var yAxis = chart.scales.y;
+                (data.events || []).forEach(function(evt) {
+                    var idx = labels.indexOf(evt.month);
+                    if (idx < 0) return;
+                    var x = xAxis.getPixelForValue(idx);
+                    ctx2.save();
+                    ctx2.beginPath();
+                    ctx2.setLineDash([6, 3]);
+                    ctx2.strokeStyle = '#c0392b';
+                    ctx2.lineWidth = 1.5;
+                    ctx2.moveTo(x, yAxis.top);
+                    ctx2.lineTo(x, yAxis.bottom);
+                    ctx2.stroke();
+                    // 标签
+                    ctx2.fillStyle = '#c0392b';
+                    ctx2.font = '11px sans-serif';
+                    ctx2.textAlign = 'center';
+                    ctx2.fillText('⚠️' + evt.label, x, yAxis.top - 5);
+                    ctx2.restore();
+                });
+            }
+        }]
+    });
 }

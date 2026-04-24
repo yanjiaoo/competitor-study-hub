@@ -954,6 +954,7 @@ function renderVOS() {
                 '<span class="verify-tag ' + verifyClass + '">' + verifyText + '</span>' +
                 (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
                 (item.engineLabel ? '<span class="engine-tag">' + item.engineLabel + '</span>' : '') +
+                (item.confirmationLabel ? '<span class="confirm-tag">' + item.confirmationLabel + '</span>' : '') +
                 '<span class="vos-date">' + item.effectDate + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +

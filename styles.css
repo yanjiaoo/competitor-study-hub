@@ -1752,6 +1752,24 @@ body {
     background: #2e7d32;
 }
 
+.submit-toggle-btn {
+    background: #fff;
+    color: #34a853;
+    border: 1.5px solid #34a853;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.submit-toggle-btn:hover {
+    background: #34a853;
+    color: #fff;
+}
+
 
 /* VOS 目录日期 */
 .toc-date {

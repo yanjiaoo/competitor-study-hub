@@ -188,20 +188,23 @@
             <p class="vos-header-desc">亚马逊卖家核心热议问题汇总 | 数据来源：Reddit、知无不言、卖家之家、AMZ123、雨果跨境、Amazon Forums、Value Added Resource</p>
         </div>
         <div class="vos-search" style="margin:0 20px 16px;">
-            <div class="search-container" style="max-width:100%;">
-                <div class="search-icon">🔍</div>
-                <input type="text" id="vosSearchInput" placeholder="搜索话题关键词..." onkeyup="searchVOS()">
+            <div style="display:flex;gap:10px;align-items:center;max-width:100%;">
+                <div class="search-container" style="flex:1;">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" id="vosSearchInput" placeholder="搜索话题关键词..." onkeyup="searchVOS()">
+                </div>
+                <button class="submit-toggle-btn" onclick="toggleSubmitForm()">📤 上传推文</button>
             </div>
         </div>
         
         <!-- 提交文章表单 -->
         <div id="submitForm" class="submit-form" style="display:none;">
             <div class="vos-card" style="margin:0 20px 16px;border-left-color:#34a853;">
-                <h3 class="vos-title">📝 提交高质量文章线索</h3>
-                <p style="font-size:13px;color:#666;margin-bottom:12px;">发现了有价值的卖家热议文章？提交链接，审核后将展示在 VOS 板块。</p>
+                <h3 class="vos-title">📤 上传卖家热议推文</h3>
+                <p style="font-size:13px;color:#666;margin-bottom:12px;">发现了有价值的微信公众号文章或卖家社区帖子？提交链接，审核后将展示在 VOS 板块。</p>
                 <div class="submit-fields">
                     <input type="text" id="submitTitle" placeholder="文章标题" class="submit-input"/>
-                    <input type="url" id="submitUrl" placeholder="文章链接（公众号/论坛/社媒）" class="submit-input"/>
+                    <input type="url" id="submitUrl" placeholder="文章链接（微信公众号/论坛/社媒）" class="submit-input"/>
                     <select id="submitTopic" class="submit-input">
                         <option value="">选择议题分类</option>
                         <option value="advertising">📢 广告</option>
@@ -213,9 +216,9 @@
                         <option value="logistics">🚚 物流</option>
                         <option value="trending">🔥 趋势</option>
                     </select>
-                    <input type="text" id="submitSource" placeholder="来源（如：跨境电商鹰熊汇）" class="submit-input"/>
+                    <input type="text" id="submitSource" placeholder="来源（如：跨境电商鹰熊汇、侃侃跨境那些事儿）" class="submit-input"/>
                     <textarea id="submitNote" placeholder="简要说明为什么值得关注（选填）" class="submit-input" rows="2"></textarea>
-                    <button class="submit-btn" onclick="submitArticle()">提交</button>
+                    <button class="submit-btn" onclick="submitArticle()">提交线索</button>
                 </div>
             </div>
         </div>

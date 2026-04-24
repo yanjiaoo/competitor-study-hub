@@ -1333,3 +1333,56 @@ function filterVOS(topic) {
         }
     });
 }
+
+
+// ==================== 提交文章线索 ====================
+function toggleSubmitForm() {
+    var form = document.getElementById('submitForm');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+}
+
+function submitArticle() {
+    var title = document.getElementById('submitTitle').value.trim();
+    var url = document.getElementById('submitUrl').value.trim();
+    var topic = document.getElementById('submitTopic').value;
+    var source = document.getElementById('submitSource').value.trim();
+    var note = document.getElementById('submitNote').value.trim();
+
+    if (!title || !url) {
+        alert('请填写文章标题和链接');
+        return;
+    }
+
+    var topicLabels = {
+        'advertising': '广告', 'promotion': '促销', 'compliance': '合规',
+        'brand': '品牌', 'returns': '退货', 'tax': '税务',
+        'logistics': '物流', 'trending': '趋势'
+    };
+
+    // 生成 GitHub Issue
+    var issueTitle = '[VOS线索] ' + title;
+    var issueBody = '## 文章线索提交\n\n' +
+        '**标题：** ' + title + '\n' +
+        '**链接：** ' + url + '\n' +
+        '**议题：** ' + (topicLabels[topic] || '未分类') + '\n' +
+        '**来源：** ' + (source || '未标注') + '\n' +
+        (note ? '**说明：** ' + note + '\n' : '') +
+        '\n---\n*通过 Seller Learning Hub 提交*';
+
+    var githubUrl = 'https://github.com/yanjiaoo/vos-social-media/issues/new?' +
+        'title=' + encodeURIComponent(issueTitle) +
+        '&body=' + encodeURIComponent(issueBody) +
+        '&labels=article-submission';
+
+    window.open(githubUrl, '_blank');
+
+    // 清空表单
+    document.getElementById('submitTitle').value = '';
+    document.getElementById('submitUrl').value = '';
+    document.getElementById('submitTopic').value = '';
+    document.getElementById('submitSource').value = '';
+    document.getElementById('submitNote').value = '';
+    document.getElementById('submitForm').style.display = 'none';
+
+    alert('已跳转到 GitHub 创建 Issue，请确认提交。维护者审核后将添加到 VOS 板块。');
+}

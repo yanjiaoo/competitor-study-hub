@@ -190,6 +190,33 @@
         <div class="vos-legend">
             <span class="verify-tag verify-official">✅ 官方已核实</span>
             <span class="verify-tag verify-unconfirmed">⚠️ 卖家热议待官方全量公告</span>
+            <button class="submit-article-btn" onclick="toggleSubmitForm()">➕ 提交文章线索</button>
+        </div>
+        
+        <!-- 提交文章表单 -->
+        <div id="submitForm" class="submit-form" style="display:none;">
+            <div class="vos-card" style="margin:0 20px 16px;border-left-color:#34a853;">
+                <h3 class="vos-title">📝 提交高质量文章线索</h3>
+                <p style="font-size:13px;color:#666;margin-bottom:12px;">发现了有价值的卖家热议文章？提交链接，审核后将展示在 VOS 板块。</p>
+                <div class="submit-fields">
+                    <input type="text" id="submitTitle" placeholder="文章标题" class="submit-input"/>
+                    <input type="url" id="submitUrl" placeholder="文章链接（公众号/论坛/社媒）" class="submit-input"/>
+                    <select id="submitTopic" class="submit-input">
+                        <option value="">选择议题分类</option>
+                        <option value="advertising">📢 广告</option>
+                        <option value="promotion">🏷️ 促销</option>
+                        <option value="compliance">⚖️ 合规</option>
+                        <option value="brand">🏢 品牌</option>
+                        <option value="returns">📦 退货</option>
+                        <option value="tax">💰 税务</option>
+                        <option value="logistics">🚚 物流</option>
+                        <option value="trending">🔥 趋势</option>
+                    </select>
+                    <input type="text" id="submitSource" placeholder="来源（如：跨境电商鹰熊汇）" class="submit-input"/>
+                    <textarea id="submitNote" placeholder="简要说明为什么值得关注（选填）" class="submit-input" rows="2"></textarea>
+                    <button class="submit-btn" onclick="submitArticle()">提交</button>
+                </div>
+            </div>
         </div>
         <div class="vos-toc" id="vosToc">
             <h3>📋 热议目录</h3>

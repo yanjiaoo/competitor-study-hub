@@ -908,83 +908,16 @@ function renderVOS() {
     var grid = document.getElementById('vosGrid');
     var tocList = document.getElementById('vosTocList');
 
-    // AI disclaimer banner
-    var disclaimerEl = document.getElementById('vosDisclaimer');
-    if (disclaimerEl) {
-        disclaimerEl.style.display = 'block';
-    }
-
-    // 渲染目录
+    // 渲染目录 — 简洁：日期 + 分类 + 标题
     tocList.innerHTML = vosData.map(function(item) {
-        var verifyIcon = item.verified === 'official' ? '✅' : '⚠️';
         var topicLabel = item.topicLabel || '';
-        var layerLabel = item.layerLabel || '';
-        var aiIcon = item.aiGenerated ? '🤖' : '';
-        return '<li data-topic="' + (item.topic || '') + '" data-layer="' + (item.layer || '') + '"><a href="#' + item.id + '"><span class="toc-date">' + item.effectDate + '</span> ' + verifyIcon + ' ' + aiIcon + ' ' + layerLabel + ' ' + topicLabel + ' ' + item.title + '</a></li>';
+        return '<li data-topic="' + (item.topic || '') + '"><a href="#' + item.id + '"><span class="toc-date">' + item.effectDate + '</span> ' + topicLabel + ' ' + item.title + '</a></li>';
     }).join('');
 
-    // 渲染详情卡片
+    // 渲染详情卡片 — 简洁：TOP rank + 分类 + 来源 + 日期
     grid.innerHTML = vosData.map(function(item) {
-        var verifyClass = item.verified === 'official' ? 'verify-official' : 'verify-unconfirmed';
-        var verifyText = item.verified === 'official' ? '✅ 官方已核实' : '⚠️ 待官方全量公告';
-
-        // Alert level border class
-        var alertClass = '';
-        var alertBadge = '';
-        if (item.alertLevel === 'critical') {
-            alertClass = ' vos-alert-critical';
-            alertBadge = '<span class="alert-badge alert-critical">⚠️ 紧急</span>';
-        } else if (item.alertLevel === 'high') {
-            alertClass = ' vos-alert-high';
-        }
-
-        // AI generated label
-        var aiBadge = item.aiGenerated ? '<span class="ai-badge">🤖 AI 生成</span>' : '';
-
-        // Layer badge
-        var layerBadge = item.layerLabel ? '<span class="layer-badge layer-' + (item.layer || '') + '">' + item.layerLabel + '</span>' : '';
-
-        // Sentiment indicator
-        var sentimentClass = 'sentiment-neutral';
-        if (item.sentiment === 'negative') sentimentClass = 'sentiment-negative';
-        else if (item.sentiment === 'positive') sentimentClass = 'sentiment-positive';
-        var sentimentDot = item.sentiment ? '<span class="sentiment-dot ' + sentimentClass + '"></span>' : '';
-
-        // Source priority badge
-        var sourcePriority = getSourcePriority(item.source);
-        var sourceBadge = '<span class="source-badge source-' + sourcePriority + '">' + (item.source || '') + '</span>';
-
-        // Confirmation badge
-        var confirmBadge = '';
-        if (item.confirmationCount && item.confirmationCount >= 5) {
-            confirmBadge = '<span class="confirm-badge">🔥 ' + item.confirmationCount + '人确认</span>';
-        }
-
-        // Blind spot badge
-        var blindSpotBadge = '';
-        if (item.insightType === 'blind_spot') {
-            blindSpotBadge = '<span class="blindspot-badge">🔍 盲区发现</span>';
-        }
-
-        // Unverified indicator
-        var unverifiedBadge = '';
-        if (item.aiGenerated && (!item.links || item.links.length === 0 || !item.links.some(function(l) { return l.url && l.url.startsWith('http'); }))) {
-            unverifiedBadge = '<span class="unverified-badge">⚠️ 待验证</span>';
-        }
-
-        // Intelligence briefing header for multi-source topics
-        var briefingHeader = '';
-        if (item.crossSourceCount && item.crossSourceCount >= 2) {
-            briefingHeader = '<div class="briefing-header">📊 综合情报 | ' + item.crossSourceCount + '个来源</div>';
-        }
-
-        // Pain points
-        var painPointsHtml = '';
-        if (item.painPoints && item.painPoints.length > 0) {
-            painPointsHtml = '<div class="vos-painpoints">' +
-                item.painPoints.map(function(p) { return '<span class="painpoint-tag">' + p + '</span>'; }).join('') +
-            '</div>';
-        }
+        // Source badge (plain, no priority styling)
+        var sourceBadge = '<span class="source-badge">' + (item.source || '') + '</span>';
 
         // 卖家声音
         var voicesHtml = '';
@@ -1005,24 +938,6 @@ function renderVOS() {
                 }).join('') + '</tbody></table></div>';
         }
 
-        // Source breakdown (collapsible) for briefing cards
-        var sourceBreakdownHtml = '';
-        if (item.sourceBreakdown && Object.keys(item.sourceBreakdown).length > 0) {
-            var breakdownItems = Object.keys(item.sourceBreakdown).map(function(src) {
-                return '<li><strong>' + src + '：</strong>' + item.sourceBreakdown[src] + '</li>';
-            }).join('');
-            sourceBreakdownHtml = '<div class="source-breakdown">' +
-                '<h4 class="source-breakdown-toggle" onclick="this.parentElement.classList.toggle(\'expanded\')">📰 来源分析 ▾</h4>' +
-                '<ul class="source-breakdown-list">' + breakdownItems + '</ul>' +
-            '</div>';
-        }
-
-        // Seller consensus
-        var consensusHtml = '';
-        if (item.sellerConsensus) {
-            consensusHtml = '<div class="seller-consensus"><strong>🤝 卖家共识：</strong>' + item.sellerConsensus + '</div>';
-        }
-
         // 参考链接
         var linksHtml = '';
         if (item.links && item.links.length > 0) {
@@ -1035,13 +950,7 @@ function renderVOS() {
                 }).join('') + '</div>';
         }
 
-        var cardClass = 'vos-card' + alertClass;
-        if (item.crossSourceCount && item.crossSourceCount >= 2) {
-            cardClass += ' vos-briefing-card';
-        }
-
-        return '<div class="' + cardClass + '" id="' + item.id + '" data-topic="' + (item.topic || '') + '" data-layer="' + (item.layer || '') + '">' +
-            briefingHeader +
+        return '<div class="vos-card" id="' + item.id + '" data-topic="' + (item.topic || '') + '">' +
             '<div class="vos-card-header">' +
                 '<span class="vos-rank">TOP' + item.rank + '</span>' +
                 (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
@@ -1050,11 +959,8 @@ function renderVOS() {
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +
             '<div class="vos-summary"><strong>影响说明：</strong>' + item.summary + '</div>' +
-            painPointsHtml +
             voicesHtml +
             comparisonHtml +
-            sourceBreakdownHtml +
-            consensusHtml +
             linksHtml +
         '</div>';
     }).join('');
@@ -1419,7 +1325,6 @@ function drawTransitChart(data) {
 
 // VOS 议题筛选
 var currentTopicFilter = 'all';
-var currentLayerFilter = 'all';
 
 function filterVOS(topic) {
     currentTopicFilter = topic;
@@ -1431,28 +1336,16 @@ function filterVOS(topic) {
     applyVOSFilters();
 }
 
-function filterVOSLayer(layer) {
-    currentLayerFilter = layer;
-    // 更新按钮状态
-    document.querySelectorAll('.vos-layer-filters .filter-btn').forEach(function(btn) {
-        btn.classList.remove('active');
-    });
-    event.target.classList.add('active');
-    applyVOSFilters();
-}
-
 function applyVOSFilters() {
     // 筛选目录
     document.querySelectorAll('#vosTocList li').forEach(function(li) {
         var topicMatch = currentTopicFilter === 'all' || li.getAttribute('data-topic') === currentTopicFilter || !li.getAttribute('data-topic');
-        var layerMatch = currentLayerFilter === 'all' || li.getAttribute('data-layer') === currentLayerFilter || !li.getAttribute('data-layer');
-        li.style.display = (topicMatch && layerMatch) ? '' : 'none';
+        li.style.display = topicMatch ? '' : 'none';
     });
     // 筛选卡片
     document.querySelectorAll('#vosGrid .vos-card').forEach(function(card) {
         var topicMatch = currentTopicFilter === 'all' || card.getAttribute('data-topic') === currentTopicFilter || !card.getAttribute('data-topic');
-        var layerMatch = currentLayerFilter === 'all' || card.getAttribute('data-layer') === currentLayerFilter || !card.getAttribute('data-layer');
-        card.style.display = (topicMatch && layerMatch) ? '' : 'none';
+        card.style.display = topicMatch ? '' : 'none';
     });
 }
 

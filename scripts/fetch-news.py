@@ -108,6 +108,18 @@ INDUSTRY_QUERIES_ZH = [
     '雨果跨境 Temu OR Shein OR TikTok OR 京东国际 OR 速卖通',
     '亿邦动力 跨境电商 Temu OR Shein OR TikTok OR AliExpress',
     '36氪 跨境电商 出海 Temu OR Shein OR TikTok OR 速卖通',
+    # 流量/卖家策略/欧洲物流
+    'Temu OR Shein OR TikTok 流量 OR 获客 OR 用户增长 OR 广告投放',
+    'Temu OR Shein OR AliExpress 欧洲 卖家策略 OR 招商政策 OR 本地化',
+    'Temu OR Shein OR TikTok 欧洲物流 OR 海外仓 OR 本地配送 OR 履约',
+]
+
+# 英文流量/欧洲策略专项搜索
+INDUSTRY_QUERIES_EN = [
+    'Temu OR Shein OR TikTok Shop Europe seller strategy OR localization 2026',
+    'Temu OR Shein Europe logistics OR warehouse OR local delivery',
+    'Temu OR Shein OR TikTok Shop traffic OR user growth OR advertising strategy',
+    'AliExpress OR Temu Europe fulfillment OR shipping OR last mile delivery',
 ]
 
 # 跨境知名公众号/自媒体搜索
@@ -115,6 +127,7 @@ WECHAT_KOL_QUERIES = [
     '跨境电商 卖家政策 Temu OR Shein OR TikTok OR AliExpress site:mp.weixin.qq.com',
     '跨境电商 招商 运营 Temu OR Shein OR 速卖通 site:mp.weixin.qq.com',
     '出海电商 供应链 物流 TikTok OR Temu OR AliExpress site:mp.weixin.qq.com',
+    '跨境电商 欧洲 物流 OR 海外仓 OR 流量 Temu OR Shein site:mp.weixin.qq.com',
 ]
 
 # 相关性过滤关键词（标题或内容必须包含至少一个）
@@ -319,11 +332,24 @@ def fetch_industry_and_wechat_news():
     all_items = []
     seen = set()
 
-    # 行业媒体
+    # 行业媒体（中文）
     print('\n[行业媒体: 雨果跨境/亿邦动力/36氪]')
     for q in INDUSTRY_QUERIES_ZH:
         print(f'  ZH: {q[:60]}...')
         for item in fetch_google_news_rss(q, 'zh', 8):
+            if item['title'] not in seen:
+                seen.add(item['title'])
+                platform = detect_platform_from_text(item['title'] + ' ' + item['content'])
+                if platform:
+                    item['platform'] = platform
+                    item['source_type'] = 'industry'
+                    all_items.append(item)
+
+    # 行业媒体（英文：流量/欧洲策略/物流）
+    print('\n[英文行业媒体: 流量/欧洲策略/物流]')
+    for q in INDUSTRY_QUERIES_EN:
+        print(f'  EN: {q[:60]}...')
+        for item in fetch_google_news_rss(q, 'en', 8):
             if item['title'] not in seen:
                 seen.add(item['title'])
                 platform = detect_platform_from_text(item['title'] + ' ' + item['content'])

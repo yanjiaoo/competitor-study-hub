@@ -187,9 +187,45 @@ def main():
     new_articles = generate_news_deepseek(rss_items)
 
     # 3. 加入固定资讯
-    all_new = list(PINNED_ARTICLES) + new_articles
+    all_articles = list(PINNED_ARTICLES) + new_articles
 
-    # 4. 读取 script.js 中已有的 newsData
+    # 4. 全量模式：去重 + 黑名单过滤
+    seen = set()
+    final = []
+    for item in all_articles:
+        title = item.get('title', '')
+        t = re.sub(r'[\s\W]', '', title).lower()
+        if t in seen or len(t) < 5:
+            continue
+        if is_blacklisted(title):
+            continue
+        if not item.get('url', '').startswith('http'):
+            continue
+        seen.add(t)
+        final.append(item)
+
+    print(f'过滤后: {len(final)} 条有效资讯')
+
+    # 5. 生成 JS 并全量替换 newsData
+    js_items = []
+    for idx, item in enumerate(final):
+        esc_title = item.get('title', '').replace('"', '\\"').replace('\n', ' ')
+        esc_content = item.get('content', '').replace('"', '\\"').replace('\n', ' ')
+        esc_source = item.get('source', '').replace('"', '\\"')
+        esc_url = item.get('url', '').replace('"', '\\"')
+        platform = item.get('platform', 'temu')
+        date = item.get('date', '2026-04-25')
+
+        js_items.append(
+            f'  {{ id: "{platform}_{idx+1:03d}", title: "{esc_title}", '
+            f'content: "{esc_content}", '
+            f'source: "{esc_source}", type: "press", '
+            f'platform: "{platform}", '
+            f'dimension: "", '
+            f'date: new Date("{date}"), '
+            f'url: "{esc_url}" }}'
+        )
+
     with open('script.js', 'r', encoding='utf-8') as f:
         js_content = f.read()
 
@@ -199,64 +235,13 @@ def main():
         print('ERROR: newsData not found in script.js')
         return
 
-    # 解析已有标题用于去重
-    existing_block = match.group(0)
-    existing_titles = set()
-    for m in re.finditer(r'title: "([^"]+)"', existing_block):
-        t = re.sub(r'[\s\W]', '', m.group(1)).lower()
-        existing_titles.add(t)
-    print(f'已有 {len(existing_titles)} 条资讯')
-
-    # 5. 筛选新的不重复资讯
-    new_js_items = []
-    added = 0
-    for item in all_new:
-        title = item.get('title', '')
-        t = re.sub(r'[\s\W]', '', title).lower()
-        if t in existing_titles or len(t) < 5:
-            continue
-        if is_blacklisted(title):
-            continue
-        existing_titles.add(t)
-
-        # 生成 JS 对象
-        esc_title = title.replace('"', '\\"').replace('\n', ' ')
-        esc_content = item.get('content', '').replace('"', '\\"').replace('\n', ' ')
-        esc_source = item.get('source', '').replace('"', '\\"')
-        esc_url = item.get('url', '').replace('"', '\\"')
-        platform = item.get('platform', 'temu')
-        date = item.get('date', '2026-04-25')
-        dimension = item.get('dimension', '')
-
-        js_obj = (
-            f'  {{ id: "{platform}_{added+1:03d}", title: "{esc_title}", '
-            f'content: "{esc_content}", '
-            f'source: "{esc_source}", type: "press", '
-            f'platform: "{platform}", '
-            f'dimension: "{dimension}", '
-            f'date: new Date("{date}"), '
-            f'url: "{esc_url}" }}'
-        )
-        new_js_items.append(js_obj)
-        added += 1
-
-    print(f'新增 {added} 条不重复资讯')
-
-    # 6. 合并：新的在前 + 已有的（过滤黑名单）
-    existing_items = re.findall(r'  \{[^}]+\}', existing_block)
-    kept_existing = []
-    for ei in existing_items:
-        if not is_blacklisted(ei):
-            kept_existing.append(ei.strip())
-
-    all_items = new_js_items + kept_existing
-    js_array = 'var newsData = [\n' + ',\n'.join(all_items) + '\n];'
-
+    js_array = 'var newsData = [\n' + ',\n'.join(js_items) + '\n];'
     new_content = js_content[:match.start()] + js_array + js_content[match.end():]
+
     with open('script.js', 'w', encoding='utf-8') as f:
         f.write(new_content)
 
-    print(f'注入完成: 新增 {added} 条，总计 {len(all_items)} 条')
+    print(f'全量注入完成: {len(final)} 条资讯')
 
 
 if __name__ == '__main__':

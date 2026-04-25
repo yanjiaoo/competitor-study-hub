@@ -462,15 +462,20 @@ function displayNews(filter = 'all') {
         'brand': '🏢 品牌渠道'
     };
     
-    newsGrid.innerHTML = filteredNews.map(news => `
-        <div class="news-row" data-type="${news.type}" data-platform="${news.platform}" data-dimension="${news.dimension || ''}">
-            <span class="news-row-date">${news.date instanceof Date ? news.date.toISOString().split('T')[0] : news.date}</span>
-            <span class="platform-tag platform-${news.platform}">${getPlatformLabel(news.platform)}</span>
-            ${news.dimension ? `<span class="dimension-tag">${dimensionLabels[news.dimension] || ''}</span>` : ''}
-            <a href="${news.url}" target="_blank" class="news-row-title" title="${news.content}">${news.title}</a>
-            <span class="news-row-source">${news.source}</span>
-        </div>
-    `).join('');
+    newsGrid.innerHTML = filteredNews.map(function(news, idx) {
+        var dateStr = news.date instanceof Date ? news.date.toISOString().split('T')[0] : news.date;
+        return '<div class="vos-card" data-type="' + news.type + '" data-platform="' + news.platform + '">' +
+            '<div class="vos-card-header">' +
+                '<span class="vos-rank">' + (idx + 1) + '</span>' +
+                '<span class="platform-tag platform-' + news.platform + '">' + getPlatformLabel(news.platform) + '</span>' +
+                '<span class="source-badge">' + news.source + '</span>' +
+                '<span class="vos-date">更新于 ' + dateStr + '</span>' +
+            '</div>' +
+            '<h3 class="vos-title">' + news.title + '</h3>' +
+            (news.content ? '<div class="vos-summary"><strong>概览：</strong>' + news.content + '</div>' : '') +
+            '<div class="vos-links"><a href="' + news.url + '" target="_blank">🔗 ' + news.source + ' →</a></div>' +
+        '</div>';
+    }).join('');
     
     // 显示结果统计
     updateNewsStats(filteredNews.length, filter, timeFilter);
@@ -1474,7 +1479,7 @@ function searchVOS() {
 function searchCompetitorNews() {
     var query = (document.getElementById('competitorSearchInput') || {}).value || '';
     query = query.toLowerCase().trim();
-    document.querySelectorAll('#newsGrid .news-card').forEach(function(card) {
+    document.querySelectorAll('#newsGrid .vos-card').forEach(function(card) {
         var text = card.textContent.toLowerCase();
         card.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
     });

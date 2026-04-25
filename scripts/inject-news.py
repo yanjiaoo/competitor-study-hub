@@ -284,10 +284,41 @@ def is_low_quality(item):
     return False
 
 
+# ==================== 手动固定资讯（不会被fetch覆盖） ====================
+PINNED_ARTICLES = [
+    {
+        "id": "tiktok_pinned_001",
+        "title": "TikTok Shop自1月8日起上调欧盟五国佣金至9%，电子品类享7%优惠，新卖家可享60天4%费率",
+        "content": "TikTok Shop自2026年1月8日起对德国、法国、意大利、西班牙和爱尔兰五国站点佣金从5%上调至9%。电子产品等部分品类适用7%优惠费率。新入驻商家在15天内上架至少5件商品可享最长60天的4%优惠佣金率。",
+        "source": "ecommercenews.eu",
+        "type": "press",
+        "platform": "tiktok",
+        "date": "2026-01-08",
+        "url": "https://ecommercenews.eu/tiktok-shop-raises-seller-fees-in-europe/"
+    },
+    {
+        "id": "temu_pinned_001",
+        "title": "Temu在欧盟27国推出Y2半托管模式，卖家可从中国直发免去海外仓备货，履约时效最长21天",
+        "content": "Temu于2025年11月底在欧盟27国推出Y2半托管履约模式。该模式允许中国卖家从国内直接发货，无需海外仓备货，降低库存和资金压力。履约时效最长21天。平台提供末端配送和流量支持，主要面向中小卖家。Temu计划将高达80%的欧洲订单转为本地履约。",
+        "source": "ChineSellers / YUGUO",
+        "type": "press",
+        "platform": "temu",
+        "date": "2025-11-28",
+        "url": "https://chinesellers.substack.com/p/temus-new-hybrid-logistics-y2-model"
+    },
+]
+
+
 # ==================== 主流程 ====================
 def main():
     with open('news-data.json', 'r', encoding='utf-8') as f:
         news = json.load(f)
+
+    # 注入固定资讯
+    pinned_titles = set(p['title'] for p in PINNED_ARTICLES)
+    news = [n for n in news if n.get('title') not in pinned_titles]
+    news = PINNED_ARTICLES + news
+    print(f'含固定资讯: {len(news)} 条')
 
     if not news:
         print('news-data.json is empty, skipping')

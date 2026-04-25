@@ -325,9 +325,9 @@ body {
 }
 
 .section-desc {
-    color: #666;
+    color: #888;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 13px;
 }
 
 .content-grid {

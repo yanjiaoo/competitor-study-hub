@@ -906,10 +906,10 @@ function renderVOS() {
     var grid = document.getElementById('vosGrid');
     var tocList = document.getElementById('vosTocList');
 
-    // 渲染目录 — 简洁：日期 + 分类 + 标题
+    // 渲染目录 — 日期 + 标题 + 分类标签（右侧）
     tocList.innerHTML = vosData.map(function(item) {
         var topicLabel = item.topicLabel || '';
-        return '<li data-topic="' + (item.topic || '') + '"><a href="#' + item.id + '"><span class="toc-date">' + item.effectDate + '</span> ' + topicLabel + ' ' + item.title + '</a></li>';
+        return '<li data-topic="' + (item.topic || '') + '" data-date="' + (item.effectDate || '') + '"><a href="#' + item.id + '"><span class="toc-date">' + item.effectDate + '</span> ' + item.title + '<span class="toc-tag">' + topicLabel + '</span></a></li>';
     }).join('');
 
     // 渲染详情卡片 — 简洁：TOP rank + 分类 + 来源 + 日期
@@ -948,7 +948,7 @@ function renderVOS() {
                 }).join('') + '</div>';
         }
 
-        return '<div class="vos-card" id="' + item.id + '" data-topic="' + (item.topic || '') + '">' +
+        return '<div class="vos-card" id="' + item.id + '" data-topic="' + (item.topic || '') + '" data-date="' + (item.effectDate || '') + '">' +
             '<div class="vos-card-header">' +
                 '<span class="vos-rank">' + item.rank + '</span>' +
                 (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
@@ -1323,10 +1323,10 @@ function drawTransitChart(data) {
 
 // VOS 议题筛选
 var currentTopicFilter = 'all';
+var currentVOSTimeFilter = 'all';
 
 function filterVOS(topic) {
     currentTopicFilter = topic;
-    // 更新按钮状态
     document.querySelectorAll('.vos-topic-filters .filter-btn').forEach(function(btn) {
         btn.classList.remove('active');
     });
@@ -1334,16 +1334,36 @@ function filterVOS(topic) {
     applyVOSFilters();
 }
 
+function filterVOSByTime() {
+    currentVOSTimeFilter = document.getElementById('vosTimeFilter').value;
+    applyVOSFilters();
+}
+
 function applyVOSFilters() {
-    // 筛选目录
+    var now = new Date();
+    var cutoff = null;
+    if (currentVOSTimeFilter === 'week') { cutoff = new Date(); cutoff.setDate(now.getDate() - 7); }
+    else if (currentVOSTimeFilter === 'month') { cutoff = new Date(); cutoff.setDate(now.getDate() - 30); }
+    else if (currentVOSTimeFilter === '3months') { cutoff = new Date(); cutoff.setMonth(now.getMonth() - 3); }
+    else if (currentVOSTimeFilter === '6months') { cutoff = new Date(); cutoff.setMonth(now.getMonth() - 6); }
+
     document.querySelectorAll('#vosTocList li').forEach(function(li) {
-        var topicMatch = currentTopicFilter === 'all' || li.getAttribute('data-topic') === currentTopicFilter || !li.getAttribute('data-topic');
-        li.style.display = topicMatch ? '' : 'none';
+        var topicMatch = currentTopicFilter === 'all' || li.getAttribute('data-topic') === currentTopicFilter;
+        var timeMatch = true;
+        if (cutoff) {
+            var d = new Date(li.getAttribute('data-date'));
+            timeMatch = d >= cutoff;
+        }
+        li.style.display = (topicMatch && timeMatch) ? '' : 'none';
     });
-    // 筛选卡片
     document.querySelectorAll('#vosGrid .vos-card').forEach(function(card) {
-        var topicMatch = currentTopicFilter === 'all' || card.getAttribute('data-topic') === currentTopicFilter || !card.getAttribute('data-topic');
-        card.style.display = topicMatch ? '' : 'none';
+        var topicMatch = currentTopicFilter === 'all' || card.getAttribute('data-topic') === currentTopicFilter;
+        var timeMatch = true;
+        if (cutoff) {
+            var d = new Date(card.getAttribute('data-date'));
+            timeMatch = d >= cutoff;
+        }
+        card.style.display = (topicMatch && timeMatch) ? '' : 'none';
     });
 }
 

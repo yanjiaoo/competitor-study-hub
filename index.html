@@ -224,17 +224,30 @@
         </div>
         <div class="vos-toc" id="vosToc">
             <h3>📋 热议目录</h3>
-            <div class="vos-toc-header"><span class="toc-col-date">更新时间</span><span class="toc-col-topic">话题</span></div>
-            <div class="vos-topic-filters">
-                <button class="filter-btn active" onclick="filterVOS('all')">全部</button>
-                <button class="filter-btn" onclick="filterVOS('advertising')">📢 广告</button>
-                <button class="filter-btn" onclick="filterVOS('promotion')">🏷️ 促销</button>
-                <button class="filter-btn" onclick="filterVOS('compliance')">⚖️ 合规</button>
-                <button class="filter-btn" onclick="filterVOS('brand')">🏢 品牌</button>
-                <button class="filter-btn" onclick="filterVOS('returns')">📦 退货</button>
-                <button class="filter-btn" onclick="filterVOS('tax')">💰 税务</button>
-                <button class="filter-btn" onclick="filterVOS('logistics')">🚚 物流</button>
-                <button class="filter-btn" onclick="filterVOS('trending')">🔥 趋势</button>
+            <div class="vos-filters-row">
+                <div class="vos-topic-filters">
+                    <button class="filter-btn active" onclick="filterVOS('all')">全部</button>
+                    <button class="filter-btn" onclick="filterVOS('advertising')">📢 广告</button>
+                    <button class="filter-btn" onclick="filterVOS('promotion')">🏷️ 促销</button>
+                    <button class="filter-btn" onclick="filterVOS('compliance')">⚖️ 合规</button>
+                    <button class="filter-btn" onclick="filterVOS('brand')">🏢 品牌</button>
+                    <button class="filter-btn" onclick="filterVOS('returns')">📦 退货</button>
+                    <button class="filter-btn" onclick="filterVOS('tax')">💰 税务</button>
+                    <button class="filter-btn" onclick="filterVOS('logistics')">🚚 物流</button>
+                    <button class="filter-btn" onclick="filterVOS('trending')">🔥 趋势</button>
+                </div>
+                <select id="vosTimeFilter" onchange="filterVOSByTime()" class="time-filter">
+                    <option value="all">全部时间</option>
+                    <option value="week">近7天</option>
+                    <option value="month">近30天</option>
+                    <option value="3months">近3个月</option>
+                    <option value="6months">近6个月</option>
+                </select>
+            </div>
+            <div class="vos-toc-header">
+                <span class="toc-col-date">更新时间</span>
+                <span class="toc-col-topic">话题</span>
+                <span class="toc-col-tag">分类</span>
             </div>
             <ol id="vosTocList"></ol>
         </div>

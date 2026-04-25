@@ -12,7 +12,7 @@ import urllib.parse
 
 # ==================== 英译中：DeepSeek API 批量翻译 ====================
 def translate_titles_deepseek(items):
-    """用 DeepSeek 批量翻译+重写标题为中文，35字左右高信息密度"""
+    """用 DeepSeek 批量翻译+重写标题为中文，35-42字高信息密度"""
     import os
     api_key = os.environ.get("DEEPSEEK_API_KEY", "")
     if not api_key:
@@ -21,28 +21,35 @@ def translate_titles_deepseek(items):
             item['title'] = translate_to_chinese_local(item['title'])
         return items
 
-    # Batch translate in groups of 20
-    batch_size = 20
+    batch_size = 15
     for start in range(0, len(items), batch_size):
         batch = items[start:start+batch_size]
-        titles_text = "\n".join([f"{i+1}. {item['title']}" for i, item in enumerate(batch)])
+        titles_text = "\n".join([
+            f"{i+1}. 标题: {item['title']}\n   摘要: {item.get('content', '')[:200]}"
+            for i, item in enumerate(batch)
+        ])
 
-        prompt = f"""将以下跨境电商资讯标题翻译为中文并重写，要求：
-- 每个标题控制在30-35个中文字符
-- 核心信息前置，包含具体平台名、数字、政策名称等关键信息
-- 陈述式语气，不要问句、叹号、营销词
-- 已经是中文的标题也要优化长度和信息密度
-- 保留平台名称原文（Temu/Shein/TikTok Shop/AliExpress/Joybuy）
+        prompt = f"""你是跨境电商新闻编辑。请将以下资讯重写为中文标题，严格要求：
 
-原始标题：
+1. 每个标题必须35-42个中文字符（这是硬性要求，不够长就从摘要中补充关键信息）
+2. 从原标题和摘要中提取具体信息：平台名、数字、百分比、日期、国家/地区、政策名称
+3. 标题中的所有数字和数据必须来自原文，严禁编造
+4. 陈述式语气，严禁使用：问句、叹号、"重磅"、"必看"、"速看"、"揭秘"、"狂潮"等营销词
+5. 保留平台名原文：Temu/Shein/TikTok Shop/AliExpress/Joybuy
+6. 好标题示例（40字）："Temu在美国推出半托管模式允许卖家自主定价，佣金费率降至8%并开放本地仓发货"
+7. 坏标题示例（太短20字）："Temu推出半托管模式" — 信息量太少
+8. 坏标题示例（营销词）："重磅！Temu半托管模式来了！卖家必看"
+
+原始资讯：
 {titles_text}
 
-请以JSON格式返回：{{"titles": ["翻译后标题1", "翻译后标题2", ...]}}"""
+请以JSON格式返回：{{"titles": ["重写后标题1", "重写后标题2", ...]}}
+数量必须与输入一一对应。"""
 
         payload = json.dumps({
             "model": "deepseek-chat",
             "messages": [
-                {"role": "system", "content": "你是专业的跨境电商新闻编辑，擅长将英文标题翻译为高信息密度的中文标题。严格返回JSON格式。"},
+                {"role": "system", "content": "你是专业的跨境电商新闻编辑。你的核心任务是将标题重写为35-42个中文字符的高信息密度标题。每个标题必须至少35个字符。如果原标题信息不够，从摘要中补充关键数据。严格返回JSON格式。"},
                 {"role": "user", "content": prompt},
             ],
             "temperature": 0.3,
@@ -65,8 +72,10 @@ def translate_titles_deepseek(items):
             new_titles = data.get("titles", [])
             if len(new_titles) == len(batch):
                 for i, item in enumerate(batch):
-                    if new_titles[i] and len(new_titles[i]) > 5:
+                    if new_titles[i] and len(new_titles[i]) >= 30:
                         item['title'] = new_titles[i]
+                    else:
+                        print(f"  [翻译] 标题太短({len(new_titles[i]) if new_titles[i] else 0}c)，保留原标题")
                 print(f"  [翻译] DeepSeek 翻译 {start+1}-{start+len(batch)} 完成")
             else:
                 print(f"  [翻译] 数量不匹配 ({len(new_titles)} vs {len(batch)})，跳过此批")
@@ -217,7 +226,7 @@ def semantic_dedup(items):
                 continue
             overlap = phrases & existing_phrases
             smaller = min(len(phrases), len(existing_phrases))
-            if smaller > 0 and len(overlap) / smaller > 0.35:
+            if smaller > 0 and len(overlap) / smaller > 0.55:
                 is_dup = True
                 break
 
@@ -239,7 +248,7 @@ def semantic_dedup(items):
             for existing in seen_day_platform[key]:
                 overlap = phrases & existing
                 smaller = min(len(phrases), len(existing))
-                if smaller > 0 and len(overlap) / smaller > 0.25:
+                if smaller > 0 and len(overlap) / smaller > 0.45:
                     is_dup_day = True
                     break
             if not is_dup_day:

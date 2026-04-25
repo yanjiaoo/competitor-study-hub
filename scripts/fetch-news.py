@@ -131,6 +131,33 @@ EXCLUDE_KEYWORDS = [
 ]
 
 
+def fetch_article_content(url, max_chars=400):
+    """尝试抓取文章原文的前几百字作为摘要上下文"""
+    if not url or not url.startswith('http'):
+        return ''
+    try:
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        })
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            raw = resp.read()
+            try:
+                page = raw.decode('utf-8')
+            except UnicodeDecodeError:
+                page = raw.decode('latin-1', errors='ignore')
+        paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', page, re.DOTALL)
+        text_parts = []
+        for p in paragraphs:
+            clean = re.sub(r'<[^>]+>', '', html.unescape(p)).strip()
+            if len(clean) > 30:
+                text_parts.append(clean)
+            if sum(len(t) for t in text_parts) > max_chars:
+                break
+        return ' '.join(text_parts)[:max_chars]
+    except Exception:
+        return ''
+
+
 def fetch_google_news_rss(query, lang='en', max_items=8):
     """通过 Google News RSS 抓取资讯"""
     hl = 'zh-CN' if lang == 'zh' else 'en'
@@ -177,6 +204,13 @@ def fetch_google_news_rss(query, lang='en', max_items=8):
             })
     except Exception as e:
         print(f'  [WARN] Failed: {e}')
+
+    # Enrich: fetch article content for items with short descriptions
+    for item in items:
+        if len(item['content']) < 80:
+            article_text = fetch_article_content(item['url'])
+            if article_text:
+                item['content'] = article_text
 
     return items
 

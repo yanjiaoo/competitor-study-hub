@@ -72,10 +72,8 @@ def translate_titles_deepseek(items):
             new_titles = data.get("titles", [])
             if len(new_titles) == len(batch):
                 for i, item in enumerate(batch):
-                    if new_titles[i] and len(new_titles[i]) >= 30:
+                    if new_titles[i] and len(new_titles[i]) >= 10:
                         item['title'] = new_titles[i]
-                    else:
-                        print(f"  [翻译] 标题太短({len(new_titles[i]) if new_titles[i] else 0}c)，保留原标题")
                 print(f"  [翻译] DeepSeek 翻译 {start+1}-{start+len(batch)} 完成")
             else:
                 print(f"  [翻译] 数量不匹配 ({len(new_titles)} vs {len(batch)})，跳过此批")

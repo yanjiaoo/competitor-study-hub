@@ -7,7 +7,7 @@
     "topicLabel": "🚚 物流",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-25",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "配送费上涨",
@@ -37,7 +37,7 @@
     "topicLabel": "🔥 趋势",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-22",
+    "effectDate": "2026-04-25",
     "sentiment": "positive",
     "painPoints": [
       "新老卖家待遇不均"
@@ -65,7 +65,7 @@
     "topicLabel": "🏷️ 促销",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-20",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "入仓延迟",
@@ -95,7 +95,7 @@
     "topicLabel": "🔥 趋势",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-20",
+    "effectDate": "2026-04-25",
     "sentiment": "positive",
     "painPoints": [
       "政策细节不透明",
@@ -124,7 +124,7 @@
     "topicLabel": "🔥 趋势",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-18",
+    "effectDate": "2026-04-25",
     "sentiment": "positive",
     "painPoints": [
       "优惠门槛高",
@@ -153,7 +153,7 @@
     "topicLabel": "💰 税务",
     "layer": "macro_event",
     "layerLabel": "🌍 宏观传导",
-    "effectDate": "2026-05-18",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "税务合规风险",
@@ -183,7 +183,7 @@
     "topicLabel": "⚖️ 合规",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-15",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "合规成本增加",
@@ -213,7 +213,7 @@
     "topicLabel": "📢 广告",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-15",
+    "effectDate": "2026-04-25",
     "sentiment": "neutral",
     "painPoints": [
       "广告成本上升",
@@ -242,7 +242,7 @@
     "topicLabel": "🚚 物流",
     "layer": "macro_event",
     "layerLabel": "🌍 宏观传导",
-    "effectDate": "2026-05-15",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "运费上涨",
@@ -272,7 +272,7 @@
     "topicLabel": "⚖️ 合规",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-10",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "误判风险",
@@ -302,7 +302,7 @@
     "topicLabel": "🚚 物流",
     "layer": "policy_impact",
     "layerLabel": "📋 政策影响",
-    "effectDate": "2026-05-01",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "物流成本上升",
@@ -332,7 +332,7 @@
     "topicLabel": "💰 税务",
     "layer": "macro_event",
     "layerLabel": "🌍 宏观传导",
-    "effectDate": "2026-05-01",
+    "effectDate": "2026-04-25",
     "sentiment": "negative",
     "painPoints": [
       "运营费用增加",
@@ -413,8 +413,37 @@
     "id": "vos_014"
   },
   {
-    "id": "vos_015",
+    "title": "eBay测试AI时尚模特引发卖家争议",
+    "summary": "eBay正在测试AI生成的时尚模特图像，并自动插入到卖家listing中，部分卖家反映未获得明确同意。该功能旨在提升商品展示效果，但卖家担心图像版权和真实性。亚马逊卖家社区对此高度关注，担忧亚马逊可能跟进类似做法。AM需关注亚马逊AI应用动态，提前与卖家沟通可能的变化。",
+    "source": "Value Added Resource",
+    "topic": "trending",
+    "topicLabel": "🔥 趋势",
+    "layer": "macro_event",
+    "layerLabel": "🌍 宏观传导",
+    "effectDate": "2026-04-20",
+    "sentiment": "negative",
+    "painPoints": [
+      "图像版权风险",
+      "未经同意修改listing"
+    ],
+    "alertLevel": "normal",
+    "insightType": "blind_spot",
+    "aiGenerated": true,
+    "links": [
+      {
+        "label": "Value Added Resource报道",
+        "url": "https://www.valueaddedresource.net/ebay-tests-ai-fashion-models-alters-images/"
+      }
+    ],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
     "rank": 15,
+    "id": "vos_015"
+  },
+  {
+    "id": "vos_016",
+    "rank": 16,
     "title": "3月31日起亚马逊终止FBA共享库存政策，六大站点贴标规则全面重构",
     "effectDate": "2026-03-31",
     "summary": "政策覆盖美、加、墨、欧、澳、日六大核心站点，彻底取消共享库存池机制，所有卖家库存独立管理。品牌注册卖家带有效GTIN商品可免贴FNSKU标签入库，非品牌卖家必须全量粘贴亚马逊条形码，否则货件将被拒收。从根源遏制跟卖乱象，同时大幅提升非品牌卖家的入库合规成本。",
@@ -466,8 +495,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_016",
-    "rank": 16,
+    "id": "vos_017",
+    "rank": 17,
     "title": "2026春季大促多站点规则重大调整，流量分配逻辑重构",
     "effectDate": "2026-03-15",
     "summary": "本次春促核心调整：美国站新增10天预热期，限时秒杀（LD）、镇店之宝（BD）免除提报费用，Prime专享折扣取消专属Prime标志、无单独提报入口。欧洲站、日本站同步调整促销门槛，平台流量向秒杀类促销倾斜，重构大促流量分配逻辑，卖家促销策略需全面调整。",
@@ -519,8 +548,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_017",
-    "rank": 17,
+    "id": "vos_018",
+    "rank": 18,
     "title": "亚马逊全球站点3月12日全面执行DD+7资金预留新政，回款周期最长延长30天",
     "effectDate": "2026-03-12",
     "summary": "该政策统一全球卖家资金预留规则，要求所有订单货款在商品妥投后需额外冻结7天方可转入卖家可用余额。FBA订单回款周期普遍延长8-9天，FBM订单回款周期最长延长至20-30天，直接加剧卖家现金流压力，月销百万美金卖家额外资金占用超20万美金。",
@@ -593,8 +622,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_018",
-    "rank": 18,
+    "id": "vos_019",
+    "rank": 19,
     "title": "3月5日亚马逊全球电商系统大规模宕机，黄金时段订单停摆广告持续扣费",
     "effectDate": "2026-03-05",
     "summary": "宕机覆盖亚马逊全球核心站点，持续约4小时，出现商品页面变狗、订单系统停摆、后台操作失效等问题。恰好处于美国站消费黄金时段，卖家订单量暴跌40%-100%，但广告系统仍正常扣费，大量卖家秒杀活动受影响，单卖家最高损失超2万美金。",
@@ -637,8 +666,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_019",
-    "rank": 19,
+    "id": "vos_020",
+    "rank": 20,
     "title": "3月4日亚马逊更新BSA协议，新增AI/自动化工具最严监管规则",
     "effectDate": "2026-03-04",
     "summary": "亚马逊更新《商业解决方案协议》，新增Agent Policy代理政策，对所有AI自动化工具提出强制合规要求：禁止使用平台数据训练AI模型，要求工具必须明确标识自动化身份，平台可随时切断不合规工具访问权限。全球超300万卖家、数千家第三方工具商受影响。",

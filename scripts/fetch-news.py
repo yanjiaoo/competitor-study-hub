@@ -149,6 +149,9 @@ EXCLUDE_KEYWORDS = [
     '工具箱', '大揭秘', '必看', '功能介绍', '软件推荐',
     '冲刺IPO', '诺贝尔奖', 'GMV Max奖',
     '服务商IPO', '跨境电商服务商',
+    'live shopping guide', '直播购物指南', '直播销售步骤',
+    'top 10 ecommerce', '十大电商平台排名',
+    'app store commission', 'App Store佣金',
 ]
 
 

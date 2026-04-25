@@ -1771,6 +1771,18 @@ body {
 }
 
 
+/* VOS 目录列头 */
+.vos-toc-header {
+    display: flex;
+    padding: 4px 8px 4px 32px;
+    font-size: 12px;
+    color: #999;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 4px;
+}
+.toc-col-date { width: 90px; flex-shrink: 0; }
+.toc-col-topic { flex: 1; }
+
 /* VOS 目录日期 */
 .toc-date {
     display: inline-block;

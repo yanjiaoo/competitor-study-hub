@@ -20,11 +20,13 @@ PLATFORMS = {
             'Temu logistics OR warehouse OR fulfillment OR shipping',
             'Temu marketplace strategy OR business model',
             'Temu tariff OR regulation OR compliance',
+            'Temu Europe OR US seller fee OR commission rate change',
         ],
         'queries_zh': [
             'Temu 卖家政策 OR 招商 OR 佣金',
             'Temu 物流 OR 仓储 OR 供应链 OR 半托管',
             'Temu 运营策略 OR 流量 OR 市场份额',
+            'Temu 欧洲 OR 美国 费率 OR 佣金 OR 上调',
         ],
     },
     'shein': {
@@ -33,11 +35,13 @@ PLATFORMS = {
             'Shein supply chain OR logistics OR warehouse',
             'Shein IPO OR regulation OR compliance OR ESG',
             'Shein market share OR revenue OR growth strategy',
+            'Shein Europe OR US seller fee OR commission OR cost',
         ],
         'queries_zh': [
             'SHEIN 卖家 OR 招商 OR 平台政策',
             'SHEIN 供应链 OR 物流 OR 柔性供应链',
             'SHEIN 市场份额 OR 营收 OR 合规',
+            'SHEIN 欧洲 OR 美国 费率 OR 佣金 OR 成本',
         ],
     },
     'tiktok': {
@@ -46,11 +50,14 @@ PLATFORMS = {
             'TikTok Shop logistics OR fulfillment OR warehouse',
             'TikTok Shop GMV OR market share OR growth',
             'TikTok Shop live commerce OR social commerce strategy',
+            'TikTok Shop Europe fee OR commission rate OR seller fees',
+            'TikTok Shop US fee OR commission change OR seller cost',
         ],
         'queries_zh': [
             'TikTok Shop 卖家政策 OR 招商 OR 佣金',
             'TikTok Shop 物流 OR 仓储 OR 履约',
             'TikTok Shop 直播电商 OR 运营 OR 流量',
+            'TikTok Shop 欧洲 OR 美国 佣金 OR 费率 OR 上调',
         ],
     },
     'joybuy': {
@@ -70,11 +77,13 @@ PLATFORMS = {
             'AliExpress logistics OR warehouse OR Cainiao fulfillment',
             'AliExpress tariff OR regulation OR compliance',
             'AliExpress marketplace strategy OR growth OR expansion',
+            'AliExpress Europe OR US seller fee OR commission change',
         ],
         'queries_zh': [
             'AliExpress 速卖通 卖家政策 OR 招商 OR 佣金',
             'AliExpress 速卖通 物流 OR 仓储 OR 菜鸟 OR Choice',
             '速卖通 市场份额 OR 运营 OR 合规',
+            '速卖通 欧洲 OR 美国 费率 OR 佣金 OR 上调',
         ],
     },
 }

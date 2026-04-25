@@ -24,6 +24,8 @@ jobs:
         run: python scripts/fetch-news.py
 
       - name: 注入竞对资讯到 script.js
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python scripts/inject-news.py
 
       - name: Commit and Push

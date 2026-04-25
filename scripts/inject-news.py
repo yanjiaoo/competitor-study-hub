@@ -10,9 +10,76 @@ import urllib.request
 import urllib.parse
 
 
-# ==================== 英译中：Google Translate 免费接口 ====================
-def translate_to_chinese(text):
-    """将英文标题翻译为中文 - 使用本地规则，不依赖外部API"""
+# ==================== 英译中：DeepSeek API 批量翻译 ====================
+def translate_titles_deepseek(items):
+    """用 DeepSeek 批量翻译+重写标题为中文，35字左右高信息密度"""
+    import os
+    api_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    if not api_key:
+        print("  [翻译] 无 DEEPSEEK_API_KEY，使用本地规则翻译")
+        for item in items:
+            item['title'] = translate_to_chinese_local(item['title'])
+        return items
+
+    # Batch translate in groups of 20
+    batch_size = 20
+    for start in range(0, len(items), batch_size):
+        batch = items[start:start+batch_size]
+        titles_text = "\n".join([f"{i+1}. {item['title']}" for i, item in enumerate(batch)])
+
+        prompt = f"""将以下跨境电商资讯标题翻译为中文并重写，要求：
+- 每个标题控制在30-35个中文字符
+- 核心信息前置，包含具体平台名、数字、政策名称等关键信息
+- 陈述式语气，不要问句、叹号、营销词
+- 已经是中文的标题也要优化长度和信息密度
+- 保留平台名称原文（Temu/Shein/TikTok Shop/AliExpress/Joybuy）
+
+原始标题：
+{titles_text}
+
+请以JSON格式返回：{{"titles": ["翻译后标题1", "翻译后标题2", ...]}}"""
+
+        payload = json.dumps({
+            "model": "deepseek-chat",
+            "messages": [
+                {"role": "system", "content": "你是专业的跨境电商新闻编辑，擅长将英文标题翻译为高信息密度的中文标题。严格返回JSON格式。"},
+                {"role": "user", "content": prompt},
+            ],
+            "temperature": 0.3,
+            "max_tokens": 4000,
+            "response_format": {"type": "json_object"},
+        }).encode("utf-8")
+
+        req = urllib.request.Request(
+            "https://api.deepseek.com/chat/completions",
+            data=payload,
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+            content = result["choices"][0]["message"]["content"]
+            data = json.loads(content)
+            new_titles = data.get("titles", [])
+            if len(new_titles) == len(batch):
+                for i, item in enumerate(batch):
+                    if new_titles[i] and len(new_titles[i]) > 5:
+                        item['title'] = new_titles[i]
+                print(f"  [翻译] DeepSeek 翻译 {start+1}-{start+len(batch)} 完成")
+            else:
+                print(f"  [翻译] 数量不匹配 ({len(new_titles)} vs {len(batch)})，跳过此批")
+        except Exception as e:
+            print(f"  [翻译] DeepSeek 失败: {e}，使用本地规则")
+            for item in batch:
+                item['title'] = translate_to_chinese_local(item['title'])
+
+    return items
+
+
+def translate_to_chinese_local(text):
+    """本地规则翻译（DeepSeek 不可用时的降级方案）"""
     if not text or not text.strip():
         return text
     # 如果已经主要是中文，跳过
@@ -225,18 +292,14 @@ def main():
     news = [item for item in news if not is_low_quality(item)]
     print(f'质量过滤后: {len(news)}')
 
-    # 2. 翻译标题为中文
+    # 2. 翻译标题为中文（DeepSeek 优先，本地规则降级）
     print('翻译标题...')
-    for i, item in enumerate(news):
-        original = item['title']
-        item['title'] = translate_to_chinese(original)
+    news = translate_titles_deepseek(news)
+    for item in news:
         item['title'] = clean_title(item['title'])
-        # 摘要也翻译
         if item.get('content'):
-            item['content'] = translate_to_chinese(item['content'])
+            item['content'] = translate_to_chinese_local(item['content'])
             item['content'] = clean_content(item['content'])
-        if (i + 1) % 10 == 0:
-            print(f'  已翻译 {i + 1}/{len(news)}')
 
     print(f'翻译完成')
 

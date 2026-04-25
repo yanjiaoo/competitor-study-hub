@@ -317,6 +317,30 @@ def main():
     # 4. 按日期排序
     news.sort(key=lambda x: x.get('date', ''), reverse=True)
 
+    # 4b. 黑名单过滤（永久删除不想要的资讯）
+    BLACKLIST = [
+        '直播购物指南', '直播销售步骤', 'live shopping guide',
+        '苹果降低', 'App Store佣金', 'Apple cuts App Store',
+        '福建福州', '服务商IPO', '冲刺IPO',
+        'DHL and JD.com Sign Strategic MoU', 'DHL与京东签署',
+        '十大电商平台排名', '市场格局将变', 'top 10 ecommerce',
+        '诺贝尔奖', 'GMV Max奖', 'AnyMind Group',
+        '韩国市场份额', 'WiseApp',
+        '正面硬刚亚马逊', '211',
+        '印尼遭反垄断', 'antitrust complaint in Indonesia',
+        '中东客户发出配送警告', 'delivery warnings to Middle East',
+        '速卖通推巴西', '巴西三大利好',
+        'SHEIN产品复购率超行业',
+        'Two Years After JD Worldwide Launch',
+        '凌风工具箱',
+        '东南亚跨境电商年度峰会',
+        '泰国站宣布上调佣金',
+    ]
+    before_bl = len(news)
+    news = [item for item in news if not any(kw.lower() in item.get('title', '').lower() for kw in BLACKLIST)]
+    if len(news) < before_bl:
+        print(f'黑名单过滤: {before_bl} -> {len(news)}')
+
     # 5. 生成 JS
     js_items = []
     for item in news:

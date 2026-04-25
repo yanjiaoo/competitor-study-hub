@@ -21,12 +21,17 @@ PLATFORMS = {
             'Temu marketplace strategy OR business model',
             'Temu tariff OR regulation OR compliance',
             'Temu Europe OR US seller fee OR commission rate change',
+            'Temu semi-managed OR Y2 model OR local fulfillment OR warehouse Europe',
+            'Temu seller onboarding OR seller requirements OR seller rules 2026',
+            'Temu seller penalty OR account suspension OR listing removal',
         ],
         'queries_zh': [
             'Temu 卖家政策 OR 招商 OR 佣金',
             'Temu 物流 OR 仓储 OR 供应链 OR 半托管',
             'Temu 运营策略 OR 流量 OR 市场份额',
             'Temu 欧洲 OR 美国 费率 OR 佣金 OR 上调',
+            'Temu 半托管 OR 海外仓 OR Y2模式 OR 本地履约',
+            'Temu 卖家入驻 OR 开店条件 OR 罚款 OR 扣款 OR 保证金',
         ],
     },
     'shein': {
@@ -36,12 +41,15 @@ PLATFORMS = {
             'Shein IPO OR regulation OR compliance OR ESG',
             'Shein market share OR revenue OR growth strategy',
             'Shein Europe OR US seller fee OR commission OR cost',
+            'Shein seller onboarding OR seller requirements OR seller penalty 2026',
+            'Shein marketplace seller rules OR return policy OR shipping requirements',
         ],
         'queries_zh': [
             'SHEIN 卖家 OR 招商 OR 平台政策',
             'SHEIN 供应链 OR 物流 OR 柔性供应链',
             'SHEIN 市场份额 OR 营收 OR 合规',
             'SHEIN 欧洲 OR 美国 费率 OR 佣金 OR 成本',
+            'SHEIN 卖家入驻 OR 开店政策 OR 罚款 OR 退货政策',
         ],
     },
     'tiktok': {
@@ -52,12 +60,15 @@ PLATFORMS = {
             'TikTok Shop live commerce OR social commerce strategy',
             'TikTok Shop Europe fee OR commission rate OR seller fees',
             'TikTok Shop US fee OR commission change OR seller cost',
+            'TikTok Shop seller rules OR seller penalty OR account ban 2026',
+            'TikTok Shop seller onboarding OR deposit OR shipping requirements',
         ],
         'queries_zh': [
             'TikTok Shop 卖家政策 OR 招商 OR 佣金',
             'TikTok Shop 物流 OR 仓储 OR 履约',
             'TikTok Shop 直播电商 OR 运营 OR 流量',
             'TikTok Shop 欧洲 OR 美国 佣金 OR 费率 OR 上调',
+            'TikTok Shop 卖家入驻 OR 保证金 OR 罚款 OR 违规处罚',
         ],
     },
     'joybuy': {
@@ -65,10 +76,12 @@ PLATFORMS = {
             'Joybuy JD.com Europe OR international expansion',
             'Joybuy seller OR merchant OR marketplace policy',
             'JD.com international logistics OR cross-border',
+            'JD.com Europe seller policy OR commission OR onboarding',
         ],
         'queries_zh': [
             'Joybuy 京东国际 OR 欧洲 OR 跨境',
             '京东国际 卖家 OR 招商 OR 物流',
+            '京东国际 卖家政策 OR 入驻条件 OR 佣金费率',
         ],
     },
     'aliexpress': {
@@ -78,6 +91,8 @@ PLATFORMS = {
             'AliExpress tariff OR regulation OR compliance',
             'AliExpress marketplace strategy OR growth OR expansion',
             'AliExpress Europe OR US seller fee OR commission change',
+            'AliExpress seller rules OR seller penalty OR account suspension 2026',
+            'AliExpress seller onboarding OR deposit OR return policy',
         ],
         'queries_zh': [
             'AliExpress 速卖通 卖家政策 OR 招商 OR 佣金',

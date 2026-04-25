@@ -361,7 +361,7 @@ def main():
         '印尼遭反垄断', 'antitrust complaint in Indonesia',
         '中东客户发出配送警告', 'delivery warnings to Middle East',
         '速卖通推巴西', '巴西三大利好',
-        'SHEIN产品复购率超行业',
+        'SHEIN产品复购率超行业', 'SHEIN复购率', '复购率超行业1.8倍', '2180亿美元市场',
         'Two Years After JD Worldwide Launch',
         '凌风工具箱',
         '东南亚跨境电商年度峰会',

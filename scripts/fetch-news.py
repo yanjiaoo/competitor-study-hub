@@ -145,6 +145,9 @@ EXCLUDE_KEYWORDS = [
     '东南亚峰会', '东南亚跨境', '巴西站', '墨西哥站',
     '韩国市场', '韩国站',
     '中东市场', '中东客户', 'middle east',
+    'australia', '澳大利亚',
+    # 排除非关注竞对
+    'bol.com', '荷兰电商',
     # 排除工具推广/软件广告/无关内容
     '工具箱', '大揭秘', '必看', '功能介绍', '软件推荐',
     '冲刺IPO', '诺贝尔奖', 'GMV Max奖',
@@ -152,6 +155,7 @@ EXCLUDE_KEYWORDS = [
     'live shopping guide', '直播购物指南', '直播销售步骤',
     'top 10 ecommerce', '十大电商平台排名',
     'app store commission', 'App Store佣金',
+    'consumer reports', 'pitney bowes',
 ]
 
 

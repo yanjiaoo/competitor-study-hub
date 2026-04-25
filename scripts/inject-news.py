@@ -366,6 +366,14 @@ def main():
         '凌风工具箱',
         '东南亚跨境电商年度峰会',
         '泰国站宣布上调佣金',
+        # 2026-04-25 新增
+        'Smart Warehouse智能仓储', 'smart warehouse',
+        'Pitney Bowes', 'ShipAccel',
+        'Consumer Reports推动', 'Consumer Reports',
+        '京东全球购上线两年', '中国跨境电商持续增长',
+        'eBay在澳大利亚', 'eBay Australia', '澳大利亚',
+        'Bol.com', '荷兰电商平台',
+        '速卖通在巴西', '巴西跨境退货',
     ]
     before_bl = len(news)
     news = [item for item in news if not any(kw.lower() in item.get('title', '').lower() for kw in BLACKLIST)]

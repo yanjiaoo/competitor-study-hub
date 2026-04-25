@@ -2,7 +2,7 @@ name: 自动更新竞对资讯
 
 on:
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 18 * * *'  # 北京时间凌晨2点（UTC 18:00）
   workflow_dispatch:
 
 permissions:

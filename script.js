@@ -1410,3 +1410,13 @@ function searchVOS() {
         card.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
     });
 }
+
+// Competitor 搜索
+function searchCompetitorNews() {
+    var query = (document.getElementById('competitorSearchInput') || {}).value || '';
+    query = query.toLowerCase().trim();
+    document.querySelectorAll('#newsGrid .news-card').forEach(function(card) {
+        var text = card.textContent.toLowerCase();
+        card.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
+    });
+}

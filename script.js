@@ -950,10 +950,10 @@ function renderVOS() {
 
         return '<div class="vos-card" id="' + item.id + '" data-topic="' + (item.topic || '') + '">' +
             '<div class="vos-card-header">' +
-                '<span class="vos-rank">TOP' + item.rank + '</span>' +
+                '<span class="vos-rank">' + item.rank + '</span>' +
                 (item.topicLabel ? '<span class="dimension-tag">' + item.topicLabel + '</span>' : '') +
                 sourceBadge +
-                '<span class="vos-date">' + item.effectDate + '</span>' +
+                '<span class="vos-date">更新于 ' + item.effectDate + '</span>' +
             '</div>' +
             '<h3 class="vos-title">' + item.title + '</h3>' +
             '<div class="vos-summary"><strong>影响说明：</strong>' + item.summary + '</div>' +

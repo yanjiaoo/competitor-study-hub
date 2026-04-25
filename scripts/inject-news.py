@@ -374,6 +374,7 @@ def main():
         'eBay在澳大利亚', 'eBay Australia', '澳大利亚',
         'Bol.com', '荷兰电商平台',
         '速卖通在巴西', '巴西跨境退货',
+        '路虎', '揽胜', 'Range Rover',
     ]
     before_bl = len(news)
     news = [item for item in news if not any(kw.lower() in item.get('title', '').lower() for kw in BLACKLIST)]

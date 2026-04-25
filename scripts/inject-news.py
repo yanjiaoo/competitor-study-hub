@@ -375,6 +375,7 @@ def main():
         'Bol.com', '荷兰电商平台',
         '速卖通在巴西', '巴西跨境退货',
         '路虎', '揽胜', 'Range Rover',
+        '土耳其', 'turkey',
     ]
     before_bl = len(news)
     news = [item for item in news if not any(kw.lower() in item.get('title', '').lower() for kw in BLACKLIST)]

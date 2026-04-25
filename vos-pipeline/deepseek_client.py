@@ -90,6 +90,8 @@ class DeepSeekClient:
 
         prompt = f"""你是一位资深的亚马逊Account Manager情报分析师。请基于你对亚马逊卖家社区的了解，生成20个当前最热门的亚马逊卖家话题。
 
+**重要限制：所有话题必须与亚马逊（Amazon）平台直接相关。严禁包含eBay、Shopify、沃尔玛、速卖通等其他电商平台的话题，除非该话题直接影响亚马逊卖家的经营决策。**
+
 {context_text}
 
 ## 话题分层要求

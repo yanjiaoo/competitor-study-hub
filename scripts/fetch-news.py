@@ -187,29 +187,49 @@ EXCLUDE_KEYWORDS = [
 ]
 
 
-def fetch_article_content(url, max_chars=400):
-    """尝试抓取文章原文的前几百字作为摘要上下文"""
+def fetch_article_content(url, max_chars=600):
+    """抓取文章原文正文，支持 Google News 重定向链接"""
     if not url or not url.startswith('http'):
         return ''
     try:
+        # Follow redirects to get real URL
         req = urllib.request.Request(url, headers={
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml',
+            'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8',
         })
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            raw = resp.read()
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            real_url = resp.url  # After redirects
+            raw = resp.read(200000)  # Max 200KB
             try:
                 page = raw.decode('utf-8')
             except UnicodeDecodeError:
                 page = raw.decode('latin-1', errors='ignore')
-        paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', page, re.DOTALL)
+
+        # Extract text from <p> tags, <article> tags, or meta description
         text_parts = []
+
+        # Try meta description first
+        meta = re.search(r'<meta[^>]*name=["\']description["\'][^>]*content=["\'](.*?)["\']', page, re.IGNORECASE)
+        if meta and len(meta.group(1)) > 50:
+            text_parts.append(html.unescape(meta.group(1)).strip())
+
+        # Then <article> or <p> tags
+        article = re.search(r'<article[^>]*>(.*?)</article>', page, re.DOTALL)
+        source = article.group(1) if article else page
+
+        paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', source, re.DOTALL)
         for p in paragraphs:
             clean = re.sub(r'<[^>]+>', '', html.unescape(p)).strip()
-            if len(clean) > 30:
+            if len(clean) > 40 and not clean.startswith('©') and 'cookie' not in clean.lower():
                 text_parts.append(clean)
             if sum(len(t) for t in text_parts) > max_chars:
                 break
-        return ' '.join(text_parts)[:max_chars]
+
+        result = ' '.join(text_parts)[:max_chars]
+        if len(result) > 50:
+            return result
+        return ''
     except Exception:
         return ''
 
@@ -261,12 +281,16 @@ def fetch_google_news_rss(query, lang='en', max_items=8):
     except Exception as e:
         print(f'  [WARN] Failed: {e}')
 
-    # Enrich: fetch article content for items with short descriptions
+    # Enrich: fetch article content for ALL items with short descriptions
+    enriched = 0
     for item in items:
-        if len(item['content']) < 80:
+        if len(item['content']) < 100:
             article_text = fetch_article_content(item['url'])
             if article_text:
                 item['content'] = article_text
+                enriched += 1
+    if enriched:
+        print(f'  [Enrich] 抓取了 {enriched} 篇原文正文')
 
     return items
 

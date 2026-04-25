@@ -82,15 +82,11 @@ class VOSPipeline:
             topic["links"] = [l for l in topic["links"]
                               if l.get("url", "").startswith("http")]
 
-        # Cap future dates — if effectDate is in the future, set to today
-        try:
+        # For AI-generated topics, force date to pipeline run date
+        # DeepSeek cannot reliably produce real publication dates
+        if topic.get("aiGenerated") is True:
             from datetime import datetime, timezone
-            ed = datetime.strptime(topic.get("effectDate", ""), "%Y-%m-%d")
-            today = datetime.now(timezone.utc)
-            if ed.year > today.year or (ed.year == today.year and ed.month > today.month + 1):
-                topic["effectDate"] = today.strftime("%Y-%m-%d")
-        except (ValueError, TypeError):
-            pass
+            topic["effectDate"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
         return topic
 

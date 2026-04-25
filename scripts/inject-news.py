@@ -1,307 +1,57 @@
 #!/usr/bin/env python3
 """
-读取 news-data.json → 翻译标题为中文 → 深度去重 → 清洗风格 → 注入 script.js
-目标受众：Amazon leaders / 竞对研究 POC
-风格：新闻播报式，理性客观，核心信息前置
+Competitor 资讯注入器（VOS 模式）
+读取 news-data.json（RSS素材）→ DeepSeek 生成话题（标题+摘要）→ 增量合并 → 注入 script.js
+
+核心逻辑：
+1. RSS 素材作为上下文喂给 DeepSeek
+2. DeepSeek 基于素材生成结构化资讯（中文标题+100字摘要+平台分类）
+3. 增量模式：已有资讯不变，只追加新的不重复内容
+4. 黑名单过滤 + 市场限制（只看美欧日）
 """
 import json
+import os
 import re
 import urllib.request
-import urllib.parse
 
 
-# ==================== 英译中：DeepSeek API 批量翻译 ====================
-def translate_titles_deepseek(items):
-    """用 DeepSeek 批量翻译+重写标题为中文，35-42字高信息密度"""
-    import os
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "")
-    if not api_key:
-        print("  [翻译] 无 DEEPSEEK_API_KEY，使用本地规则翻译")
-        for item in items:
-            item['title'] = translate_to_chinese_local(item['title'])
-        return items
+# ==================== 黑名单 ====================
+BLACKLIST = [
+    '直播购物指南', '直播销售步骤', 'live shopping guide',
+    '苹果降低', 'App Store佣金', 'Apple cuts App Store',
+    '福建福州', '服务商IPO', '冲刺IPO',
+    'DHL and JD.com Sign Strategic MoU', 'DHL与京东签署',
+    '十大电商平台排名', '市场格局将变', 'top 10 ecommerce',
+    '诺贝尔奖', 'GMV Max奖', 'AnyMind Group',
+    '韩国市场份额', 'WiseApp',
+    '正面硬刚亚马逊',
+    '印尼遭反垄断', 'antitrust complaint in Indonesia',
+    '中东客户发出配送警告', 'delivery warnings to Middle East',
+    '速卖通推巴西', '巴西三大利好',
+    'SHEIN产品复购率', 'SHEIN复购率', '复购率超行业', '2180亿美元',
+    'Two Years After JD Worldwide Launch',
+    '凌风工具箱', '东南亚跨境电商年度峰会', '泰国站宣布上调佣金',
+    'Smart Warehouse智能仓储', 'Pitney Bowes', 'ShipAccel',
+    'Consumer Reports', '京东全球购上线两年',
+    'eBay在澳大利亚', '澳大利亚', 'Bol.com', '荷兰电商平台',
+    '速卖通在巴西', '巴西跨境退货',
+    '路虎', '揽胜', 'Range Rover', '土耳其', 'turkey',
+]
 
-    batch_size = 15
-    for start in range(0, len(items), batch_size):
-        batch = items[start:start+batch_size]
-        titles_text = "\n".join([
-            f"{i+1}. 标题: {item['title']}\n   摘要: {item.get('content', '')[:200]}"
-            for i, item in enumerate(batch)
-        ])
-
-        prompt = f"""你是跨境电商新闻编辑。请将以下资讯重写为中文标题，严格要求：
-
-1. 每个标题必须35-42个中文字符（这是硬性要求，不够长就从摘要中补充关键信息）
-2. 从原标题和摘要中提取具体信息：平台名、数字、百分比、日期、国家/地区、政策名称
-3. 标题中的所有数字和数据必须来自原文，严禁编造
-4. 陈述式语气，严禁使用：问句、叹号、"重磅"、"必看"、"速看"、"揭秘"、"狂潮"等营销词
-5. 保留平台名原文：Temu/Shein/TikTok Shop/AliExpress/Joybuy
-6. 好标题示例（40字）："Temu在美国推出半托管模式允许卖家自主定价，佣金费率降至8%并开放本地仓发货"
-7. 坏标题示例（太短20字）："Temu推出半托管模式" — 信息量太少
-8. 坏标题示例（营销词）："重磅！Temu半托管模式来了！卖家必看"
-
-原始资讯：
-{titles_text}
-
-请以JSON格式返回：{{"titles": ["重写后标题1", "重写后标题2", ...]}}
-数量必须与输入一一对应。"""
-
-        payload = json.dumps({
-            "model": "deepseek-chat",
-            "messages": [
-                {"role": "system", "content": "你是专业的跨境电商新闻编辑。你的核心任务是将标题重写为35-42个中文字符的高信息密度标题。每个标题必须至少35个字符。如果原标题信息不够，从摘要中补充关键数据。严格返回JSON格式。"},
-                {"role": "user", "content": prompt},
-            ],
-            "temperature": 0.3,
-            "max_tokens": 4000,
-            "response_format": {"type": "json_object"},
-        }).encode("utf-8")
-
-        req = urllib.request.Request(
-            "https://api.deepseek.com/chat/completions",
-            data=payload,
-            headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
-            method="POST",
-        )
-
-        try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                result = json.loads(resp.read().decode("utf-8"))
-            content = result["choices"][0]["message"]["content"]
-            data = json.loads(content)
-            new_titles = data.get("titles", [])
-            if len(new_titles) == len(batch):
-                for i, item in enumerate(batch):
-                    if new_titles[i] and len(new_titles[i]) >= 10:
-                        item['title'] = new_titles[i]
-                print(f"  [翻译] DeepSeek 翻译 {start+1}-{start+len(batch)} 完成")
-            else:
-                print(f"  [翻译] 数量不匹配 ({len(new_titles)} vs {len(batch)})，跳过此批")
-        except Exception as e:
-            print(f"  [翻译] DeepSeek 失败: {e}，使用本地规则")
-            for item in batch:
-                item['title'] = translate_to_chinese_local(item['title'])
-
-    return items
-
-
-def translate_to_chinese_local(text):
-    """本地规则翻译（DeepSeek 不可用时的降级方案）"""
-    if not text or not text.strip():
-        return text
-    # 如果已经主要是中文，跳过
-    cn_chars = len(re.findall(r'[\u4e00-\u9fff]', text))
-    if cn_chars > len(text) * 0.3:
-        return text
-
-    # 常见电商/跨境术语翻译词典
-    translations = {
-        'launches': '推出', 'launch': '推出', 'launched': '推出',
-        'expands': '扩展', 'expand': '扩展', 'expansion': '扩张',
-        'targets': '瞄准', 'targeting': '瞄准', 'target': '目标',
-        'challenges': '挑战', 'challenge': '挑战',
-        'marketplace': '电商平台', 'platform': '平台',
-        'seller': '卖家', 'sellers': '卖家', 'merchant': '商家',
-        'logistics': '物流', 'fulfillment': '履约',
-        'warehouse': '仓储', 'shipping': '配送',
-        'supply chain': '供应链', 'cross-border': '跨境',
-        'tariff': '关税', 'tariffs': '关税',
-        'regulation': '监管', 'compliance': '合规',
-        'revenue': '营收', 'growth': '增长',
-        'market share': '市场份额',
-        'commission': '佣金', 'fee': '费用',
-        'policy': '政策', 'strategy': '策略',
-        'e-commerce': '电商', 'ecommerce': '电商',
-        'live commerce': '直播电商', 'live shopping': '直播购物',
-        'social commerce': '社交电商',
-        'Europe': '欧洲', 'European': '欧洲',
-        'global': '全球', 'international': '国际',
-        'integration': '集成', 'partnership': '合作',
-        'acquisition': '收购', 'acquires': '收购',
-    }
-
-    result = text
-    for en, zh in translations.items():
-        result = re.sub(re.escape(en), zh, result, flags=re.IGNORECASE)
-
-    return result
-
-
-# ==================== 标题清洗 ====================
-def clean_title(title):
-    """去除情绪化字眼，保持新闻播报风格"""
-    t = title.strip()
-    # 去除问号、叹号
-    t = re.sub(r'[?？!！]+', '', t)
-    # 去除 emoji
-    t = re.sub(r'[\U0001F300-\U0001FAFF\U00002702-\U000027B0]+', '', t)
-    # 去除营销前缀
-    t = re.sub(r'^(重磅|突发|独家|最新|速看|必看|震惊|刚刚|快讯|深度|盘点|揭秘|警惕|注意)[：:|\s]*', '', t)
-    t = re.sub(r'^(Breaking|BREAKING|Exclusive|EXCLUSIVE|Hot|HOT|Alert)[：:|\s]*', '', t, flags=re.IGNORECASE)
-    # 去除【】标签
-    t = re.sub(r'【[^】]*】\s*', '', t)
-    # 去除末尾来源标注
-    t = re.sub(r'\s*[|丨｜—]\s*[\w\u4e00-\u9fff]+\s*$', '', t)
-    # 去除多余空格
-    t = re.sub(r'\s+', ' ', t).strip()
-    return t
-
-
-def clean_content(content):
-    """清洗摘要内容"""
-    c = content.strip()
-    # 去除重复的标题+来源格式（Google News RSS 常见）
-    # 例如 "标题  来源名" 这种格式
-    c = re.sub(r'^(.{10,}?)\s{2,}\S+$', r'\1', c)
-    c = re.sub(r'[?？!！]+', '', c)
-    c = re.sub(r'\s+', ' ', c).strip()
-    return c[:200]
-
-
-# ==================== 深度去重 ====================
-def extract_key_phrases(title):
-    """提取标题中的核心关键词用于语义去重"""
-    t = title.lower()
-    # 去除标点和常见虚词
-    t = re.sub(r'[^\w\u4e00-\u9fff]', ' ', t)
-    stopwords = {
-        'the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of', 'with',
-        'and', 'or', 'is', 'are', 'was', 'were', 'be', 'been', 'has', 'have',
-        'its', 'it', 'as', 'by', 'from', 'that', 'this', 'new', 'how', 'why',
-        'what', 'does', 'will', 'can', 'into', 'up', 'out', 'about',
-        '的', '了', '在', '是', '和', '与', '将', '为', '等', '也', '已',
-        '对', '从', '到', '被', '让', '把', '向', '又', '再', '还',
-    }
-    words = [w for w in t.split() if w and w not in stopwords and len(w) > 1]
-    return set(words)
-
-
-def semantic_dedup(items):
-    """语义级别去重：同一事件只保留一条（优先保留中文来源）"""
-    result = []
-    seen_phrases = []
-
-    # 核心实体词（翻译变体统一）
-    normalize_map = {
-        '京东': 'jd', 'jd.com': 'jd', 'jdcom': 'jd',
-        'joybuy': 'joybuy', '欧洲': 'europe', 'europe': 'europe',
-        '亚马逊': 'amazon', 'amazon': 'amazon',
-        '推出': 'launch', 'launch': 'launch', 'launches': 'launch',
-        'unveils': 'launch', 'debuts': 'launch', '上线': 'launch',
-        '挑战': 'challenge', 'challenge': 'challenge', 'challenges': 'challenge',
-        'targets': 'challenge', 'targeting': 'challenge', '瞄准': 'challenge',
-        'marketplace': 'marketplace', '市场': 'marketplace', '平台': 'platform',
-        '扩张': 'expand', 'expansion': 'expand', 'expand': 'expand',
-        'temu': 'temu', 'shein': 'shein', 'tiktok': 'tiktok',
-        'aliexpress': 'aliexpress', '速卖通': 'aliexpress', 'cainiao': 'cainiao', '菜鸟': 'cainiao',
-        '供应链': 'supplychain', 'supply': 'supplychain', 'chain': 'supplychain',
-        '物流': 'logistics', 'logistics': 'logistics',
-        '卖家': 'seller', 'seller': 'seller', 'sellers': 'seller',
-        '政策': 'policy', 'policy': 'policy',
-        '合规': 'compliance', 'compliance': 'compliance', 'regulation': 'compliance',
-    }
-
-    def normalize_phrases(title):
-        t = title.lower()
-        t = re.sub(r'[^\w\u4e00-\u9fff]', ' ', t)
-        words = t.split()
-        normalized = set()
-        for w in words:
-            if w in normalize_map:
-                normalized.add(normalize_map[w])
-            elif len(w) > 1:
-                normalized.add(w)
-        return normalized
-
-    for item in items:
-        phrases = normalize_phrases(item['title'])
-        if not phrases or len(phrases) < 2:
-            continue
-
-        is_dup = False
-        for existing_phrases in seen_phrases:
-            if not existing_phrases:
-                continue
-            overlap = phrases & existing_phrases
-            smaller = min(len(phrases), len(existing_phrases))
-            if smaller > 0 and len(overlap) / smaller > 0.55:
-                is_dup = True
-                break
-
-        if not is_dup:
-            seen_phrases.append(phrases)
-            result.append(item)
-
-    # 额外步骤：同一天同一平台只保留一条同主题新闻
-    final = []
-    seen_day_platform = {}
-    for item in result:
-        key = f"{item.get('date', '')}_{item.get('platform', '')}"
-        phrases = normalize_phrases(item['title'])
-        if key not in seen_day_platform:
-            seen_day_platform[key] = [phrases]
-            final.append(item)
-        else:
-            is_dup_day = False
-            for existing in seen_day_platform[key]:
-                overlap = phrases & existing
-                smaller = min(len(phrases), len(existing))
-                if smaller > 0 and len(overlap) / smaller > 0.45:
-                    is_dup_day = True
-                    break
-            if not is_dup_day:
-                seen_day_platform[key].append(phrases)
-                final.append(item)
-
-    return final
-
-
-# ==================== 质量过滤 ====================
-def is_low_quality(item):
-    """过滤低质量/无关内容"""
-    text = (item.get('title', '') + ' ' + item.get('content', '')).lower()
-
-    bad_patterns = [
-        'stock price', 'buy or sell', 'stock forecast', 'trading volume',
-        '股价预测', '买入评级', '目标价',
-        '招聘', '薪资', '月薪', 'hiring', 'salary', 'job opening',
-        'coupon', 'promo code', 'haul', '优惠券', '折扣码', '开箱',
-        'best products to sell', 'trending products', '新手教程',
-        'beginner guide', 'how to sell on', 'top 10 best',
-    ]
-    # 如果匹配排除词且不含业务关键词，则过滤
-    has_bad = any(p in text for p in bad_patterns)
-    has_good = any(p in text for p in [
-        'policy', 'launch', 'expand', 'regulation', 'tariff',
-        '政策', '上线', '扩张', '监管', '关税', '合规',
-        'supply chain', '供应链', 'logistics', '物流',
-        'marketplace', 'seller', '卖家', '商家',
-    ])
-    if has_bad and not has_good:
-        return True
-    if len(item.get('title', '')) < 8:
-        return True
-    return False
-
-
-# ==================== 手动固定资讯（不会被fetch覆盖） ====================
+# ==================== 手动固定资讯 ====================
 PINNED_ARTICLES = [
     {
-        "id": "tiktok_pinned_001",
         "title": "TikTok Shop自1月8日起上调欧盟五国佣金至9%，电子品类享7%优惠，新卖家可享60天4%费率",
         "content": "TikTok Shop自2026年1月8日起对德国、法国、意大利、西班牙和爱尔兰五国站点佣金从5%上调至9%。电子产品等部分品类适用7%优惠费率。新入驻商家在15天内上架至少5件商品可享最长60天的4%优惠佣金率。",
         "source": "ecommercenews.eu",
-        "type": "press",
         "platform": "tiktok",
         "date": "2026-01-08",
         "url": "https://ecommercenews.eu/tiktok-shop-raises-seller-fees-in-europe/"
     },
     {
-        "id": "temu_pinned_001",
         "title": "Temu在欧盟27国推出Y2半托管模式，卖家可从中国直发免去海外仓备货，履约时效最长21天",
-        "content": "Temu于2025年11月底在欧盟27国推出Y2半托管履约模式。该模式允许中国卖家从国内直接发货，无需海外仓备货，降低库存和资金压力。履约时效最长21天。平台提供末端配送和流量支持，主要面向中小卖家。Temu计划将高达80%的欧洲订单转为本地履约。",
+        "content": "Temu于2025年11月底在欧盟27国推出Y2半托管履约模式。该模式允许中国卖家从国内直接发货，无需海外仓备货，降低库存和资金压力。履约时效最长21天。平台提供末端配送和流量支持，主要面向中小卖家。",
         "source": "ChineSellers / YUGUO",
-        "type": "press",
         "platform": "temu",
         "date": "2025-11-28",
         "url": "https://chinesellers.substack.com/p/temus-new-hybrid-logistics-y2-model"
@@ -309,114 +59,196 @@ PINNED_ARTICLES = [
 ]
 
 
+def is_blacklisted(title):
+    t = title.lower()
+    return any(kw.lower() in t for kw in BLACKLIST)
+
+
+def detect_platform(text):
+    t = text.lower()
+    if 'temu' in t: return 'temu'
+    if 'shein' in t or '希音' in t: return 'shein'
+    if 'tiktok' in t and ('shop' in t or '电商' in t or '带货' in t): return 'tiktok'
+    if 'joybuy' in t or '京东国际' in t or 'jd.com' in t: return 'joybuy'
+    if 'aliexpress' in t or '速卖通' in t: return 'aliexpress'
+    return None
+
+
+# ==================== DeepSeek 生成资讯 ====================
+def generate_news_deepseek(rss_items):
+    """用 DeepSeek 基于 RSS 素材生成结构化资讯（标题+摘要+分类）"""
+    api_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    if not api_key:
+        print("  [DeepSeek] 无 API KEY，跳过")
+        return []
+
+    # 构建素材上下文（最多40条）
+    context = ""
+    for i, item in enumerate(rss_items[:40]):
+        context += f"\n{i+1}. [{item.get('source','')}] {item['title']}"
+        if item.get('url'):
+            context += f"\n   URL: {item['url']}"
+        if item.get('content'):
+            context += f"\n   摘要: {item['content'][:200]}"
+
+    prompt = f"""你是跨境电商竞争情报分析师。请基于以下RSS素材，生成15-20条结构化竞对资讯。
+
+**素材：**
+{context}
+
+**要求：**
+1. 每条资讯必须基于上面的素材，不可编造
+2. title: 中文标题，35-42字，陈述式，核心信息前置，包含平台名+具体数字/政策/影响
+3. content: 中文摘要，80-120字，概括核心事件、影响范围和关键数据，数据必须来自素材
+4. platform: 从 temu/shein/tiktok/joybuy/aliexpress 中选择
+5. source: 使用素材中的原始来源名称
+6. date: 使用素材的发布日期（YYYY-MM-DD），如不确定用2026-04-25
+7. url: 必须使用素材中的原始URL，严禁编造
+8. 只保留美国、欧洲、日本市场相关内容，排除东南亚/韩国/中东/巴西等
+9. 排除工具推广、IPO、排名预测、非电商内容
+10. 标题示例："Temu在欧盟27国推出Y2半托管模式，卖家可从中国直发免去海外仓备货，履约时效最长21天"
+
+请以JSON格式返回：{{"articles": [{{title, content, platform, source, date, url}}, ...]}}"""
+
+    payload = json.dumps({
+        "model": "deepseek-chat",
+        "messages": [
+            {"role": "system", "content": "你是跨境电商竞争情报分析师。基于提供的RSS素材生成结构化资讯。每条必须有真实URL。严格返回JSON格式。"},
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.3,
+        "max_tokens": 8000,
+        "response_format": {"type": "json_object"},
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        "https://api.deepseek.com/chat/completions",
+        data=payload,
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            result = json.loads(resp.read().decode("utf-8"))
+        content = result["choices"][0]["message"]["content"]
+        data = json.loads(content)
+        articles = data.get("articles", [])
+        print(f"  [DeepSeek] 生成 {len(articles)} 条资讯")
+
+        # 过滤：必须有URL、必须有平台、不在黑名单
+        valid = []
+        for a in articles:
+            if not a.get("url", "").startswith("http"):
+                continue
+            if not a.get("platform") or a["platform"] not in ("temu", "shein", "tiktok", "joybuy", "aliexpress"):
+                # Try to detect platform
+                p = detect_platform(a.get("title", "") + " " + a.get("content", ""))
+                if p:
+                    a["platform"] = p
+                else:
+                    continue
+            if is_blacklisted(a.get("title", "")):
+                continue
+            a.setdefault("date", "2026-04-25")
+            a.setdefault("source", "行业媒体")
+            a["type"] = "press"
+            a["dimension"] = ""
+            valid.append(a)
+
+        print(f"  [DeepSeek] 有效资讯: {len(valid)} 条")
+        return valid
+    except Exception as e:
+        print(f"  [DeepSeek] 失败: {e}")
+        return []
+
+
 # ==================== 主流程 ====================
 def main():
+    # 1. 读取 RSS 素材
     with open('news-data.json', 'r', encoding='utf-8') as f:
-        news = json.load(f)
+        rss_items = json.load(f)
+    print(f'RSS素材: {len(rss_items)} 条')
 
-    # 注入固定资讯
-    pinned_titles = set(p['title'] for p in PINNED_ARTICLES)
-    news = [n for n in news if n.get('title') not in pinned_titles]
-    news = PINNED_ARTICLES + news
-    print(f'含固定资讯: {len(news)} 条')
-
-    if not news:
-        print('news-data.json is empty, skipping')
+    if not rss_items:
+        print('无素材，跳过')
         return
 
-    print(f'原始条目: {len(news)}')
+    # 2. DeepSeek 生成结构化资讯
+    print('DeepSeek 生成资讯...')
+    new_articles = generate_news_deepseek(rss_items)
 
-    # 1. 过滤低质量
-    news = [item for item in news if not is_low_quality(item)]
-    print(f'质量过滤后: {len(news)}')
+    # 3. 加入固定资讯
+    all_new = list(PINNED_ARTICLES) + new_articles
 
-    # 2. 翻译标题为中文（DeepSeek 优先，本地规则降级）
-    print('翻译标题...')
-    news = translate_titles_deepseek(news)
-    for item in news:
-        item['title'] = clean_title(item['title'])
-        if item.get('content'):
-            item['content'] = translate_to_chinese_local(item['content'])
-            item['content'] = clean_content(item['content'])
-
-    print(f'翻译完成')
-
-    # 3. 深度去重
-    news = semantic_dedup(news)
-    print(f'去重后: {len(news)}')
-
-    # 4. 按日期排序
-    news.sort(key=lambda x: x.get('date', ''), reverse=True)
-
-    # 4b. 黑名单过滤（永久删除不想要的资讯）
-    BLACKLIST = [
-        '直播购物指南', '直播销售步骤', 'live shopping guide',
-        '苹果降低', 'App Store佣金', 'Apple cuts App Store',
-        '福建福州', '服务商IPO', '冲刺IPO',
-        'DHL and JD.com Sign Strategic MoU', 'DHL与京东签署',
-        '十大电商平台排名', '市场格局将变', 'top 10 ecommerce',
-        '诺贝尔奖', 'GMV Max奖', 'AnyMind Group',
-        '韩国市场份额', 'WiseApp',
-        '正面硬刚亚马逊', '211',
-        '印尼遭反垄断', 'antitrust complaint in Indonesia',
-        '中东客户发出配送警告', 'delivery warnings to Middle East',
-        '速卖通推巴西', '巴西三大利好',
-        'SHEIN产品复购率超行业', 'SHEIN复购率', '复购率超行业1.8倍', '2180亿美元市场',
-        'Two Years After JD Worldwide Launch',
-        '凌风工具箱',
-        '东南亚跨境电商年度峰会',
-        '泰国站宣布上调佣金',
-        # 2026-04-25 新增
-        'Smart Warehouse智能仓储', 'smart warehouse',
-        'Pitney Bowes', 'ShipAccel',
-        'Consumer Reports推动', 'Consumer Reports',
-        '京东全球购上线两年', '中国跨境电商持续增长',
-        'eBay在澳大利亚', 'eBay Australia', '澳大利亚',
-        'Bol.com', '荷兰电商平台',
-        '速卖通在巴西', '巴西跨境退货',
-        '路虎', '揽胜', 'Range Rover',
-        '土耳其', 'turkey',
-    ]
-    before_bl = len(news)
-    news = [item for item in news if not any(kw.lower() in item.get('title', '').lower() for kw in BLACKLIST)]
-    if len(news) < before_bl:
-        print(f'黑名单过滤: {before_bl} -> {len(news)}')
-
-    # 5. 生成 JS
-    js_items = []
-    for item in news:
-        title = item['title'].replace('"', '\\"').replace('\n', ' ')
-        content = item.get('content', '').replace('"', '\\"').replace('\n', ' ')
-        source = item.get('source', '').replace('"', '\\"')
-        url = item.get('url', '').replace('"', '\\"')
-
-        js_items.append(
-            f'  {{ id: "{item["id"]}", title: "{title}", '
-            f'content: "{content}", '
-            f'source: "{source}", type: "{item["type"]}", '
-            f'platform: "{item["platform"]}", '
-            f'dimension: "{item.get("dimension", "")}", '
-            f'date: new Date("{item["date"]}"), '
-            f'url: "{url}" }}'
-        )
-
-    js_array = 'var newsData = [\n' + ',\n'.join(js_items) + '\n];'
-
+    # 4. 读取 script.js 中已有的 newsData
     with open('script.js', 'r', encoding='utf-8') as f:
-        content = f.read()
+        js_content = f.read()
 
     pattern = r'var newsData = \[[\s\S]*?\];'
-    match = re.search(pattern, content)
+    match = re.search(pattern, js_content)
     if not match:
-        print('ERROR: Could not find newsData in script.js')
+        print('ERROR: newsData not found in script.js')
         return
 
-    new_content = content[:match.start()] + js_array + content[match.end():]
+    # 解析已有标题用于去重
+    existing_block = match.group(0)
+    existing_titles = set()
+    for m in re.finditer(r'title: "([^"]+)"', existing_block):
+        t = re.sub(r'[\s\W]', '', m.group(1)).lower()
+        existing_titles.add(t)
+    print(f'已有 {len(existing_titles)} 条资讯')
 
+    # 5. 筛选新的不重复资讯
+    new_js_items = []
+    added = 0
+    for item in all_new:
+        title = item.get('title', '')
+        t = re.sub(r'[\s\W]', '', title).lower()
+        if t in existing_titles or len(t) < 5:
+            continue
+        if is_blacklisted(title):
+            continue
+        existing_titles.add(t)
+
+        # 生成 JS 对象
+        esc_title = title.replace('"', '\\"').replace('\n', ' ')
+        esc_content = item.get('content', '').replace('"', '\\"').replace('\n', ' ')
+        esc_source = item.get('source', '').replace('"', '\\"')
+        esc_url = item.get('url', '').replace('"', '\\"')
+        platform = item.get('platform', 'temu')
+        date = item.get('date', '2026-04-25')
+        dimension = item.get('dimension', '')
+
+        js_obj = (
+            f'  {{ id: "{platform}_{added+1:03d}", title: "{esc_title}", '
+            f'content: "{esc_content}", '
+            f'source: "{esc_source}", type: "press", '
+            f'platform: "{platform}", '
+            f'dimension: "{dimension}", '
+            f'date: new Date("{date}"), '
+            f'url: "{esc_url}" }}'
+        )
+        new_js_items.append(js_obj)
+        added += 1
+
+    print(f'新增 {added} 条不重复资讯')
+
+    # 6. 合并：新的在前 + 已有的（过滤黑名单）
+    existing_items = re.findall(r'  \{[^}]+\}', existing_block)
+    kept_existing = []
+    for ei in existing_items:
+        if not is_blacklisted(ei):
+            kept_existing.append(ei.strip())
+
+    all_items = new_js_items + kept_existing
+    js_array = 'var newsData = [\n' + ',\n'.join(all_items) + '\n];'
+
+    new_content = js_content[:match.start()] + js_array + js_content[match.end():]
     with open('script.js', 'w', encoding='utf-8') as f:
         f.write(new_content)
 
-    print(f'注入完成: {len(news)} 条资讯')
+    print(f'注入完成: 新增 {added} 条，总计 {len(all_items)} 条')
 
 
 if __name__ == '__main__':

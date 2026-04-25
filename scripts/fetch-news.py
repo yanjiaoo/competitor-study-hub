@@ -137,6 +137,15 @@ EXCLUDE_KEYWORDS = [
     'best products to sell', 'trending products',
     'how to sell on', 'beginner guide', '新手教程',
     'top 10 best selling', 'top 15',
+    # 排除非美欧日市场
+    'thailand', 'indonesia', 'vietnam', 'philippines', 'malaysia',
+    'brazil', 'mexico', 'nigeria', 'india market',
+    'south korea', 'korea market',
+    '泰国站', '印尼站', '越南站', '菲律宾站', '马来西亚站',
+    '东南亚峰会', '东南亚跨境', '巴西站', '墨西哥站',
+    '韩国市场', '韩国站',
+    # 排除工具推广/软件广告
+    '工具箱', '大揭秘', '必看', '功能介绍', '软件推荐',
 ]
 
 

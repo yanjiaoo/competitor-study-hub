@@ -1,5 +1,178 @@
 [
   {
+    "title": "亚马逊欧洲站COO合规强制执行倒计时，卖家须尽快上传原产国信息",
+    "summary": "亚马逊欧洲站要求卖家在2026年4月30日前为所有商品上传原产国（COO）信息，否则将面临ASIN创建限制及货物入仓受阻。该政策适用于所有欧洲站点（英、德、法、意、西等），涉及所有品类。卖家社区反应紧张，大量卖家反映COO信息缺失导致补货计划中断，部分卖家因历史数据量大难以在截止日前完成。AM需提醒卖家立即排查COO缺失的ASIN，优先处理高销量SKU，并关注后续合规审核风险。",
+    "source": "雨果跨境",
+    "topic": "compliance",
+    "topicLabel": "⚖️ 合规",
+    "layer": "policy_impact",
+    "layerLabel": "📋 政策影响",
+    "effectDate": "2026-05-01",
+    "sentiment": "negative",
+    "painPoints": [
+      "合规时间紧迫",
+      "数据量大难以批量上传",
+      "补货受阻"
+    ],
+    "alertLevel": "critical",
+    "insightType": "amplifier",
+    "aiGenerated": true,
+    "links": [
+      {
+        "label": "COO合规强制执行倒计时！亚马逊欧洲站卖家快行动起来 - 雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBXWUdydWlMQVROeGZmWkxrVElzZlY0b1F4Ynpwa0NoU3dDQjJXNFppQzRNaUlFYmdzcVZpZFg4dGs0OHhpM3lpOWc0VUNESzQ?oc=5"
+      }
+    ],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
+    "rank": 1,
+    "id": "vos_001"
+  },
+  {
+    "title": "亚马逊欧洲站佣金直降67%，新卖家福利加大，入驻红利期来临",
+    "summary": "亚马逊欧洲站宣布佣金直降67%（从15%降至5%），并新增新卖家福利，包括前3个月免仓储费、免费广告额度等。适用于新入驻欧洲站（英、德、法、意、西等）的卖家，老卖家也可享受部分品类佣金下调。卖家社区讨论热烈，认为这是拓展欧洲市场的好时机，但部分老卖家抱怨未受益。AM应鼓励现有卖家利用新站点入驻机会，同时关注佣金调整对价格策略的影响。",
+    "source": "雨果跨境",
+    "topic": "promotion",
+    "topicLabel": "🏷️ 促销",
+    "layer": "policy_impact",
+    "layerLabel": "📋 政策影响",
+    "effectDate": "2026-05-01",
+    "sentiment": "positive",
+    "painPoints": [
+      "老卖家未受益",
+      "新卖家入驻流程复杂"
+    ],
+    "alertLevel": "normal",
+    "insightType": "amplifier",
+    "aiGenerated": true,
+    "links": [
+      {
+        "label": "亚马逊欧洲站新政：佣金直降67%，新卖家福利涨50% - 雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9WMkE5SUxMUDBFcXNvS1o2aDZFdzJMdEVnLXdiM2RXMGM3SU5TZVB6VTFvUFVzMzdXdnVIYVJXaWJoMGpqWWMtRXJmc1o?oc=5"
+      }
+    ],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
+    "rank": 2,
+    "id": "vos_002"
+  },
+  {
+    "title": "亚马逊2026年Prime会员日定于六月全球举行，卖家备战时间紧迫",
+    "summary": "亚马逊官方宣布2026年Prime Day将于六月在全球举行，具体日期尚未公布，但卖家需在5月中旬前完成Deal提报。该活动是全年最大促销节点，预计参与卖家数创新高。卖家社区开始积极备货和优化listing，但部分卖家对时间紧迫感到焦虑。AM需提醒卖家尽早提报Deal，并做好库存和广告预算规划。",
+    "source": "雨果跨境",
+    "topic": "promotion",
+    "topicLabel": "🏷️ 促销",
+    "layer": "policy_impact",
+    "layerLabel": "📋 政策影响",
+    "effectDate": "2026-05-01",
+    "sentiment": "neutral",
+    "painPoints": [
+      "备战时间短",
+      "库存压力大",
+      "广告竞争激烈"
+    ],
+    "alertLevel": "high",
+    "insightType": "amplifier",
+    "aiGenerated": true,
+    "links": [
+      {
+        "label": "2026年亚马逊Prime会员日将于六月在全球举行 - 雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9pcmtlN1NKNVprXzN3Q2lKSy1ZTkt2SHVMd0VabUVldHc1YjhxcUl4anM4dkpUM0QwS1YzLXpucTFaQVBBR3Vmc09vZTQ?oc=5"
+      }
+    ],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
+    "rank": 3,
+    "id": "vos_003"
+  },
+  {
+    "title": "亚马逊物流注册机会推出：FBA与FBM成本对比工具热度高",
+    "summary": "亚马逊推出“物流注册机会”工具，帮助卖家对比FBA和FBM的成本差异，并预估转FBA后的利润增长。该工具在卖家社区引发关注，许多卖家尝试后发现FBA在特定品类更具优势。AM需利用该工具向卖家展示FBA价值，尤其针对目前使用FBM但适合FBA的卖家，提供个性化建议。",
+    "source": "雨果跨境",
+    "topic": "logistics",
+    "topicLabel": "🚚 物流",
+    "layer": "emerging_unknown",
+    "layerLabel": "🔍 盲区发现",
+    "effectDate": "2026-05-01",
+    "sentiment": "positive",
+    "painPoints": [
+      "FBA vs FBM选择困难",
+      "成本计算复杂"
+    ],
+    "alertLevel": "normal",
+    "insightType": "blind_spot",
+    "aiGenerated": true,
+    "links": [
+      {
+        "label": "别再猜啦，「亚马逊物流注册机会」告诉你，转FBA到底能多赚多少？！ - 雨果跨境",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBHcDZPbXlQSHNuU01QZUxkU2VyYUNxaVZ5RFEzaFNfT3NxSnRpbVJVd2hjUEFVM1g3ajI5RzhWMHdhcHAybEJpakxOMVg?oc=5"
+      }
+    ],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
+    "rank": 4,
+    "id": "vos_004"
+  },
+  {
+    "title": "2026年亚马逊申诉服务商排名发布，卖家合规申诉需求持续增长",
+    "summary": "2026年亚马逊申诉服务商十大排名发布，反映了卖家对账号申诉、知识产权合规等服务的强劲需求。随着平台合规政策收紧，卖家因侵权、变体违规等问题被封号的情况增多，专业申诉服务成为刚需。AM需了解优质申诉服务商资源，为卖家提供可靠推荐，同时引导卖家从源头避免违规。",
+    "source": "雨果跨境",
+    "topic": "compliance",
+    "topicLabel": "⚖️ 合规",
+    "layer": "macro_event",
+    "layerLabel": "🌍 宏观传导",
+    "effectDate": "2026-05-01",
+    "sentiment": "neutral",
+    "painPoints": [
+      "账号申诉难",
+      "服务商质量参差",
+      "合规成本高"
+    ],
+    "alertLevel": "normal",
+    "insightType": "amplifier",
+    "aiGenerated": true,
+    "links": [
+      {
+        "label": "2026年亚马逊申诉服务商十大排名：跨境电商知识产权合规申诉领域专业机构深度解析 - 邢台网",
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE45LVNXYXFwSFRGWnY1SFgzcXBYeGlMTTRlUmpvZTVjRU9ZUWU5VEpNaHJVSG1ldkJwcVpXWGR6dUJQUVQ4N19vZzdMZ0szODRNRzl4S3hkSEltMkgxa1dHa0JrQzY?oc=5"
+      }
+    ],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
+    "rank": 5,
+    "id": "vos_005"
+  },
+  {
+    "title": "亚马逊卖家社区热议：如何利用AI工具提升运营效率与选品精准度",
+    "summary": "亚马逊卖家社区近期热议AI工具在运营中的应用，包括AI选品、智能广告投放、自动化客服等。卖家分享使用ChatGPT、Jasper等工具的经验，认为AI可大幅提升效率，但也存在数据安全和准确性顾虑。AM需关注AI工具对卖家生态的影响，并考虑提供官方AI解决方案或培训，帮助卖家合规使用AI。",
+    "source": "微信公众号",
+    "topic": "trending",
+    "topicLabel": "🔥 趋势",
+    "layer": "emerging_unknown",
+    "layerLabel": "🔍 盲区发现",
+    "effectDate": "2026-05-01",
+    "sentiment": "neutral",
+    "painPoints": [
+      "AI工具选择困难",
+      "数据安全风险",
+      "准确性不足"
+    ],
+    "alertLevel": "normal",
+    "insightType": "blind_spot",
+    "aiGenerated": true,
+    "links": [],
+    "sellerVoices": [],
+    "comparison": [],
+    "verified": "unconfirmed",
+    "rank": 6,
+    "id": "vos_006"
+  },
+  {
     "title": "亚马逊比价致卖家购物车丢失，百万链接一夜崩盘",
     "summary": "亚马逊近期算法调整导致大量卖家购物车（Buy Box）频繁丢失，尤其是被系统判定价格高于外部平台的商品。受影响卖家反馈，部分月销百万美金的链接因购物车丢失导致订单下降80%以上。卖家社区出现恐慌情绪，纷纷紧急调价。AM需关注此类事件对卖家业务的冲击，提供定价策略建议，并反馈给产品团队。",
     "source": "雨果跨境",
@@ -26,8 +199,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 1,
-    "id": "vos_001"
+    "rank": 7,
+    "id": "vos_007"
   },
   {
     "title": "亚马逊物流注册机上线，助卖家测算转FBA利润增量",
@@ -55,8 +228,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 2,
-    "id": "vos_002"
+    "rank": 8,
+    "id": "vos_008"
   },
   {
     "title": "2026亚马逊美欧日时尚运动趋势发布，高潜品类运营技巧",
@@ -84,8 +257,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 3,
-    "id": "vos_003"
+    "rank": 9,
+    "id": "vos_009"
   },
   {
     "title": "Pitney Bowes数据泄露影响数百万客户，亚马逊卖家需警惕",
@@ -114,8 +287,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 4,
-    "id": "vos_004"
+    "rank": 10,
+    "id": "vos_010"
   },
   {
     "title": "亚马逊广告后台更新，新增视频指标及规则型广告排除选项",
@@ -143,8 +316,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 5,
-    "id": "vos_005"
+    "rank": 11,
+    "id": "vos_011"
   },
   {
     "title": "亚马逊广告建议出价深度解析，卖家反馈积极仍有疑问",
@@ -172,8 +345,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 6,
-    "id": "vos_006"
+    "rank": 12,
+    "id": "vos_012"
   },
   {
     "title": "亚马逊卖家利用信息差增长，绝影马跨境分享2026趋势",
@@ -201,8 +374,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 7,
-    "id": "vos_007"
+    "rank": 13,
+    "id": "vos_013"
   },
   {
     "title": "亚马逊新卖家四大扶持计划上线，涵盖物流广告合规运营",
@@ -230,8 +403,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 8,
-    "id": "vos_008"
+    "rank": 14,
+    "id": "vos_014"
   },
   {
     "title": "亚马逊全球开店跨境峰会召开，派安盈等助力卖家出海",
@@ -259,8 +432,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 9,
-    "id": "vos_009"
+    "rank": 15,
+    "id": "vos_015"
   },
   {
     "title": "亚马逊欧洲站红利期，卖家钱包功能助力资金管理合规",
@@ -288,8 +461,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 10,
-    "id": "vos_010"
+    "rank": 16,
+    "id": "vos_016"
   },
   {
     "title": "全球油价上涨推高头程物流成本，FBA入仓费用或再涨",
@@ -312,8 +485,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 11,
-    "id": "vos_011"
+    "rank": 17,
+    "id": "vos_017"
   },
   {
     "title": "中东局势紧张红海航运受阻，亚马逊卖家供应链面临中断",
@@ -336,8 +509,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 12,
-    "id": "vos_012"
+    "rank": 18,
+    "id": "vos_018"
   },
   {
     "title": "美元兑人民币汇率波动加剧，亚马逊卖家利润承压",
@@ -360,8 +533,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 13,
-    "id": "vos_013"
+    "rank": 19,
+    "id": "vos_019"
   },
   {
     "title": "美国关税政策调整，亚马逊卖家进口成本增加合规更严",
@@ -384,8 +557,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 14,
-    "id": "vos_014"
+    "rank": 20,
+    "id": "vos_020"
   },
   {
     "title": "亚马逊评论拆分政策后，新品冷启动难度大增",
@@ -408,8 +581,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 15,
-    "id": "vos_015"
+    "rank": 21,
+    "id": "vos_021"
   },
   {
     "title": "亚马逊广告CPC持续上涨，部分品类ACOS超50%",
@@ -432,8 +605,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 16,
-    "id": "vos_016"
+    "rank": 22,
+    "id": "vos_022"
   },
   {
     "title": "亚马逊FBA库存限制新规：IPI阈值上调仓储空间紧张",
@@ -456,8 +629,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 17,
-    "id": "vos_017"
+    "rank": 23,
+    "id": "vos_023"
   },
   {
     "title": "亚马逊品牌备案流程简化，但侵权投诉处理速度变慢",
@@ -480,8 +653,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 18,
-    "id": "vos_018"
+    "rank": 24,
+    "id": "vos_024"
   },
   {
     "title": "亚马逊退货政策放宽，卖家退货率上升二手转售成痛点",
@@ -504,8 +677,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 19,
-    "id": "vos_019"
+    "rank": 25,
+    "id": "vos_025"
   },
   {
     "title": "亚马逊4月批量AI封号，变体违规和刷单成重灾区",
@@ -538,8 +711,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 20,
-    "id": "vos_020"
+    "rank": 26,
+    "id": "vos_026"
   },
   {
     "title": "亚马逊欧洲站佣金下调，卖家钱包支持多币种管理",
@@ -567,8 +740,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 21,
-    "id": "vos_021"
+    "rank": 27,
+    "id": "vos_027"
   },
   {
     "title": "亚马逊4月30日实施FBA入仓包装标签新规",
@@ -597,8 +770,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 22,
-    "id": "vos_022"
+    "rank": 28,
+    "id": "vos_028"
   },
   {
     "title": "亚马逊GWD仓储配送上线，存储成本最高降低45%",
@@ -626,8 +799,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 23,
-    "id": "vos_023"
+    "rank": 29,
+    "id": "vos_029"
   },
   {
     "title": "亚马逊PPC广告新增按展示付费选项",
@@ -650,8 +823,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 24,
-    "id": "vos_024"
+    "rank": 30,
+    "id": "vos_030"
   },
   {
     "title": "美国对部分中国商品加征25%关税，卖家成本上升",
@@ -674,8 +847,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 25,
-    "id": "vos_025"
+    "rank": 31,
+    "id": "vos_031"
   },
   {
     "title": "人民币兑美元贬值3%，挤压卖家利润空间",
@@ -698,8 +871,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 26,
-    "id": "vos_026"
+    "rank": 32,
+    "id": "vos_032"
   },
   {
     "title": "亚马逊测试AI生成产品描述，部分类目自动覆盖原始内容",
@@ -722,8 +895,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 27,
-    "id": "vos_027"
+    "rank": 33,
+    "id": "vos_033"
   },
   {
     "title": "亚马逊禁止合并评论，变体评论独立计算",
@@ -751,8 +924,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 28,
-    "id": "vos_028"
+    "rank": 34,
+    "id": "vos_034"
   },
   {
     "title": "亚马逊悄然测试AI模特图片，未经同意替换服装图片",
@@ -780,8 +953,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 29,
-    "id": "vos_029"
+    "rank": 35,
+    "id": "vos_035"
   },
   {
     "title": "亚马逊欧洲站要求卖家提供EPR注册号否则禁售",
@@ -805,8 +978,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 30,
-    "id": "vos_030"
+    "rank": 36,
+    "id": "vos_036"
   },
   {
     "title": "亚马逊品牌旗舰店新增视频功能，卖家可上传产品视频",
@@ -828,8 +1001,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 31,
-    "id": "vos_031"
+    "rank": 37,
+    "id": "vos_037"
   },
   {
     "title": "亚马逊广告新规再延期至8月，超150位卖家反对按点击付费变更",
@@ -857,8 +1030,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 32,
-    "id": "vos_032"
+    "rank": 38,
+    "id": "vos_038"
   },
   {
     "title": "亚马逊2026年FBA费用调整提前生效，仓储费及配送费上涨5-10%",
@@ -886,8 +1059,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 33,
-    "id": "vos_033"
+    "rank": 39,
+    "id": "vos_039"
   },
   {
     "title": "亚马逊全球合规扫号升级，2026年五大坑警示：评论拆分、税务风险",
@@ -915,8 +1088,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 34,
-    "id": "vos_034"
+    "rank": 40,
+    "id": "vos_040"
   },
   {
     "title": "USPS严查未付邮资包裹，亚马逊FBM卖家发货受阻",
@@ -944,8 +1117,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 35,
-    "id": "vos_035"
+    "rank": 41,
+    "id": "vos_041"
   },
   {
     "title": "欧洲增值税合规趋严，亚马逊卖家面临补税及罚款风险",
@@ -968,8 +1141,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 36,
-    "id": "vos_036"
+    "rank": 42,
+    "id": "vos_042"
   },
   {
     "title": "北美电商增长韧性持续，亚马逊卖家需应对消费降级与退货率上升",
@@ -997,8 +1170,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 37,
-    "id": "vos_037"
+    "rank": 43,
+    "id": "vos_043"
   },
   {
     "title": "亚马逊卖家利用信息差实现增长，小众品类与新兴市场成蓝海",
@@ -1026,8 +1199,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 38,
-    "id": "vos_038"
+    "rank": 44,
+    "id": "vos_044"
   },
   {
     "title": "亚马逊卖家被AI工具反噬，账号因AI生成内容违规被封禁",
@@ -1055,8 +1228,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 39,
-    "id": "vos_039"
+    "rank": 45,
+    "id": "vos_045"
   },
   {
     "title": "亚马逊卖家社区热议：如何应对亚马逊‘隐性限流’问题",
@@ -1079,8 +1252,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 40,
-    "id": "vos_040"
+    "rank": 46,
+    "id": "vos_046"
   },
   {
     "title": "亚马逊卖家开始尝试TikTok引流，但面临站外流量转化难题",
@@ -1103,8 +1276,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 41,
-    "id": "vos_041"
+    "rank": 47,
+    "id": "vos_047"
   },
   {
     "title": "亚马逊卖家反映：欧洲站退货政策变更导致退货成本翻倍",
@@ -1127,8 +1300,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 42,
-    "id": "vos_042"
+    "rank": 48,
+    "id": "vos_048"
   },
   {
     "title": "2026亚马逊Prime Day规则大改，价格与折扣要求全面升级",
@@ -1161,8 +1334,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 43,
-    "id": "vos_043"
+    "rank": 49,
+    "id": "vos_049"
   },
   {
     "title": "亚马逊发布下一代跨境链，卖家可本地仓库直发全球",
@@ -1191,8 +1364,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 44,
-    "id": "vos_044"
+    "rank": 50,
+    "id": "vos_050"
   },
   {
     "title": "亚马逊2026年1月政策更新：多项费用调整与合规要求变化",
@@ -1221,8 +1394,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 45,
-    "id": "vos_045"
+    "rank": 51,
+    "id": "vos_051"
   },
   {
     "title": "亚马逊多举措支持卖家优化物流及运营成本，拓展全球业务",
@@ -1251,8 +1424,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 46,
-    "id": "vos_046"
+    "rank": 52,
+    "id": "vos_052"
   },
   {
     "title": "亚马逊开年扫号与评论政策大改，卖家面临账号评论双重风险",
@@ -1281,8 +1454,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 47,
-    "id": "vos_047"
+    "rank": 53,
+    "id": "vos_053"
   },
   {
     "title": "2026年欧洲跨境迎来机遇，亚马逊卖家加速布局",
@@ -1311,8 +1484,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 48,
-    "id": "vos_048"
+    "rank": 54,
+    "id": "vos_054"
   },
   {
     "title": "亚马逊AI数字员工上线，助力卖家自动化运营提升效率",
@@ -1341,8 +1514,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 49,
-    "id": "vos_049"
+    "rank": 55,
+    "id": "vos_055"
   },
   {
     "title": "亚马逊卖家利用信息差实现增长，差异化策略成关键",
@@ -1371,8 +1544,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 50,
-    "id": "vos_050"
+    "rank": 56,
+    "id": "vos_056"
   },
   {
     "title": "亚马逊卖家必避五大坑：合规、评论、成本、资金、税务风险",
@@ -1401,8 +1574,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 51,
-    "id": "vos_051"
+    "rank": 57,
+    "id": "vos_057"
   },
   {
     "title": "亚马逊卖家社区热议应对Prime Day新规，利润压力增大",
@@ -1426,8 +1599,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 52,
-    "id": "vos_052"
+    "rank": 58,
+    "id": "vos_058"
   },
   {
     "title": "亚马逊FBA费用调整提前生效，卖家成本增加需紧急应对",
@@ -1451,8 +1624,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 53,
-    "id": "vos_053"
+    "rank": 59,
+    "id": "vos_059"
   },
   {
     "title": "亚马逊广告付费方式变更，卖家需关注ACOS变化",
@@ -1476,8 +1649,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 54,
-    "id": "vos_054"
+    "rank": 60,
+    "id": "vos_060"
   },
   {
     "title": "亚马逊卖家反映资金周转困难，DD+7政策影响现金流",
@@ -1501,8 +1674,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 55,
-    "id": "vos_055"
+    "rank": 61,
+    "id": "vos_061"
   },
   {
     "title": "亚马逊卖家利用社交媒体推广，外部引流成为新趋势",
@@ -1526,8 +1699,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 56,
-    "id": "vos_056"
+    "rank": 62,
+    "id": "vos_062"
   },
   {
     "title": "亚马逊推出AI数字员工工具，新卖家可自动化管理广告、库存和客服",
@@ -1555,8 +1728,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 57,
-    "id": "vos_057"
+    "rank": 63,
+    "id": "vos_063"
   },
   {
     "title": "亚马逊欧洲站6月30日起强制要求COO原产地标注，未合规商品将无法入仓",
@@ -1584,8 +1757,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 58,
-    "id": "vos_058"
+    "rank": 64,
+    "id": "vos_064"
   },
   {
     "title": "亚马逊2026年Prime Day提前至6月举行，部分仓库爆仓导致入仓时效延长",
@@ -1614,8 +1787,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 59,
-    "id": "vos_059"
+    "rank": 65,
+    "id": "vos_065"
   },
   {
     "title": "亚马逊2026年推出新卖家四大扶持计划，首年佣金减免10%并提供流量加权",
@@ -1643,8 +1816,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 60,
-    "id": "vos_060"
+    "rank": 66,
+    "id": "vos_066"
   },
   {
     "title": "亚马逊欧洲站降低新卖家入驻费率并开放10个站点，首年佣金减免最高50%",
@@ -1672,8 +1845,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 61,
-    "id": "vos_061"
+    "rank": 67,
+    "id": "vos_067"
   },
   {
     "title": "亚马逊欧洲站2026年推出物流补贴、佣金减免等多项卖家利好举措",
@@ -1701,8 +1874,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 62,
-    "id": "vos_062"
+    "rank": 68,
+    "id": "vos_068"
   },
   {
     "title": "亚马逊全球智能枢纽仓GWD深圳首仓开放，头程物流成本预计降低15%",
@@ -1730,8 +1903,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 63,
-    "id": "vos_063"
+    "rank": 69,
+    "id": "vos_069"
   },
   {
     "title": "亚马逊五月起严查VINE评论定制和佣金违规，违规卖家面临账号封禁",
@@ -1759,8 +1932,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 64,
-    "id": "vos_064"
+    "rank": 70,
+    "id": "vos_070"
   },
   {
     "title": "国际海运空运费持续上涨，中国跨境卖家头程物流成本承压，多条航线运价创年内新高",
@@ -1788,8 +1961,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 65,
-    "id": "vos_065"
+    "rank": 71,
+    "id": "vos_071"
   },
   {
     "title": "亚马逊上线SEND优选仓服务，FBA入仓运费降低15%且时效缩短2天",
@@ -1817,8 +1990,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 66,
-    "id": "vos_066"
+    "rank": 72,
+    "id": "vos_072"
   },
   {
     "title": "亚马逊4月起对欧盟及北美FBA和MCF卖家开征燃油附加费，费用上涨约5%",
@@ -1846,8 +2019,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 67,
-    "id": "vos_067"
+    "rank": 73,
+    "id": "vos_073"
   },
   {
     "title": "美国邮政USPS加强邮资执法力度，大量FBM卖家包裹因邮资不足被拒收退回",
@@ -1875,8 +2048,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 68,
-    "id": "vos_068"
+    "rank": 74,
+    "id": "vos_074"
   },
   {
     "title": "亚马逊新政引发卖方现金流危机，大型商户发起24小时广告抵制行动",
@@ -1904,8 +2077,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 69,
-    "id": "vos_069"
+    "rank": 75,
+    "id": "vos_075"
   },
   {
     "title": "亚马逊全球站4月调整FBA长期仓储费，超365天库存费率翻倍",
@@ -1928,8 +2101,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 70,
-    "id": "vos_070"
+    "rank": 76,
+    "id": "vos_076"
   },
   {
     "title": "跨境电商加强合规监管，卖家频收税务自查通知及VAT稽查",
@@ -1957,8 +2130,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 71,
-    "id": "vos_071"
+    "rank": 77,
+    "id": "vos_077"
   },
   {
     "title": "欧洲跨境市场2026年增长，亚马逊欧洲站流量同比增30%",
@@ -1986,8 +2159,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 72,
-    "id": "vos_072"
+    "rank": 78,
+    "id": "vos_078"
   },
   {
     "title": "北美电商增长韧性持续，中国卖家推动亚马逊精细化运营",
@@ -2015,8 +2188,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 73,
-    "id": "vos_073"
+    "rank": 79,
+    "id": "vos_079"
   },
   {
     "title": "亚马逊后台新增广告健康分指标，但官方未公告",
@@ -2039,8 +2212,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 74,
-    "id": "vos_074"
+    "rank": 80,
+    "id": "vos_080"
   },
   {
     "title": "亚马逊悄然测试仅退款功能，部分ASIN被自动退款",
@@ -2063,8 +2236,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 75,
-    "id": "vos_075"
+    "rank": 81,
+    "id": "vos_081"
   },
   {
     "title": "亚马逊品牌分析工具新增竞品价格监控功能，数据滞后2天",
@@ -2087,8 +2260,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 76,
-    "id": "vos_076"
+    "rank": 82,
+    "id": "vos_082"
   },
   {
     "title": "亚马逊欧洲站VAT计算服务出现误差，申诉流程复杂",
@@ -2111,8 +2284,8 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 77,
-    "id": "vos_077"
+    "rank": 83,
+    "id": "vos_083"
   },
   {
     "title": "亚马逊搜索算法调整：长尾关键词权重上升",
@@ -2135,12 +2308,12 @@
     "sellerVoices": [],
     "comparison": [],
     "verified": "unconfirmed",
-    "rank": 78,
-    "id": "vos_078"
+    "rank": 84,
+    "id": "vos_084"
   },
   {
-    "id": "vos_079",
-    "rank": 79,
+    "id": "vos_085",
+    "rank": 85,
     "title": "3月31日起亚马逊终止FBA共享库存政策，六大站点贴标规则全面重构",
     "effectDate": "2026-03-31",
     "summary": "政策覆盖美、加、墨、欧、澳、日六大核心站点，彻底取消共享库存池机制，所有卖家库存独立管理。品牌注册卖家带有效GTIN商品可免贴FNSKU标签入库，非品牌卖家必须全量粘贴亚马逊条形码，否则货件将被拒收。从根源遏制跟卖乱象，同时大幅提升非品牌卖家的入库合规成本。",
@@ -2192,8 +2365,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_080",
-    "rank": 80,
+    "id": "vos_086",
+    "rank": 86,
     "title": "2026春季大促规则调整：美国站新增10天预热期，LD/BD免提报费，流量向秒杀倾斜",
     "effectDate": "2026-03-15",
     "summary": "本次春促核心调整：美国站新增10天预热期，限时秒杀（LD）、镇店之宝（BD）免除提报费用，Prime专享折扣取消专属Prime标志、无单独提报入口。欧洲站、日本站同步调整促销门槛，平台流量向秒杀类促销倾斜，重构大促流量分配逻辑，卖家促销策略需全面调整。",
@@ -2245,8 +2418,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_081",
-    "rank": 81,
+    "id": "vos_087",
+    "rank": 87,
     "title": "亚马逊全球站点3月12日全面执行DD+7资金预留新政，回款周期最长延长30天",
     "effectDate": "2026-03-12",
     "summary": "该政策统一全球卖家资金预留规则，要求所有订单货款在商品妥投后需额外冻结7天方可转入卖家可用余额。FBA订单回款周期普遍延长8-9天，FBM订单回款周期最长延长至20-30天，直接加剧卖家现金流压力，月销百万美金卖家额外资金占用超20万美金。",
@@ -2319,8 +2492,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_082",
-    "rank": 82,
+    "id": "vos_088",
+    "rank": 88,
     "title": "3月5日亚马逊全球电商系统大规模宕机，黄金时段订单停摆广告持续扣费",
     "effectDate": "2026-03-05",
     "summary": "宕机覆盖亚马逊全球核心站点，持续约4小时，出现商品页面变狗、订单系统停摆、后台操作失效等问题。恰好处于美国站消费黄金时段，卖家订单量暴跌40%-100%，但广告系统仍正常扣费，大量卖家秒杀活动受影响，单卖家最高损失超2万美金。",
@@ -2363,8 +2536,8 @@
     "aiGenerated": false
   },
   {
-    "id": "vos_083",
-    "rank": 83,
+    "id": "vos_089",
+    "rank": 89,
     "title": "3月4日亚马逊更新BSA协议，新增AI/自动化工具最严监管规则",
     "effectDate": "2026-03-04",
     "summary": "亚马逊更新《商业解决方案协议》，新增Agent Policy代理政策，对所有AI自动化工具提出强制合规要求：禁止使用平台数据训练AI模型，要求工具必须明确标识自动化身份，平台可随时切断不合规工具访问权限。全球超300万卖家、数千家第三方工具商受影响。",

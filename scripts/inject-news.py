@@ -244,11 +244,11 @@ def main():
             f'platform: "{platform}", '
             f'dimension: "", '
             f'date: new Date("{date}"), '
-            f'url: "{esc_url}" }}'
+            f'url: "{esc_url}" }},'
         )
 
     # 在已有 newsData 开头插入新条目
-    insert_str = '\n'.join(new_js_entries) + ',\n'
+    insert_str = '\n'.join(new_js_entries) + '\n'
     new_block = existing_block.replace('var newsData = [\n', 'var newsData = [\n' + insert_str, 1)
 
     new_content = js_content[:match.start()] + new_block + js_content[match.end():]

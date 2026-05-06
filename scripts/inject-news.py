@@ -13,6 +13,7 @@ import json
 import os
 import re
 import urllib.request
+from datetime import datetime, timezone
 
 
 # ==================== 黑名单 ====================
@@ -110,7 +111,7 @@ def generate_news_deepseek(rss_items):
 3. content: 中文深度摘要，150-250字。你需要结合素材标题和你对该事件的了解，详细描述：(a)事件核心内容 (b)涉及哪些市场和卖家群体 (c)具体的数字、费率、时间线 (d)对跨境卖家的实际影响和应对建议。如果你了解该事件的更多细节，请补充进去。
 4. platform: 从 temu/shein/tiktok/joybuy/aliexpress 中选择
 5. source: 使用素材中的原始来源名称
-6. date: 使用素材的发布日期（YYYY-MM-DD），如不确定用2026-04-25
+6. date: 使用素材的发布日期（YYYY-MM-DD），如不确定用今天的日期
 7. url: 必须使用素材中的原始URL，严禁编造
 8. 只保留美国、欧洲、日本市场相关内容，排除东南亚/韩国/中东/巴西等
 9. 排除工具推广、IPO、排名预测、非电商内容
@@ -158,7 +159,7 @@ def generate_news_deepseek(rss_items):
                     continue
             if is_blacklisted(a.get("title", "")):
                 continue
-            a.setdefault("date", "2026-04-25")
+            a.setdefault("date", datetime.now(timezone.utc).strftime("%Y-%m-%d"))
             a.setdefault("source", "行业媒体")
             a["type"] = "press"
             a["dimension"] = ""
@@ -235,7 +236,7 @@ def main():
         esc_source = item.get('source', '').replace('"', '\\"')
         esc_url = item.get('url', '').replace('"', '\\"')
         platform = item.get('platform', 'temu')
-        date = item.get('date', '2026-04-25')
+        date = item.get('date', datetime.now(timezone.utc).strftime("%Y-%m-%d"))
 
         new_js_entries.append(
             f'  {{ id: "{platform}_new{idx+1:03d}", title: "{esc_title}", '

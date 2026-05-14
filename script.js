@@ -1254,6 +1254,8 @@ function drawFreightCharts(data) {
         data: { labels: labels, datasets: oceanDatasets },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 2,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
             scales: { y: { title: { display: true, text: '$/FEU (40尺柜)' }, beginAtZero: false } }
         }
@@ -1277,6 +1279,8 @@ function drawFreightCharts(data) {
         data: { labels: labels, datasets: airDatasets },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 2,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
             scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
         }

@@ -1255,7 +1255,13 @@ function drawFreightCharts(data) {
         options: {
             responsive: true,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
-            scales: { y: { title: { display: true, text: '$/FEU (40尺柜)' }, beginAtZero: false } }
+            scales: {
+                y: {
+                    title: { display: true, text: '$/FEU (40尺柜)' },
+                    beginAtZero: false,
+                    grace: '10%'
+                }
+            }
         }
     });
 
@@ -1278,7 +1284,13 @@ function drawFreightCharts(data) {
         options: {
             responsive: true,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
-            scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
+            scales: {
+                y: {
+                    title: { display: true, text: '$/kg' },
+                    beginAtZero: false,
+                    grace: '10%'
+                }
+            }
         }
     });
 

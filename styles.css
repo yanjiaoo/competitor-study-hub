@@ -1623,6 +1623,10 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
+.chart-box canvas {
+    min-height: 280px;
+}
+
 .chart-box h4 {
     font-size: 15px;
     color: #232f3e;

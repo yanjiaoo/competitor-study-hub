@@ -1257,7 +1257,7 @@ function drawFreightCharts(data) {
             maintainAspectRatio: true,
             aspectRatio: 2,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
-            scales: { y: { title: { display: true, text: '$/FEU (40尺柜)' }, beginAtZero: false } }
+            scales: { y: { title: { display: true, text: '$/FEU (40尺柜)' }, min: 1000 } }
         }
     });
 
@@ -1282,7 +1282,7 @@ function drawFreightCharts(data) {
             maintainAspectRatio: true,
             aspectRatio: 2,
             plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
-            scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
+            scales: { y: { title: { display: true, text: '$/kg' }, min: 3 } }
         }
     });
 

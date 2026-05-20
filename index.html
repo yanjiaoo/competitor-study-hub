@@ -262,13 +262,19 @@
                     <h4>🚂 中欧班列费率趋势 ($/kg)</h4>
                     <canvas id="railChart"></canvas>
                 </div>
+                <div class="chart-box">
+                    <h4>🛢️ 国际原油价格趋势 ($/barrel)</h4>
+                    <canvas id="oilChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-row">
                 <div class="chart-box chart-note-box">
                     <h4>📊 数据来源与可信度</h4>
                     <p><span style="font-weight:600;">海运数据：</span>Freightos Baltic Index (FBX)，全球最权威的集装箱即期运费指数，由Freightos与波罗的海交易所联合发布，被路透社、彭博社等广泛引用。可信度：⭐⭐⭐⭐⭐</p>
                     <p><span style="font-weight:600;">空运数据：</span>Freightos Air Index (FAI)，基于全球航空货运实际成交价编制。可信度：⭐⭐⭐⭐⭐</p>
                     <p><span style="font-weight:600;">中欧班列：</span>综合货代报价和行业报告。可信度：⭐⭐⭐⭐</p>
-                    <p><span style="font-weight:600;">单位说明：</span>海运为40尺标准柜(FEU)即期运价；空运为每公斤综合费率（含燃油附加费）</p>
-                    <p id="chartLastUpdate" style="margin-top:8px;font-weight:600;"></p>
+                    <p><span style="font-weight:600;">原油数据：</span>EIA / FRED（美国能源信息署），布伦特和WTI月度均价。可信度：⭐⭐⭐⭐⭐</p>
+                    <p><span style="font-weight:600;">单位说明：</span>海运为40尺标准柜(FEU)即期运价；空运为每公斤综合费率（含燃油附加费）；原油为每桶美元</p>
                 </div>
             </div>
         </div>

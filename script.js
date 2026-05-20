@@ -1402,9 +1402,46 @@ function drawFreightCharts(data) {
         });
     }
 
-    // 更新时间
-    var el = document.getElementById('chartLastUpdate');
-    if (el) el.textContent = '最后更新：' + data.lastUpdated;
+    // 原油价格图表
+    if (data.oilPrice) {
+        var oilDatasets = [
+            {
+                label: 'Brent (布伦特)',
+                data: data.oilPrice.brent,
+                borderColor: '#1a1a1a',
+                backgroundColor: '#1a1a1a20',
+                tension: 0.3,
+                fill: false,
+                pointRadius: 4,
+                borderWidth: 2
+            },
+            {
+                label: 'WTI (西德克萨斯)',
+                data: data.oilPrice.wti,
+                borderColor: '#e65100',
+                backgroundColor: '#e6510020',
+                tension: 0.3,
+                fill: false,
+                pointRadius: 4,
+                borderWidth: 2
+            }
+        ];
+        freightChartInstances.oil = new Chart(document.getElementById('oilChart'), {
+            type: 'line',
+            data: { labels: labels, datasets: oilDatasets },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
+                scales: {
+                    y: {
+                        title: { display: true, text: '$/barrel' },
+                        beginAtZero: false,
+                        grace: '10%'
+                    }
+                }
+            }
+        });
+    }
 }
 
 

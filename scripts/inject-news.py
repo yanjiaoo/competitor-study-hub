@@ -159,7 +159,11 @@ def generate_news_deepseek(rss_items):
                     continue
             if is_blacklisted(a.get("title", "")):
                 continue
-            a.setdefault("date", datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            a.setdefault("date", today)
+            # Cap future dates to today
+            if a.get("date", "") > today:
+                a["date"] = today
             a.setdefault("source", "行业媒体")
             a["type"] = "press"
             a["dimension"] = ""
@@ -237,6 +241,10 @@ def main():
         esc_url = item.get('url', '').replace('"', '\\"')
         platform = item.get('platform', 'temu')
         date = item.get('date', datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+        # Cap future dates
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        if date > today_str:
+            date = today_str
 
         new_js_entries.append(
             f'  {{ id: "{platform}_new{idx+1:03d}", title: "{esc_title}", '

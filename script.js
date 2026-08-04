@@ -2405,7 +2405,9 @@ function drawFreightCharts(data) {
             tension: 0.3,
             fill: false,
             pointRadius: 4,
-            borderWidth: 2
+            borderWidth: 2,
+            // 缺数据的月份不显示数据点，但连线跨过去，避免曲线断成两段
+            spanGaps: true
         });
     });
     freightChartInstances.ocean = new Chart(document.getElementById('oceanChart'), {
@@ -2434,7 +2436,8 @@ function drawFreightCharts(data) {
             tension: 0.3,
             fill: false,
             pointRadius: 4,
-            borderWidth: 2
+            borderWidth: 2,
+            spanGaps: true
         });
     });
     freightChartInstances.air = new Chart(document.getElementById('airChart'), {

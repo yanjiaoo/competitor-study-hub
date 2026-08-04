@@ -2374,7 +2374,7 @@ function renderFreightCharts() {
 function fetchAndDrawCharts() {
     fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-chart-data.json')
         .then(function(r) { return r.json(); })
-        .then(function(data) { drawFreightCharts(data); renderTransitChart(); })
+        .then(function(data) { drawFreightCharts(data); })
         .catch(function(e) { console.error('加载图表数据失败:', e); });
 }
 
@@ -2384,8 +2384,7 @@ function drawFreightCharts(data) {
     var colors = {
         '中国→美西 (FBX01)': '#1a73e8',
         '中国→美东 (FBX03)': '#f57c00',
-        '中国→北欧 (FBX11)': '#34a853',
-        '中国→日本': '#ea4335'
+        '中国→北欧 (FBX11)': '#34a853'
     };
 
     // 销毁旧图表
@@ -2456,44 +2455,7 @@ function drawFreightCharts(data) {
         }
     });
 
-    // 中欧班列图表（仅欧洲航线有数据）
-    var railDatasets = [];
-    Object.keys(routes).forEach(function(route) {
-        var railData = routes[route].rail_per_kg;
-        if (railData && railData.some(function(v) { return v !== null; })) {
-            railDatasets.push({
-                label: route,
-                data: railData,
-                borderColor: colors[route] || '#667eea',
-                tension: 0.3,
-                fill: false,
-                pointRadius: 4,
-                borderWidth: 2
-            });
-        }
-    });
-    if (railDatasets.length > 0) {
-        freightChartInstances.rail = new Chart(document.getElementById('railChart'), {
-            type: 'line',
-            data: { labels: labels, datasets: railDatasets },
-            options: {
-                responsive: true,
-                plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } },
-                scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
-            }
-        });
-    } else {
-        document.getElementById('railChart').parentElement.querySelector('h4').textContent += '（仅中国→欧洲）';
-        freightChartInstances.rail = new Chart(document.getElementById('railChart'), {
-            type: 'line',
-            data: { labels: labels, datasets: [{ label: '中国→欧洲基本港', data: routes['中国→欧洲基本港'].rail_per_kg, borderColor: '#34a853', tension: 0.3, fill: false, pointRadius: 4, borderWidth: 2 }] },
-            options: {
-                responsive: true,
-                plugins: { legend: { position: 'bottom' } },
-                scales: { y: { title: { display: true, text: '$/kg' }, beginAtZero: false } }
-            }
-        });
-    }
+    // 中欧班列图表已移除：无公开月度指数，原数据无法溯源（2026-08-04）
 
     // 原油价格图表
     if (data.oilPrice) {
@@ -2538,176 +2500,7 @@ function drawFreightCharts(data) {
 }
 
 
-// ==================== 时效雷达 ====================
-function renderTransitChart() {
-    fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/transit-data.json')
-        .then(function(r) { return r.json(); })
-        .then(function(data) { drawTransitChart(data); })
-        .catch(function(e) { console.error('加载时效数据失败:', e); });
-}
-
-function drawTransitChart(data) {
-    if (typeof Chart === 'undefined') return;
-
-    var ctx = document.getElementById('transitChart');
-    if (!ctx) return;
-
-    var labels = data.months;
-    var datasets = [];
-
-    // 船公司时效线
-    Object.keys(data.carriers).forEach(function(name) {
-        var carrier = data.carriers[name];
-        datasets.push({
-            label: name,
-            data: carrier.days,
-            borderColor: carrier.color,
-            backgroundColor: carrier.color + '15',
-            tension: 0.3,
-            fill: false,
-            pointRadius: 4,
-            borderWidth: 2.5,
-        });
-    });
-
-    // 异常事件标注线
-    var eventAnnotations = {};
-    if (data.events) {
-        data.events.forEach(function(evt, i) {
-            var idx = labels.indexOf(evt.month);
-            if (idx >= 0) {
-                eventAnnotations['event' + i] = {
-                    type: 'line',
-                    xMin: idx,
-                    xMax: idx,
-                    borderColor: '#c0392b',
-                    borderWidth: 2,
-                    borderDash: [6, 3],
-                    label: {
-                        display: true,
-                        content: evt.label,
-                        position: 'start',
-                        backgroundColor: '#c0392b',
-                        color: '#fff',
-                        font: { size: 11 },
-                        padding: 4,
-                    }
-                };
-            }
-        });
-    }
-
-    // 检查是否有 annotation 插件（Chart.js 原生不支持，用 tooltip 替代）
-    new Chart(ctx, {
-        type: 'line',
-        data: { labels: labels, datasets: datasets },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom', labels: { font: { size: 12 } } },
-                tooltip: {
-                    callbacks: {
-                        afterBody: function(context) {
-                            var idx = context[0].dataIndex;
-                            var month = labels[idx];
-                            var evts = (data.events || []).filter(function(e) { return e.month === month; });
-                            if (evts.length > 0) {
-                                return '⚠️ ' + evts[0].label + ': ' + evts[0].description;
-                            }
-                            return '';
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    title: { display: true, text: '天数（港到港）' },
-                    beginAtZero: false,
-                    min: 8,
-                },
-                x: {
-                    ticks: { font: { size: 11 } }
-                }
-            }
-        },
-        plugins: [{
-            // 自定义插件：在异常事件月份画竖线
-            id: 'eventLines',
-            afterDraw: function(chart) {
-                var ctx2 = chart.ctx;
-                var xAxis = chart.scales.x;
-                var yAxis = chart.scales.y;
-                (data.events || []).forEach(function(evt) {
-                    var idx = labels.indexOf(evt.month);
-                    if (idx < 0) return;
-                    var x = xAxis.getPixelForValue(idx);
-                    ctx2.save();
-                    ctx2.beginPath();
-                    ctx2.setLineDash([6, 3]);
-                    ctx2.strokeStyle = '#c0392b';
-                    ctx2.lineWidth = 1.5;
-                    ctx2.moveTo(x, yAxis.top);
-                    ctx2.lineTo(x, yAxis.bottom);
-                    ctx2.stroke();
-                    // 标签
-                    ctx2.fillStyle = '#c0392b';
-                    ctx2.font = '11px sans-serif';
-                    ctx2.textAlign = 'center';
-                    ctx2.fillText('⚠️' + evt.label, x, yAxis.top - 5);
-                    ctx2.restore();
-                });
-            }
-        }]
-    });
-}
-
-
-// VOS 议题筛选
-var currentTopicFilter = 'all';
-var currentVOSTimeFilter = 'all';
-
-function filterVOS(topic) {
-    currentTopicFilter = topic;
-    document.querySelectorAll('.vos-topic-filters .filter-btn').forEach(function(btn) {
-        btn.classList.remove('active');
-    });
-    event.target.classList.add('active');
-    applyVOSFilters();
-}
-
-function filterVOSByTime() {
-    currentVOSTimeFilter = document.getElementById('vosTimeFilter').value;
-    applyVOSFilters();
-}
-
-function applyVOSFilters() {
-    var now = new Date();
-    var cutoff = null;
-    if (currentVOSTimeFilter === 'week') { cutoff = new Date(); cutoff.setDate(now.getDate() - 7); }
-    else if (currentVOSTimeFilter === 'month') { cutoff = new Date(); cutoff.setDate(now.getDate() - 30); }
-    else if (currentVOSTimeFilter === '3months') { cutoff = new Date(); cutoff.setMonth(now.getMonth() - 3); }
-    else if (currentVOSTimeFilter === '6months') { cutoff = new Date(); cutoff.setMonth(now.getMonth() - 6); }
-
-    document.querySelectorAll('#vosTocList li').forEach(function(li) {
-        var topicMatch = currentTopicFilter === 'all' || li.getAttribute('data-topic') === currentTopicFilter;
-        var timeMatch = true;
-        if (cutoff) {
-            var d = new Date(li.getAttribute('data-date'));
-            timeMatch = d >= cutoff;
-        }
-        li.style.display = (topicMatch && timeMatch) ? '' : 'none';
-    });
-    document.querySelectorAll('#vosGrid .vos-card').forEach(function(card) {
-        var topicMatch = currentTopicFilter === 'all' || card.getAttribute('data-topic') === currentTopicFilter;
-        var timeMatch = true;
-        if (cutoff) {
-            var d = new Date(card.getAttribute('data-date'));
-            timeMatch = d >= cutoff;
-        }
-        card.style.display = (topicMatch && timeMatch) ? '' : 'none';
-    });
-}
-
+// 时效雷达图表已移除：无公开月度实测时效数据源，原数据无法溯源（2026-08-04）
 
 // ==================== 提交文章线索 ====================
 function toggleSubmitForm() {

@@ -259,24 +259,20 @@
             </div>
             <div class="chart-row">
                 <div class="chart-box">
-                    <h4>🚂 中欧班列费率趋势 ($/kg)</h4>
-                    <canvas id="railChart"></canvas>
-                </div>
-                <div class="chart-box">
-                    <h4>🛢️ 国际原油价格趋势 ($/barrel)</h4>
+                    <h4>🛢️ 国际原油价格趋势 ($/barrel, EIA 月度现货均价)</h4>
                     <canvas id="oilChart"></canvas>
                 </div>
             </div>
             <div class="chart-row">
                 <div class="chart-box chart-note-box">
                     <h4>📊 数据来源与可信度</h4>
-                    <p><span style="font-weight:600;">海运数据：</span>Freightos Baltic Index (FBX)，全球最权威的集装箱即期运费指数，由Freightos与波罗的海交易所联合发布，被路透社、彭博社等广泛引用。可信度：⭐⭐⭐⭐⭐</p>
-                    <p><span style="font-weight:600;">空运数据：</span>Freightos Air Index (FAI)，基于全球航空货运实际成交价编制。可信度：⭐⭐⭐⭐⭐</p>
-                    <p><span style="font-weight:600;">中欧班列：</span>综合货代报价和行业报告。可信度：⭐⭐⭐⭐</p>
-                    <p><span style="font-weight:600;">原油数据：</span>EIA / FRED（美国能源信息署），布伦特和WTI月度均价。可信度：⭐⭐⭐⭐⭐</p>
-                    <p><span style="font-weight:600;">单位说明：</span>海运为40尺标准柜(FEU)即期运价；空运为每公斤综合费率（含燃油附加费）；原油为每桶美元</p>
-                    <p><span style="font-weight:600;">取数口径：</span>美西/美东/北欧海运与中国→美、中国→欧空运，2025年1月起全部月度值已按 Freightos 官方周报逐月回溯核实，月度值为该月各期周报的算术平均，用了哪几期记录在 freight-chart-data.json 的 monthlySources 字段，可逐条点开原文核对。缺读数的月份留空，不插值。</p>
-                    <p><span style="font-weight:600;">⚠️ 中国→日本 与 中欧班列：</span>Freightos 未发布这两条线路的指数，无公开月度数据源，现有数值为货代报价估算，<span style="color:#c0392b;">未经核实</span>，仅供参考，不建议用于决策。中国→日本 2026年6月起无数据。</p>
+                    <p style="margin-bottom:10px;">本页只收录能溯源到原始发布方的数据。每个月度值都记录了取自哪几期原始报告，可逐条点开核对。</p>
+                    <p><span style="font-weight:600;">海运（美西 FBX01 / 美东 FBX03 / 北欧 FBX11）：</span>Freightos Baltic Index，取自 Freightos 官方每周运价报告与 <a href="https://fbx.freightos.com/" target="_blank" class="vos-link">fbx.freightos.com</a> 官方指数。单位为 $/FEU（40尺标准柜）即期运价。</p>
+                    <p><span style="font-weight:600;">空运（中国→美国 / 中国→欧洲）：</span>Freightos Air Index，取自 <a href="https://www.freightos.com/freight-resources/" target="_blank" class="vos-link">Freightos 官方每周运价报告</a>中明确给出的费率水平值。单位为 $/kg（含燃油附加费）。</p>
+                    <p><span style="font-weight:600;">原油（布伦特 / WTI）：</span>美国能源信息署 EIA 官方月度现货均价，序列 <a href="https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&amp;s=RBRTE&amp;f=M" target="_blank" class="vos-link">RBRTE</a>（Brent）与 <a href="https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&amp;s=RWTC&amp;f=M" target="_blank" class="vos-link">RWTC</a>（WTI）。单位为 $/桶。EIA 滞后约1个月发布，最新月份可能暂无数据。</p>
+                    <p><span style="font-weight:600;">月度值口径：</span>该月各期原始报告读数的算术平均。具体用了哪几期记录在 <span style="font-family:monospace;font-size:12px;">freight-chart-data.json</span> 的 <span style="font-family:monospace;font-size:12px;">monthlySources</span> 字段，含每期日期与原文链接。</p>
+                    <p><span style="font-weight:600;">缺失月份的处理：</span>取不到读数就留空，<span style="font-weight:600;">不插值、不推算、不用估算值填充</span>。2026年3月 Freightos 周报只公布百分比变化、未公布绝对值，该月海运无数据，图上不显示数据点、曲线跨过该月连接。</p>
+                    <p style="color:#5f6368;font-size:12px;margin-top:10px;">已于 2026-08-04 移除无法核实的内容：中国→日本航线、中欧班列费率、海运时效雷达。这三项均无公开月度数据源，原有数值无法溯源，已不再展示。如需这些线路的数据，建议直接向合作货代索取实际报价。</p>
                 </div>
             </div>
         </div>
@@ -327,23 +323,16 @@
                 </div>
             </div>
         </div>
-        <!-- 时效雷达 -->
+        <!-- 海运时效参考 -->
         <div class="freight-analysis">
             <div class="vos-card" style="margin:0 20px 20px;">
-                <h3 class="vos-title">⏱️ 时效雷达 | 中国至美国海运时效追踪</h3>
-                <div class="chart-row">
-                    <div class="chart-box">
-                        <h4>上海→洛杉矶 海运时效趋势（天）</h4>
-                        <canvas id="transitChart"></canvas>
-                    </div>
-                    <div class="chart-box chart-note-box">
-                        <h4>标杆船公司</h4>
-                        <p><span style="color:#e65100;font-weight:600;">🟠 美森 Matson（快船→LA）：</span>上海→Long Beach 11-13天（88%准时率），CLX直达航线。<br/><a href="https://stusupplychain.com/a-guide-to-matson-shipping-service-routes.html" target="_blank" class="vos-link">STU Supply Chain →</a> <a href="https://coshipper.com/matson-shipping/" target="_blank" class="vos-link">Coshipper数据 →</a></p>
-                        <p><span style="color:#1a73e8;font-weight:600;">🔵 普船→美西（COSCO/MSK等）：</span>上海→LA/LB 14-25天（港到港），实际时效受港口拥堵影响波动较大。<br/><a href="https://www.searates.com/ua/blog/post/shipping-from-china-to-usa-sea-freight-guide-2026" target="_blank" class="vos-link">SeaRates 2026指南 →</a></p>
-                        <p><span style="color:#f57c00;font-weight:600;">🟡 普船→美东（经巴拿马/苏伊士）：</span>上海→NY/NJ 30-40天（港到港），2026年霍尔木兹海峡局势可能导致绕行延长。<br/><a href="https://consumoteca.com.co/articles/en/international-shipping-deadlines-2026-transit-times-cutoffs-customs-delays-planning-guide" target="_blank" class="vos-link">Consumoteca时效指南 →</a></p>
-                        <p style="margin-top:10px;font-size:12px;color:#c0392b;font-weight:600;">数据可信度说明：图表中的月度时效为行业参考值，基于 SeaRates、Matson官网、STU Supply Chain 等公开数据综合。实际时效因船公司、港口拥堵、天气等因素波动。</p>
-                        <p style="font-size:12px;color:#888;">注：时效为港到港（Port-to-Port），不含清关和尾程配送。实际FBA入仓需额外3-7天。</p>
-                    </div>
+                <h3 class="vos-title">⏱️ 中国至美国海运时效参考</h3>
+                <div class="vos-summary">
+                    <p><span style="color:#e65100;font-weight:600;">🟠 美森 Matson（快船→LA）：</span>上海→Long Beach 11-13天（88%准时率），CLX直达航线。<br/><a href="https://stusupplychain.com/a-guide-to-matson-shipping-service-routes.html" target="_blank" class="vos-link">STU Supply Chain →</a> <a href="https://coshipper.com/matson-shipping/" target="_blank" class="vos-link">Coshipper数据 →</a></p>
+                    <p><span style="color:#1a73e8;font-weight:600;">🔵 普船→美西（COSCO/MSK等）：</span>上海→LA/LB 14-25天（港到港），实际时效受港口拥堵影响波动较大。<br/><a href="https://www.searates.com/ua/blog/post/shipping-from-china-to-usa-sea-freight-guide-2026" target="_blank" class="vos-link">SeaRates 2026指南 →</a></p>
+                    <p><span style="color:#f57c00;font-weight:600;">🟡 普船→美东（经巴拿马/苏伊士）：</span>上海→NY/NJ 30-40天（港到港），2026年霍尔木兹海峡局势可能导致绕行延长。<br/><a href="https://consumoteca.com.co/articles/en/international-shipping-deadlines-2026-transit-times-cutoffs-customs-delays-planning-guide" target="_blank" class="vos-link">Consumoteca时效指南 →</a></p>
+                    <p style="font-size:12px;color:#5f6368;margin-top:10px;">以上为各承运人公布的航线时效区间，非实测值。时效为港到港（Port-to-Port），不含清关和尾程配送，实际 FBA 入仓需额外 3-7 天。</p>
+                    <p style="font-size:12px;color:#5f6368;">原有的"月度时效趋势"曲线已于 2026-08-04 移除：没有公开的月度实测时效数据源（承运人只公布固定的航线时效标准，Sea-Intelligence 的准班率数据为付费），原曲线数值无法溯源。</p>
                 </div>
             </div>
         </div>

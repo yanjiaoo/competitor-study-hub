@@ -49,8 +49,28 @@ VOS 数据从独立仓库加载：
 - 强制刷新浏览器缓存：Ctrl+Shift+R
 
 ## Git 操作
-本机 git 路径：`C:\Users\yanjiaoo\AppData\Local\GitHubDesktop\app-3.5.7\resources\app\git\cmd\git.exe`
+本机 git 路径：`C:\Users\yanjiaoo\AppData\Local\GitHubDesktop\app-3.5.8\resources\app\git\cmd\git.exe`
+（GitHub Desktop 升级后 app-x.x.x 目录会变，路径失效时先列目录确认版本号）
 需要用 HTTP header 认证绕过 Windows Credential Manager 缓存。
+Actions 每天自动 push，改动前必须先 `fetch origin` + `reset --hard origin/main`，否则 push 被 reject。
+
+## 日期规则（踩过两次坑）
+DeepSeek 不知道当前是哪一年，它自己填的 date 完全不可信，会把 2026 年的资讯写成 2025 年。
+- **日期只能从 RSS 素材的 pubDate 回溯**（按 URL 匹配 `news-data.json` 里的条目）
+- 匹配不到素材的条目直接丢弃（同时也是防编造校验）
+- 兜底：任何情况下都不允许出现晚于今天的日期
+- 相关实现：`scripts/inject-news.py` 的 `resolve_real_date()` / `build_url_index()`
+
+## 防编造校验（VOS）
+`vos-pipeline/fetch_vos.py` 要求 AI 话题的 URL 必须存在于 RSS 素材中，且标题与素材有关键词重叠。
+注意中文标题没有空格，**不能用 `.split()` 分词**，否则重叠数永远为 0、所有中文话题会被全部拒掉
+（曾导致 vos-social-media 仓库从 5/20 到 8/4 完全停更）。用 `title_tokens()` 按中文 2 字滑窗切词。
+
+## 排查 Actions 是否真的在更新
+workflow 显示 success ≠ 数据有更新。要同时确认：
+1. workflow run 的 conclusion 是 success
+2. 目标数据文件确实有新 commit（`/commits?path=script.js`）
+3. 数据里最新日期接近今天（未来日期、年份错误都算异常）
 
 ## 编辑规范
 - 所有信息必须来自真实的公开来源，严禁编造任何内容

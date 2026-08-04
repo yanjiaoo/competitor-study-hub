@@ -275,6 +275,8 @@
                     <p><span style="font-weight:600;">中欧班列：</span>综合货代报价和行业报告。可信度：⭐⭐⭐⭐</p>
                     <p><span style="font-weight:600;">原油数据：</span>EIA / FRED（美国能源信息署），布伦特和WTI月度均价。可信度：⭐⭐⭐⭐⭐</p>
                     <p><span style="font-weight:600;">单位说明：</span>海运为40尺标准柜(FEU)即期运价；空运为每公斤综合费率（含燃油附加费）；原油为每桶美元</p>
+                    <p><span style="font-weight:600;">取数口径：</span>月度值为该月各期 Freightos 周报读数的算术平均，具体用了哪几期记录在 freight-chart-data.json 的 monthlySources 字段，可逐条回溯原文。</p>
+                    <p><span style="font-weight:600;">中国→日本航线：</span>Freightos 未发布该航线的 FBX 指数，无公开月度数据源，2026年6月起暂无数据，图上表现为断线（不做插值估算）。</p>
                 </div>
             </div>
         </div>
@@ -290,9 +292,13 @@
                             <tr><td>2025年5-6月<br/>关税抢运高峰</td><td class="compare-after">$6,000 (峰值)</td><td class="compare-after">$7,500 (峰值)</td><td>$4,200-4,500</td><td>美国对华关税降至30%（90天窗口），触发抢运潮</td></tr>
                             <tr><td>2025年7-12月<br/>持续下行</td><td>$6,000→$1,750<br/><span style="color:#34a853;">环比-71%</span></td><td>$7,500→$2,600<br/><span style="color:#34a853;">环比-65%</span></td><td>$4,500→$2,200<br/><span style="color:#34a853;">环比-51%</span></td><td>抢运消退+运力过剩，连续14周下跌</td></tr>
                             <tr><td>2026年1-3月<br/>低位盘整</td><td>$1,700-1,900<br/><span style="color:#34a853;">同比-64%</span></td><td>$2,400-2,700<br/><span style="color:#34a853;">同比-60%</span></td><td>$1,900-2,100<br/><span style="color:#34a853;">同比-50%</span></td><td>春节后需求疲软，船公司取消航次控制运力</td></tr>
-                            <tr><td style="font-weight:600;">2026年4月<br/>地缘冲击回升</td><td class="compare-after">$2,400<br/>环比+40%<br/>同比-55%</td><td class="compare-after">$3,100<br/>环比+29%<br/>同比-54%</td><td class="compare-after">$2,900<br/>环比+38%<br/>同比-31%</td><td style="color:#c0392b;">霍尔木兹海峡关闭，燃油附加费$200-500/FEU</td></tr>
+                            <tr><td>2026年4月<br/>地缘冲击回升</td><td class="compare-after">$2,400<br/>环比+40%<br/>同比-55%</td><td class="compare-after">$3,100<br/>环比+29%<br/>同比-54%</td><td class="compare-after">$2,900<br/>环比+38%<br/>同比-31%</td><td style="color:#c0392b;">霍尔木兹海峡关闭，燃油附加费$200-500/FEU</td></tr>
+                            <tr><td>2026年5月</td><td>$2,828<br/>环比+18%</td><td>$4,340<br/>环比+40%</td><td>$2,500<br/>环比-14%</td><td>燃油附加费持续，需求尚未启动</td></tr>
+                            <tr><td style="font-weight:600;">2026年6月<br/>旺季提前引爆</td><td class="compare-after">$5,950<br/>环比+110%</td><td class="compare-after">$7,700<br/>环比+77%</td><td class="compare-after">$4,800<br/>环比+92%</td><td style="color:#c0392b;">旺季需求提前+抢运，GRI/PSS连续落地，美西较5月中涨120%</td></tr>
+                            <tr><td style="font-weight:600;">2026年7月<br/>冲高见顶</td><td class="compare-after">$6,212<br/>环比+4%</td><td class="compare-after">$9,002<br/>环比+17%</td><td class="compare-after">$5,575<br/>环比+16%</td><td style="color:#c0392b;">7月1日GRI再推$1,000/FEU；霍尔木兹关闭推高燃油；月末开始回落</td></tr>
                         </tbody>
                     </table>
+                    <p style="font-size:12px;color:#5f6368;margin:8px 0 0;">6月为该月2期 Freightos 周报（6/23、6/30）算术平均；7月取7/29期 FBX 周度值。每月用了哪几期见 freight-chart-data.json 的 monthlySources 字段。</p>
 
                     <h4 style="margin:16px 0 8px;">✈️ 空运（Freightos Air Index，$/kg）</h4>
                     <table class="vos-compare">
@@ -302,9 +308,13 @@
                             <tr><td>2025年5-6月<br/>关税抢运</td><td class="compare-after">$7.0-7.5 (峰值)</td><td>$5.0-5.5</td><td>海运爆仓溢出至空运，舱位紧张</td></tr>
                             <tr><td>2025年7-12月</td><td>$7.5→$4.8<br/><span style="color:#34a853;">环比-36%</span></td><td>$5.5→$3.3<br/><span style="color:#34a853;">环比-40%</span></td><td>需求回落，运力恢复</td></tr>
                             <tr><td>2026年1-3月</td><td>$4.9-5.6<br/><span style="color:#34a853;">同比-8%</span></td><td>$3.3-4.0<br/><span style="color:#34a853;">同比-13%</span></td><td>低位盘整，燃油成本小幅上升</td></tr>
-                            <tr><td style="font-weight:600;">2026年4月</td><td class="compare-after">$7.43<br/>环比+33%<br/>同比+0%</td><td class="compare-after">$5.00<br/>环比+25%<br/>同比-9%</td><td style="color:#c0392b;">霍尔木兹海峡关闭，海湾航司运力受限，燃油成本飙升</td></tr>
+                            <tr><td>2026年4月</td><td class="compare-after">$7.43<br/>环比+33%<br/>同比+0%</td><td class="compare-after">$5.00<br/>环比+25%<br/>同比-9%</td><td style="color:#c0392b;">霍尔木兹海峡关闭，海湾航司运力受限，燃油成本飙升</td></tr>
+                            <tr><td>2026年5月</td><td>$6.80<br/>环比-8%</td><td>$5.80<br/>环比+16%</td><td>美线小幅回落，欧洲线仍偏紧</td></tr>
+                            <tr><td>2026年6月</td><td>$6.40<br/>环比-6%</td><td>$4.59<br/>环比-21%</td><td>燃油成本回落，欧洲线运力恢复</td></tr>
+                            <tr><td style="font-weight:600;">2026年7月</td><td class="compare-after">$6.16<br/>环比-4%</td><td class="compare-after">$4.03<br/>环比-12%</td><td>空运与海运走势分化：海运冲高，空运因运力恢复持续走低</td></tr>
                         </tbody>
                     </table>
+                    <p style="font-size:12px;color:#5f6368;margin:8px 0 0;">空运月度值为该月各期 Freightos 周报中明确给出的水平值的算术平均（6月取6/16、6/30两期；7月取7/8、7/29两期）。</p>
                 </div>
             </div>
             <div class="vos-card" style="margin:0 20px 20px;">

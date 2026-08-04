@@ -80,8 +80,23 @@ body: {"event_type": "run-now"}
 ```
 competitor 约 2 分钟跑完，VOS 约 1 分钟。
 
+## 数据可信度原则（2026-08-04 事故后确立）
+曾经出现过：模型凭印象生成运价数字 → 同一个提交里同时写上"⭐⭐⭐⭐⭐ Freightos 官方指数"的标注
+→ 配套的更新脚本因 bug 从未跑通 → 编造的占位数据挂着权威标注在页面上待了 3 个半月。
+2025年5月 美西运价标 $6,000，真实值 $2,492，偏差 2.4 倍。
+
+硬规则：
+1. **不许凭模型记忆生成任何数字**。取不到就留空，宁缺勿假。
+2. **数据来源标注只能描述"这个数字实际是从哪来的"**，不能描述"打算用什么源"。
+3. 每个数值必须能溯源到原始发布方，把日期 + 原文链接记进数据文件（如 `monthlySources`）。核不动的就是错的。
+4. **写完抓取脚本必须验证它真的写入了数据**，不能只看 Actions 是否 success。
+   success 只代表退出码 0，"成功地什么都没做"也是 success。
+5. 无公开数据源的指标不要硬做图表。已因此移除：中国→日本航线、中欧班列费率、海运时效月度曲线。
+
 ## 头程运费观察（freight-watch 仓库）
-- `update-chart.py` 更新月度运价图表，`fetch-freight.py` 更新运费动态列表
+- `update-chart.py` 更新月度运价图表，`fetch-oil.py` 更新原油月均价，`fetch-freight.py` 更新运费动态列表
+- **原油**：EIA 官方月度现货均价，解析 `https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=M`（Brent）与 `s=RWTC`（WTI）的 HTML 年份表。注意 FRED 在本机网络不可达（超时），不要用 FRED
+- EIA 滞后约1个月发布，未发布月份写 null
 - 每周一/三/五 + 每月1号跑，约13期读数/月
 - **海运**：`https://fbx.freightos.com/` 页面内嵌的官方 ticker JSON（`window.frProductIntroTickerData`），机器可读
 - **空运**：Freightos 官方周报，走 WordPress REST API `www.freightos.com/wp-json/wp/v2/posts`
@@ -89,7 +104,8 @@ competitor 约 2 分钟跑完，VOS 约 1 分钟。
 - 不要解析普通周报的散文正文：`$1,000/FEU` 可能是涨幅也可能是水平值，语序还两种混着来，会静默写错数字。只认 `(FBX01 Weekly)` 结构化句式和 `to/at $X/kg` 的空运水平值
 - 机制：当月读数先进 `pendingReadings`，月份结束后算术平均写入图表；`monthlySources` 记录每月用了哪几期周报（可点开原文核对）
 - 三条保护：`locked=true` 的月份不动；已有数据的月份不回头覆盖；缺读数的月份补月份标签但值留 null（保证时间轴连续、不插值）
-- 无公开指数、未经核实的字段：中国→日本航线、中欧班列 `rail_per_kg`，页面上已标注"未经核实"
+- 图表 dataset 用 `spanGaps: true`：缺数据的月份不显示数据点，但曲线跨过去，避免断成两段
+- 现存 3 条航线（美西 FBX01 / 美东 FBX03 / 北欧 FBX11）× 2 个字段（`ocean_fcl_feu` / `air_per_kg`）+ oilPrice，全部可溯源
 
 ## 排查 Actions 是否真的在更新
 workflow 显示 success ≠ 数据有更新。要同时确认：

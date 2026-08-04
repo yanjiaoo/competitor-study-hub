@@ -17,7 +17,12 @@ https://yanjiaoo.github.io/competitor-study-hub/
 | 仓库 | 用途 | 维护者 |
 |------|------|--------|
 | competitor-study-hub（本仓库）| 主站 + Competitor Study | 你 |
-| vos-social-media | VOS 数据 | 协作者 |
+| vos-social-media | VOS pipeline + 数据（唯一来源）| 协作者 |
+
+**VOS 只有一条 pipeline，住在 `vos-social-media` 仓库。**
+本仓库不再有 `vos-pipeline/` 和 VOS workflow（2026-08-04 下线）。
+以前两个仓库各跑一份 pipeline，数据分叉成 587 条 vs 85 条，且本仓库那份把防编造校验删掉了。
+本仓库的 `vos-data.json` 只是 fetch 失败时的静态 fallback，不会自动更新，不要往里写数据。
 
 ## 核心文件说明
 
@@ -27,7 +32,7 @@ https://yanjiaoo.github.io/competitor-study-hub/
 - `news-data.json` — Competitor 资讯原始数据（fetch 脚本生成）
 - `scripts/fetch-news.py` — 竞对资讯抓取脚本（Google News RSS）
 - `scripts/inject-news.py` — 将资讯注入 script.js（含翻译、去重、清洗）
-- `.github/workflows/update-news.yml` — GitHub Actions 每天自动抓取竞对资讯
+- `.github/workflows/update-news.yml` — GitHub Actions 每天自动抓取竞对资讯（本仓库唯一的 workflow）
 
 ## Competitor Study 资讯维度（8个）
 物流仓储、投资扩张、价格关税、引流营销、合规监管、卖家生态、退货售后、品牌渠道
@@ -62,7 +67,7 @@ DeepSeek 不知道当前是哪一年，它自己填的 date 完全不可信，�
 - 相关实现：`scripts/inject-news.py` 的 `resolve_real_date()` / `build_url_index()`
 
 ## 防编造校验（VOS）
-`vos-pipeline/fetch_vos.py` 要求 AI 话题的 URL 必须存在于 RSS 素材中，且标题与素材有关键词重叠。
+`vos-social-media` 仓库的 `vos-pipeline/fetch_vos.py` 要求 AI 话题的 URL 必须存在于 RSS 素材中，且标题与素材有关键词重叠。
 注意中文标题没有空格，**不能用 `.split()` 分词**，否则重叠数永远为 0、所有中文话题会被全部拒掉
 （曾导致 vos-social-media 仓库从 5/20 到 8/4 完全停更）。用 `title_tokens()` 按中文 2 字滑窗切词。
 

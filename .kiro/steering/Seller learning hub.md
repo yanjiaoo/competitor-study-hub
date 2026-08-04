@@ -80,6 +80,17 @@ body: {"event_type": "run-now"}
 ```
 competitor 约 2 分钟跑完，VOS 约 1 分钟。
 
+## 头程运费观察（freight-watch 仓库）
+- `update-chart.py` 更新月度运价图表，`fetch-freight.py` 更新运费动态列表
+- 每周一/三/五 + 每月1号跑，约13期读数/月
+- **海运**：`https://fbx.freightos.com/` 页面内嵌的官方 ticker JSON（`window.frProductIntroTickerData`），机器可读
+- **空运**：Freightos 官方周报，走 WordPress REST API `www.freightos.com/wp-json/wp/v2/posts`
+- 不要用 Google News RSS：它的 `<description>` 只是标题重复，没有运价数字，正则永远匹配不到（旧版就是这个 bug，从上线起没成功写入过一次）
+- 不要解析普通周报的散文正文：`$1,000/FEU` 可能是涨幅也可能是水平值，语序还两种混着来，会静默写错数字。只认 `(FBX01 Weekly)` 结构化句式和 `to/at $X/kg` 的空运水平值
+- 机制：当月读数先进 `pendingReadings`，月份结束后算术平均写入图表；`monthlySources` 记录每月用了哪几期周报（可点开原文核对）
+- 三条保护：`locked=true` 的月份不动；已有数据的月份不回头覆盖；缺读数的月份补月份标签但值留 null（保证时间轴连续、不插值）
+- 无公开指数、未经核实的字段：中国→日本航线、中欧班列 `rail_per_kg`，页面上已标注"未经核实"
+
 ## 排查 Actions 是否真的在更新
 workflow 显示 success ≠ 数据有更新。要同时确认：
 1. workflow run 的 conclusion 是 success

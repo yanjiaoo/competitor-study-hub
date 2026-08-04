@@ -71,6 +71,15 @@ DeepSeek 不知道当前是哪一年，它自己填的 date 完全不可信，�
 注意中文标题没有空格，**不能用 `.split()` 分词**，否则重叠数永远为 0、所有中文话题会被全部拒掉
 （曾导致 vos-social-media 仓库从 5/20 到 8/4 完全停更）。用 `title_tokens()` 按中文 2 字滑窗切词。
 
+## 手动触发 Actions
+本机 PAT 只有 contents:write，没有 actions:write，所以 `workflow_dispatch` 的 API 会返回 403。
+两个 workflow 都加了 `repository_dispatch: types: [run-now]`，用 dispatches 接口触发（只需 contents:write）：
+```
+POST https://api.github.com/repos/{owner}/{repo}/dispatches
+body: {"event_type": "run-now"}
+```
+competitor 约 2 分钟跑完，VOS 约 1 分钟。
+
 ## 排查 Actions 是否真的在更新
 workflow 显示 success ≠ 数据有更新。要同时确认：
 1. workflow run 的 conclusion 是 success

@@ -65,6 +65,19 @@ def is_blacklisted(title):
     return any(kw.lower() in t for kw in BLACKLIST)
 
 
+def clean_js_string(s):
+    """安全转义成 JS 双引号字符串内容（曾因中文弯引号导致整页空白）"""
+    if not s:
+        return ''
+    # 中文弯引号 / 反斜杠 / 换行 全部处理掉
+    s = s.replace('\\', '')
+    for ch in ('\u201c', '\u201d', '\u2018', '\u2019'):
+        s = s.replace(ch, '')
+    s = s.replace('"', '')
+    s = re.sub(r'[\r\n\t]+', ' ', s)
+    return s.strip()
+
+
 def detect_platform(text):
     t = text.lower()
     if 'temu' in t: return 'temu'
@@ -75,13 +88,56 @@ def detect_platform(text):
     return None
 
 
+# ==================== 日期解析（不信任 AI 的日期） ====================
+def url_keys(u):
+    """一个 URL 的多种归一化形式，容忍 AI 复制时的轻微差异"""
+    u = (u or '').strip()
+    if not u:
+        return []
+    base = u.split('?')[0].rstrip('/')
+    keys = [u, base]
+    tail = base.rsplit('/', 1)[-1]
+    if len(tail) > 20:  # Google News 的 base64 文章ID
+        keys.append(tail)
+    return keys
+
+
+def build_url_index(rss_items):
+    """建立 URL -> RSS素材 的索引，用于回溯真实发布日期"""
+    idx = {}
+    for it in rss_items:
+        for k in url_keys(it.get('url')):
+            idx.setdefault(k, it)
+    return idx
+
+
+def resolve_real_date(article, url_index, today):
+    """
+    从 RSS 素材回溯真实发布日期。
+    AI 生成的 date 完全不可信（它不知道今天是哪天，经常把年份写成去年），
+    所以只以素材的 pubDate 为准；匹配不到素材就用今天。
+    """
+    src = None
+    for k in url_keys(article.get('url')):
+        src = url_index.get(k)
+        if src:
+            break
+    if src and src.get('date'):
+        d = src['date']
+        if d <= today:
+            return d, 'rss'
+        return today, 'rss-capped'
+    return today, 'fallback'
+
+
 # ==================== DeepSeek 生成资讯 ====================
-def generate_news_deepseek(rss_items):
+def generate_news_deepseek(rss_items, url_index):
     """用 DeepSeek 基于 RSS 素材生成结构化资讯（标题+摘要+分类）"""
     api_key = os.environ.get("DEEPSEEK_API_KEY", "")
     if not api_key:
         print("  [DeepSeek] 无 API KEY，跳过")
         return []
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     # 构建素材上下文（最多40条）
     context = ""
@@ -93,6 +149,8 @@ def generate_news_deepseek(rss_items):
             context += f"\n   摘要: {item['content'][:200]}"
 
     prompt = f"""你是跨境电商竞争情报分析师。请基于以下RSS素材，生成15-20条结构化竞对资讯。
+
+**今天的日期是：{today}**（务必以此为当前时间基准，不要用你训练数据里的年份）
 
 **素材：**
 {context}
@@ -111,8 +169,8 @@ def generate_news_deepseek(rss_items):
 3. content: 中文深度摘要，150-250字。你需要结合素材标题和你对该事件的了解，详细描述：(a)事件核心内容 (b)涉及哪些市场和卖家群体 (c)具体的数字、费率、时间线 (d)对跨境卖家的实际影响和应对建议。如果你了解该事件的更多细节，请补充进去。
 4. platform: 从 temu/shein/tiktok/joybuy/aliexpress 中选择
 5. source: 使用素材中的原始来源名称
-6. date: 使用素材的发布日期（YYYY-MM-DD），如不确定用今天的日期
-7. url: 必须使用素材中的原始URL，严禁编造
+6. date: 不需要你填写，系统会从素材自动回溯真实发布日期
+7. url: 必须原样复制素材中的URL，一个字符都不能改，严禁编造。找不到对应URL的资讯直接不要生成
 8. 只保留美国、欧洲、日本市场相关内容，排除东南亚/韩国/中东/巴西等
 9. 排除工具推广、IPO、排名预测、非电商内容
 10. 摘要示例："Temu于2025年11月底在欧盟27国推出Y2半托管履约模式。该模式允许中国卖家从国内直接发货，无需海外仓备货，降低库存和资金压力。履约时效最长21天（备货8-12个工作日+运输3-9天）。平台提供末端配送和流量支持，主要面向中小卖家。同时Temu与意大利邮政和奥地利邮政签署合作协议扩大分拣能力，计划将80%欧洲订单转为本地履约。"
@@ -145,8 +203,9 @@ def generate_news_deepseek(rss_items):
         articles = data.get("articles", [])
         print(f"  [DeepSeek] 生成 {len(articles)} 条资讯")
 
-        # 过滤：必须有URL、必须有平台、不在黑名单
+        # 过滤：URL 必须能在素材中溯源、必须有平台、不在黑名单
         valid = []
+        dropped_url = 0
         for a in articles:
             if not a.get("url", "").startswith("http"):
                 continue
@@ -159,16 +218,21 @@ def generate_news_deepseek(rss_items):
                     continue
             if is_blacklisted(a.get("title", "")):
                 continue
-            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-            a.setdefault("date", today)
-            # Cap future dates to today
-            if a.get("date", "") > today:
-                a["date"] = today
+
+            # 防编造：URL 必须存在于 RSS 素材中
+            real_date, how = resolve_real_date(a, url_index, today)
+            if how == 'fallback':
+                dropped_url += 1
+                continue
+            a["date"] = real_date
+
             a.setdefault("source", "行业媒体")
             a["type"] = "press"
             a["dimension"] = ""
             valid.append(a)
 
+        if dropped_url:
+            print(f"  [DeepSeek] 丢弃 {dropped_url} 条：URL 无法在素材中溯源（疑似编造）")
         print(f"  [DeepSeek] 有效资讯: {len(valid)} 条")
         return valid
     except Exception as e:
@@ -187,9 +251,11 @@ def main():
         print('无素材，跳过')
         return
 
+    url_index = build_url_index(rss_items)
+
     # 2. DeepSeek 生成结构化资讯
     print('DeepSeek 生成资讯...')
-    new_articles = generate_news_deepseek(rss_items)
+    new_articles = generate_news_deepseek(rss_items, url_index)
 
     # 3. 加入固定资讯
     all_articles = list(PINNED_ARTICLES) + new_articles
@@ -233,21 +299,22 @@ def main():
         return
 
     # 生成新条目 JS
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    stamp = today_str.replace('-', '')
     new_js_entries = []
     for idx, item in enumerate(new_items):
-        esc_title = item.get('title', '').replace('"', '\\"').replace('\n', ' ')
-        esc_content = item.get('content', '').replace('"', '\\"').replace('\n', ' ')
-        esc_source = item.get('source', '').replace('"', '\\"')
-        esc_url = item.get('url', '').replace('"', '\\"')
+        esc_title = clean_js_string(item.get('title', ''))
+        esc_content = clean_js_string(item.get('content', ''))
+        esc_source = clean_js_string(item.get('source', ''))
+        esc_url = clean_js_string(item.get('url', ''))
         platform = item.get('platform', 'temu')
-        date = item.get('date', datetime.now(timezone.utc).strftime("%Y-%m-%d"))
-        # Cap future dates
-        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        date = item.get('date') or today_str
+        # 兜底：绝不允许未来日期
         if date > today_str:
             date = today_str
 
         new_js_entries.append(
-            f'  {{ id: "{platform}_new{idx+1:03d}", title: "{esc_title}", '
+            f'  {{ id: "{platform}_{stamp}_{idx+1:03d}", title: "{esc_title}", '
             f'content: "{esc_content}", '
             f'source: "{esc_source}", type: "press", '
             f'platform: "{platform}", '

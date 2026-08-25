@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOS Knowledge Bank | F2 卖家声音库</title>
+<style>
+/* ─── Reset & Base ─────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}
+
+/* ─── Header ───────────────────────────────────── */
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:2rem 0;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(229,57,53,.15) 0%,transparent 50%),radial-gradient(circle at 85% 30%,rgba(30,136,229,.15) 0%,transparent 50%);pointer-events:none}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+.header-inner{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.logo{display:flex;align-items:center;gap:1rem}
+.logo-icon{width:52px;height:52px;background:linear-gradient(135deg,#e53935,#ff6f00);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 15px rgba(229,57,53,.4)}
+.logo h1{font-size:1.6rem;font-weight:700;letter-spacing:-.3px}
+.logo p{font-size:.8rem;opacity:.65;margin-top:2px}
+.back-link{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border:1px solid rgba(255,255,255,.2);border-radius:8px;transition:all .2s}
+.back-link:hover{background:rgba(255,255,255,.1);color:#fff}
+
+.header-stats{display:flex;gap:1.5rem;margin-top:1.5rem;position:relative;z-index:2}
+.hstat{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:.8rem 1.4rem;text-align:center;min-width:110px}
+.hstat-num{font-size:1.6rem;font-weight:700;color:#fff}
+.hstat-label{font-size:.72rem;opacity:.6;margin-top:2px}
+
+/* ─── Search Bar ───────────────────────────────── */
+.search-wrap{background:#fff;border-bottom:1px solid #e8eaf0;padding:1.2rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.search-inner{display:flex;gap:.8rem;align-items:center}
+.search-box{position:relative;flex:1;max-width:560px}
+.search-box input{width:100%;padding:.7rem 1rem .7rem 2.8rem;border:2px solid #e0e3f0;border-radius:10px;font-size:.95rem;outline:none;transition:border-color .2s;background:#f8f9fc}
+.search-box input:focus{border-color:#0f3460;background:#fff}
+.search-icon{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:#999;font-size:1rem}
+.search-clear{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#aaa;font-size:1rem;display:none}
+.result-count{font-size:.85rem;color:#666;white-space:nowrap}
+
+/* ─── Filters ──────────────────────────────────── */
+.filters{background:#fff;border-bottom:1px solid #e8eaf0;padding:.8rem 0}
+.filter-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:.75rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-right:.3rem;white-space:nowrap}
+.chip{padding:.35rem .85rem;border-radius:20px;border:1.5px solid #e0e3f0;background:#f8f9fc;font-size:.8rem;cursor:pointer;transition:all .2s;color:#555;font-weight:500}
+.chip:hover{border-color:#0f3460;color:#0f3460}
+.chip.active{background:#0f3460;border-color:#0f3460;color:#fff}
+.chip.sentiment-negative.active{background:#e53935;border-color:#e53935}
+.chip.sentiment-positive.active{background:#43a047;border-color:#43a047}
+.chip.sentiment-neutral.active{background:#fb8c00;border-color:#fb8c00}
+.filter-divider{width:1px;height:24px;background:#e0e3f0;margin:0 .3rem}
+
+/* ─── Main Layout ──────────────────────────────── */
+.main{padding:1.5rem 0 3rem}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.2rem}
+
+/* ─── VOS Card ─────────────────────────────────── */
+.vos-card{background:#fff;border-radius:14px;border:1px solid #e8eaf0;overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
+.vos-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
+
+.card-top{padding:1rem 1.2rem .8rem;border-bottom:1px solid #f0f2f5}
+.card-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem}
+.badge{display:inline-flex;align-items:center;gap:.25rem;padding:.2rem .6rem;border-radius:6px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.badge-neg{background:#ffeaea;color:#c62828}
+.badge-pos{background:#e8f5e9;color:#2e7d32}
+.badge-neu{background:#fff3e0;color:#e65100}
+.badge-market{background:#e8f0fe;color:#1a73e8}
+.badge-program{background:#f3e5f5;color:#7b1fa2}
+.badge-source-internal{background:#e0f7fa;color:#00695c}
+.badge-source-dashboard{background:#fff8e1;color:#f57f17}
+.badge-source-social{background:#fce4ec;color:#ad1457}
+.badge-unverified{background:#f5f5f5;color:#9e9e9e;font-style:italic}
+
+.card-insight{font-size:.95rem;font-weight:600;color:#1a1a2e;line-height:1.4;margin-bottom:.3rem}
+.card-meta{display:flex;gap:.8rem;font-size:.75rem;color:#999}
+
+.card-quote{padding:.9rem 1.2rem;border-left:3px solid #e53935;margin:.2rem 1.2rem .2rem;background:#fafbff;border-radius:0 8px 8px 0;font-size:.88rem;line-height:1.6;color:#333;font-style:italic;flex-shrink:0}
+.card-quote.positive{border-left-color:#43a047}
+.card-quote.neutral{border-left-color:#fb8c00}
+
+.card-body{padding:.8rem 1.2rem;flex:1}
+.card-summary{font-size:.82rem;color:#555;line-height:1.6;margin-bottom:.7rem}
+.show-more-btn{background:none;border:none;color:#1a73e8;font-size:.78rem;cursor:pointer;padding:0;text-decoration:underline;display:none}
+
+.card-tags{display:flex;gap:.35rem;flex-wrap:wrap}
+.tag{background:#f0f2f5;color:#666;font-size:.7rem;padding:.2rem .55rem;border-radius:5px}
+
+.card-footer{padding:.7rem 1.2rem;border-top:1px solid #f0f2f5;display:flex;gap:.6rem;align-items:center}
+.btn-copy{flex:1;padding:.5rem;border:none;border-radius:8px;background:linear-gradient(135deg,#0f3460,#1a73e8);color:#fff;font-size:.8rem;cursor:pointer;font-weight:600;transition:opacity .2s;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.btn-copy:hover{opacity:.88}
+.btn-copy.copied{background:linear-gradient(135deg,#2e7d32,#43a047)}
+.btn-source{padding:.5rem .8rem;border:1.5px solid #e0e3f0;border-radius:8px;background:#fff;color:#666;font-size:.78rem;cursor:pointer;text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:.3rem}
+.btn-source:hover{border-color:#0f3460;color:#0f3460}
+
+/* ─── Empty State ──────────────────────────────── */
+.empty{text-align:center;padding:4rem 2rem;color:#999}
+.empty-icon{font-size:3rem;margin-bottom:1rem}
+.empty h3{font-size:1.1rem;margin-bottom:.5rem;color:#666}
+
+/* ─── Copy Toast ───────────────────────────────── */
+.toast{position:fixed;bottom:2rem;right:2rem;background:#1a1a2e;color:#fff;padding:.8rem 1.4rem;border-radius:10px;font-size:.85rem;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;z-index:9999}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* ─── Responsive ───────────────────────────────── */
+@media(max-width:768px){
+  .header-stats{flex-wrap:wrap;gap:1rem}
+  .cards-grid{grid-template-columns:1fr}
+  .search-inner{flex-wrap:wrap}
+  .filter-row{gap:.3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─────────────────────────────────── -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">📣</div>
+        <div>
+          <h1>VOS Knowledge Bank</h1>
+          <p>F2 卖家声音知识库 · 内部研究 + 社交媒体 VOS 统一检索</p>
+        </div>
+      </div>
+      <a href="index.html" class="back-link">← Seller Learning Hub</a>
+    </div>
+    <div class="header-stats">
+      <div class="hstat"><div class="hstat-num" id="statTotal">—</div><div class="hstat-label">总 VOS 条目</div></div>
+      <div class="hstat"><div class="hstat-num" id="statInternal">—</div><div class="hstat-label">内部 VOS</div></div>
+      <div class="hstat"><div class="hstat-num" id="statSocial">—</div><div class="hstat-label">社交媒体 VOS</div></div>
+      <div class="hstat"><div class="hstat-num" id="statUpdated">—</div><div class="hstat-label">最近更新</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── SEARCH ─────────────────────────────────── -->
+<div class="search-wrap">
+  <div class="container">
+    <div class="search-inner">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="搜索 VOS 关键词，如 FBA fees / EU returns / 混箱..." oninput="applyFilters()">
+        <button class="search-clear" id="clearBtn" onclick="clearSearch()">✕</button>
+      </div>
+      <span class="result-count" id="resultCount"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FILTERS ────────────────────────────────── -->
+<div class="filters">
+  <div class="container">
+    <div class="filter-row">
+      <span class="filter-label">来源</span>
+      <button class="chip active" data-filter="source" data-value="all" onclick="setFilter('source','all',this)">全部</button>
+      <button class="chip" data-filter="source" data-value="internal" onclick="setFilter('source','internal',this)">🏢 内部 VOS</button>
+      <button class="chip" data-filter="source" data-value="social" onclick="setFilter('source','social',this)">📱 社交媒体</button>
+      <div class="filter-divider"></div>
+      <span class="filter-label">情绪</span>
+      <button class="chip active" data-filter="sentiment" data-value="all" onclick="setFilter('sentiment','all',this)">全部</button>
+      <button class="chip sentiment-negative" data-filter="sentiment" data-value="negative" onclick="setFilter('sentiment','negative',this)">🔴 痛点</button>
+      <button class="chip sentiment-positive" data-filter="sentiment" data-value="positive" onclick="setFilter('sentiment','positive',this)">🟢 正向</button>
+      <button class="chip sentiment-neutral" data-filter="sentiment" data-value="neutral" onclick="setFilter('sentiment','neutral',this)">🟡 中性</button>
+      <div class="filter-divider"></div>
+      <span class="filter-label">站点</span>
+      <button class="chip active" data-filter="market" data-value="all" onclick="setFilter('market','all',this)">全部</button>
+      <button class="chip" data-filter="market" data-value="US" onclick="setFilter('market','US',this)">🇺🇸 US</button>
+      <button class="chip" data-filter="market" data-value="EU" onclick="setFilter('market','EU',this)">🇪🇺 EU</button>
+      <button class="chip" data-filter="market" data-value="JP" onclick="setFilter('market','JP',this)">🇯🇵 JP</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MAIN ───────────────────────────────────── -->
+<main class="main">
+  <div class="container">
+    <div class="cards-grid" id="cardsGrid"></div>
+    <div class="empty" id="emptyState" style="display:none">
+      <div class="empty-icon">🔍</div>
+      <h3>未找到匹配的 VOS</h3>
+      <p>试试换个关键词，或清除筛选条件</p>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── State ────────────────────────────────────────
+let allEntries = [];
+const filters = { source: 'all', sentiment: 'all', market: 'all' };
+
+// ── Load Data ────────────────────────────────────
+async function loadData() {
+  const [bankRes, socialRes] = await Promise.allSettled([
+    fetch('vos-bank.json'),
+    fetch('vos-data.json')
+  ]);
+
+  let internalEntries = [];
+  let socialEntries = [];
+
+  if (bankRes.status === 'fulfilled' && bankRes.value.ok) {
+    const bank = await bankRes.value.json();
+    internalEntries = (bank.entries || []).map(e => ({
+      ...e,
+      _sourceType: 'internal',
+      _markets: e.markets || [],
+    }));
+  }
+
+  if (socialRes.status === 'fulfilled' && socialRes.value.ok) {
+    const social = await socialRes.value.json();
+    socialEntries = (social || []).map(e => ({
+      id: e.id,
+      date: e.effectDate ? e.effectDate.substring(0,7) : '',
+      source: e.source || 'Social Media',
+      sourceUrl: e.links?.[0]?.url || '',
+      _sourceType: 'social',
+      _markets: [],
+      program: e.topic || '',
+      topic: e.topic || '',
+      sellerQuote: (e.sellerVoices || []).join(' '),
+      sellerQuote_cn: '',
+      summary: e.summary || '',
+      summary_en: '',
+      keyInsight: e.title || '',
+      sentiment: e.sentiment || 'neutral',
+      tags: e.painPoints || [],
+      wbrReady: false,
+      verified: e.verified === 'confirmed',
+    }));
+  }
+
+  allEntries = [...internalEntries, ...socialEntries];
+
+  // Update header stats
+  document.getElementById('statTotal').textContent = allEntries.length;
+  document.getElementById('statInternal').textContent = internalEntries.length;
+  document.getElementById('statSocial').textContent = socialEntries.length;
+  const latestDate = allEntries.map(e => e.date).filter(Boolean).sort().reverse()[0] || '—';
+  document.getElementById('statUpdated').textContent = latestDate;
+
+  applyFilters();
+}
+
+// ── Filter Logic ─────────────────────────────────
+function setFilter(key, value, el) {
+  filters[key] = value;
+  document.querySelectorAll(`[data-filter="${key}"]`).forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.getElementById('clearBtn').style.display = q ? 'block' : 'none';
+
+  const visible = allEntries.filter(e => {
+    if (filters.source !== 'all' && e._sourceType !== filters.source) return false;
+    if (filters.sentiment !== 'all' && e.sentiment !== filters.sentiment) return false;
+    if (filters.market !== 'all' && !e._markets.includes(filters.market)) return false;
+    if (q) {
+      const haystack = [
+        e.keyInsight, e.summary, e.summary_en, e.sellerQuote, e.sellerQuote_cn,
+        e.program, e.topic, e.source, ...(e.tags || []), ...(e._markets || [])
+      ].join(' ').toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+    return true;
+  });
+
+  renderCards(visible);
+  document.getElementById('resultCount').textContent =
+    q || filters.source !== 'all' || filters.sentiment !== 'all' || filters.market !== 'all'
+    ? `${visible.length} / ${allEntries.length} 条`
+    : `共 ${allEntries.length} 条`;
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  applyFilters();
+}
+
+// ── Render ───────────────────────────────────────
+function renderCards(entries) {
+  const grid = document.getElementById('cardsGrid');
+  const empty = document.getElementById('emptyState');
+  if (!entries.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  grid.innerHTML = entries.map(e => {
+    const sentimentBadge = { negative: ['badge-neg','🔴 痛点'], positive: ['badge-pos','🟢 正向'], neutral: ['badge-neu','🟡 中性'] }[e.sentiment] || ['badge-neu','—'];
+    const sourceBadge = e._sourceType === 'internal'
+      ? (e.source === 'VOS Dashboard' ? ['badge-source-dashboard','📊 Dashboard'] : ['badge-source-internal','🏢 SharePoint/Quip'])
+      : ['badge-source-social','📱 社交媒体'];
+    const quote = e.sellerQuote_cn || e.sellerQuote || e.summary || '';
+    const shortQuote = quote.length > 120 ? quote.substring(0,120) + '…' : quote;
+    const marketsHtml = (e._markets||[]).map(m => `<span class="badge badge-market">${m}</span>`).join('');
+    const programBadge = e.program ? `<span class="badge badge-program">${e.program}</span>` : '';
+    const unverified = !e.verified ? `<span class="badge badge-unverified">待核实</span>` : '';
+    const tagsHtml = (e.tags||[]).slice(0,5).map(t => `<span class="tag">#${t}</span>`).join('');
+    const sourceBtn = e.sourceUrl
+      ? `<a href="${e.sourceUrl}" target="_blank" class="btn-source">🔗 来源</a>` : '';
+
+    return `
+    <div class="vos-card" data-id="${e.id}">
+      <div class="card-top">
+        <div class="card-badges">
+          <span class="badge ${sentimentBadge[0]}">${sentimentBadge[1]}</span>
+          <span class="badge ${sourceBadge[0]}">${sourceBadge[1]}</span>
+          ${marketsHtml}${programBadge}${unverified}
+        </div>
+        <div class="card-insight">${e.keyInsight || e.topic || '—'}</div>
+        <div class="card-meta">
+          <span>📅 ${e.date || '—'}</span>
+          <span>📌 ${e.source}</span>
+        </div>
+      </div>
+      ${quote ? `<blockquote class="card-quote ${e.sentiment}">"${shortQuote}"</blockquote>` : ''}
+      <div class="card-body">
+        <div class="card-summary">${e.summary || ''}</div>
+        <div class="card-tags">${tagsHtml}</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-copy" onclick="copyForWBR('${e.id}')">📋 Copy for WBR</button>
+        ${sourceBtn}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Copy for WBR ─────────────────────────────────
+function copyForWBR(id) {
+  const e = allEntries.find(x => x.id === id);
+  if (!e) return;
+  const markets = (e._markets||[]).join('/') || '—';
+  const text = [
+    `【Seller VOS】${e.program || e.topic || ''} | ${markets} | ${e.date || ''}`,
+    ``,
+    `Key Insight: ${e.keyInsight || ''}`,
+    ``,
+    e.sellerQuote ? `Seller Quote: "${e.sellerQuote}"` : '',
+    ``,
+    `Context: ${e.summary_en || e.summary || ''}`,
+    ``,
+    `Source: ${e.source}${e.sourceUrl ? ' · ' + e.sourceUrl : ''}`,
+  ].filter(l => l !== undefined).join('\n').trim();
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector(`[data-id="${id}"] .btn-copy`);
+    if (btn) { btn.textContent = '✅ 已复制'; btn.classList.add('copied'); setTimeout(()=>{ btn.textContent='📋 Copy for WBR'; btn.classList.remove('copied'); }, 2000); }
+    showToast('已复制 WBR 格式文本');
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── Init ─────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>

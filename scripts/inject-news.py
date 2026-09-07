@@ -16,6 +16,14 @@ import urllib.request
 from datetime import datetime, timezone
 
 
+# ==================== 去重参数 ====================
+# DeepSeek 每天基于重叠的 RSS 素材生成话题，同一篇原文会被反复改写成不同标题。
+# 2026-09 曾因此累积到 1809 条里有 1155 条是重复（同一 URL 最多被写成 10 条）。
+JACCARD_THRESHOLD = 0.55   # 标题字符2元组相似度，超过即视为同一条
+RARE_MAX_DF = 12           # 全库出现不超过这么多次的词算"稀有词"（专名，如 罗马尼亚邮政）
+RARE_MIN_SHARED = 4        # 同平台内共享这么多稀有词即视为同一事件
+EVENT_WINDOW_DAYS = 10     # 同事件判定的时间窗口
+
 # ==================== 黑名单 ====================
 BLACKLIST = [
     '直播购物指南', '直播销售步骤', 'live shopping guide',
@@ -63,6 +71,27 @@ PINNED_ARTICLES = [
 def is_blacklisted(title):
     t = title.lower()
     return any(kw.lower() in t for kw in BLACKLIST)
+
+
+def title_tokens(text):
+    """中英文混合切词：中文按2字滑窗，英文/数字按词。中文没空格，不能用 split()"""
+    t = (text or "").lower()
+    s = set(re.findall(r'[a-z0-9]{2,}', t))
+    for seg in re.findall(r'[\u4e00-\u9fff]+', t):
+        for i in range(len(seg) - 1):
+            s.add(seg[i:i + 2])
+    return s
+
+
+def norm_url(u):
+    return (u or "").split('?')[0].rstrip('/')
+
+
+def day_gap(a, b):
+    try:
+        return abs((datetime.strptime(a, "%Y-%m-%d") - datetime.strptime(b, "%Y-%m-%d")).days)
+    except Exception:
+        return 999
 
 
 def clean_js_string(s):
@@ -270,28 +299,87 @@ def main():
         print('ERROR: newsData not found in script.js')
         return
 
-    # 解析已有标题用于去重
+    # ========== 解析已有资讯，建立三层去重索引 ==========
+    # 同一篇原文被 DeepSeek 每天换个说法重写，是重复的主要来源。
+    # 单靠"标题完全相同"拦不住，必须叠加 URL 和同事件判定。
     existing_block = match.group(0)
-    existing_titles = set()
-    for m in re.finditer(r'title: "([^"]+)"', existing_block):
-        t = re.sub(r'[\s\W]', '', m.group(1)).lower()
-        existing_titles.add(t)
-    print(f'已有 {len(existing_titles)} 条资讯')
+    existing = []
+    for m in re.finditer(
+            r'\{ id: "[^"]*", title: "([^"]*)"[\s\S]*?platform: "([^"]*)"[\s\S]*?'
+            r'date: new Date\("([^"]+)"\)[\s\S]*?url: "([^"]*)"', existing_block):
+        existing.append({
+            "title": m.group(1), "platform": m.group(2),
+            "date": m.group(3), "url": m.group(4),
+            "tok": title_tokens(m.group(1)),
+        })
+    existing_titles = {re.sub(r'[\s\W]', '', e["title"]).lower() for e in existing}
+    existing_urls = {norm_url(e["url"]) for e in existing if e["url"]}
+    print(f'已有 {len(existing)} 条资讯，{len(existing_urls)} 个不同原文 URL')
 
-    # 筛选新的不重复资讯
+    # 稀有词表：全库出现 <= RARE_MAX_DF 次的词，用于识别"不同媒体报道同一事件"
+    df = {}
+    for e in existing:
+        for t in e["tok"]:
+            df[t] = df.get(t, 0) + 1
+    for e in existing:
+        e["rare"] = {t for t in e["tok"] if df.get(t, 0) <= RARE_MAX_DF}
+
+    # ========== 筛选新的不重复资讯 ==========
     new_items = []
+    skipped = {"url": 0, "title": 0, "similar": 0, "event": 0, "blacklist": 0}
     for item in all_articles:
         title = item.get('title', '')
-        t = re.sub(r'[\s\W]', '', title).lower()
-        if t in existing_titles or len(t) < 5:
+        url = item.get('url', '')
+        if not url.startswith('http'):
             continue
         if is_blacklisted(title):
+            skipped["blacklist"] += 1
             continue
-        if not item.get('url', '').startswith('http'):
+
+        t = re.sub(r'[\s\W]', '', title).lower()
+        if len(t) < 5:
             continue
+        # 层1：同一原文 URL 已有 -> 同一篇报道
+        if norm_url(url) in existing_urls:
+            skipped["url"] += 1
+            continue
+        # 层2：标题去标点后完全相同
+        if t in existing_titles:
+            skipped["title"] += 1
+            continue
+
+        tok = title_tokens(title)
+        rare = {x for x in tok if df.get(x, 0) <= RARE_MAX_DF}
+        dup = None
+        for e in existing:
+            if e["platform"] != item.get("platform"):
+                continue
+            if tok and e["tok"]:
+                j = len(tok & e["tok"]) / len(tok | e["tok"])
+                if j >= JACCARD_THRESHOLD:      # 层2：措辞高度相似
+                    dup = "similar"
+                    break
+            # 层3：同平台 + 时间接近 + 共享多个稀有专名 -> 同一事件的不同报道
+            if (day_gap(e["date"], item.get("date", "")) <= EVENT_WINDOW_DAYS
+                    and len(rare & e["rare"]) >= RARE_MIN_SHARED):
+                dup = "event"
+                break
+        if dup:
+            skipped[dup] += 1
+            continue
+
+        # 收录，并立刻加入索引，防止本批内部重复
         existing_titles.add(t)
+        existing_urls.add(norm_url(url))
+        for x in tok:
+            df[x] = df.get(x, 0) + 1
+        existing.append({"title": title, "platform": item.get("platform"),
+                         "date": item.get("date", ""), "url": url,
+                         "tok": tok, "rare": rare})
         new_items.append(item)
 
+    print(f'去重跳过: 同URL {skipped["url"]} / 同标题 {skipped["title"]} / '
+          f'措辞相似 {skipped["similar"]} / 同事件 {skipped["event"]} / 黑名单 {skipped["blacklist"]}')
     print(f'新增 {len(new_items)} 条不重复资讯')
 
     if not new_items:

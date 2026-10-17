@@ -1577,28 +1577,81 @@ function switchBoard(board) {
 // ==================== VOS 卖家热议 ====================
 var vosData = [];
 
+// ==================== 数据加载（同源优先） ====================
+// 2026-10 教训：VOS / 运价 / pn15 原本都由浏览器直连 raw.githubusercontent.com，
+// 国内访问常失败。VOS 有兜底但那份快照停在 7 月，于是同一个页面「我看 10 月、
+// 同事看 6 月」；运价和 pn15 没兜底，直接空白。现在 workflow 每天把这几份数据
+// 同步进本仓库，由 Pages 同源提供，所以同源那份才是权威来源，raw 只是备用。
+function loadJSONSameOriginFirst(localPath, remoteUrl, onData, onFail) {
+    var bust = '?t=' + Date.now();   // 绕开浏览器/公司代理缓存，保证拿到当天数据
+    function get(url) {
+        return fetch(url).then(function(r) {
+            if (!r.ok) { throw new Error('HTTP ' + r.status); }
+            return r.json();
+        });
+    }
+    get(localPath + bust)
+        .then(function(data) {
+            if (!data || (data.length === 0)) { throw new Error('empty'); }
+            onData(data, 'same-origin');
+        })
+        .catch(function(e1) {
+            console.warn('同源数据不可用(' + localPath + '): ' + e1.message + '，回退远程');
+            get(remoteUrl + bust)
+                .then(function(data) { onData(data, 'remote'); })
+                .catch(function(e2) { onFail(e2); });
+        });
+}
+
+// 在板块表格上方标出数据截至日期。以前加载失败是静默回落，页面从不说实话，
+// 这次就是因此拖了十几天没人发现。现在数据多旧、来源是哪条路径，页面直接写出来。
+function setDataStamp(gridId, text, warn) {
+    var grid = document.getElementById(gridId);
+    if (!grid) { return; }
+    var id = gridId + 'DataStamp';
+    var el = document.getElementById(id);
+    if (!el) {
+        el = document.createElement('div');
+        el.id = id;
+        el.style.cssText = 'font-size:12px;margin:0 0 10px;text-align:right;line-height:1.5;';
+        grid.parentNode.insertBefore(el, grid);
+    }
+    el.style.color = warn ? '#c0392b' : '#999';
+    el.textContent = text;
+}
+
+function newestDateIn(list, keys) {
+    var best = '';
+    for (var i = 0; i < list.length; i++) {
+        for (var k = 0; k < keys.length; k++) {
+            var v = list[i] && list[i][keys[k]];
+            if (typeof v === 'string' && v > best) { best = v; }
+        }
+    }
+    return best;
+}
+
 function loadVOSData() {
     if (vosData.length > 0) {
         renderVOS();
         return;
     }
-    // 从独立仓库加载 VOS 数据
-    var vosUrl = 'https://raw.githubusercontent.com/yanjiaoo/vos-social-media/main/vos-data.json';
-    fetch(vosUrl)
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
+    loadJSONSameOriginFirst(
+        'vos-data.json',
+        'https://raw.githubusercontent.com/yanjiaoo/vos-social-media/main/vos-data.json',
+        function(data, origin) {
             vosData = data;
             renderVOS();
-        })
-        .catch(function(e) {
+            var newest = newestDateIn(data, ['effectDate']);
+            setDataStamp('vosGrid',
+                '数据截至 ' + (newest || '未知') + ' · 共 ' + data.length + ' 条' +
+                (origin === 'remote' ? '（同源数据不可用，已回退远程）' : ''),
+                origin === 'remote');
+        },
+        function(e) {
             console.error('加载VOS数据失败:', e);
-            // fallback: 尝试本地文件
-            fetch('vos-data.json')
-                .then(function(r) { return r.json(); })
-                .then(function(data) { vosData = data; renderVOS(); })
-                .catch(function() {
-                    document.getElementById('vosGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据</p>';
-                });
+            document.getElementById('vosGrid').innerHTML = '<p style="text-align:center;color:#c0392b;padding:40px;">数据加载失败，请刷新重试</p>';
+            setDataStamp('vosGrid', '数据加载失败', true);
         });
 }
 
@@ -1685,10 +1738,19 @@ var pn15Data = [];
 
 function loadPN15Data() {
     if (pn15Data.length > 0) { renderPN15(); return; }
-    fetch('https://raw.githubusercontent.com/yanjiaoo/pn15/main/pn15-data.json')
-        .then(function(r) { return r.json(); })
-        .then(function(data) { pn15Data = data; renderPN15(); })
-        .catch(function(e) {
+    loadJSONSameOriginFirst(
+        'pn15-data.json',
+        'https://raw.githubusercontent.com/yanjiaoo/pn15/main/pn15-data.json',
+        function(data, origin) {
+            pn15Data = data;
+            renderPN15();
+            var newest = newestDateIn(data, ['date', 'effectDate', 'updatedAt']);
+            setDataStamp('pn15Grid',
+                (newest ? '数据截至 ' + newest + ' · ' : '') + '共 ' + data.length + ' 条' +
+                (origin === 'remote' ? '（同源数据不可用，已回退远程）' : ''),
+                origin === 'remote');
+        },
+        function(e) {
             document.getElementById('pn15Grid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据，等待维护者更新</p>';
         });
 }
@@ -1732,10 +1794,19 @@ function loadFreightData() {
     if (freightData.length > 0) { renderFreight(); renderFreightCharts(); return; }
     // 数据和图表并行加载
     renderFreightCharts();
-    fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-data.json')
-        .then(function(r) { return r.json(); })
-        .then(function(data) { freightData = data; renderFreight(); })
-        .catch(function(e) {
+    loadJSONSameOriginFirst(
+        'freight-data.json',
+        'https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-data.json',
+        function(data, origin) {
+            freightData = data;
+            renderFreight();
+            var newest = newestDateIn(data, ['date', 'updatedAt', 'week']);
+            setDataStamp('freightGrid',
+                (newest ? '数据截至 ' + newest + ' · ' : '') + '共 ' + data.length + ' 条' +
+                (origin === 'remote' ? '（同源数据不可用，已回退远程）' : ''),
+                origin === 'remote');
+        },
+        function(e) {
             document.getElementById('freightGrid').innerHTML = '<p style="text-align:center;color:#999;padding:40px;">暂无数据</p>';
         });
 }
@@ -1783,10 +1854,13 @@ function renderFreightCharts() {
 }
 
 function fetchAndDrawCharts() {
-    fetch('https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-chart-data.json')
-        .then(function(r) { return r.json(); })
-        .then(function(data) { drawFreightCharts(data); })
-        .catch(function(e) { console.error('加载图表数据失败:', e); });
+    // 注意：这份是对象（months / routes），不是数组，loadJSONSameOriginFirst 的空值
+    // 检查只对数组生效，对象会原样通过。
+    loadJSONSameOriginFirst(
+        'freight-chart-data.json',
+        'https://raw.githubusercontent.com/yanjiaoo/freight-watch/main/freight-chart-data.json',
+        function(data) { drawFreightCharts(data); },
+        function(e) { console.error('加载图表数据失败:', e); });
 }
 
 function drawFreightCharts(data) {

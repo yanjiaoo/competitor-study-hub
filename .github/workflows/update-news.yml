@@ -30,35 +30,42 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python scripts/inject-news.py
 
-      # script.js 里 VOS 板块优先读 raw.githubusercontent.com，读不到才回落到本仓库这份
-      # vos-data.json。国内访问 raw 经常失败，而这份兜底文件停在 2026-07-01，
-      # 结果就是「我看到 10-05，同事看到 6 月」。runner 能正常访问 raw，
-      # 所以每天在这里同步一次，让兜底文件始终是新的。
-      - name: 同步 VOS 兜底数据
+      # VOS / 运价 / pn15 三块数据原本由浏览器直连 raw.githubusercontent.com 读取，
+      # 国内访问经常失败：VOS 有兜底但快照停在 2026-07-01（于是「我看 10 月、同事看 6 月」），
+      # 运价和 pn15 连兜底都没有，直接空白。runner 访问 raw 没问题，所以每天在这里同步一份
+      # 到本仓库，由 GitHub Pages 同源提供，谁打开都是同一份当天数据。
+      - name: 同步各板块兜底数据
         run: |
           python - <<'PY'
-          import json, urllib.request, sys
-          URL = "https://raw.githubusercontent.com/yanjiaoo/vos-social-media/main/vos-data.json"
-          try:
-              raw = urllib.request.urlopen(URL, timeout=30).read()
-              data = json.loads(raw)
-          except Exception as e:
-              print(f"::warning::VOS 兜底数据同步失败，保留旧文件: {e}")
-              sys.exit(0)          # 同步失败不该拖垮整条资讯流水线
-          if not isinstance(data, list) or not data:
-              print("::warning::拉到的 VOS 数据为空或格式异常，保留旧文件")
-              sys.exit(0)
-          with open("vos-data.json", "w", encoding="utf-8") as f:
-              json.dump(data, f, ensure_ascii=False, indent=2)
-          newest = max((t.get("effectDate", "") for t in data), default="?")
-          print(f"VOS 兜底数据已同步: {len(data)} 条, 最新 {newest}")
+          import json, urllib.request
+          SOURCES = [
+              ("vos-data.json",          "yanjiaoo/vos-social-media", "vos-data.json"),
+              ("pn15-data.json",         "yanjiaoo/pn15",             "pn15-data.json"),
+              ("freight-data.json",      "yanjiaoo/freight-watch",    "freight-data.json"),
+              ("freight-chart-data.json","yanjiaoo/freight-watch",    "freight-chart-data.json"),
+          ]
+          for dest, repo, path in SOURCES:
+              url = f"https://raw.githubusercontent.com/{repo}/main/{path}"
+              try:
+                  data = json.loads(urllib.request.urlopen(url, timeout=30).read())
+              except Exception as e:
+                  # 单个源同步失败不该拖垮整条资讯流水线，保留旧文件继续
+                  print(f"::warning::{dest} 同步失败，保留旧文件: {e}")
+                  continue
+              if not data:
+                  print(f"::warning::{dest} 拉到的内容为空，保留旧文件")
+                  continue
+              with open(dest, "w", encoding="utf-8") as f:
+                  json.dump(data, f, ensure_ascii=False, indent=2)
+              n = len(data) if isinstance(data, (list, dict)) else "?"
+              print(f"{dest} 已同步 ({n})")
           PY
 
       - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news-data.json script.js vos-data.json
+          git add news-data.json script.js vos-data.json pn15-data.json freight-data.json freight-chart-data.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else

@@ -30,14 +30,66 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python scripts/inject-news.py
 
+      # script.js 里 VOS 板块优先读 raw.githubusercontent.com，读不到才回落到本仓库这份
+      # vos-data.json。国内访问 raw 经常失败，而这份兜底文件停在 2026-07-01，
+      # 结果就是「我看到 10-05，同事看到 6 月」。runner 能正常访问 raw，
+      # 所以每天在这里同步一次，让兜底文件始终是新的。
+      - name: 同步 VOS 兜底数据
+        run: |
+          python - <<'PY'
+          import json, urllib.request, sys
+          URL = "https://raw.githubusercontent.com/yanjiaoo/vos-social-media/main/vos-data.json"
+          try:
+              raw = urllib.request.urlopen(URL, timeout=30).read()
+              data = json.loads(raw)
+          except Exception as e:
+              print(f"::warning::VOS 兜底数据同步失败，保留旧文件: {e}")
+              sys.exit(0)          # 同步失败不该拖垮整条资讯流水线
+          if not isinstance(data, list) or not data:
+              print("::warning::拉到的 VOS 数据为空或格式异常，保留旧文件")
+              sys.exit(0)
+          with open("vos-data.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+          newest = max((t.get("effectDate", "") for t in data), default="?")
+          print(f"VOS 兜底数据已同步: {len(data)} 条, 最新 {newest}")
+          PY
+
       - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news-data.json script.js
+          git add news-data.json script.js vos-data.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
+            if git diff --staged --name-only | grep -q '^script\.js$'; then
+              echo "script.js 有更新（上站内容已变化）"
+            else
+              echo "::warning::只有 news-data.json 变化，script.js 未更新 —— 页面内容本次没变"
+            fi
             git commit -m "auto: 更新竞对资讯 $(date +%Y-%m-%d)"
             git push
           fi
+
+      # 这次事故的根本教训：每天都有 commit，但 commit 里只有 news-data.json（RSS 原始
+      # 素材天天自然变化），真正上站的 script.js 已经 20 天没动，而 job 一直是绿的。
+      # 所以这里不看「有没有 commit」，直接看页面上最新一条资讯有多旧。
+      - name: 检查上站内容新鲜度
+        run: |
+          python - <<'PY'
+          import re, sys
+          from datetime import date
+          src = open('script.js', encoding='utf-8').read()
+          dates = sorted(re.findall(r'new Date\("(\d{4}-\d{2}-\d{2})"', src))
+          if not dates:
+              print("::error::script.js 里解析不到任何资讯日期")
+              sys.exit(1)
+          newest = date.fromisoformat(dates[-1])
+          lag = (date.today() - newest).days
+          print(f"script.js 共 {len(dates)} 条资讯，最新一条 {newest}，滞后 {lag} 天")
+          LIMIT = 4   # 去重较激进，正常也可能隔一两天才有新内容，留出余量
+          if lag > LIMIT:
+              print(f"::error::上站资讯已滞后 {lag} 天（阈值 {LIMIT}），"
+                    f"流水线产不出新内容，请检查 DeepSeek 余额与本 job 日志")
+              sys.exit(1)
+          PY

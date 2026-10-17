@@ -12,6 +12,7 @@ Competitor 资讯注入器（VOS 模式）
 import json
 import os
 import re
+import sys
 import urllib.request
 from datetime import datetime, timezone
 
@@ -164,8 +165,10 @@ def generate_news_deepseek(rss_items, url_index):
     """用 DeepSeek 基于 RSS 素材生成结构化资讯（标题+摘要+分类）"""
     api_key = os.environ.get("DEEPSEEK_API_KEY", "")
     if not api_key:
-        print("  [DeepSeek] 无 API KEY，跳过")
-        return []
+        # 以前这里 return []，结果是「没有 key」和「没有新资讯」在日志里长得一样，
+        # workflow 照样绿。缺 secret 是配置故障，必须让 job 红。
+        print("  [DeepSeek] ERROR: DEEPSEEK_API_KEY 未配置")
+        sys.exit(1)
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     # 构建素材上下文（最多40条）
@@ -265,8 +268,14 @@ def generate_news_deepseek(rss_items, url_index):
         print(f"  [DeepSeek] 有效资讯: {len(valid)} 条")
         return valid
     except Exception as e:
-        print(f"  [DeepSeek] 失败: {e}")
-        return []
+        # 2026-10 教训：DeepSeek 欠费返回 HTTP 402，这里 return [] 之后主流程
+        # 以「今天没有新资讯」收场，job 全绿，script.js 连续 20 天没更新没人发现。
+        # API 调不通属于故障，不是「今天没新闻」，必须把 job 打红。
+        print(f"  [DeepSeek] ERROR: 调用失败，终止本次运行: {e}")
+        if "402" in str(e):
+            print("  [DeepSeek] HTTP 402 = 账户余额不足，请到 "
+                  "https://platform.deepseek.com/usage 充值")
+        sys.exit(1)
 
 
 # ==================== 主流程 ====================

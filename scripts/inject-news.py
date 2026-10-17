@@ -13,6 +13,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
@@ -227,9 +229,30 @@ def generate_news_deepseek(rss_items, url_index):
         method="POST",
     )
 
+    # 调用失败现在是硬失败（见下方 except），所以必须先重试，否则一次网络抖动
+    # 或 5xx 就会把整条流水线打红。402/401/403 是账户/权限问题，重试没有意义，直接放弃。
+    def call_with_retry(request, attempts=4):
+        last = None
+        for i in range(attempts):
+            try:
+                with urllib.request.urlopen(request, timeout=90) as resp:
+                    return json.loads(resp.read().decode("utf-8"))
+            except urllib.error.HTTPError as e:
+                last = e
+                print(f"  [DeepSeek] HTTP {e.code} (第 {i+1}/{attempts} 次)")
+                if e.code in (401, 402, 403):
+                    break
+            except Exception as e:
+                last = e
+                print(f"  [DeepSeek] {type(e).__name__}: {e} (第 {i+1}/{attempts} 次)")
+            if i < attempts - 1:
+                wait = 2 ** (i + 1)
+                print(f"  [DeepSeek] {wait}s 后重试...")
+                time.sleep(wait)
+        raise last
+
     try:
-        with urllib.request.urlopen(req, timeout=90) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
+        result = call_with_retry(req)
         content = result["choices"][0]["message"]["content"]
         data = json.loads(content)
         articles = data.get("articles", [])
@@ -271,7 +294,7 @@ def generate_news_deepseek(rss_items, url_index):
         # 2026-10 教训：DeepSeek 欠费返回 HTTP 402，这里 return [] 之后主流程
         # 以「今天没有新资讯」收场，job 全绿，script.js 连续 20 天没更新没人发现。
         # API 调不通属于故障，不是「今天没新闻」，必须把 job 打红。
-        print(f"  [DeepSeek] ERROR: 调用失败，终止本次运行: {e}")
+        print(f"  [DeepSeek] ERROR: 重试后仍失败，终止本次运行: {e}")
         if "402" in str(e):
             print("  [DeepSeek] HTTP 402 = 账户余额不足，请到 "
                   "https://platform.deepseek.com/usage 充值")

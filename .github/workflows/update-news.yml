@@ -34,7 +34,11 @@ jobs:
       # 国内访问经常失败：VOS 有兜底但快照停在 2026-07-01（于是「我看 10 月、同事看 6 月」），
       # 运价和 pn15 连兜底都没有，直接空白。runner 访问 raw 没问题，所以每天在这里同步一份
       # 到本仓库，由 GitHub Pages 同源提供，谁打开都是同一份当天数据。
+      # 资讯生成挂掉不应该连带把数据同步也跳过：这是两件独立的事。
+      # 2026-10-17 实测过一次：inject 失败 → 同步和提交被 skip → 运价/pn15 的兜底文件
+      # 迟迟没生成，页面只能继续回退远程。所以这步和下面的提交都用 always()。
       - name: 同步各板块兜底数据
+        if: always()
         run: |
           python - <<'PY'
           import json, urllib.request
@@ -62,6 +66,7 @@ jobs:
           PY
 
       - name: Commit and Push
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

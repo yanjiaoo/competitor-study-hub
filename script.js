@@ -1186,9 +1186,60 @@ function displayNews(filter = 'all') {
     updateNewsStats(filteredNews.length, filter, timeFilter);
 }
 
+// ==================== 季度筛选 ====================
+// 原有的时间筛选都是「从某天至今」的滚动窗口，含义每天都在变，
+// 没法回答「2026 Q2 到底发生了什么」。这里补上固定区间的季度视图。
+function quarterKeyOf(d) {
+    var dt = (d instanceof Date) ? d : new Date(d);
+    return dt.getFullYear() + 'Q' + (Math.floor(dt.getMonth() / 3) + 1);
+}
+
+// '2026Q2' -> [季度首日, 下一季度首日)，半开区间，避免季末当天被漏掉
+function quarterRange(key) {
+    var m = /^(\d{4})Q([1-4])$/.exec(key);
+    if (!m) { return null; }
+    var y = parseInt(m[1], 10), q = parseInt(m[2], 10);
+    var start = new Date(y, (q - 1) * 3, 1, 0, 0, 0, 0);
+    var end = new Date(q === 4 ? y + 1 : y, q === 4 ? 0 : q * 3, 1, 0, 0, 0, 0);
+    return [start, end];
+}
+
+// 扫描现有资讯，把出现过的季度按时间倒序塞进下拉框。
+// 动态生成而非写死选项，以后进新季度不用改代码。
+function populateQuarterOptions() {
+    var sel = document.getElementById('timeFilter');
+    if (!sel || sel.dataset.quartersReady === '1') { return; }
+    var seen = {};
+    newsData.forEach(function(item) {
+        if (item.date) { seen[quarterKeyOf(item.date)] = true; }
+    });
+    var keys = Object.keys(seen).sort().reverse();
+    if (!keys.length) { return; }
+    var grp = document.createElement('optgroup');
+    grp.label = '按季度';
+    keys.forEach(function(k) {
+        var o = document.createElement('option');
+        o.value = 'q:' + k;
+        o.textContent = k.replace('Q', ' Q');
+        grp.appendChild(o);
+    });
+    sel.appendChild(grp);
+    sel.dataset.quartersReady = '1';
+}
+
 function filterNewsByTime(news, timeFilter) {
     if (timeFilter === 'all') return news;
-    
+
+    // 季度是固定区间，和下面那些滚动窗口的算法不同，单独处理
+    if (timeFilter.indexOf('q:') === 0) {
+        var r = quarterRange(timeFilter.slice(2));
+        if (!r) { return news; }
+        return news.filter(function(item) {
+            var d = (item.date instanceof Date) ? item.date : new Date(item.date);
+            return d >= r[0] && d < r[1];
+        });
+    }
+
     const now = new Date();
     const cutoffDate = new Date();
     
@@ -1467,6 +1518,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('newsSources');
         localStorage.setItem('newsSourcesVersion', 'v3.2');
     }
+    populateQuarterOptions();
     displayNews();
     renderDashboard();
 });

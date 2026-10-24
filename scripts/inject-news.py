@@ -162,6 +162,49 @@ def resolve_real_date(article, url_index, today):
     return today, 'fallback'
 
 
+def salvage_articles(content):
+    """
+    从被截断的 JSON 里抢救出已完整的 article 对象。
+
+    2026-10 教训：max_tokens=8000，而输出里每条都要原样抄一条 Google News 的
+    base64 长 URL（200+ 字符），20 条就把预算吃掉一大块，输出经常在最后一条中途被切断。
+    整段 json.loads 直接抛 JSONDecodeError —— 这个故障一直存在，只是以前被
+    `return []` 静默吞掉（表现为「今天没有新资讯」，job 全绿），改成硬失败后才暴露。
+    这里按花括号配对扫描，取出所有闭合完整的对象，丢掉最后那个残缺的。
+    """
+    i = content.find('"articles"')
+    if i < 0:
+        return []
+    out, depth, start, in_str, esc = [], 0, None, False, False
+    for j in range(i, len(content)):
+        c = content[j]
+        if in_str:
+            if esc:
+                esc = False
+            elif c == '\\':
+                esc = True
+            elif c == '"':
+                in_str = False
+            continue
+        if c == '"':
+            in_str = True
+        elif c == '{':
+            if depth == 0:
+                start = j
+            depth += 1
+        elif c == '}':
+            depth -= 1
+            if depth == 0 and start is not None:
+                try:
+                    out.append(json.loads(content[start:j + 1]))
+                except json.JSONDecodeError:
+                    pass
+                start = None
+            elif depth < 0:
+                break
+    return [a for a in out if isinstance(a, dict) and a.get("title")]
+
+
 # ==================== DeepSeek 生成资讯 ====================
 def generate_news_deepseek(rss_items, url_index):
     """用 DeepSeek 基于 RSS 素材生成结构化资讯（标题+摘要+分类）"""
@@ -218,7 +261,9 @@ def generate_news_deepseek(rss_items, url_index):
             {"role": "user", "content": prompt},
         ],
         "temperature": 0.3,
-        "max_tokens": 8000,
+        # deepseek-chat 的上限是 8192，这里顶满。输出之所以紧张，主因是每条都要原样
+        # 抄一条 Google News 的 base64 长 URL（200+ 字符），20 条就吃掉相当一部分预算。
+        "max_tokens": 8192,
         "response_format": {"type": "json_object"},
     }).encode("utf-8")
 
@@ -251,17 +296,46 @@ def generate_news_deepseek(rss_items, url_index):
                 time.sleep(wait)
         raise last
 
+    # 网络层：失败已在 call_with_retry 内重试，到这里还抛说明是持续性故障，打红。
     try:
         result = call_with_retry(req)
-        content = result["choices"][0]["message"]["content"]
-        data = json.loads(content)
-        articles = data.get("articles", [])
-        print(f"  [DeepSeek] 生成 {len(articles)} 条资讯")
+    except Exception as e:
+        print(f"  [DeepSeek] ERROR: 重试后仍失败，终止本次运行: {e}")
+        if "402" in str(e):
+            print("  [DeepSeek] HTTP 402 = 账户余额不足，请到 "
+                  "https://platform.deepseek.com/usage 充值")
+        sys.exit(1)
 
+    # 解析层：和网络层分开。输出被 max_tokens 截断是已知的间歇性问题，
+    # 不该让整条流水线变红——先抢救完整条目，救得出来就继续。
+    choice = result["choices"][0]
+    content = choice["message"]["content"]
+    finish = choice.get("finish_reason")
+    usage = result.get("usage", {})
+    print(f"  [DeepSeek] 返回 {len(content)} 字符, finish_reason={finish}, "
+          f"completion_tokens={usage.get('completion_tokens')}")
+    if finish == "length":
+        print("::warning::DeepSeek 输出被 max_tokens 截断，JSON 不完整，尝试抢救完整条目")
+
+    try:
+        articles = json.loads(content).get("articles", [])
+    except json.JSONDecodeError as e:
+        articles = salvage_articles(content)
+        print(f"  [DeepSeek] JSON 解析失败({e})，抢救出 {len(articles)} 条完整条目")
+        if not articles:
+            print("  [DeepSeek] ERROR: 一条都没救出来，终止本次运行")
+            sys.exit(1)
+        print("::warning::本次输出被截断，已按抢救结果继续（条数会少于预期）")
+
+    print(f"  [DeepSeek] 生成 {len(articles)} 条资讯")
+
+    try:
         # 过滤：URL 必须能在素材中溯源、必须有平台、不在黑名单
         valid = []
         dropped_url = 0
         for a in articles:
+            if not isinstance(a, dict):
+                continue
             if not a.get("url", "").startswith("http"):
                 continue
             if not a.get("platform") or a["platform"] not in ("temu", "shein", "tiktok", "joybuy", "aliexpress"):
@@ -291,13 +365,9 @@ def generate_news_deepseek(rss_items, url_index):
         print(f"  [DeepSeek] 有效资讯: {len(valid)} 条")
         return valid
     except Exception as e:
-        # 2026-10 教训：DeepSeek 欠费返回 HTTP 402，这里 return [] 之后主流程
-        # 以「今天没有新资讯」收场，job 全绿，script.js 连续 20 天没更新没人发现。
-        # API 调不通属于故障，不是「今天没新闻」，必须把 job 打红。
-        print(f"  [DeepSeek] ERROR: 重试后仍失败，终止本次运行: {e}")
-        if "402" in str(e):
-            print("  [DeepSeek] HTTP 402 = 账户余额不足，请到 "
-                  "https://platform.deepseek.com/usage 充值")
+        # 过滤环节自身出错属于代码缺陷，照旧打红——但这里不再吞掉网络/解析问题，
+        # 那两类已在上面分别处理，错误信息不会再被混成一句看不出所以然的话。
+        print(f"  [DeepSeek] ERROR: 过滤环节异常，终止本次运行: {type(e).__name__}: {e}")
         sys.exit(1)
 
 

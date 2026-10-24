@@ -86,7 +86,10 @@ jobs:
       # 这次事故的根本教训：每天都有 commit，但 commit 里只有 news-data.json（RSS 原始
       # 素材天天自然变化），真正上站的 script.js 已经 20 天没动，而 job 一直是绿的。
       # 所以这里不看「有没有 commit」，直接看页面上最新一条资讯有多旧。
+      # 也要 always()：inject 失败时这步原本被 skip，于是「内容到底多旧了」这个
+      # 最关键的信号恰好在最需要的时候缺席。
       - name: 检查上站内容新鲜度
+        if: always()
         run: |
           python - <<'PY'
           import re, sys

@@ -1,16 +1,56 @@
 [
   {
-    "id": "temu_001",
-    "title": "PDD Holdings stock faces compliance costs after Temu Texas deal",
-    "content": "PDD Holdings stock faces compliance costs after Temu Texas deal  ad-hoc-news.de",
-    "source": "ad-hoc-news.de",
+    "id": "shein_013",
+    "title": "新加坡总部SHEIN投资5亿欧元扩建波兰欧洲物流中心",
+    "content": "新加坡总部SHEIN投资5亿欧元扩建波兰欧洲物流中心  维度网",
+    "source": "维度网",
     "type": "press",
-    "platform": "temu",
-    "date": "2026-11-05",
-    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPeGNnSUpvMkV2TkhoN29CNGU5N2ltbG1PUG9fM2lWaWR6aXdNZU1jUVRNV2NwdDVFQW1pckVEWHZVaE9reDREWFZaTDc4c3pobG9wV2l5Z3NLaS1vVjJyRGVvb0wtcWRpYmlqT3VLR19pdlBTMktoeHFfQk9qTWViOVR5b1NYb19yNHJoMGxSc1ZKOXpSYnN5blFkSVJCbnVPeElCZXB3Z2ZFTHRIbDBPSFBuUWowVUpneGM2N09EZ1E2eHpZ?oc=5"
+    "platform": "shein",
+    "date": "2026-11-06",
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9FZkNLRzlRc1lCYlB5YTNLem9NNDJTMFFIMVMyS3JrT0IxMEg4MWlJSzJGMUw5UlVpbHZVWE0xamNOZGZfUHVtb2hiOXAtTjA5TlAtSXBIVWE?oc=5"
   },
   {
-    "id": "shein_013",
+    "id": "shein_014",
+    "title": "SHEIN估值较峰值缩水逾七成 营收增长明显放缓",
+    "content": "SHEIN估值较峰值缩水逾七成 营收增长明显放缓  旅日侨网",
+    "source": "旅日侨网",
+    "type": "press",
+    "platform": "shein",
+    "date": "2026-11-06",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNa0t6NFdVWFk0d3J6bnlKemNHZ2huejZtaTRlaXJDS1dLdGdiS3ljMVVqdkMxTzdsZjZzYUpQWEVabTZlbkFmY1ZRWHJDeVdidVQ5R3lfcU5aM2RyWVRteDRGbF9TME1LRTJob0djbnMwZTRLdmppS3A0bXBmZFp4X2hzNldBdzNBd2c?oc=5"
+  },
+  {
+    "id": "tiktok_025",
+    "title": "TikTok Unveils Standalone TikTok Shop App: A New Era for Social Commerce Shopping",
+    "content": "TikTok Unveils Standalone TikTok Shop App: A New Era for Social Commerce Shopping  36Kr.com",
+    "source": "36Kr.com",
+    "type": "press",
+    "platform": "tiktok",
+    "date": "2026-11-06",
+    "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB2M3BSeGFLTmx0bk1uem9PTTlhZldJVmFodGhQZjhaV0l6NDNtbEwyam1HbVo0MmVTeTA1VHcybzNTZmdVUTYwWWUybGpPZXNpRi1V?oc=5"
+  },
+  {
+    "id": "tiktok_026",
+    "title": "TikTok Shop售后与运费迎全新规则：买家退货不退运费，卖家面单欺诈将遭重罚",
+    "content": "TikTok Shop售后与运费迎全新规则：买家退货不退运费，卖家面单欺诈将遭重罚  全球定制网",
+    "source": "全球定制网",
+    "type": "press",
+    "platform": "tiktok",
+    "date": "2026-11-06",
+    "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBnbW10ZzBJR05MV0Zkc3MtYkE3YjFKR3llWERaelJNX2EtelZpR0w5VUU3VW44aXZzeDhXbHNnQk9sLWtEZnN2SnJUdUhvUQ?oc=5"
+  },
+  {
+    "id": "joybuy_037",
+    "title": "EU Commission approves takeover Ceconomy by JD.com - Ecommerce News",
+    "content": "EU Commission approves takeover Ceconomy by JD.com  Ecommerce News - Europe",
+    "source": "Europe",
+    "type": "press",
+    "platform": "joybuy",
+    "date": "2026-11-06",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSXhCam9CQm41cFUwLW1UdHV5MjNvaVk0bVRtNnlMQm1INkx2S0NhaDdiVk9EQWpiVHZCT1Q4WlhrajFyeFRhMEl1X3o2dGI3RTVheEstZ3d6TWVlM1BVMnowZTRvZGJRT2lsQl9HSzRObUpsOEh3a1VYSENWbGl4dUhB?oc=5"
+  },
+  {
+    "id": "shein_015",
     "title": "Chinese fashion platform Shein to invest €500 million in Polish logistics hub",
     "content": "Chinese fashion platform Shein to invest €500 million in Polish logistics hub  Notes From Poland",
     "source": "Notes From Poland",
@@ -20,7 +60,7 @@
     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOc0lUdWg4WDVUMHkyZ0dVYWJrOTJJWDJVNHhvU1YzWW9zLXhzTzRUazZ2XzRNNjQyNDN1b3l2c0I0LUhKUjVkRHZ0RFYtRUY4VE1aYmhwVldxOFpJNHJrdWdRSUJac1VzcTd6czNZNWJ6ZlFuNEg1S1k3SWs2T29CR21GdFR0aTFneFFsZzZTVU0xVmFBQWR0RXVIaFN5LWxyUjRwbGU4UEh4SDBkbEx6YU52akRFYVBV?oc=5"
   },
   {
-    "id": "shein_014",
+    "id": "shein_016",
     "title": "Shein is to invest a further 500 million euros in its Polish logistics centre in Wrocław - FashionNetwork",
     "content": "Shein is to invest a further 500 million euros in its Polish logistics centre in Wrocław  FashionNetwork - The World's Fashion Business News",
     "source": "The World's Fashion Business News",
@@ -30,7 +70,7 @@
     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxORDAyVWpKRW54Q1BzS05td21PVFc4bmhqYnZ3TS13SUNTQm52bno4bHVhRlRXM21QaUxZcjdSM1lWa05vSXczNzY2b1FmdUxPM1BsMDlsaHVsdDgtZGlsdDkta1IzcDNSTnU4aENvZXFaTnZqbHhkcTFKd2E1SmMtcVctbjlYSXRTNTV0NDhRd202TnJGWndvNU9yaHFrclRFaDNKaHpIU19kWTk1OFhScWNQOExzbnRwRnV0TnlTd0VJdTloOFRnRkJIOExfcnI5aUdFY2FSdWs?oc=5"
   },
   {
-    "id": "shein_015",
+    "id": "shein_017",
     "title": "Shein invests €500m into Polish logistics hub",
     "content": "Shein invests €500m into Polish logistics hub  Logistics Manager",
     "source": "Logistics Manager",
@@ -40,17 +80,7 @@
     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNTEhkbnVoNXBmQjFPRDR3NGZsYmVkRml3dldNX0lVY2lLSnRUQ2cyQVpVMUd0ME5fU0hfeUp2cHNobi10QXVaYWlnb1piWGQ3RGNXSkhLbWhoM2tlV211VC1RT3hYd1NoUmVPa1Zpa2FaT2xlYXN0SXg5bUpTLXkzOFFmU29wUQ?oc=5"
   },
   {
-    "id": "shein_016",
-    "title": "Shein's stock listing is almost here: Why the fast fashion giant has a much smaller valuation for its upcoming IPO",
-    "content": "Shein's stock listing is almost here: Why the fast fashion giant has a much smaller valuation for its upcoming IPO  Fast Company",
-    "source": "Fast Company",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-11-05",
-    "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxQYXo3TFV4NEpJRlRIdVlWY3hDWVRkY183QjJlOFo1OWRoSVpRbWpXbEJIdUFTSGk1WWwxM19sVnI5WXZMcHFvM1RmUkwybjA1RWx4OXZMbkZTU1c3TmktdDZlRnVocS1XMnBDS2syZGJLck12SHAxSHNkYjlCZXowM21aNElYbVQtSkRWeW56Uy14OXRaNEVaZU1hNWk1YVMwVTdxZlZXWU9LY3BHdHk0NDlsRC1LSU44R3ZGQ0lVb18tLUxIRmpqdDJrVUhPWXdHMEppZ3Qzb1VDM2JZT0R0cFNOdVVHV19QVEY0VHB6STNIeWh6cTA2YkJVd2hBeGlPSlJRNTdReF9hS1p4LUlHS3M2MzVMZlhlSTJ6NFVxcm1IandqUVZ0YUJTRQ?oc=5"
-  },
-  {
-    "id": "shein_017",
+    "id": "shein_018",
     "title": "Shein斥资5亿欧元扩建波兰物流中心，是否意在规避欧盟小包裹税？",
     "content": "Shein斥资5亿欧元扩建波兰物流中心，是否意在规避欧盟小包裹税？  欧洲头条",
     "source": "欧洲头条",
@@ -60,7 +90,7 @@
     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPZElvVVdMaWl1SENNc0FOclNkRXFlVVNBaW9DWnRsSWVZTHVwNk9aMDVaNkJLNnRjVndIY29LOHpoRmVld0hLaUJxWFAtSTlYOERSeks0R0V6NzVYSEpzc2FON0psYTkyemJUdkdyQ0lNdVFLV2Zxa2FPNnJpeEJYSEhnU204Rnl1S0RBYWlHeThNQmdrYU8wS01zMGJ0cW13cG5TRTAtNWhkWWpQekJPX3FIdHJSWWxHYy15c25iT0E2OWVXSFdralZtTXMteUpDeGc2ak5XLW9DaGlwWTM4?oc=5"
   },
   {
-    "id": "shein_018",
+    "id": "shein_019",
     "title": "SHEIN在波兰投资5亿欧元扩建欧洲物流中心",
     "content": "SHEIN在波兰投资5亿欧元扩建欧洲物流中心  电商派",
     "source": "电商派",
@@ -68,26 +98,6 @@
     "platform": "shein",
     "date": "2026-11-05",
     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5DbmFCTHFFaW9nNkVWUnZPSVlLVGFqc1ROX25aYUg5djdTQXNOb0E0UXlmdU5WS054bkdRY2pIMUhON0ZVMWZCaU9TQ3BqT1VTazJIanBkUGdKWHpkblB0UA?oc=5"
-  },
-  {
-    "id": "shein_019",
-    "title": "新加坡SHEIN追加5亿欧元扩建波兰物流中心",
-    "content": "新加坡SHEIN追加5亿欧元扩建波兰物流中心  维度网",
-    "source": "维度网",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-11-05",
-    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBWMjhzc1pTeWJ6d3kyRHlvclRSZXZITmx1bmZlVzBUWFNzdUVrVFhYQm93aHR6QWlQM2w3LXozRlZzYm1XMkZpeUw0MUdtYkk0bXhfYXNiS1U?oc=5"
-  },
-  {
-    "id": "tiktok_025",
-    "title": "Full Alliance Group (OTC: FAGI) Announces JusSpray Growth, New Website, TikTok Shop and YAHIVE Launch",
-    "content": "Full Alliance Group (OTC: FAGI) Announces JusSpray Growth, New Website, TikTok Shop and YAHIVE Launch  The Manila Times",
-    "source": "The Manila Times",
-    "type": "press",
-    "platform": "tiktok",
-    "date": "2026-11-05",
-    "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQczYzSHNvN3ctSFNFNy1YOGVEclowVEZxcFUtREdKM0pxVUJSS3Rtc1ZJNkYwaWd1aDE3NHVLTzRTR2JZMW1oWU1Nem5LZ3hBcDRoU2NBelFBQTVZUG5zeWUyRjMteVNoX1ozUkRZSEQ3Q0VQam1kQml1QS1TYnQ1ajFvQ1owd2NOVVJGMjVvVVlTeUNzakczMWdlVWVsNHlpNV9ua0kxVjZCa2d4em50MXdOR3pGZEV3blJscGltRlJ3YmNfM2s1T1dsUE9FSnNMemhvWnN6STB5R1BrZ2RYWDlRSVVjVU5iLTVETnhNMkpIRUlkd3ZUNXlQSXRURGfSAYQCQVVfeXFMTnVPcGZ4NDcyVlRTczU3c2RCSWVrUGFXRk9PZmlNT1VyUUttMDZEZ3ZWMU5fSlRUVEQ5MnJjVzhYOEhYckU1WlNIMWxZNnlOa1Jfd05HYWhzQVZyUHJWSERrLWh2UnZPYVpxZFZPZGFNOC1RdXBGU1A0bFFCQXZ2SjZrVnFXY1NoZlJoSDBEaXI4WWtheUlyRE9vTzRmQ19VeFFuZUF4WWl4OEcwQ2NxS0FIVDNTOUo4WjBZU1FmOGYteUV2elFGazZXQ21pTlBrUGlod2ZGZk1FbkZPckpUZmh4a0xfdGlqYnE4WlNLaFpwS0RfaUtuR0FiWk5sbHZLb1Mybkc?oc=5"
   },
   {
     "id": "aliexpress_049",
@@ -98,26 +108,6 @@
     "platform": "aliexpress",
     "date": "2026-11-05",
     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5seUwxZU84X2p0NW9kTGxPRHRSaVEwZXUtbGJsVkt4aHd5Yjh3QktkYlRJcDVOSE9KSVBfVW5yQ0VSMUNxU0RFUUJRbU5aU3REb0x6eWhsOExwZWxtRFA0YUNFdVVUM3U2WDRQVmxLT0JMLXIyeGc?oc=5"
-  },
-  {
-    "id": "shein_095",
-    "title": "Shein invests 500 million euros in Poland for faster deliveries and expands its logistics center near Wrocław",
-    "content": "Shein invests 500 million euros in Poland for faster deliveries and expands its logistics center near Wrocław  Informat.ro",
-    "source": "Informat.ro",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-11-05",
-    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbjF1QnkzLWRGNm4wUG9lZk5ZdEFmZGhCdVdwVFpjaE5ILUxpRHNLSHluR1R6eUtJRW1iTFlzcXBTUEk0dFB2dW01S1JQcndZbE9sQVNHR0ZBX21iSmNHRnNNUUREVkNJRFk0TEVmcHFrdE1vT3JNM21CUUJNalZnblB3?oc=5"
-  },
-  {
-    "id": "temu_002",
-    "title": "美国海外仓怎么选？TikTok、Temu旺季一件代发与本土履约指南",
-    "content": "美国海外仓怎么选？TikTok、Temu旺季一件代发与本土履约指南  雨果跨境",
-    "source": "雨果跨境",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-11-04",
-    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1FT2RLVGtmb2tWZEY0WVVUZFppRHdDT243Ql9pZm5MLVFRM2lEd3B5Y2I1bnVueGVXZDYzYmNuMzRaYl9UYTJUUmtiVEs?oc=5"
   },
   {
     "id": "shein_020",
@@ -150,7 +140,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBwZ2VwQ1ltUGtjbzZ4blhkZzFxOThiTGJXV3kwVHNHUldKWkh4eDFVb0U5Y1JMd2NkOEx2UV8zMk9yV1ZMYXQwV0s3Y2Y2UQ?oc=5"
   },
   {
-    "id": "temu_003",
+    "id": "temu_001",
     "title": "China's Temu, JD.com revamp business models amid tariff headwinds",
     "content": "China's Temu, JD.com revamp business models amid tariff headwinds  Nikkei Asia",
     "source": "Nikkei Asia",
@@ -160,7 +150,7 @@
     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNcXFvUWRfaHp5NU8zSVZHU3doQnl1aXRKUC1hcEZwaHlVS1NRbEZoVllOWmVGaDJNTFdET3gtVFhLb2JMYkh4LWJfTVVlS0EtakVYWElEZkloWnZBZE1XZy1tN29QV1FobTJUT2NTQzVSb2FRV2dNVVVKQVBaOU1RRWtTblNkaGlReTBDMHhEV3cyQ2RfSjQyMTJXZEhPRklrOFlkRUJ2Zw?oc=5"
   },
   {
-    "id": "temu_004",
+    "id": "temu_002",
     "title": "Temu的流量，去哪里了？",
     "content": "Temu的流量，去哪里了？  雨果跨境",
     "source": "雨果跨境",
@@ -180,7 +170,17 @@
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9nM1dwQXozdlNJck9UZ1BEMkFxNVdJTDlia2xoZ0ZwUi1POG4wMTVNRHR3aDRLc2pfeHRVVnZNaXZjQXpGaUttZlJPbUR3V3JDU0dERFYxWUE3Y3NETHZQdUNOaTN4WEhsejBCMA?oc=5"
   },
   {
-    "id": "aliexpress_064",
+    "id": "aliexpress_063",
+    "title": "独家｜今年速卖通海外双11，原本要躺平的欧洲，居然爆仓了！",
+    "content": "独家｜今年速卖通海外双11，原本要躺平的欧洲，居然爆仓了！  雨果跨境",
+    "source": "雨果跨境",
+    "type": "press",
+    "platform": "aliexpress",
+    "date": "2026-11-03",
+    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFB6SlVDS28wdlVkanNIRFg1MmdUX1ZxMW9YZU5mRW1mRnVoMXN2WHRRTzVEa0c4YnZ2ZC1ucll5WmlrSDU4YXZXQUVUWnA?oc=5"
+  },
+  {
+    "id": "aliexpress_065",
     "title": "速卖通双11开门红！品牌成交同比大涨200%",
     "content": "速卖通双11开门红！品牌成交同比大涨200%  雨果跨境",
     "source": "雨果跨境",
@@ -190,7 +190,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5YRFQxVzhscUpLbmt3aUtGX3JoWkcyNXJ0Z09VUWM1NFQyM0haajhLdUdnT3d1T2tMb19LMVNzVXh5Sm4tcTJDTGtIQnU?oc=5"
   },
   {
-    "id": "shein_073",
+    "id": "shein_075",
     "title": "法国Shein首家常设店落幕：流量为何救不了百年百货",
     "content": "法国Shein首家常设店落幕：流量为何救不了百年百货  端傳媒Initium Media",
     "source": "端傳媒Initium Media",
@@ -200,7 +200,7 @@
     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE84eUZaemFuM1lESUl4YkcwenFSclZhZ2pjNlppUDBieVNiRGlPS2RCdjZhdTFVVnF4cTZ3VUQxcVV3LVdYMnZyU25JU043VFJLbTZiSUpIc3BOY1pncmhadzAya3lsUENRTE9kVGFKQVRKOTVsRDZzUkhB?oc=5"
   },
   {
-    "id": "shein_086",
+    "id": "shein_088",
     "title": "希音SHEIN全球经营观察：美国修复、欧洲建设、新兴市场放量",
     "content": "希音SHEIN全球经营观察：美国修复、欧洲建设、新兴市场放量  中华网",
     "source": "中华网",
@@ -210,27 +210,7 @@
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA4OUlHVmdScW1YT3psa1lmQzhzRDBwMVE5QTJuVUNGSHFIODlMMW56STVHVHdOYm4tejRibDRqWnRVa0lSSlFMV3dGTTVUd09QN0VpRjYxZ3l6dFZaM0FTVnZyS2xIdFFkc1R1VA?oc=5"
   },
   {
-    "id": "temu_091",
-    "title": "EU to Add 2-Euro Fee on Small Parcels, Targeting Temu and Shein",
-    "content": "EU to Add 2-Euro Fee on Small Parcels, Targeting Temu and Shein  Seoul Economic Daily",
-    "source": "Seoul Economic Daily",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-11-03",
-    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZ0ZOaWNxVlBHSENjbDZ1NWFVak9DTUhpRTQtMWRLaENLT2FQXzc1Yk1memFrWHVReDhkRnBUMG1sa1ZJUDlTdmxqWHJkcGQzOXczQmdkMDRNc3JUYlVtcnpTN0RBVTQ5T2V6bE84WDZYazVkR2dJMEoyYzBjYzZNankyTUtEV04zb0E3T2ZLc3lXMmtTcEN5dFNRWVcxQjVPWkxuTVpTZw?oc=5"
-  },
-  {
-    "id": "shein_023",
-    "title": "Shein suppliers feel the squeeze as sales growth falters",
-    "content": "Shein suppliers feel the squeeze as sales growth falters  The Times",
-    "source": "The Times",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-11-02",
-    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPZDQxTXhJREk2WGNBV3F3YUF4SUw4anJYdENocnhSS3R2SDc1M2JVRmNjUzRuWDJWS1YtLVBOcHFBVEtxMzY5bFJsWGlNOEwtNDUtdHJRdXFDQUt5MnJYcU1WSVRDX0otd0ptTkxtZDBFX3lnU0ozMEhVVmxEVGVsa1BsamVJNUdpZG9yaHR5Y05fQ3pJdU5SSUZsNjhPcU13Vmx2WU5rMTVQcFhvejNobGlB?oc=5"
-  },
-  {
-    "id": "aliexpress_063",
+    "id": "aliexpress_062",
     "title": "备货超万台还是不够卖！速卖通品牌商家借官方仓逆势大涨",
     "content": "备货超万台还是不够卖！速卖通品牌商家借官方仓逆势大涨  雨果跨境",
     "source": "雨果跨境",
@@ -240,7 +220,7 @@
     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE56RGhkTFZkQ1IzLTBhbTRCTGZJOERQQkdxRFB0ZUtNRi1MM2NtRG81NlBzejU5amZ5b182SXJYYnREX3ROLUJGYXRzZGEtTEU?oc=5"
   },
   {
-    "id": "shein_071",
+    "id": "shein_073",
     "title": "希音亮相第140届广交会，“技术创新+人才培养”赋能时尚企业高质量出海",
     "content": "希音亮相第140届广交会，“技术创新+人才培养”赋能时尚企业高质量出海  36氪出海",
     "source": "36氪出海",
@@ -250,7 +230,7 @@
     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1RcXRWVnZLbkd4dHVJaTBFaTk5S1U0bExTR0wzSFVWMUtFaWlPYmpTOWIxUVlrdV96UWE3ZksyUm50YkpPSUE?oc=5"
   },
   {
-    "id": "shein_024",
+    "id": "shein_023",
     "title": "跨境电商周报：亚马逊Q3净销售额同增12%；TikTok管控AI直播；SHEIN加大半托管招商",
     "content": "跨境电商周报：亚马逊Q3净销售额同增12%；TikTok管控AI直播；SHEIN加大半托管招商  亿邦动力网",
     "source": "亿邦动力网",
@@ -258,6 +238,16 @@
     "platform": "shein",
     "date": "2026-11-01",
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1JWkVUSzl1eTBxOE8wLTdtd1JWQkVPOTFfaU96VWdGY3huVXptMkdYYjc1RmRRdWd2QTJkUURMeVg1RWdDeHBPdHdSYUpwYnhPNXFqTWZ3?oc=5"
+  },
+  {
+    "id": "shein_024",
+    "title": "从一次性支出到长期经营能力：希音（SHEIN）如何把合规成本变成竞争力",
+    "content": "从一次性支出到长期经营能力：希音（SHEIN）如何把合规成本变成竞争力  中华网",
+    "source": "中华网",
+    "type": "press",
+    "platform": "shein",
+    "date": "2026-10-30",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5aSG8weUZ5bk9UT0hka0VPcXdlMzQxZ1h6NmtBTjNLN1lGS2NFZUpRWGNralo4LXhvQkFkNDh5ZDhUcXRDZTdobUNyRWlsUk9VS0p2VkhfSThFTUE3NUZLMlU0SGNUbW9yTmdudg?oc=5"
   },
   {
     "id": "tiktok_029",
@@ -270,7 +260,7 @@
     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9qVGxmWm5NbjYxemVOWWtneDljYWYyLXVmSUVQZkloQVc2UlZBTGlCZlpkMXBIenJBSER0VHJCYnREMEhQai1pUjVCMDhEWjl6dTRkdmZIUmc?oc=5"
   },
   {
-    "id": "temu_068",
+    "id": "temu_070",
     "title": "中国公司全球化周报｜Temu欧洲4国零售登顶、8国第二 / 京洽会报名持续进行中",
     "content": "中国公司全球化周报｜Temu欧洲4国零售登顶、8国第二 / 京洽会报名持续进行中  36氪",
     "source": "36氪",
@@ -280,7 +270,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBaRzhWZ1hZVXlIVzdNZWswblJVSU9KWE1ibE0xdHJ2N1h0ZXZJU1lRZm44VG5wTjZxNjl3Qm1oTFB4NVhETkIzUjJ5aVJkUQ?oc=5"
   },
   {
-    "id": "temu_005",
+    "id": "temu_003",
     "title": "Temu Strengthens Proactive Product Checks as Warehouse Labs Pass Bureau Veritas Assessment",
     "content": "Temu Strengthens Proactive Product Checks as Warehouse Labs Pass Bureau Veritas Assessment  PR Newswire",
     "source": "PR Newswire",
@@ -290,7 +280,7 @@
     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNVmc1T19OQ1pDSmdCb2Utdl96NDB1bEVOT1A0ZmxYN2dqN3FpSklXUndaSzQzVllkWjhFTHRvU1E1V2ZRYWllWDBXcUgyU2JFa2hLdDJEYl9MR3F0LUNrdnVvYl9xWUN2SS1XSTh3ZE9mbV80dlZidkxiVXZXZE40anhSbzhTWFZwZG5CWUxGcnFfM3poM1NqSE1lRDEyeEtWc2VJd01XbGFQY29HOTlSS3RDNlV0WE9qMGMtWWJVOXNpNWxBRFViMm0wX09PUjdUcEJwaWhUcjBmU1FVZkxr?oc=5"
   },
   {
-    "id": "joybuy_037",
+    "id": "joybuy_038",
     "title": "JD in the Netherlands Bolsters Hunkemöller’s Rapid Growth in Europe",
     "content": "JD in the Netherlands Bolsters Hunkemöller’s Rapid Growth in Europe  JD Corporate Blog",
     "source": "JD Corporate Blog",
@@ -298,6 +288,16 @@
     "platform": "joybuy",
     "date": "2026-10-28",
     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQM2pRT2hTWUg5MlY0Z2NjS2gtYkJoMUlBWmViRUQxdS0yeHV0TTRKX2t2bWVDSnh2c0FFNHJqT0NJWDdhR09WSXVRa0V4OEVMU1dHaXZRVnJCSVlnRUZvNHJET0lNMEtyMkl2S2UyQWx3ZXVEa3Rnd2RUdmNpSTdJajJiT05PQmJneEE0Q1N0VDZJNDFCRm5yQkV3RQ?oc=5"
+  },
+  {
+    "id": "aliexpress_064",
+    "title": "30%增速背后，是速卖通海外打法变了",
+    "content": "30%增速背后，是速卖通海外打法变了  雨果跨境",
+    "source": "雨果跨境",
+    "type": "press",
+    "platform": "aliexpress",
+    "date": "2026-10-28",
+    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1xZkZpaUE5X3JOaHhSWGdqUjJBa1JDcG5BcDFlWVNycDBra3JkTk5tRUxGM0VSdWZfVDJJNDBpempnNy1wOHgyNkswb18?oc=5"
   },
   {
     "id": "tiktok_030",
@@ -310,7 +310,7 @@
     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1rOHZvSFVaUFY3RENWa1RUOWdVRTJhMksycWJtZjJWaDhVMzAxaXQtSkM3RnZRYlp6cDAya1JUMXZhNG9zTzRaTkpKZ3g2dmJOZURhNlM0cXFfOFp4Vnd3ZEZuV3BXbEFmZ09v?oc=5"
   },
   {
-    "id": "temu_006",
+    "id": "temu_004",
     "title": "Temu Partners with Spain's Recyclia to Support Seller Extended Producer Responsibility",
     "content": "Temu Partners with Spain's Recyclia to Support Seller Extended Producer Responsibility  PR Newswire",
     "source": "PR Newswire",
@@ -318,6 +318,16 @@
     "platform": "temu",
     "date": "2026-10-26",
     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNSzFVbFRSUVEtdEVtaGI1STdISjdDM3owa3NMVFFaeUlxM1QzaXZMcC05MmREVTk4TVFodkRxSkJJRlJaLUtrd3RsOW1HZUQySzFLaUxNY3dHbFN6NFlZMDF4QUc3R3RZeHFQRGZBZ0gxVVhKdFdKWTFXZF9VWXl6OUFGRTRvckFmSmFKNXdrSTFjM3JHOVkyYU5rVDFaSVB6UEV4WDVtUTRYQVVOQ0JiVXVtOVVuQ0oySlpiT0xPUjhPcDVBQldKQlMxNVNwUlczS0REZlY3T0w?oc=5"
+  },
+  {
+    "id": "aliexpress_069",
+    "title": "10月26日电商早报：美团拟共建1000家超级厨房；速卖通欧洲配送返30%",
+    "content": "10月26日电商早报：美团拟共建1000家超级厨房；速卖通欧洲配送返30%  亿邦动力网",
+    "source": "亿邦动力网",
+    "type": "press",
+    "platform": "aliexpress",
+    "date": "2026-10-25",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9BOHFDaGpxaGdwM3EzeGVQamdyQ0l5U1g3ZVhLcFJxMVpTZFljVHFqZjY0bjM0UTdyRUJnTGJjVDVXS2lhb1VhSlI4aUxDZFBtRHlXYS1R?oc=5"
   },
   {
     "id": "tiktok_031",
@@ -331,13 +341,13 @@
   },
   {
     "id": "tiktok_032",
-    "title": "TikTok Shop官方物流CBT接入美通墨店铺美国仓可直发墨西哥消费者- 跨境电商",
-    "content": "TikTok Shop官方物流CBT接入美通墨店铺美国仓可直发墨西哥消费者- 跨境电商  亿邦动力网",
+    "title": "跨境日报：TikTok Shop官方物流接入美通墨美国仓直发墨西哥链路成型- 栏目",
+    "content": "跨境日报：TikTok Shop官方物流接入美通墨美国仓直发墨西哥链路成型- 栏目  亿邦动力网",
     "source": "亿邦动力网",
     "type": "press",
     "platform": "tiktok",
     "date": "2026-10-23",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE43ampXVlNEME5XX0NINVhIY09LXzFYTFJsNDZ5cjNVYk5jRzVhOUxVTTJNbzgzQkdwZHVXMlVFdnVqdkh4VE1raGJ0YmI1Qi1raTl3Q1FR?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBjeHctQUUwZEg0VXM5QWRYODRkYTRDc1dDOEU5UGZ3OG9GM3RpTHBNQmlGVlZmR25kVEVSU3hrdDNLbXJmSldoTW1XM0szTXZjVlZIdUFn?oc=5"
   },
   {
     "id": "tiktok_033",
@@ -361,36 +371,6 @@
   },
   {
     "id": "aliexpress_051",
-    "title": "我们和几个品牌聊了聊对速卖通&天猫的“中国品牌全球增长计划”的真实想法- 跨境电商",
-    "content": "我们和几个品牌聊了聊对速卖通&天猫的“中国品牌全球增长计划”的真实想法- 跨境电商  亿邦动力网",
-    "source": "亿邦动力网",
-    "type": "press",
-    "platform": "aliexpress",
-    "date": "2026-10-20",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE91Z1E5TVQ2NUItWjRsNndGNW80ajJfVG1MUk43VEpVTHYydWVXM1dOc19GLV9kODV1a3pweVNSNDE0S3I3WmRkZ21icGc4WURPcWI3RU1R?oc=5"
-  },
-  {
-    "id": "aliexpress_052",
-    "title": "电商晚报：亚马逊欧洲站燃油与物流附加费上调至2% 11月2日起执行- 栏目",
-    "content": "电商晚报：亚马逊欧洲站燃油与物流附加费上调至2% 11月2日起执行- 栏目  亿邦动力网",
-    "source": "亿邦动力网",
-    "type": "press",
-    "platform": "aliexpress",
-    "date": "2026-10-20",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE10bl9SbTEwZk85T0pUSzBEZEt4c3VYTjlUOElmZk5DYTRGbjNLeGU2R0pQQzZpQTNIc0pxWDVxOFJ2VVNpV1RwVnZPVER5WDlqNURwOGZ3?oc=5"
-  },
-  {
-    "id": "shein_087",
-    "title": "SHEIN加码欧洲物流布局，波兰物流中心再扩招数千人",
-    "content": "SHEIN加码欧洲物流布局，波兰物流中心再扩招数千人  全球定制网",
-    "source": "全球定制网",
-    "type": "press",
-    "platform": "shein",
-    "date": "2026-10-20",
-    "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1WdkJ3Wm1wbTNBZ2xnMHRxTk1fbWx0dUxNVkJEMEpXZzVGOTlGb2JXWE9jZTRTd1diRUJSQTFVdjRlYUtrNFFBOFIwZ0lQZw?oc=5"
-  },
-  {
-    "id": "aliexpress_053",
     "title": "速卖通未来三年战略定了！品牌出海冲刺“双50%” 增长目标- 跨境电商",
     "content": "速卖通未来三年战略定了！品牌出海冲刺“双50%” 增长目标- 跨境电商  亿邦动力网",
     "source": "亿邦动力网",
@@ -400,7 +380,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1tbHpQTnFLczlvZE9zbTNSRU5oQmdEWExaZVktVk9iM21aN2dRbUhQbFFFS1RBMkNnZEloTkNaVEJQOXpKRl83T3paakZIdUdPbWtuTk9n?oc=5"
   },
   {
-    "id": "aliexpress_054",
+    "id": "aliexpress_052",
     "title": "速卖通和天猫发布“中国品牌全球增长计划”，重点扶持3类品牌",
     "content": "速卖通和天猫发布“中国品牌全球增长计划”，重点扶持3类品牌  雨果跨境",
     "source": "雨果跨境",
@@ -410,7 +390,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1BQ3F2ZnJIUlBJNF9fUkhSQ3BpSElodjJ2NXdlSFJFY05oR0ZsM3liMUtjZ2d0V1ROTWNIUUMyUXdoZUZaWkVOZ0hHc2k?oc=5"
   },
   {
-    "id": "aliexpress_055",
+    "id": "aliexpress_053",
     "title": "重磅！阿里速卖通放大招：0佣金0年费！巴黎玛黑区官方招商会现场爆满",
     "content": "重磅！阿里速卖通放大招：0佣金0年费！巴黎玛黑区官方招商会现场爆满  华人头条",
     "source": "华人头条",
@@ -420,7 +400,7 @@
     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUVRVNktjYVRkRVNhUWhWUzhMaFQxeEVrNFJMQUZfX2h5YnFLajJxWklDU0psbkdBT2FuQzN2a3FPOTNFRnhRTXRIUk9NR1U2eldSZ1Vlb1lFODR1bXhiV1ZYeGl5TUhzRzFULUJ4TUcyaUFEZVZQV3REaHJLZUJkdlhLZ1hGdFVZ?oc=5"
   },
   {
-    "id": "tiktok_066",
+    "id": "tiktok_067",
     "title": "跨境电商周报：美国收紧低价货物清关规则；TikTok Shop上线AI购物助手",
     "content": "跨境电商周报：美国收紧低价货物清关规则；TikTok Shop上线AI购物助手  亿邦动力网",
     "source": "亿邦动力网",
@@ -430,7 +410,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE42U2pqXy02S19aNVFLcXdGN1JmUnIzbG1tazZmN1EtU09BT20zZDJFM0dVMWxJQkxJTE1rRnBCOVJfU2RsbjVRN2wzX3g1eGdBWFU4V0tB?oc=5"
   },
   {
-    "id": "tiktok_088",
+    "id": "tiktok_089",
     "title": "TikTok Shop菲律宾站公布10.10大促履约与截单安排- 快讯",
     "content": "TikTok Shop菲律宾站公布10.10大促履约与截单安排- 快讯  亿邦动力",
     "source": "亿邦动力",
@@ -440,7 +420,17 @@
     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE13Qms1bWlNbUtCVzdHWTEtVjJUZTdEMlRqTFkzelBpbTNMOWNPWXdWa2FZNzhqb2lHV3NOM2lCcHF4bkFtS2lhMnA1dTY4SjNRaXAtR0xteGw?oc=5"
   },
   {
-    "id": "temu_079",
+    "id": "temu_005",
+    "title": "‘Temu Range Rover’ is UK top-seller again as China cars boom",
+    "content": "‘Temu Range Rover’ is UK top-seller again as China cars boom  Automotive News",
+    "source": "Automotive News",
+    "type": "press",
+    "platform": "temu",
+    "date": "2026-10-05",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPeldwYlZQaTZrTkdRN3dZNVhNZ29YUGtiZFJxYURaUjdNYXpRRk45NEdFTHhObkVOU2JJNnhMT252ZC1zOWdGVnNveTdrWXphLUV0QlhFdExwZG91NFdqamplUzRaZ200WEJoREZuV0pwa3ZMbDFpVUZ4MUwxNUJyV0VqMU5TZGt4Q2c?oc=5"
+  },
+  {
+    "id": "temu_081",
     "title": "SHEIN首份财报净利倍增Temu深耕欧洲本土化| 邦小白跨境周报- 跨境电商",
     "content": "SHEIN首份财报净利倍增Temu深耕欧洲本土化| 邦小白跨境周报- 跨境电商  亿邦动力网",
     "source": "亿邦动力网",
@@ -450,9 +440,9 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5yTXJubHd0Wno4N3c1WnZvbmpkWW5sUDc5bjV0OXlMTS1SWEF2NnAybk1RelAtRE42bjFtOTMxRV9lSGFhTE1YOEtwYVpJVUlkY0pFc2hn?oc=5"
   },
   {
-    "id": "temu_007",
-    "title": "‘Temu Range Rover’ Is UK Top-Seller Again as China Cars Boom",
-    "content": "‘Temu Range Rover’ Is UK Top-Seller Again as China Cars Boom  Bloomberg.com",
+    "id": "temu_006",
+    "title": "‘Temu Range Rover’ Is UK Best-Seller Again as Chinese Cars Boom",
+    "content": "‘Temu Range Rover’ Is UK Best-Seller Again as Chinese Cars Boom  Bloomberg.com",
     "source": "Bloomberg.com",
     "type": "press",
     "platform": "temu",
@@ -460,7 +450,7 @@
     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORGE2ZVZ2UzdualQ1M2pGcHNoa2pGcEs5WThGbE9Sb3hXeGM3V3RSaV83OGx5YnNZdW9GbEtENXlsajNqV1NuZFEyVmZxX21jdmEwTlc4NzlmQmxzMnNfZlpZUzl1em1WU2VJdC0tLW5GSy1ydmRhQWtpNjdNazAtcmJwUjdfT1VOTXlxeV9Ma19pSWJSOV94cHMtb2lnWU03LU1xWl9zNUNIb1QtR2oyckVCNA?oc=5"
   },
   {
-    "id": "temu_008",
+    "id": "temu_007",
     "title": "EU introduces new 2-euro fee on parcels from China from November",
     "content": "EU introduces new 2-euro fee on parcels from China from November  Around Prague",
     "source": "Around Prague",
@@ -470,7 +460,7 @@
     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNFhvX0MxSUFxZFZuV1RFU1F2RVduNHQ1cU1WNVBYR1ZDX2ZzUUZydkVWcURTLVlGcjNxdmt2UVdBbUtNSlRYQkQwWXAxSmhVVWhWM0FzNnJXcTFvZmY2VVRLNDk4aF9TNFY0WGVfWU9OSW50d1AycVQtcHA1Q213N3VIQVdzdWpSWFZ3TkcxR3NrZUI3TGhhd01Bd0lEMkNKcmNkanFR?oc=5"
   },
   {
-    "id": "temu_080",
+    "id": "temu_082",
     "title": "盘点：过去一年，Temu为融入欧洲做了哪些本土化动作？",
     "content": "盘点：过去一年，Temu为融入欧洲做了哪些本土化动作？  新浪财经",
     "source": "新浪财经",
@@ -480,7 +470,7 @@
     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBHd2FORkRURWFNeDc0cUxQQ3A0QjFpUm9pYUgyV3p1ZFdQMnBraW9oell5b0lqU0hoUlItbGJkakNkODJTckwyLTRhQTJyTjRiYUNFOTZhQ0xWTGpVLVBwM1JSZ0Zib0ZtRVRaRFpZRzlKbkxMQlFkbTBEUWFMTVk?oc=5"
   },
   {
-    "id": "temu_082",
+    "id": "temu_084",
     "title": "15点聊电商：盘点：过去一年，Temu为融入欧洲做了哪些本土化动作？",
     "content": "15点聊电商：盘点：过去一年，Temu为融入欧洲做了哪些本土化动作？  亿邦动力网",
     "source": "亿邦动力网",
@@ -510,7 +500,7 @@
     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1XZFFITVhtZXIwM0IyR3ZuTzRHRjd2NUFvZ29QS2NvNHJBSmwxVm11RGhKb3Y0LXBqMWtneFJtRmhFWEJGM0lZQVp6OW01ZTFLQUxiZ194Si11cVN3WllIMEZGZTNpSHNNdGJCaEZWZFFnYmpydE5LODctb0pra0k?oc=5"
   },
   {
-    "id": "temu_009",
+    "id": "temu_008",
     "title": "Temu Expands Seller Education with Bureau Veritas, QIMA and TÜV SÜD",
     "content": "Temu Expands Seller Education with Bureau Veritas, QIMA and TÜV SÜD  Yahoo Finance",
     "source": "Yahoo Finance",
@@ -521,16 +511,16 @@
   },
   {
     "id": "tiktok_036",
-    "title": "TikTok Shop美国站，接下来拼的不只是流量",
-    "content": "TikTok Shop美国站，接下来拼的不只是流量  雨果跨境",
-    "source": "雨果跨境",
+    "title": "电商晚报：TikTok Shop欧洲黑五投入十亿级资源 新商佣金最低降至2%",
+    "content": "电商晚报：TikTok Shop欧洲黑五投入十亿级资源 新商佣金最低降至2%  亿邦动力网",
+    "source": "亿邦动力网",
     "type": "press",
     "platform": "tiktok",
     "date": "2026-09-23",
-    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE13NGppd2lVZ202a3EwRER4UHQyNkdHaldEM2w3Zjg4aDM2cjYxS0dKR0FQQWM3WUFlR25JeEx4cnJuOTZMQWtNSnVDUi0?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA0dWp5RjZ2MWVZek1GenprU1lwWVlJdWxQNHVUcjVVaWhEMDFEakw5aENuYVZMMGxYbkxqZW1pYUJrSVl0Rzd0b3NTZGZOZ2JrUG1zMHJB?oc=5"
   },
   {
-    "id": "temu_100",
+    "id": "temu_113",
     "title": "Parcel market in upheaval: Shein, Temu & Co. relocate logistics to Europe",
     "content": "Parcel market in upheaval: Shein, Temu & Co. relocate logistics to Europe  Logistra.de",
     "source": "Logistra.de",
@@ -540,7 +530,7 @@
     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYVgwX3dOY245ZG1Oem5ycWw5VzVSSUhEb3d6cDlMTzZOSDRzWm9iVG5RWHhTRXNaRnl4RUJ0ZUVPWTA5djNFNE51aHJfQ2lQaTkxODJrMDRFN1cyZEZ6NHhJb2hPdXlJb21yOEUyOF9DZmJFdUFLaFdpZXNJS2I1YkVtU0xOVjB2M2dsbEZBMHRvRWJHWDhSajZvVWxpdzlXQXdfeA?oc=5"
   },
   {
-    "id": "shein_089",
+    "id": "shein_091",
     "title": "SHEIN扩建美国本土履约网络印第安纳州新增73.7万平方英尺自动化仓库- 跨境电商",
     "content": "SHEIN扩建美国本土履约网络印第安纳州新增73.7万平方英尺自动化仓库- 跨境电商  亿邦动力网",
     "source": "亿邦动力网",
@@ -550,7 +540,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5KV2ZDc3JWY2pLS1VodHJNSXNOa0xhSGw3alVRaEpXbjBCaDNkS0UwNVBoeU13YzlQRExIQ1dFRlZhd1RTT1ZEX3p0Z0ZHT01JTWFtcGh3?oc=5"
   },
   {
-    "id": "temu_010",
+    "id": "temu_009",
     "title": "Temu owner invests in local fulfillment in face of de minimis changes",
     "content": "Temu owner invests in local fulfillment in face of de minimis changes  Supply Chain Dive",
     "source": "Supply Chain Dive",
@@ -560,7 +550,7 @@
     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQblB2N2l0RkVoOUF6YTBMUlNlQS0ySEF1NUp1OHQxejRFRWxSUFhLUnFSWTNBMk44MnpkOUthTTBhVFo1UzBkM1JMX0Q3cVQ0S3YxYXVMeFk3NXVNUXpCcW15Snk4b3RMS3NPNjVsMFlWSUpEMU1aVVhGS3F6cXlqTjBSeHhBVlV0M0xTbS1zR2FFYndIUG9jQmRvNmNRYXMzUkVrZnFBRDViZF9Fd3ZvNlpIWWY?oc=5"
   },
   {
-    "id": "temu_011",
+    "id": "temu_010",
     "title": "Temu and Poșta Română sign a Memorandum of Understanding on logistics services for Romanian traders",
     "content": "Temu and Poșta Română sign a Memorandum of Understanding on logistics services for Romanian traders  PostEurop",
     "source": "PostEurop",
@@ -570,7 +560,27 @@
     "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNdVNGSXJ2Z3dRdExzWUZUVF9hdVM4enRWdHBjdmlDTEVsNC1kbVBBR0JHWjBKdl9aZHg0YWEtTVNTT18wajN2SS1wOThZcERuRWJRMFNIalJTOFMwS2U4b1pFUzQ3YXNTS1M0X3didlBpZFRtTjg0c3VEdnZva0RJNEViR3ZDenlwRE9RVzdzQS1uTDkwM0J5U0UxaEY4dW1peWh6WnZOcExWdUstRk9MU3RPUjI5aDd6Z0ZvRTNMRWVwb240N3pseWh4VQ?oc=5"
   },
   {
-    "id": "temu_012",
+    "id": "tiktok_079",
+    "title": "从\"流量\"到\"商机\"： TikTok Shop × 奥创跑通AI出海增长系统_行业动态",
+    "content": "从\"流量\"到\"商机\"： TikTok Shop × 奥创跑通AI出海增长系统_行业动态  投资界",
+    "source": "投资界",
+    "type": "press",
+    "platform": "tiktok",
+    "date": "2026-08-27",
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1SYjktcDgzWDFsVHB2MmRIcTJ3WmpIZ19PWE5CTlJHY1JwV1NsWDdvZ0JUeThDOGRJeW44eWZndmkxS3R1bTRxdTVmUFV2d2pCekF2dGs1Qkg?oc=5"
+  },
+  {
+    "id": "joybuy_039",
+    "title": "第十一场京东品酒会落地东莞，京东欧洲Joybuy成交额、用户规模持续快速增长",
+    "content": "第十一场京东品酒会落地东莞，京东欧洲Joybuy成交额、用户规模持续快速增长  新浪财经",
+    "source": "新浪财经",
+    "type": "press",
+    "platform": "joybuy",
+    "date": "2026-08-25",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5ROWtyaUlobmctT3NOU3hEOVJCeUF0Q1N2QlpJd3l3QjlfMzZValdzNmtXTi12QTJnOFBPbnFGaUlCY0ZsUTNTOWNHS1FEMXluUHIxbF9YcV8yYk53dTMtX1lXbzQ0NUFpdjQ4UFdVNG84X3k5bHc?oc=5"
+  },
+  {
+    "id": "temu_011",
     "title": "Pinduoduo Q2 Net Profit Falls 12% as Ad Growth Bottoms Out While Temu Faces Pressure",
     "content": "Pinduoduo Q2 Net Profit Falls 12% as Ad Growth Bottoms Out While Temu Faces Pressure  BigGo Finance",
     "source": "BigGo Finance",
@@ -580,7 +590,7 @@
     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1hdUQ2T3NTVGFZTl9tZ2JGYjN1RjFvX3JWU0phcFpPTmJqU3NTNjBYaVJfYXdsTmdiVlRESzhldXRETnQ2enhOd0h5cHRZZ0cwdGVSMFFaaVRtVnFOblBhQmhURHFST3BRQnc2NkRKX0NzTWgwd0E?oc=5"
   },
   {
-    "id": "shein_093",
+    "id": "shein_095",
     "title": "Shein Was Fast Fashion’s Next Big Thing. Now It’s Fighting for a Second Act.",
     "content": "Shein Was Fast Fashion’s Next Big Thing. Now It’s Fighting for a Second Act.  The New York Times",
     "source": "The New York Times",
@@ -590,7 +600,17 @@
     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1Zc0RaanItQlJ2LUY3U3c4OUtmc1YyUk8xWi1mVndVRFBtWkRJV3hsVk1IVjlUVHgxQVV0M3ZZQjVERFZJbm5zYkYwWTMyekE5bmZUeFN2UXd2cEx4cGlHM2h2MG5vMG1Rako5VXBiSC1QdzlSSTNZ?oc=5"
   },
   {
-    "id": "temu_076",
+    "id": "temu_012",
+    "title": "75亿流量大洗牌：亚马逊仍第一，Temu冲到第二",
+    "content": "75亿流量大洗牌：亚马逊仍第一，Temu冲到第二  新浪财经",
+    "source": "新浪财经",
+    "type": "press",
+    "platform": "temu",
+    "date": "2026-08-18",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5mUzZCbkhQeHBhbW1IaDV4SndIX1RxX2ZTU1VPZ2t1VmdudjFrSERpM2NGRHZQNUQ3T0tHVWQ2bEtCYTl2bUNHQkRhaDRnXzdWdXBkNnFtOEkxR0JPMi1YMjNzS2twaElaZ0tocnlLSQ?oc=5"
+  },
+  {
+    "id": "temu_077",
     "title": "连续三月全球第二，Temu流量狂飙11亿次，低价神话还能撑多久？",
     "content": "连续三月全球第二，Temu流量狂飙11亿次，低价神话还能撑多久？  新浪财经_金融信息服务商",
     "source": "新浪财经_金融信息服务商",
@@ -600,7 +620,7 @@
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9TN2d5N3NXM1ozeGZDWnJYWVR5dkVjMko2ZkJMSWxXMEVkY242NWVmb3FsTHlBQVdRa0c0d3FQOFBJbENmVlpxZzM5bTJtOTRKc2dGbUVzUGFkNGtaM1pkenhkUi1rNk54UHZILXQyNA?oc=5"
   },
   {
-    "id": "aliexpress_057",
+    "id": "aliexpress_055",
     "title": "Half of Dutch ordering from Shein, Temu less frequently since EU's import tariff",
     "content": "Half of Dutch ordering from Shein, Temu less frequently since EU's import tariff  NL Times",
     "source": "NL Times",
@@ -610,7 +630,7 @@
     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPeWw1T19PR2hrZlRycXlrbDNnZ1VtUGlwQUZPNWF4ZzYwMVJxdFhhZHFWLXpwZUYxOTBXcUtBY2RJQjhsMFpQYkt2TWFPSXY0M0hETEs5WGl0cC01OFZLX1pZem14dGtaOUVQZzFpbEtWcy1ucFJfSE5SNm0zUnNwSmQzLV92SXVMQXRSUGZ4bkFBUlJTSW95SWVONkZFZlAwMWc?oc=5"
   },
   {
-    "id": "aliexpress_058",
+    "id": "aliexpress_056",
     "title": "Amazon dropshipping guide for businesses in Africa",
     "content": "Amazon dropshipping guide for businesses in Africa  WorldFirst",
     "source": "WorldFirst",
@@ -620,7 +640,7 @@
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNMkpHUElqYUx2dUo3OW56VGNKT1V3RXhKUlZiLVljY2RUbWtFalJudU5VN3YzRmFTcjYxNnNyd0F5S3p2N2NyM2ItNUNsbXVRSndDMUdrU1ZPUGgzcnNvU3ktN3A4bXVRSEFPUlRQb2hVNVpFeHQ1ZEZ0SnlLYUowYXZlaGNTRTZ0Vm5V?oc=5"
   },
   {
-    "id": "temu_067",
+    "id": "temu_068",
     "title": "Temu加入欧洲跨境电商研究平台CBCommerce会员网络",
     "content": "Temu加入欧洲跨境电商研究平台CBCommerce会员网络  亿邦动力网",
     "source": "亿邦动力网",
@@ -630,7 +650,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9vVExZbU9LWk5BU0lzX1Y0QUhZbTRDT3JFRkZYYllmcHl1N0hPOVlaU2FCOWYxZzZORTB5UTYtUXJhMF92RnlXbzE1QXZHdnFnVzRtenF3?oc=5"
   },
   {
-    "id": "joybuy_038",
+    "id": "joybuy_040",
     "title": "JD.com Rises to No. 41 on the Fortune Global 500, Strengthening Long-Term Competitiveness Through AI, Services and Global Supply Chains",
     "content": "JD.com Rises to No. 41 on the Fortune Global 500, Strengthening Long-Term Competitiveness Through AI, Services and Global Supply Chains  JD Corporate Blog",
     "source": "JD Corporate Blog",
@@ -640,7 +660,7 @@
     "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOWXVQekFOTEZSZVpsMUE3YlByWTBUcEtsQnFJQnlyTEVuMUNBWkRCS0hUYWNNd3ZUQ3czMXZ0OXBCUWlpa3R5bVdDRncyM0czT3gzOVBEWUQyNnVDUml5dG5XUmJIR3hhRmdBZUUzYTZva3FfeFlnclQ1QlFwZmQzZFc5MldVV24xR2haYjV1Wk4xd3JzM2kzdmIydmpxU2pNUTVvcER0QV9lMGhFS0VoRHVYQ1JhYVFGUkdUMTZxZmNJQktxaHZtZjRMZDdXTnhtTTBBY3ZibHBFN1d2MjA3NlRnbl84cXFDRGdWSEJUMXJKTDA?oc=5"
   },
   {
-    "id": "aliexpress_059",
+    "id": "aliexpress_057",
     "title": "Ukraine went for Russia’s “AliExpress” again—its next-door warehouse was ablaze",
     "content": "Ukraine went for Russia’s “AliExpress” again—its next-door warehouse was ablaze  Euromaidan Press",
     "source": "Euromaidan Press",
@@ -650,17 +670,17 @@
     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWWE3aU81S3FJUTFpZi1KUFZURzlXMXhfMkh0QTdPSkdXM0E1VWxsdy1ZZHFvOHJ3aG12LVkzcl8yMTlPVWJXOFJtOU5Nb0FqOTN2Unh3bU5WdWplUmVrWUwxOVcyYnRtS2RRLURnVmdLdzBWenNHSGF3Y1lEWHhTUXZuZG8wbFBxbTg3N1Q5ZVMtOTMzR0hjWkpHMXBQZXFLakFPV3JNVGhoUTRDWDFBQW10UUtVYzA?oc=5"
   },
   {
-    "id": "aliexpress_060",
-    "title": "速卖通德国Neuss官方招商会火热来袭，0佣金0年费助力本土卖家爆单！_苏里南_新闻",
-    "content": "速卖通德国Neuss官方招商会火热来袭，0佣金0年费助力本土卖家爆单！_苏里南_新闻  华人头条",
-    "source": "华人头条",
+    "id": "shein_090",
+    "title": "SHEIN招股书披露：年活跃用户2.73亿过去三年净收入复合增长率14.2%_手机新浪网",
+    "content": "SHEIN招股书披露：年活跃用户2.73亿过去三年净收入复合增长率14.2%_手机新浪网  新浪财经",
+    "source": "新浪财经",
     "type": "press",
-    "platform": "aliexpress",
-    "date": "2026-07-23",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1TNl8tZV9lZUFZUlBFellRYjlleFdrOHhodTZjRXBvMTVWN3A3QTF1VjFNRENBbWZXNkU1R1hlUUNjNllqUk9LS2ItaldacndQZDlBczJlemhvUjJsakhv?oc=5"
+    "platform": "shein",
+    "date": "2026-07-27",
+    "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNeGxhVDFJVjVfZ24wUmFuWWFsTko0c1FzZlBLTG5RYWJJTzRvMTdrbXVpTWJMeDRMd2pueTlwNm9ZcWFzTTh4dDNMVGNzOFZQUURsSlJsZlYzaTdpX1dNdld6eTF1elZiMDFnTEJvRFowM0NpUEdmREFxQ1JzenlzemxFaXhqWHZkSnhJdTY1bTJyaWFTZGIxN3Y4cDlLT01yaWVLQ2dmdHJ6S2FBVmI3eHhCZXNPWUROS1d3dEFHTWZxT2pJS0UyajlGYnVackE3V3JJY0ZaaklQM1E2N3ZEN3RhbHo2SUdQRTE1T05Sb2hpV0ZoT3RXdGZXcXA2enQ3emhN?oc=5"
   },
   {
-    "id": "joybuy_039",
+    "id": "joybuy_041",
     "title": "Costco Launches Official Store on JD.com with Fast Delivery Nationwide in China",
     "content": "Costco Launches Official Store on JD.com with Fast Delivery Nationwide in China  JD Corporate Blog",
     "source": "JD Corporate Blog",
@@ -670,7 +690,37 @@
     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQX3lQYWNPOGNHM2diZEt4d3FIeFNlRjJzLUVwTXpacE1nckZDa0tuTlFOcm44ZnMyVkI5eVlzNDBMS3J3UEUzajJjNWo3dzZDLThRNm55N2l2ejRlNlJuM1lMUXZ2WnZqNmNDN3ktXzFpNVNlSFlwdGI3RVN4ZHBiVWtTWVZ6WFdVOE80d0tTN3huQmlkWUN0Z1pUX21MZmY4YUFJb1VNdGZWbWs1?oc=5"
   },
   {
-    "id": "temu_074",
+    "id": "aliexpress_058",
+    "title": "AliExpress Fined €550 Million as EU Tests Marketplace Liability for Unsafe Goods",
+    "content": "AliExpress Fined €550 Million as EU Tests Marketplace Liability for Unsafe Goods  EU Today",
+    "source": "EU Today",
+    "type": "press",
+    "platform": "aliexpress",
+    "date": "2026-07-21",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5Qd3gtUEFCZ2ZPSjlTa0xuLUYxREluenF6WGh1c2JibjQwMXU0cGFOZDNhMmxSTkFOSW1UallLLVhhUFBnU0tfSDZUMDYwTWtySHFQUlZTaWNxNVRvYVltYVhKN2JXWGxNSURiQ0U4dw?oc=5"
+  },
+  {
+    "id": "aliexpress_059",
+    "title": "European Commission imposes record €550 million fine on AliExpress",
+    "content": "European Commission imposes record €550 million fine on AliExpress  Le Monde.fr",
+    "source": "Le Monde.fr",
+    "type": "press",
+    "platform": "aliexpress",
+    "date": "2026-07-20",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPYm1zU2VHMGZyajRCMndQSE9mTURBYWs5eWJ0bF85ZS0ya1BxYWZ4Q2l5c2dZTGYtaFBRVzQzYUY1dVhkemgzTEFzeHJ4bk9XankxVDFJWjN6eE9YSEFreUcteW5Lb19xbHlIMjNOOWtiRXNXbTk2WE12MWg2aXpyZXVYMWJkMFo4UGlyR3g3ZEYybWNoV2NwblJoRDBuQndtQ2Y2UEZfaW1PY1ZGMVFUeHpBbGh0X2tFblB0TXdGcDBtbERVbnRaUW1oWWhoVmM?oc=5"
+  },
+  {
+    "id": "tiktok_094",
+    "title": "'I made £100,000 of TikTok sales in one day': The business of live shopping",
+    "content": "'I made £100,000 of TikTok sales in one day': The business of live shopping  BBC",
+    "source": "BBC",
+    "type": "press",
+    "platform": "tiktok",
+    "date": "2026-07-20",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1TTklIUHAxeU9VazgxcHR6cmtGUldEN0lfSVhEdEp4S3ZsOWp5amxEbGZoOHFEUm52UDVrQkJFUmdkazREb0RVRE55MldQbHp2elNmS2Rpcl9FUQ?oc=5"
+  },
+  {
+    "id": "temu_076",
     "title": "Temu流量腰斩？SHEIN几乎退出？欧洲关税新政已致平台投流大幅缩减- 跨境电商",
     "content": "Temu流量腰斩？SHEIN几乎退出？欧洲关税新政已致平台投流大幅缩减- 跨境电商  亿邦动力网",
     "source": "亿邦动力网",
@@ -680,7 +730,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9NQjN3OEg2elpUSWpjd3BRYUhiS1JkRGdZR0FIby1FYndrN1VPTGlPUVBVb0xBOGNveTFjSUhiN0FhemR2VVRwRjJ2UFVxWVVIMzBraVJB?oc=5"
   },
   {
-    "id": "temu_075",
+    "id": "temu_078",
     "title": "Temu流量腰斩？SHEIN几乎退出？欧洲关税新政已致平台投流大幅缩减",
     "content": "Temu流量腰斩？SHEIN几乎退出？欧洲关税新政已致平台投流大幅缩减  新浪财经",
     "source": "新浪财经",
@@ -690,7 +740,7 @@
     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE93c0dyMnBlMFhtRDVHVUxVdVVMS096OU9KSHFWdjR0T1dEZzYzUk93MkJ4akpPLWhCRFI3RkJOMDUzUmJWN2YtMWRhNWJQeXF2SUR1emRjczVRNlBQdzNPdXp4eVZ6aUR2MGpmU2dpR2toVjBxSk5HSkpkTzVGdzg?oc=5"
   },
   {
-    "id": "shein_072",
+    "id": "shein_074",
     "title": "中国公司全球化周报｜SHEIN香港IPO获批，目标驱动高质量出海/ 快手可灵融资近30亿美元，估值180亿美元",
     "content": "中国公司全球化周报｜SHEIN香港IPO获批，目标驱动高质量出海/ 快手可灵融资近30亿美元，估值180亿美元  36氪",
     "source": "36氪",
@@ -700,7 +750,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBidDBLMkZpVG5ZMVpONG9KVDhRRHdyMjRsRjNDY1VUZi1hbDktZTVwYTVjV3lBT3NRQkYtMk9ZTnY0YWhPN2xfa2xkMjdSdw?oc=5"
   },
   {
-    "id": "tiktok_103",
+    "id": "tiktok_105",
     "title": "TikTok Ads in 2026: Strategy, Costs & Best Practices",
     "content": "TikTok Ads in 2026: Strategy, Costs & Best Practices  Shopify",
     "source": "Shopify",
@@ -710,7 +760,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBQQWtYcmxQeE5nRmhVWjFjSDRBbGZMeVktNmhiZHVRMUZRYlcxUFphSTktb3J3VjBBWGp0T0E0Z0pXdlcxVTFrX0RtaUttUDdodkpxcg?oc=5"
   },
   {
-    "id": "tiktok_077",
+    "id": "tiktok_080",
     "title": "依赖谷歌、TikTok 流量“中间商”米多多闯港股：三年累亏超4100万美元- 跨境电商",
     "content": "依赖谷歌、TikTok 流量“中间商”米多多闯港股：三年累亏超4100万美元- 跨境电商  亿邦动力网",
     "source": "亿邦动力网",
@@ -720,7 +770,7 @@
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5FMnJVb3FzTVEzT0ZDaGExRUo1b2NxU1F5cmQ0ajBvY0JQU0ZOUGt6ZWZPWTd1OUIzRmI5OFBOOGxMQXVnbGpVNG54NlE0MzBDVThRYmVn?oc=5"
   },
   {
-    "id": "temu_099",
+    "id": "temu_101",
     "title": "Temu found a way to circumvent the new tariff. Cheap purchases from China are not ending, they are just changing",
     "content": "Temu found a way to circumvent the new tariff. Cheap purchases from China are not ending, they are just changing  Letem světem Applem",
     "source": "Letem světem Applem",
@@ -730,7 +780,7 @@
     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE4tVzNwSU9IaDRXbDNPQmdabVNaU0U0dFVtb0hOTU12cE53ZVVPdnA2Tk9OektoczQ2Y04yUnJ6bEIybG9CRFh3el83Tzd0QTR4OWdLQ190eEp4VWJCR1pfYVprdGtXZw?oc=5"
   },
   {
-    "id": "temu_096",
+    "id": "temu_097",
     "title": "EU slaps €3 fee on cheap ecommerce parcels in blow to Shein, Temu, AliExpress",
     "content": "EU slaps €3 fee on cheap ecommerce parcels in blow to Shein, Temu, AliExpress  Reuters",
     "source": "Reuters",
@@ -740,17 +790,17 @@
     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQnBaVHNyUzh0S3pVeFR6OXRkT3U2Ym9jX3IzUk1HMnZGSW1rSXY3aTF6V3FWb1pyWW9aeERLc01xVlU2REVNSUQ1UG1VREk0dmJwQ1VfNjV6aEVLeXdBSzcxcnJtWXZOc2pSeXd0ZWVreExCeGVCdjBuTDV0Qldzdzkyby1OUUhYRkljV0kxM2sxcFZDZWVRektpMWtZcDB6dVNhaEpMUzJPMlN6Q2lEUUpBdDJfTG9CWUhrZ09ORDNRRnhO?oc=5"
   },
   {
-    "id": "temu_101",
-    "title": "EU slaps 3-euro fee on cheap e-commerce parcels in blow to Shein, Temu, AliExpress",
-    "content": "EU slaps 3-euro fee on cheap e-commerce parcels in blow to Shein, Temu, AliExpress  The Business Times",
-    "source": "The Business Times",
+    "id": "aliexpress_060",
+    "title": "AliExpress Dropshipping in 2026 With Shopify",
+    "content": "AliExpress Dropshipping in 2026 With Shopify  Shopify",
+    "source": "Shopify",
     "type": "press",
-    "platform": "temu",
-    "date": "2026-07-01",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOLTlkdFZjdzdyUWFIMktPWkhkWS1Hd0lTSTBybnYydGU3d0tmUkF3VjFZZW9EU2dQSHF1bndpQW1aa2dPMmxaTTQ3bFZzMTJxazNCRUZwb1BUQWNqSEM4MjVIM3hhY3d2RXpleEVWUVoyc0dOQll5cGc4X3dYdEJoOVNzODJkcUpHQkkxZEwxS0ZMZkw3TEFSZVE1RE9XdHNuSGJQSTZLdzBwRWNyZk80V0l4WEtQQVNraUxOeFppekJqWDQ?oc=5"
+    "platform": "aliexpress",
+    "date": "2026-06-30",
+    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPS0pFcXNlRUIyMmJvLVBKc2ZmbXFoSWlLbE1tVWloUGMzMHFFUnZCMGk5TE9EWjEwRy1DZUhyYm9pUm14THJYYWxQSzY5OWNYNDh5SWhFNWVoZDZNM2hsemRicXhsQWlMMWpWZkNHSzV6b1ViSXl3UVVFOWVmUF8tdldlVGhka01Xc0t3QXE1QkVrM0RDSDlnR1pR?oc=5"
   },
   {
-    "id": "temu_094",
+    "id": "temu_096",
     "title": "EU ends tax loophole exploited by SHEIN, Temu, and Aliexpress",
     "content": "EU ends tax loophole exploited by SHEIN, Temu, and Aliexpress  Euronews.com",
     "source": "Euronews.com",
@@ -760,7 +810,7 @@
     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYzg2NDhFci1oWVpxa21NSGJqc1Y4czFWYWgyLVQ2bjI2bEdNQ25rVUd1MnJlZzBmRXFfdXJ6S2JwekxzU1NVby1uMmx5VHI4dWs4c2RGOXEzOFVyaDl0S2ZCcUZpcjJhenFGbEpGbkpuNmYyTHRzUUJLZUpKMjljZnZxb2dEbTZmR3c4LXhoY0k4SUM2TGZUZ0JwRQ?oc=5"
   },
   {
-    "id": "temu_098",
+    "id": "temu_099",
     "title": "DW News. . Online shopping on websites like Temu and Shein just got more expensive in Europe. Parcels worth less than €150 will be hit with a €3 levy from now on. The EU wants to discourage shoppers from buying from Chinese online shops. #dwbusiness",
     "content": "DW News. . Online shopping on websites like Temu and Shein just got more expensive in Europe. Parcels worth less than €150 will be hit with a €3 levy from now on. The EU wants to discourage shoppers f",
     "source": "Facebook",
@@ -770,7 +820,7 @@
     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNWjhHNGo5VUhxVHp6cElDTDE4czBBUGltSEswU2RpUXZlVW5nYzhZTTBVaGRMQm5URF9UcTVSdFJQd3dOZDE1ajFmTkhMYzlwVkZLQl9SQngxRk1Ealo0UWNEWm9paXNwTlg2SUItMFpHeTlnZzE5ZElwR3BndllpTkhTd1JReVZJSEpwQWxfbktMS2R5M3JZcktrTURUbHpaMXlfN3AyTDZUUmRwemhMeE9YQW5WOFhmcFZFTA?oc=5"
   },
   {
-    "id": "temu_070",
+    "id": "temu_072",
     "title": "阿里、Temu、TikTok、京东：四大巨头路线正面决裂，选对平台少亏百万",
     "content": "阿里、Temu、TikTok、京东：四大巨头路线正面决裂，选对平台少亏百万  36氪",
     "source": "36氪",
@@ -780,7 +830,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9iUmg3YUFnN2hjNE1ZVHlrdUhUMExOSWNJTmk4bjZwdmRwR2pnTkQwODctWlV6WlFybDF0aXM3QzRxdGMtMndlUEgxUmNQZw?oc=5"
   },
   {
-    "id": "joybuy_040",
+    "id": "joybuy_042",
     "title": "JoyBuy to open up to UK and EU sellers",
     "content": "JoyBuy to open up to UK and EU sellers  Tamebay",
     "source": "Tamebay",
@@ -790,7 +840,7 @@
     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBfalhLaVNGU2xLbzR6V0VtOS11MFNJZXlxVHBab2tjQ2ozWVo5aDg5Uk1yR21GRnRoYVZnMndXY1QxRF9tU2JtcWU5V2dvTVJYc3NNbGNsYWJhcHZrNzJNWjRVdnNSVGNub3dWU3MyUG1hTms4cmtxaE93?oc=5"
   },
   {
-    "id": "joybuy_041",
+    "id": "joybuy_043",
     "title": "Joybuy opens marketplace to European and Chinese sellers to accelerate expansion.",
     "content": "Joybuy opens marketplace to European and Chinese sellers to accelerate expansion.  Grande Consumo",
     "source": "Grande Consumo",
@@ -800,17 +850,7 @@
     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNV3FJcFF3RW1fLWx0MVFIM21fbkkzT1dSSFpMSzhxdE40V0RuUTQ4TzF3VXBZVU9iMEdtYU5Lc19Zc3VIbnQxdEN6VjAxdnM5WjMyMU45dWFBbzVSM1JNT1BrWC1QRVptVHhtLVRzWm9qZGptR253djJQUU4tS0NUbzBlZC1hdkV3MDMtZG9XcWhDV2pKQmwtTkg2c1lQbmJpTUF1aTk0RzdqYWhSeWZqNQ?oc=5"
   },
   {
-    "id": "joybuy_042",
-    "title": "Joybuy opens up to European and Chinese sellers - Ecommerce News",
-    "content": "Joybuy opens up to European and Chinese sellers  Ecommerce News - Europe",
-    "source": "Europe",
-    "type": "press",
-    "platform": "joybuy",
-    "date": "2026-06-11",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9IN3h6LU5OYkZTVm5SQXZxLW1sWEVqdkhxUVZ2aUxqUGNTSzZfSGNNczAxX2JMSk8tcG56eld3dnBVMVdLcFhhUGlGck9adVdmTmtDeGpCRm9XZXB2UTMtUDFPWllCZVVkMm1RMlVMMkQ4aUdHOWJIei1zaTdCdw?oc=5"
-  },
-  {
-    "id": "joybuy_043",
+    "id": "joybuy_044",
     "title": "Joybuy to transform new UK marketplace just months after launch",
     "content": "Joybuy to transform new UK marketplace just months after launch  Retail Gazette",
     "source": "Retail Gazette",
@@ -820,7 +860,7 @@
     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5nbVA0UF9kSk53VzR2cTNpaElkNG9RSERWM3c5SG9PY0hqZU13UTNTdk5XYzFHYUtLU0ZwRW9lakZyRzB0dVQxdGY0N05LN2pNNTNGeHptd1JGUldtZzhxY2x1STNaU0YwVXdBSVp4Z1ZJbDdCbURtV2VPQQ?oc=5"
   },
   {
-    "id": "aliexpress_081",
+    "id": "aliexpress_083",
     "title": "速卖通欧洲多个市场本地订单规模反超跨境，本地化备货成趋势",
     "content": "速卖通欧洲多个市场本地订单规模反超跨境，本地化备货成趋势  雨果跨境",
     "source": "雨果跨境",
@@ -830,7 +870,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE80Q19URnRWV05mb3VjR3FMOWZCQUc2X1NDM3IzejVLTWQ0WWNob1dVZkFrZDhDRVl2TGpoM2hJcklvZUJNc05yU0ZyNmg?oc=5"
   },
   {
-    "id": "tiktok_069",
+    "id": "tiktok_071",
     "title": "36氪出海·全球化公司｜让经营更轻、让利润更厚：TikTok Shop东南亚跨境电商的下一盘棋局",
     "content": "36氪出海·全球化公司｜让经营更轻、让利润更厚：TikTok Shop东南亚跨境电商的下一盘棋局  36Kr",
     "source": "36Kr",
@@ -840,7 +880,7 @@
     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1uZVMyeHhkbVZDT3IyQnpQY0E1R3Z4YTVNU3Z0QlgzT2ZiLVFINTd3UTVRUXllQXBOTEhzbTREWEMyYkNFUFdoQWVrbUlFZw?oc=5"
   },
   {
-    "id": "joybuy_044",
+    "id": "joybuy_045",
     "title": "一场办了30多年的招商会，藏着一座城市的“长期主义”",
     "content": "一场办了30多年的招商会，藏着一座城市的“长期主义”  人民网-福建频道",
     "source": "人民网-福建频道",
@@ -850,7 +890,7 @@
     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE45anZPMHhpMHhVcmRfc2FkQ2c2MUhjWE1sSE5PQzBCRU1mdWRNLWc4RWRnOTVjWWhKX1ktejBMNGstcXlFNzh5b3F3SUVaNlpoSE5PY3NULWRTSFZXZEpuUmhzdWhsVUQ3TEE?oc=5"
   },
   {
-    "id": "joybuy_045",
+    "id": "joybuy_046",
     "title": "Joybuy vs Amazon: How does the online newcomer match up against the retail giant?",
     "content": "Joybuy vs Amazon: How does the online newcomer match up against the retail giant?  Money Saving Expert",
     "source": "Money Saving Expert",
@@ -860,7 +900,17 @@
     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5TQjhrY1U3TnoyVjkxcjF3LTlSSGJqVXZIc2wtLWtEX2R4NVhEZXRpYS00T1pxNVpNS3BPRnp5ekR4STlfUzJWcklEbjV0SzJmTWdRV1k3X2hWdDRGR2FYY0M1c3BvTGFhWnZlMHJIR3RfdEJWWl9CN2pR?oc=5"
   },
   {
-    "id": "tiktok_092",
+    "id": "tiktok_106",
+    "title": "Shopee, Lazada and TikTok Shop Seller Fees: A Southeast Asia Comparison (2026)",
+    "content": "Shopee, Lazada and TikTok Shop Seller Fees: A Southeast Asia Comparison (2026)  Digital in Asia",
+    "source": "Digital in Asia",
+    "type": "press",
+    "platform": "tiktok",
+    "date": "2026-04-19",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBaX0Ntb2hDckc5TllYR2lONVVuOTU1MjFFOVpWRHhsLUNyN1ZPRFR6andJRWQwNWo1OXRXRFE2MkRIUHBUVTdqRWpzZ2VCZ0RYR3ozYU0tQk56Z0hjek9nRmhpNnVENk1FUnRPeGpPcw?oc=5"
+  },
+  {
+    "id": "tiktok_093",
     "title": "TikTok Shop to Host Annual Seller Day Summit With Commerce Strategy Sessions, 2026 Campaign Roadmap",
     "content": "TikTok Shop to Host Annual Seller Day Summit With Commerce Strategy Sessions, 2026 Campaign Roadmap  Net Influencer",
     "source": "Net Influencer",
@@ -870,7 +920,7 @@
     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVmFlbWdaWF9SWUhsSGtwTWlsM1pwNnNhc2ljdE1KejdISnFwbHJIZmd3SGVWV3MtcFBTd1cwaWdZb2RvNVRHdnRFUTNsQzVGY1NybjI1V3lWVkhZcWVHdmFwcUZObG82cmkzVDVJMFlhclB1QklIVWtiQjBnMEZGOUFFZXFDQks4TE5FaHhXMmdWQXFsZGVzNkFJc2JEN3E0aEFBMlZIb2ZKMEpFdHg2T2tDaHNZMjZfcHo3VkhIYXM3RklaajkwYw?oc=5"
   },
   {
-    "id": "joybuy_046",
+    "id": "joybuy_047",
     "title": "3月跨境电商：京东上线Joybuy TEMU用户直逼1.3亿？欧盟电商强制“一键退货”",
     "content": "3月跨境电商：京东上线Joybuy TEMU用户直逼1.3亿？欧盟电商强制“一键退货”  潮新闻客户端",
     "source": "潮新闻客户端",
@@ -880,7 +930,7 @@
     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9OVkNHeExaNUZjSXEtUDhMeHVWcGdCU1RvMVJjSE83MGVXSWdSc005dTYzYnJHY0VyaHM2RHgyZ0RFc21BTEdqMXQxbHpJZktMd0RuVjNfb2R5TWtQRkRWQ2RKbU52RE5ndUJ3bXVGNmFSUlE?oc=5"
   },
   {
-    "id": "joybuy_047",
+    "id": "joybuy_048",
     "title": "劲仔食品携手Joybuy深耕欧洲市场 海味零食稳居平台榜首",
     "content": "劲仔食品携手Joybuy深耕欧洲市场 海味零食稳居平台榜首  湖南红网",
     "source": "湖南红网",
@@ -890,9 +940,9 @@
     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1IeElnWjJEOGdZVzg0bWNvQU10UERhZ2VMa0h6OVlDd2xHY0ZuTGdhN2ZkLTM2LWdsMHE0YzNCTFJ0MVA5MFA0bnBnb2ZQUC1saFctMEFuMGZybTJKR2lJc2tWZWhiTGZoV3ZV?oc=5"
   },
   {
-    "id": "tiktok_102",
-    "title": "How Did TikTok Shop Grow in Southeast Asia? A 2026 Analysis of GMV From $4.4B to $45.6B",
-    "content": "How Did TikTok Shop Grow in Southeast Asia? A 2026 Analysis of GMV From $4.4B to $45.6B  Digital in Asia",
+    "id": "tiktok_104",
+    "title": "TikTok Shop in Southeast Asia: GMV Growth and Strategy",
+    "content": "TikTok Shop in Southeast Asia: GMV Growth and Strategy  Digital in Asia",
     "source": "Digital in Asia",
     "type": "press",
     "platform": "tiktok",
@@ -900,27 +950,7 @@
     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9uTk1jVF9BMVZUdGVfaUljYWlPMHJrXzN5VTZtT0QyNGZDcWluWjR0Nmoycm1abkRHdERLTTg0Qjl4TUJnRG10R1czX3R2V3Vac0lZRnR3NFR2blBwakUyMDBVU0VlZTc5R0RyQXM3X2YwZw?oc=5"
   },
   {
-    "id": "joybuy_048",
-    "title": "JD.com (JD) Launches Joybuy Marketplace in Europe, Acquires Ceconomy to Challenge Amazon",
-    "content": "JD.com (JD) Launches Joybuy Marketplace in Europe, Acquires Ceconomy to Challenge Amazon  Yahoo Finance",
-    "source": "Yahoo Finance",
-    "type": "press",
-    "platform": "joybuy",
-    "date": "2026-03-23",
-    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNbzBLRDlSWWdFTWVHMWJfcmEzeVkwRXdmVkNoZ21xN0NrY044Q0QwRkVjUVYzR3FuUndNVjFQYy14dDV1VmZSRDVUYW9nS1JDVERqSXg3dkk3Wmc5LTA5enZlSWkyZjhIVGpSWFhIcmdnWEpoU1YwOVZuaDNQb01kYnQtZ0l0YmR2dE9MLXg5Q2Jsbnk3?oc=5"
-  },
-  {
-    "id": "temu_078",
-    "title": "2026 年初，Temu上线了一项名为“极速起量”的新功能",
-    "content": "2026 年初，Temu上线了一项名为“极速起量”的新功能  雪球",
-    "source": "雪球",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-03-18",
-    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5xaGhCbnFtaTN2c3MyaGs5RzlDVVVLcnEwNE5WSU9vbUNtYUNXb2h4UkpTTDlteFlEV3Zxd1dkMV92aHVsNXFqQl9mcGpPMVlv?oc=5"
-  },
-  {
-    "id": "joybuy_105",
+    "id": "joybuy_108",
     "title": "China's JD.com expands into Europe with Joybuy platform",
     "content": "China's JD.com expands into Europe with Joybuy platform  TradingView",
     "source": "TradingView",
@@ -930,7 +960,17 @@
     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSnhfNzMyaXNveUxWWVBES1VOdlMwaDlhNXFZTjRqSXdVUFNlcndzRUN0MkprZ09EemI4UDc3aDhSQ2gtS1B6cW9lWUp3OVJaUE16N0V3QTAtcGVQM0E4Nnc0cDBKMERSbG5WMXA4M1BnR3FSRGFDWkwtaml3TEdHX0JxNlRqcFpOOTJ2OHpzU1BGN2o4MEdYNVJqN1ZwcjFQQ1ItWWdTRUFGcTNNbngwY013?oc=5"
   },
   {
-    "id": "joybuy_104",
+    "id": "joybuy_100",
+    "title": "JD.com takes on Amazon in Europe as China's e-commerce titans expand globally",
+    "content": "JD.com takes on Amazon in Europe as China's e-commerce titans expand globally  CNBC",
+    "source": "CNBC",
+    "type": "press",
+    "platform": "joybuy",
+    "date": "2026-03-15",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPUEVUTFdHX3hQS1JWbmhqN3pXTHI2c3RmdnUxcnd3bGl0eGVEeTdEaF94bzE0N2w2SjhTVFllSjRMV0tBekp2NXYtWlFjdHZncm13NnZCMDlISmRkSFJBVllEdTA4SFo3UnAxWEpRb0JPR3ppTHFISzlTaUMxZXg5VzktRzHSAYoBQVVfeXFMTkJKSFBHYTZ1VXdLeUQ5SVdCRkVMR1Fsc3Q2bEhIRW9MTGw5SzRRMk83MFAzLTl3cm9UdzdRX1U3Y0N1UUVpb2ViUTZpZWJ4T2djNmUtS0xlMHlxZXdHUHdTXzlqRU96elM4UWNIYkxNWFV6REVaeE9pNGcwOVE0WmJhcUw3YXpZQTdn?oc=5"
+  },
+  {
+    "id": "joybuy_107",
     "title": "News JD.com goes local in Europe as ecommerce shifts beyond de minimis",
     "content": "News JD.com goes local in Europe as ecommerce shifts beyond de minimis  The Loadstar",
     "source": "The Loadstar",
@@ -940,17 +980,7 @@
     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdzByWkp3bm41NGVaZjVWYm40Q21qRVdGblhMS1dmYUZSaVlMM0l6bDVGVkpxLVBMclFZTXJSM0VQdVlpdUdhOUFfM21tMlhHVzFoNFYxdnhlM1N0d2EwVXlHblh6bWxYaWRTRFUzYkUwYmZEZG9Ta21wUHVEMFJVcXQ3N2g4OFhJVlpMb3F6VUw0ZzBZ?oc=5"
   },
   {
-    "id": "temu_085",
-    "title": "Temu市场份额追平亚马逊TikTok Shop东南亚GMV翻倍| 邦小白跨境周报- 跨境电商",
-    "content": "Temu市场份额追平亚马逊TikTok Shop东南亚GMV翻倍| 邦小白跨境周报- 跨境电商  亿邦动力网",
-    "source": "亿邦动力网",
-    "type": "press",
-    "platform": "temu",
-    "date": "2026-01-26",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9MTE1TeWVGa0NVY2k4b3Qtd01yNU1nVklxTVRTck1lRnlEVDZBOGcwWm1xcm5UaFphR29JSkIzdTY5ald4cXNoLTVwaHVWWU1XOVF1ak13?oc=5"
-  },
-  {
-    "id": "tiktok_090",
+    "id": "tiktok_092",
     "title": "TikTok Shop eyes Europe with new logistics strategy",
     "content": "TikTok Shop eyes Europe with new logistics strategy  Dao Insights",
     "source": "Dao Insights",
@@ -960,7 +990,27 @@
     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1PV2VWVnhGeE1fNS1ZVzZ5d0FYdEpTUEkyX1ZrMF9CMlJzZ0VLY0ZvUzQ0S3VJUVVzQmw1TTJaLWphZnFSem81Y2NmdUI1NExBaWdzZ3FTaGdaVVIz?oc=5"
   },
   {
-    "id": "temu_108",
+    "id": "shein_103",
+    "title": "Shein opens European hub in Poland",
+    "content": "Shein opens European hub in Poland  Sporting Goods Intelligence Europe",
+    "source": "Sporting Goods Intelligence Europe",
+    "type": "press",
+    "platform": "shein",
+    "date": "2025-12-28",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdmh4d180Wm9rd3BlQ0xRRkNVaUdkV0FMem9RWDB1aFlsd2V3SXBnVDNMT1BvcWRYcER1RGQ5YjliYjhkSGFDYkJCS2hjdVdPc0g4VV90eFRMTkl6XzBxZE5kWnFpMG1FMEF4X3lUMXFwNTVxcW5uN2Y1bUVpOHJmODlrYlA3bEVlMVE?oc=5"
+  },
+  {
+    "id": "temu_102",
+    "title": "EU targets China’s Shein and Temu with new fees on low-value parcels",
+    "content": "EU targets China’s Shein and Temu with new fees on low-value parcels  South China Morning Post",
+    "source": "South China Morning Post",
+    "type": "press",
+    "platform": "temu",
+    "date": "2025-12-13",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNNzZIay0yaWpHb0JEUHZqNnNFUGFZMkVtcmx5dGVQYm9hcVRPODJHTGxhVW5NdTA0bmpaZWxJQjUzV3MycFJRaXZGNC1RSmhxSk9YZEFTUks4TUQ1STZONjFKQ1VMNmFkd0d0UEFjVmVQci1URkpTUW9XOFJEMEg4bVRLc2k2blY4cEstNEhZcng5aGo5cGJXZ0RsclFUN21CeVg2czJoQkk4aknSAasBQVVfeXFMTkZzLW5lUUVVVEFrRVlldmR2QTFOY1pHZHZORlVXdU80Ti1vMU1HMUlqd1g1OENjYVI0UHN2cFpoQlRIVGhCUzNiMVdXQ21YU2kzT1A3ay1GTjQ1V0xjT2psWDIwbTFDckdtdWhxNkFSVzlRMGtoMWlfRktyWFJlME9yeXYzWXZtTkFYTGRaeVBNLUVNNkY4V3JiMElLU2JjSW1UeFlHZUlGM1lB?oc=5"
+  },
+  {
+    "id": "temu_111",
     "title": "Temu: Making E-commerce Accessible with bpostgroup",
     "content": "Temu: Making E-commerce Accessible with bpostgroup  Supply Chain Digital Magazine",
     "source": "Supply Chain Digital Magazine",
@@ -970,7 +1020,7 @@
     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBhbjBwaEw2XzFPNnF3VFU2bFBqS08zaUptdHpFNWlSNVA4T2g1dDdMSGp4OHc2cnI2Q29XQ2lqb09TdnBEMGUwYXh2b1h0TU0yUnVUTzZqckZ6SllLTE5FbkNqUklVNHVZQ09iRDBqNWE3YUNoVVRkTjFqWkk?oc=5"
   },
   {
-    "id": "temu_106",
+    "id": "temu_109",
     "title": "Temu signs MOU with bpostgroup to Deepen Global Logistics Collaboration",
     "content": "Temu signs MOU with bpostgroup to Deepen Global Logistics Collaboration  PostEurop",
     "source": "PostEurop",
@@ -980,7 +1030,7 @@
     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdVhWS0dIdmVXQklnSGQ4NUQtNWh4eXQ2UjBFNkJ4aFBJRDV0aHdVWHdYRnM5Uks3bWt0Z0MweTJuZ0RINHlNY05GdkdrWnhndnJLSW1WSXVpT3NBTkRrTTNXN2lPbWNvZzF3MXpfcy1Mdlo5RkRzV19ZbzVXOXFGd1VCdl9LWFdrejFfRk9kb1dDYmVnRGRVdk93QnIySTJFOUYxMkRR?oc=5"
   },
   {
-    "id": "temu_109",
+    "id": "temu_112",
     "title": "DHL Group and Temu Partner to Enhance Logistics and Support Local Businesses - LM",
     "content": "DHL Group and Temu Partner to Enhance Logistics and Support Local Businesses  LM - Logistics Manager",
     "source": "Logistics Manager",
@@ -990,7 +1040,7 @@
     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSkwtQ0VaVy1jNW5oUS1RRDhoNFo0NE1EM3ZzUXdOUjdKVGtpSnYtbEJka3dEaUJYczVGU2VTME9DOXY1dlFsX2JPd1ZnMHIwX1Y0VmxqMHBPLVN6dU9kTlc4cHAya1ZGNTJGY2U1dEFOcXhDZl9XdHI2NVFMeUlvZkkyd2l2bDVvLUl4bXNqSDViNVdJTWlkQVEwdXFwLV9yQXRSakNiMXNMNXc?oc=5"
   },
   {
-    "id": "temu_083",
+    "id": "temu_085",
     "title": "面对关税冲击 Temu与DHL合作 转战“本地化”",
     "content": "面对关税冲击 Temu与DHL合作 转战“本地化”  DW.com",
     "source": "DW.com",
@@ -1000,7 +1050,7 @@
     "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOMkVHRHcxWjlJQ2pvVU9Dd1BfLXdoemg3N295b09ES1pXSTVSQTZMQkhWVG1sQkxLVXFSc21nYjlJN3phUlg5eXBOZFEza3o4MEFNMEpHMDNFbTZPM29NcExlbXJ4VVh0TVhfLWJCQUk4SWhpZEpuVVFOWlJzZWVsc1p0V24wenNhQXp4OWNpdU00Y3MzQ0NNN3RBVks5ME0tR1FvTFppR0M1cWZweEU3TmRlODVUWV9lYnVSaS1vVU04RzJFdUFyeDlQaV91QURncHFUWUtKWHpZN3FRWWNPQnIyQ2ZpSHZOMnE0dkFRMjU0Wkg4U0IxYVU2Z1DSAfwBQVVfeXFMTUp3YnoxaGhtY1lzcW5UcFkyTVVnTkp3V1MzbzJrQmxiR2h2M1d5NzMyTGxrdUJnMGtiSUxzbTdDUGYyaUZqUVU3UGNnU3Z5ZkVVVlVodzFsMXAwQnlHOEZ6Sjl3S0RtVEhDZHliTHVVOFhBWHZfZmloZHdqdDlNVWFNVk1kLThhZWlNVm9qWkk1VjNiQzRucWxYWkN1T3pqRm1TZXdDYUdWQ1YwanZJaVdweV9oOHRmQ3hFQWIyR3dINFYyR0pYV2h6MGpld0ZvYTZOM0xadDhhZmlxUnRiajlFQjNtam9NcmpTQXFKckFxVmhkNFBYNzBUNVJL?oc=5"
   },
   {
-    "id": "temu_107",
+    "id": "temu_110",
     "title": "Temu Improves Last-Mile Delivery in Baltic States Through Strategic Partnership with Unisend",
     "content": "Temu Improves Last-Mile Delivery in Baltic States Through Strategic Partnership with Unisend  The Baltic Times",
     "source": "The Baltic Times",
@@ -1010,13 +1060,13 @@
     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOcThVdW5zbXBKYXAxbFEtbzQzTjcyWi1xUTA5MUpvTWo3a3I1N21kQm01WHFCS2t5akNfNVpxTVVPMGNDLVRMQjAxSkF2ZnNnYnI0NGNsSHFDNUQzSkNPei1BRE11dXFRUHQwOWlkZldqdXRNRTE4eUFTZ1lqTFJIc0R1NXRBbnp5VTJvTFN0QW1BeFYxOHg0ajMyYUNURkVLeVR4Zm1JSTF2dDlxcmlpYVpkcTZOZmZHOVpvbG9B?oc=5"
   },
   {
-    "id": "aliexpress_110",
-    "title": "AliExpress Elevates Customer Experience with Logistics Upgrades and Themed Shopping Pages ahead of 11.11 Global Shopping Festival - PR Newswire APAC",
-    "content": "AliExpress Elevates Customer Experience with Logistics Upgrades and Themed Shopping Pages ahead of 11.11 Global Shopping Festival - PR Newswire APAC  PR Newswire Asia",
-    "source": "PR Newswire Asia",
+    "id": "temu_114",
+    "title": "Last Mile Brief 30/11: Austrian Post teams up with TEMU",
+    "content": "Last Mile Brief 30/11: Austrian Post teams up with TEMU  Trans.INFO",
+    "source": "Trans.INFO",
     "type": "press",
-    "platform": "aliexpress",
-    "date": "2022-10-24",
-    "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPanhkSFNWMWtPaEZ3c3F1UVVuREZRQnIyMHdURG56c2ZMbkhySkt6OUtVRHhUMkxSbHF2V1c2al96djVsb2dYQzh3WE1VT1UxT1NsWF9tTUo0MnBSQU9XamRTTUdaVEY3RXBoR1huanpYRUZJNVN1T1ZuNnpZcjhTWkZOZ2h3ZUJmWXhXZW9OeWtZYjBHU2Q4c1A4VXdKOFRjaXlMUnQ3bGQxYXNTZzBWWTFWa2hIZ3A2Y3hHN1haaVFNUnBkM01EelJCcFc5LW9ham1YYTJiQjZKYkdaMTRkZmFBNEY5OFVYOUhBR1hrYk81LUF2RjgyUXhRUmlsclZrZ1ptUVFFd1lEWDZKOGdaSEVqNA?oc=5"
+    "platform": "temu",
+    "date": "2023-11-30",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQZWV2cTlNcGU0SDFjcWNwTHdsWEsyZG9fdjNlRFBGQnJIR1V6cTVyandqYVk0OWlUME5DT2l4ZnhqWUVsWk5XalNGOThxdEFuTUlZSlZPdjdMZU4xSVJkSnMyOXRITkRvRVZqNmZhalpwZ0pXaFpQS3pDd3o1UjA2bmxFaU5mWmVGMmtJ?oc=5"
   }
 ]
